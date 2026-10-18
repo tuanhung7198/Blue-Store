@@ -217,6 +217,7 @@ async function getProducts() {
     .filter((item) => item.sale_price !== null && item.sale_price !== undefined)
     .slice(0, 4);
   renderProducts(saleProducts, ".product-sale");
+}
 getProducts();
 
 // Lắng nghe sự kiện đổi ngôn ngữ toàn cục để cập nhật lại sản phẩm và giỏ hàng
