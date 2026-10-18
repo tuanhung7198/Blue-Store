@@ -1078,7 +1078,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const initGlobalTheme = () => {
-    const savedTheme = localStorage.getItem("blue_esports_theme") || "dark";
+    const savedTheme = localStorage.getItem("blue_esports_theme") || "light";
     const isDark = savedTheme === "dark";
     document.body.classList.toggle("theme-dark", isDark);
 
