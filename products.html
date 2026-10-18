@@ -26,23 +26,48 @@
           </div>
           <div class="nav-center">
             <ul class="nav-links">
-              <li><a href="products.html" class="active" data-mega="all">Tất cả sản phẩm</a></li>
-              <li><a href="products.html?category=Chuột" data-mega="Chuột">Chuột</a></li>
-              <li><a href="products.html?category=Bàn%20phím" data-mega="Bàn phím">Bàn phím</a></li>
-              <li><a href="products.html?category=Lót%20chuột" data-mega="Lót chuột">Lót chuột</a></li>
-              <li><a href="products.html?status=sale">Ưu đãi & Phần thưởng</a></li>
-              <li><a href="#support" class="support-modal-trigger" data-support-tab="warranty">Hỗ trợ</a></li>
+              <li><a href="products.html" class="active" data-mega="all" data-i18n="navAll">All Products</a></li>
+              <li><a href="products.html?category=Chuột" data-mega="Chuột" data-i18n="navMice">Mice</a></li>
+              <li><a href="products.html?category=Bàn%20phím" data-mega="Bàn phím" data-i18n="navKeyboards">Keyboards</a></li>
+              <li><a href="products.html?category=Lót%20chuột" data-mega="Lót chuột" data-i18n="navMousepads">Mousepads</a></li>
+              <li><a href="products.html?status=sale" data-i18n="navDeals">Deals & Rewards</a></li>
+              <li><a href="#support" class="support-modal-trigger" data-support-tab="warranty" data-i18n="navSupport">Support</a></li>
             </ul>
           </div>
           <div class="nav-right">
-            <div class="lang-currency">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg"
-                alt="VI"
-                class="flag"
-              />
-              <span>VI / VND</span>
-              <i class="fa-solid fa-chevron-down" style="font-size: 10px"></i>
+            <!-- CHUYỂN ĐỔI NGÔN NGỮ & TIỀN TỆ (i18n DROPDOWN) -->
+            <div class="lang-currency-wrapper" id="lang-currency-wrapper">
+              <button type="button" class="lang-currency-btn" id="lang-currency-btn" aria-haspopup="true" aria-expanded="false" title="Language & Currency">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"
+                  alt="EN"
+                  class="flag"
+                  id="header-lang-flag"
+                />
+                <span id="header-lang-label">EN / USD</span>
+                <i class="fa-solid fa-chevron-down lang-chevron"></i>
+              </button>
+              <div class="lang-dropdown-menu" id="lang-dropdown-menu">
+                <div class="lang-dropdown-header" data-i18n="langMenuHeader">Language & Currency</div>
+                <ul class="lang-list">
+                  <li class="lang-item active" data-lang="en">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="EN" class="flag" />
+                    <div class="lang-meta">
+                      <strong>English</strong>
+                      <small>USD ($)</small>
+                    </div>
+                    <i class="fa-solid fa-check lang-check"></i>
+                  </li>
+                  <li class="lang-item" data-lang="vi">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="VI" class="flag" />
+                    <div class="lang-meta">
+                      <strong>Tiếng Việt</strong>
+                      <small>VND (₫)</small>
+                    </div>
+                    <i class="fa-solid fa-check lang-check"></i>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div class="utilities">
               <a href="https://discord.gg/bluegaming" target="_blank" rel="noopener noreferrer" title="Cộng đồng Discord eSports"><i class="fa-brands fa-discord"></i></a>
@@ -626,6 +651,7 @@
     <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
     <!-- SCRIPTS -->
+    <script src="i18n.js"></script>
     <script src="auth-mvc.js"></script>
     <script src="main.js"></script>
     <script src="products.js"></script>

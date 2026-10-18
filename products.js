@@ -897,4 +897,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   }
+
+  // 11. Lắng nghe sự kiện chuyển đổi ngôn ngữ/tiền tệ để cập nhật giá tiền trên Catalog
+  window.addEventListener("blue:language-change", () => {
+    applyFilters(false);
+  });
 });

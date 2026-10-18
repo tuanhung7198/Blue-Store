@@ -505,5 +505,15 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("blue:auth-change", () => {
     AccountPageRenderer.switchMainView();
   });
+
+  // Lắng nghe sự kiện đổi ngôn ngữ để cập nhật lại định dạng tiền tệ trên dashboard đơn hàng
+  window.addEventListener("blue:language-change", () => {
+    if (model.isLoggedIn()) {
+      const user = model.getCurrentUser();
+      if (user) {
+        AccountPageRenderer.renderOrders(model.getUserOrders(user.id));
+      }
+    }
+  });
 });
 

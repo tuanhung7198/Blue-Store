@@ -1,11 +1,22 @@
-// Dữ liệu sản phẩm được nạp động từ Backend/db.json qua JSON-Server API
+// Dữ liệu sản phẩm được nạp động từ Backend/db.json qua JSON-Server API hoặc products.json
 let allProducts = [];
 
-// Định dạng tiền tệ VND chuẩn
+// Định dạng tiền tệ theo ngôn ngữ được nạp từ i18n.js
 function formatCurrency(amount) {
-  if (amount === null || amount === undefined || isNaN(amount)) return "0₫";
-  return amount.toLocaleString("vi-VN") + "₫";
+  if (typeof window.formatCurrency === "function" && window.formatCurrency !== formatCurrency) {
+    return window.formatCurrency(amount);
+  }
+  const currentLang = localStorage.getItem("blue_language") || "en";
+  if (amount === null || amount === undefined || isNaN(amount)) {
+    return currentLang === "en" ? "$0.00" : "0₫";
+  }
+  if (currentLang === "en") {
+    const usd = amount / 25000;
+    return `$${usd.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  }
+  return `${amount.toLocaleString("vi-VN")}₫`;
 }
+window.formatCurrency = formatCurrency;
 
 function renderProducts(products, container) {
   const containerElement = document.querySelector(container);
@@ -206,8 +217,32 @@ async function getProducts() {
     .filter((item) => item.sale_price !== null && item.sale_price !== undefined)
     .slice(0, 4);
   renderProducts(saleProducts, ".product-sale");
-}
 getProducts();
+
+// Lắng nghe sự kiện đổi ngôn ngữ toàn cục để cập nhật lại sản phẩm và giỏ hàng
+window.addEventListener("blue:language-change", () => {
+  if (allProducts && allProducts.length > 0) {
+    const hotProducts = allProducts.filter((item) => item.hot === true).slice(0, 4);
+    renderProducts(hotProducts, ".product-hot");
+
+    const newProducts = [...allProducts]
+      .sort((a, b) => Number(b.id) - Number(a.id))
+      .slice(0, 4);
+    renderProducts(newProducts, ".product-new");
+
+    const saleProducts = allProducts
+      .filter((item) => item.sale_price !== null && item.sale_price !== undefined)
+      .slice(0, 4);
+    renderProducts(saleProducts, ".product-sale");
+
+    if (typeof renderMegaMenu === "function") {
+      renderMegaMenu(currentMegaCategory);
+    }
+    if (typeof updateCartUI === "function") {
+      updateCartUI();
+    }
+  }
+});
 
 // --- Logic giao diện Mega Menu (Hover tất cả các mục header: Tất cả sản phẩm, Chuột, Bàn phím, Lót chuột) ---
 document.addEventListener("DOMContentLoaded", () => {

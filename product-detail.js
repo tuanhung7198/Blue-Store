@@ -265,20 +265,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 8. Giá tiền
   const format = (amt) => (window.formatCurrency ? window.formatCurrency(amt) : amt.toLocaleString("vi-VN") + "₫");
-  if (priceBox) {
-    if (isSale) {
-      const discountPercent = Math.round(((currentProduct.price - currentProduct.sale_price) / currentProduct.price) * 100);
-      priceBox.innerHTML = `
-        <span class="detail-current-price">${format(currentProduct.sale_price)}</span>
-        <span class="detail-old-price">${format(currentProduct.price)}</span>
-        <span class="detail-discount-pill">Tiết kiệm ${discountPercent}%</span>
-      `;
-    } else {
-      priceBox.innerHTML = `
-        <span class="detail-current-price">${format(currentProduct.price)}</span>
-      `;
+  function renderDetailPrices() {
+    if (priceBox && currentProduct) {
+      if (isSale) {
+        const discountPercent = Math.round(((currentProduct.price - currentProduct.sale_price) / currentProduct.price) * 100);
+        priceBox.innerHTML = `
+          <span class="detail-current-price">${format(currentProduct.sale_price)}</span>
+          <span class="detail-old-price">${format(currentProduct.price)}</span>
+          <span class="detail-discount-pill">Tiết kiệm ${discountPercent}%</span>
+        `;
+      } else {
+        priceBox.innerHTML = `
+          <span class="detail-current-price">${format(currentProduct.price)}</span>
+        `;
+      }
+    }
+    const stickyPriceEl = document.getElementById("mobile-sticky-price");
+    if (stickyPriceEl && currentProduct) {
+      stickyPriceEl.textContent = format(currentProduct.sale_price ?? currentProduct.price);
     }
   }
+  renderDetailPrices();
 
   // =========================================================================
   // --- 9. QUICK SPECS TELEMETRY BAR & TOOLTIPS (Alex & Jordan) ---
@@ -823,7 +830,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // 22. Render Sản phẩm cùng danh mục (Related Products)
-  if (relatedGrid) {
+  function renderRelatedProducts() {
+    if (!relatedGrid) return;
     const relatedList = allCatalog
       .filter((p) => p.category === currentProduct.category && p.id.toString() !== currentProduct.id.toString())
       .slice(0, 4);
@@ -875,17 +883,26 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
       });
       relatedGrid.innerHTML = rHtml;
-
-      relatedGrid.addEventListener("click", (e) => {
-        const card = e.target.closest(".product-item");
-        if (!card) return;
-        if (e.target.closest(".add-to-cart-btn, .card-heart")) return;
-        const pid = card.getAttribute("data-product-id");
-        if (pid) window.location.href = `product-detail.html?id=${pid}`;
-      });
     } else {
       const relSec = document.querySelector(".related-products-section");
       if (relSec) relSec.style.display = "none";
     }
   }
+
+  if (relatedGrid) {
+    renderRelatedProducts();
+    relatedGrid.addEventListener("click", (e) => {
+      const card = e.target.closest(".product-item");
+      if (!card) return;
+      if (e.target.closest(".add-to-cart-btn, .card-heart")) return;
+      const pid = card.getAttribute("data-product-id");
+      if (pid) window.location.href = `product-detail.html?id=${pid}`;
+    });
+  }
+
+  // 23. Lắng nghe sự kiện đổi ngôn ngữ để cập nhật giá tiền tức thì
+  window.addEventListener("blue:language-change", () => {
+    renderDetailPrices();
+    renderRelatedProducts();
+  });
 });
