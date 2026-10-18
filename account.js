@@ -82,11 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Render thông tin tóm tắt trên Sidebar Dashboard
     renderDashboardHeader(user) {
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       if (userAvatarImg) userAvatarImg.src = user.avatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=80";
       if (userNameText) userNameText.textContent = user.name;
       if (userEmailText) userEmailText.textContent = user.email;
       if (userRankBadge) userRankBadge.textContent = user.rank || "VIP Diamond";
-      if (userPointsBadge) userPointsBadge.textContent = `${(user.points || 0).toLocaleString("vi-VN")} Điểm`;
+      if (userPointsBadge) {
+        userPointsBadge.textContent = isEn
+          ? `${(user.points || 0).toLocaleString("en-US")} Points`
+          : `${(user.points || 0).toLocaleString("vi-VN")} Điểm`;
+      }
 
       // Cập nhật số lượng đơn hàng trên badge menu
       const orders = model.getUserOrders();
@@ -119,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Render danh sách đơn hàng theo trạng thái
     renderOrders(filterStatus = "all") {
       if (!ordersListContainer) return;
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       const allOrders = model.getUserOrders();
 
       let filtered = allOrders;
@@ -130,27 +136,34 @@ document.addEventListener("DOMContentLoaded", () => {
         ordersListContainer.innerHTML = `
           <div class="orders-empty-state">
             <div class="empty-icon"><i class="fa-solid fa-box-open"></i></div>
-            <h4>Không có đơn hàng nào</h4>
-            <p>Bạn chưa có đơn hàng nào ở trạng thái này. Khám phá kho gear eSports và sở hữu ngay hôm nay!</p>
+            <h4>${isEn ? "No orders found" : "Không có đơn hàng nào"}</h4>
+            <p>${isEn ? "You don't have any orders with this status. Discover pro eSports gear now!" : "Bạn chưa có đơn hàng nào ở trạng thái này. Khám phá kho gear eSports và sở hữu ngay hôm nay!"}</p>
             <a href="products.html" class="btn-shop-now">
-              <i class="fa-solid fa-gamepad"></i> Khám Phá Sản Phẩm Ngay
+              <i class="fa-solid fa-gamepad"></i> ${isEn ? "Explore Gear Now" : "Khám Phá Sản Phẩm Ngay"}
             </a>
           </div>
         `;
         return;
       }
 
-      const statusMap = {
+      const statusMapEn = {
+        processing: { label: "Processing & Packing", class: "status-processing", icon: "fa-box" },
+        shipping: { label: "Out for Delivery", class: "status-shipping", icon: "fa-truck-fast" },
+        completed: { label: "Delivered", class: "status-completed", icon: "fa-circle-check" },
+        cancelled: { label: "Cancelled", class: "status-cancelled", icon: "fa-circle-xmark" },
+      };
+      const statusMapVi = {
         processing: { label: "Chờ xác nhận & Đóng gói", class: "status-processing", icon: "fa-box" },
         shipping: { label: "Đang giao hàng", class: "status-shipping", icon: "fa-truck-fast" },
         completed: { label: "Giao thành công", class: "status-completed", icon: "fa-circle-check" },
         cancelled: { label: "Đã hủy", class: "status-cancelled", icon: "fa-circle-xmark" },
       };
+      const statusMap = isEn ? statusMapEn : statusMapVi;
 
       let html = filtered
         .map((order) => {
           const st = statusMap[order.status] || { label: order.statusLabel || order.status, class: "status-processing", icon: "fa-info-circle" };
-          const formattedDate = new Date(order.date).toLocaleDateString("vi-VN", {
+          const formattedDate = new Date(order.date).toLocaleDateString(isEn ? "en-US" : "vi-VN", {
             hour: "2-digit",
             minute: "2-digit",
             day: "2-digit",
@@ -160,18 +173,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const itemsHTML = (order.items || [])
             .map(
-              (it) => `
+              (it) => {
+                const pName = window.getProductName ? window.getProductName(it) : it.name;
+                const qtyLabel = isEn ? "Qty:" : "Số lượng:";
+                return `
             <div class="order-product-row">
-              <img src="${it.image}" alt="${it.name}" class="order-product-thumb" />
+              <img src="${it.image}" alt="${pName}" class="order-product-thumb" />
               <div class="order-product-info">
-                <strong>${it.name}</strong>
-                <span>Số lượng: ${it.quantity} × ${window.formatCurrency ? window.formatCurrency(it.price) : it.price.toLocaleString("vi-VN") + "₫"}</span>
+                <strong>${pName}</strong>
+                <span>${qtyLabel} ${it.quantity} × ${window.formatCurrency ? window.formatCurrency(it.price) : it.price.toLocaleString("vi-VN") + "₫"}</span>
               </div>
               <div class="order-product-price">
                 ${window.formatCurrency ? window.formatCurrency(it.price * it.quantity) : (it.price * it.quantity).toLocaleString("vi-VN") + "₫"}
               </div>
             </div>
-          `
+          `;
+              }
             )
             .join("");
 
@@ -181,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="order-card" data-order-id="${order.id}">
               <div class="order-card-header">
                 <div class="order-id-wrap">
-                  <span class="order-code-text">Mã đơn: <strong>${order.id}</strong></span>
+                  <span class="order-code-text">${isEn ? "Order ID:" : "Mã đơn:"} <strong>${order.id}</strong></span>
                   <span class="order-date-text"><i class="fa-regular fa-clock"></i> ${formattedDate}</span>
                 </div>
                 <div class="order-status-pill ${st.class}">
@@ -196,23 +213,23 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="order-card-footer">
                 <div class="order-delivery-meta">
                   <i class="fa-solid fa-location-dot"></i>
-                  <span>Giao tới: <strong>${order.customerName}</strong> (${order.phone}) - ${order.address}, ${order.city}</span>
+                  <span>${isEn ? "Deliver to:" : "Giao tới:"} <strong>${order.customerName}</strong> (${order.phone}) - ${order.address}, ${order.city}</span>
                 </div>
                 <div class="order-total-block">
                   <div class="order-total-val">
-                    <span>Tổng thanh toán:</span>
+                    <span>${isEn ? "Total Amount:" : "Tổng thanh toán:"}</span>
                     <strong>${window.formatCurrency ? window.formatCurrency(order.total) : order.total.toLocaleString("vi-VN") + "₫"}</strong>
                   </div>
                   <div class="order-actions-btns">
                     ${
                       canCancel
                         ? `<button type="button" class="btn-cancel-order" data-cancel-id="${order.id}">
-                            <i class="fa-solid fa-ban"></i> Hủy đơn
+                            <i class="fa-solid fa-ban"></i> ${isEn ? "Cancel Order" : "Hủy đơn"}
                           </button>`
                         : ""
                     }
                     <button type="button" class="btn-repurchase" onclick="window.location.href='products.html'">
-                      <i class="fa-solid fa-rotate-right"></i> Mua lại
+                      <i class="fa-solid fa-rotate-right"></i> ${isEn ? "Buy Again" : "Mua lại"}
                     </button>
                   </div>
                 </div>
@@ -289,6 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formLogin.addEventListener("submit", (e) => {
       e.preventDefault();
       AccountPageRenderer.clearAuthAlert();
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
 
       const email = document.getElementById("login-email").value.trim();
       const pass = document.getElementById("login-password").value.trim();
@@ -296,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const res = model.login(email, pass, remember);
       if (res.success) {
-        AccountPageRenderer.showAuthAlert(`Đăng nhập thành công! Chào mừng ${res.user.name}.`, "success");
+        AccountPageRenderer.showAuthAlert(isEn ? `Sign in successful! Welcome back, ${res.user.name}.` : `Đăng nhập thành công! Chào mừng ${res.user.name}.`, "success");
         setTimeout(() => {
           // Kiểm tra URL nếu có redirect
           const urlParams = new URLSearchParams(window.location.search);
@@ -317,6 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formRegister.addEventListener("submit", (e) => {
       e.preventDefault();
       AccountPageRenderer.clearAuthAlert();
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
 
       const name = document.getElementById("reg-name").value.trim();
       const email = document.getElementById("reg-email").value.trim();
@@ -326,21 +345,21 @@ document.addEventListener("DOMContentLoaded", () => {
       const agree = document.getElementById("reg-agree")?.checked;
 
       if (!agree) {
-        AccountPageRenderer.showAuthAlert("Vui lòng đồng ý với điều khoản sử dụng eSports Blue!", "error");
+        AccountPageRenderer.showAuthAlert(isEn ? "Please accept the Blue eSports terms of service!" : "Vui lòng đồng ý với điều khoản sử dụng eSports Blue!", "error");
         return;
       }
       if (pass !== passConfirm) {
-        AccountPageRenderer.showAuthAlert("Mật khẩu xác nhận không khớp!", "error");
+        AccountPageRenderer.showAuthAlert(isEn ? "Password confirmation does not match!" : "Mật khẩu xác nhận không khớp!", "error");
         return;
       }
       if (pass.length < 6) {
-        AccountPageRenderer.showAuthAlert("Mật khẩu phải chứa ít nhất 6 ký tự!", "error");
+        AccountPageRenderer.showAuthAlert(isEn ? "Password must contain at least 6 characters!" : "Mật khẩu phải chứa ít nhất 6 ký tự!", "error");
         return;
       }
 
       const res = model.register({ name, email, phone, password: pass });
       if (res.success) {
-        AccountPageRenderer.showAuthAlert("Đăng ký thành công! Bạn nhận được 200 điểm tân thủ.", "success");
+        AccountPageRenderer.showAuthAlert(isEn ? "Registration successful! You received 200 starter points." : "Đăng ký thành công! Bạn nhận được 200 điểm tân thủ.", "success");
         setTimeout(() => {
           AccountPageRenderer.switchMainView();
         }, 800);
@@ -354,11 +373,12 @@ document.addEventListener("DOMContentLoaded", () => {
   navTabs.forEach((tabBtn) => {
     tabBtn.addEventListener("click", () => {
       const tabTarget = tabBtn.getAttribute("data-tab");
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
 
       if (tabTarget === "logout") {
-        if (confirm("Bạn có chắc chắn muốn đăng xuất tài khoản?")) {
+        if (confirm(isEn ? "Are you sure you want to sign out?" : "Bạn có chắc chắn muốn đăng xuất tài khoản?")) {
           model.logout();
-          if (window.showToast) window.showToast("Đã đăng xuất tài khoản!", "info");
+          if (window.showToast) window.showToast(isEn ? "Signed out successfully!" : "Đã đăng xuất tài khoản!", "info");
           AccountPageRenderer.switchMainView();
         }
         return;
@@ -380,6 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (profileForm) {
     profileForm.addEventListener("submit", (e) => {
       e.preventDefault();
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       const name = profileForm.querySelector("#prof-name")?.value.trim();
       const phone = profileForm.querySelector("#prof-phone")?.value.trim();
       const address = profileForm.querySelector("#prof-address")?.value.trim();
@@ -391,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (res.success) {
         AccountPageRenderer.renderDashboardHeader(res.user);
         if (window.showToast) {
-          window.showToast("Đã lưu thông tin tài khoản thành công!", "success");
+          window.showToast(isEn ? "Account profile saved successfully!" : "Đã lưu thông tin tài khoản thành công!", "success");
         }
       } else {
         if (window.showToast) window.showToast(res.message, "error");
@@ -410,11 +431,12 @@ document.addEventListener("DOMContentLoaded", () => {
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80",
     ];
     btnChangeAvatar.addEventListener("click", () => {
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       const current = model.getCurrentUser();
       const nextAvatar = avatarList[(avatarList.indexOf(current?.avatar) + 1) % avatarList.length] || avatarList[0];
       model.updateProfile({ avatar: nextAvatar });
       AccountPageRenderer.renderDashboardHeader(model.getCurrentUser());
-      if (window.showToast) window.showToast("Đã cập nhật ảnh đại diện mới!", "success");
+      if (window.showToast) window.showToast(isEn ? "Profile avatar updated successfully!" : "Đã cập nhật ảnh đại diện mới!", "success");
     });
   }
 
@@ -422,12 +444,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (passwordForm) {
     passwordForm.addEventListener("submit", (e) => {
       e.preventDefault();
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       const oldPass = document.getElementById("pass-current").value;
       const newPass = document.getElementById("pass-new").value;
       const confirmPass = document.getElementById("pass-confirm").value;
 
       if (newPass !== confirmPass) {
-        if (window.showToast) window.showToast("Mật khẩu mới xác nhận không khớp!", "error");
+        if (window.showToast) window.showToast(isEn ? "New password confirmation does not match!" : "Mật khẩu mới xác nhận không khớp!", "error");
         return;
       }
 
@@ -456,11 +479,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ordersListContainer.addEventListener("click", (e) => {
       const cancelBtn = e.target.closest(".btn-cancel-order");
       if (cancelBtn) {
+        const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
         const orderId = cancelBtn.getAttribute("data-cancel-id");
-        if (confirm(`Bạn có chắc chắn muốn hủy đơn hàng ${orderId}?`)) {
+        if (confirm(isEn ? `Are you sure you want to cancel order ${orderId}?` : `Bạn có chắc chắn muốn hủy đơn hàng ${orderId}?`)) {
           const res = model.cancelOrder(orderId);
           if (res.success) {
-            if (window.showToast) window.showToast(res.message, "success");
+            const successMsg = isEn ? "Order cancelled successfully!" : (res.message || "Hủy đơn hàng thành công!");
+            if (window.showToast) window.showToast(successMsg, "success");
             const activeFilter = document.querySelector(".order-filter-btn.active")?.getAttribute("data-status") || "all";
             AccountPageRenderer.renderOrders(activeFilter);
           } else {
@@ -475,9 +500,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".btn-copy-code").forEach((btn) => {
     btn.addEventListener("click", () => {
       const code = btn.getAttribute("data-code");
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       navigator.clipboard.writeText(code).then(() => {
         const orig = btn.innerHTML;
-        btn.innerHTML = '<i class="fa-solid fa-check"></i> Đã chép!';
+        btn.innerHTML = `<i class="fa-solid fa-check"></i> ${isEn ? "Copied!" : "Đã chép!"}`;
         btn.classList.add("copied");
         setTimeout(() => {
           btn.innerHTML = orig;
@@ -506,12 +532,15 @@ document.addEventListener("DOMContentLoaded", () => {
     AccountPageRenderer.switchMainView();
   });
 
-  // Lắng nghe sự kiện đổi ngôn ngữ để cập nhật lại định dạng tiền tệ trên dashboard đơn hàng
+  // Lắng nghe sự kiện đổi ngôn ngữ để cập nhật lại định dạng tiền tệ và văn bản trên dashboard
   window.addEventListener("blue:language-change", () => {
     if (model.isLoggedIn()) {
       const user = model.getCurrentUser();
       if (user) {
-        AccountPageRenderer.renderOrders(model.getUserOrders(user.id));
+        AccountPageRenderer.renderDashboardHeader(user);
+        const activeFilterBtn = document.querySelector(".order-filter-btn.active");
+        const status = activeFilterBtn ? activeFilterBtn.getAttribute("data-status") : "all";
+        AccountPageRenderer.renderOrders(status);
       }
     }
   });

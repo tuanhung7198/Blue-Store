@@ -27,9 +27,9 @@
         id: 1,
         email: "gamer@blue.vn",
         password: "password123",
-        name: "Alex Nguyễn",
+        name: "Alex Johnson",
         phone: "0988123456",
-        address: "Số 18, Phố Tràng Thi, Hoàn Kiếm",
+        address: "18 Grand Avenue, Central District",
         city: "Hà Nội",
         gender: "Nam",
         birthdate: "2000-05-15",
@@ -42,9 +42,9 @@
         id: 2,
         email: "jordan@blue.vn",
         password: "password123",
-        name: "Jordan Trần",
+        name: "Jordan Tran",
         phone: "0912345678",
-        address: "Tầng 5, Toà Landmark 81, Bình Thạnh",
+        address: "Tower 5, Landmark 81, Binh Thanh",
         city: "TP. Hồ Chí Minh",
         gender: "Nam",
         birthdate: "1998-11-20",
@@ -146,6 +146,7 @@
     login(email, password, remember = true) {
       const cleanEmail = (email || "").trim().toLowerCase();
       const cleanPass = (password || "").trim();
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
 
       const users = this.getAllUsers();
       const found = users.find((u) => u.email.toLowerCase() === cleanEmail && u.password === cleanPass);
@@ -153,7 +154,7 @@
       if (!found) {
         return {
           success: false,
-          message: "Email hoặc mật khẩu không chính xác!",
+          message: isEn ? "Invalid email or password!" : "Email hoặc mật khẩu không chính xác!",
         };
       }
 
@@ -176,14 +177,15 @@
       const cleanEmail = (email || "").trim().toLowerCase();
       const cleanPhone = (phone || "").trim();
       const cleanPass = (password || "").trim();
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
 
       if (!cleanName || !cleanEmail || !cleanPhone || !cleanPass) {
-        return { success: false, message: "Vui lòng điền đầy đủ các thông tin bắt buộc!" };
+        return { success: false, message: isEn ? "Please fill in all required fields!" : "Vui lòng điền đầy đủ các thông tin bắt buộc!" };
       }
 
       const users = this.getAllUsers();
       if (users.some((u) => u.email.toLowerCase() === cleanEmail)) {
-        return { success: false, message: "Email này đã được sử dụng. Vui lòng chọn email khác hoặc đăng nhập!" };
+        return { success: false, message: isEn ? "This email is already registered. Please sign in or use another email!" : "Email này đã được sử dụng. Vui lòng chọn email khác hoặc đăng nhập!" };
       }
 
       const newUser = {
@@ -197,7 +199,7 @@
         gender: "Khác",
         birthdate: "2000-01-01",
         avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80",
-        rank: "Tân Thủ eSports (Bronze)",
+        rank: isEn ? "eSports Rookie (Bronze)" : "Tân Thủ eSports (Bronze)",
         points: 200, // Thưởng 200 điểm cho thành viên mới
         joinedDate: new Date().toISOString().split("T")[0],
       };
@@ -223,12 +225,13 @@
 
     // Cập nhật thông tin cá nhân
     updateProfile(updatedData) {
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       const current = this.getCurrentUser();
-      if (!current) return { success: false, message: "Chưa đăng nhập!" };
+      if (!current) return { success: false, message: isEn ? "Please sign in first!" : "Chưa đăng nhập!" };
 
       const users = this.getAllUsers();
       const idx = users.findIndex((u) => u.id === current.id);
-      if (idx === -1) return { success: false, message: "Không tìm thấy tài khoản!" };
+      if (idx === -1) return { success: false, message: isEn ? "Account not found!" : "Không tìm thấy tài khoản!" };
 
       // Cập nhật fields được phép
       const allowed = ["name", "phone", "address", "city", "gender", "birthdate", "avatar"];
@@ -250,23 +253,24 @@
 
     // Đổi mật khẩu
     changePassword(oldPass, newPass) {
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       const current = this.getCurrentUser();
-      if (!current) return { success: false, message: "Chưa đăng nhập!" };
+      if (!current) return { success: false, message: isEn ? "Please sign in first!" : "Chưa đăng nhập!" };
 
       const users = this.getAllUsers();
       const user = users.find((u) => u.id === current.id);
-      if (!user) return { success: false, message: "Không tìm thấy người dùng!" };
+      if (!user) return { success: false, message: isEn ? "User not found!" : "Không tìm thấy người dùng!" };
 
       if (user.password !== oldPass) {
-        return { success: false, message: "Mật khẩu hiện tại không chính xác!" };
+        return { success: false, message: isEn ? "Current password is incorrect!" : "Mật khẩu hiện tại không chính xác!" };
       }
       if (!newPass || newPass.length < 6) {
-        return { success: false, message: "Mật khẩu mới phải có ít nhất 6 ký tự!" };
+        return { success: false, message: isEn ? "New password must be at least 6 characters!" : "Mật khẩu mới phải có ít nhất 6 ký tự!" };
       }
 
       user.password = newPass;
       this.saveAllUsers(users);
-      return { success: true, message: "Đổi mật khẩu thành công!" };
+      return { success: true, message: isEn ? "Password changed successfully!" : "Đổi mật khẩu thành công!" };
     }
 
     // Lấy danh sách đơn hàng của người dùng hiện tại
@@ -324,19 +328,20 @@
 
     // Hủy đơn hàng
     cancelOrder(orderId) {
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       try {
         const allOrders = JSON.parse(localStorage.getItem(AuthModel.STORAGE_KEYS.ORDERS_DB)) || [];
         const order = allOrders.find((o) => o.id === orderId);
-        if (!order) return { success: false, message: "Không tìm thấy đơn hàng!" };
+        if (!order) return { success: false, message: isEn ? "Order not found!" : "Không tìm thấy đơn hàng!" };
 
         if (order.status === "completed") {
-          return { success: false, message: "Đơn hàng đã giao thành công, không thể hủy!" };
+          return { success: false, message: isEn ? "This order has already been delivered and cannot be cancelled!" : "Đơn hàng đã giao thành công, không thể hủy!" };
         }
 
         order.status = "cancelled";
-        order.statusLabel = "Đã hủy đơn hàng";
+        order.statusLabel = isEn ? "Cancelled" : "Đã hủy đơn hàng";
         localStorage.setItem(AuthModel.STORAGE_KEYS.ORDERS_DB, JSON.stringify(allOrders));
-        return { success: true, message: "Hủy đơn hàng thành công!" };
+        return { success: true, message: isEn ? "Order cancelled successfully!" : "Hủy đơn hàng thành công!" };
       } catch (e) {
         return { success: false, message: e.message };
       }
@@ -386,6 +391,7 @@
     renderHeader(user) {
       this.initHeaderElements();
       if (!this.headerUserWrapper && !this.headerUserBtn) return;
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
 
       if (user) {
         // Đã đăng nhập: Hiển thị avatar tròn gọn gàng (tối giản UI, không text thừa)
@@ -393,7 +399,7 @@
           this.headerUserWrapper.classList.add("is-logged-in");
         }
         if (this.headerUserBtn) {
-          this.headerUserBtn.setAttribute("title", `Tài khoản: ${user.name} (Bấm để mở danh mục)`);
+          this.headerUserBtn.setAttribute("title", isEn ? `Account: ${user.name} (Click to open menu)` : `Tài khoản: ${user.name} (Bấm để mở danh mục)`);
           this.headerUserBtn.setAttribute("href", "account.html");
           this.headerUserBtn.setAttribute("aria-haspopup", "true");
           this.headerUserBtn.setAttribute("aria-expanded", "false");
@@ -409,8 +415,8 @@
         const ddPoints = document.getElementById("user-dd-points");
 
         if (ddName) ddName.textContent = user.name;
-        if (ddRank) ddRank.textContent = user.rank || "Thành viên Blue";
-        if (ddPoints) ddPoints.textContent = `${(user.points || 0).toLocaleString("vi-VN")} điểm`;
+        if (ddRank) ddRank.textContent = user.rank || (isEn ? "Blue Member" : "Thành viên Blue");
+        if (ddPoints) ddPoints.textContent = isEn ? `${(user.points || 0).toLocaleString("en-US")} Points` : `${(user.points || 0).toLocaleString("vi-VN")} điểm`;
         if (ddAvatar) {
           ddAvatar.innerHTML = `<img src="${user.avatar}" alt="${user.name}">`;
         }
@@ -421,7 +427,7 @@
           this.headerUserWrapper.classList.remove("is-open");
         }
         if (this.headerUserBtn) {
-          this.headerUserBtn.setAttribute("title", "Tài khoản thành viên");
+          this.headerUserBtn.setAttribute("title", isEn ? "Member Account" : "Tài khoản thành viên");
           this.headerUserBtn.setAttribute("href", "account.html");
           this.headerUserBtn.removeAttribute("aria-haspopup");
           this.headerUserBtn.removeAttribute("aria-expanded");
@@ -439,74 +445,77 @@
     }
 
     // Modal Yêu Cầu Đăng Nhập (Login Guard Modal)
-    showLoginRequiredModal(onSuccessCallback, contextMsg = "Vui lòng đăng nhập tài khoản để tiếp tục thao tác!") {
+    showLoginRequiredModal(onSuccessCallback, contextMsg = null) {
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+      const defaultMsg = isEn
+        ? "Please sign in to proceed with this feature!"
+        : "Vui lòng đăng nhập tài khoản để tiếp tục thao tác!";
+      const activeMsg = contextMsg || defaultMsg;
+
       let modal = document.getElementById("auth-guard-modal");
       if (!modal) {
         modal = document.createElement("div");
         modal.id = "auth-guard-modal";
         modal.className = "auth-guard-modal-backdrop";
-        modal.innerHTML = `
-          <div class="auth-guard-modal-card" role="dialog" aria-modal="true" aria-labelledby="guard-title">
-            <button type="button" class="auth-guard-close-btn" aria-label="Đóng">&times;</button>
-            <div class="auth-guard-icon-glow">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <h3 id="guard-title">Yêu Cầu Đăng Nhập</h3>
-            <p id="guard-msg" class="guard-message">${contextMsg}</p>
-
-            <div class="guard-benefits-list">
-              <div class="guard-benefit-item"><i class="fa-solid fa-check"></i> Lưu trữ đơn hàng và tra cứu bảo hành điện tử</div>
-              <div class="guard-benefit-item"><i class="fa-solid fa-check"></i> Tích lũy điểm thưởng đổi voucher eSports VIP</div>
-              <div class="guard-benefit-item"><i class="fa-solid fa-check"></i> Tự động điền địa chỉ giao hàng siêu tốc</div>
-            </div>
-
-            <!-- Form đăng nhập nhanh trong modal -->
-            <form id="guard-quick-login-form" class="guard-login-form">
-              <div class="guard-input-group">
-                <i class="fa-regular fa-envelope"></i>
-                <input type="email" id="guard-email" placeholder="Email đăng nhập" required value="gamer@blue.vn" />
-              </div>
-              <div class="guard-input-group">
-                <i class="fa-solid fa-lock"></i>
-                <input type="password" id="guard-password" placeholder="Mật khẩu" required value="password123" />
-              </div>
-              <div id="guard-error-msg" class="guard-error-box" style="display:none;"></div>
-              
-              <div class="guard-actions-row">
-                <button type="submit" class="btn-guard-login">
-                  <i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng Nhập Ngay
-                </button>
-                <a href="account.html?tab=register" class="btn-guard-register">
-                  Tạo tài khoản mới
-                </a>
-              </div>
-            </form>
-
-            <div class="guard-footer-note">
-              <span>Hoặc thử nhanh với 1 chạm:</span>
-              <button type="button" id="btn-guard-demo-login" class="btn-guard-quick-demo">
-                ⚡ Đăng nhập tài khoản Test (Alex Nguyễn)
-              </button>
-            </div>
-          </div>
-        `;
         document.body.appendChild(modal);
 
-        // Đóng modal
-        modal.querySelector(".auth-guard-close-btn").addEventListener("click", () => {
-          modal.style.display = "none";
-        });
         modal.addEventListener("click", (e) => {
           if (e.target === modal) modal.style.display = "none";
         });
       }
 
-      // Cập nhật thông điệp nếu có
-      const msgEl = modal.querySelector("#guard-msg");
-      if (msgEl) msgEl.textContent = contextMsg;
+      modal.innerHTML = `
+        <div class="auth-guard-modal-card" role="dialog" aria-modal="true" aria-labelledby="guard-title">
+          <button type="button" class="auth-guard-close-btn" aria-label="${isEn ? 'Close' : 'Đóng'}">&times;</button>
+          <div class="auth-guard-icon-glow">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 id="guard-title">${isEn ? "Sign In Required" : "Yêu Cầu Đăng Nhập"}</h3>
+          <p id="guard-msg" class="guard-message">${activeMsg}</p>
+
+          <div class="guard-benefits-list">
+            <div class="guard-benefit-item"><i class="fa-solid fa-check"></i> ${isEn ? "Track orders & electronic eSports warranty" : "Lưu trữ đơn hàng và tra cứu bảo hành điện tử"}</div>
+            <div class="guard-benefit-item"><i class="fa-solid fa-check"></i> ${isEn ? "Earn reward points and VIP discount vouchers" : "Tích lũy điểm thưởng đổi voucher eSports VIP"}</div>
+            <div class="guard-benefit-item"><i class="fa-solid fa-check"></i> ${isEn ? "Auto-fill delivery address for 1-click checkout" : "Tự động điền địa chỉ giao hàng siêu tốc"}</div>
+          </div>
+
+          <!-- Form đăng nhập nhanh trong modal -->
+          <form id="guard-quick-login-form" class="guard-login-form">
+            <div class="guard-input-group">
+              <i class="fa-regular fa-envelope"></i>
+              <input type="email" id="guard-email" placeholder="${isEn ? 'Email address' : 'Email đăng nhập'}" required value="gamer@blue.vn" />
+            </div>
+            <div class="guard-input-group">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" id="guard-password" placeholder="${isEn ? 'Password' : 'Mật khẩu'}" required value="password123" />
+            </div>
+            <div id="guard-error-msg" class="guard-error-box" style="display:none;"></div>
+            
+            <div class="guard-actions-row">
+              <button type="submit" class="btn-guard-login">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> ${isEn ? "Sign In Now" : "Đăng Nhập Ngay"}
+              </button>
+              <a href="account.html?tab=register" class="btn-guard-register">
+                ${isEn ? "Create Account" : "Tạo tài khoản mới"}
+              </a>
+            </div>
+          </form>
+
+          <div class="guard-footer-note">
+            <span>${isEn ? "Or test with 1-click:" : "Hoặc thử nhanh với 1 chạm:"}</span>
+            <button type="button" id="btn-guard-demo-login" class="btn-guard-quick-demo">
+              ⚡ ${isEn ? "Sign in with Demo Account (Alex Johnson)" : "Đăng nhập tài khoản Test (Alex Nguyễn)"}
+            </button>
+          </div>
+        </div>
+      `;
+
+      // Đóng modal
+      modal.querySelector(".auth-guard-close-btn").addEventListener("click", () => {
+        modal.style.display = "none";
+      });
 
       const errBox = modal.querySelector("#guard-error-msg");
-      if (errBox) errBox.style.display = "none";
 
       // Bắt sự kiện submit form đăng nhập nhanh
       const form = modal.querySelector("#guard-quick-login-form");
@@ -519,14 +528,14 @@
         if (res.success) {
           modal.style.display = "none";
           if (window.showToast) {
-            window.showToast(`Chào mừng ${res.user.name} quay trở lại!`, "success");
+            window.showToast(isEn ? `Welcome back, ${res.user.name}!` : `Chào mừng ${res.user.name} quay trở lại!`, "success");
           }
           if (typeof onSuccessCallback === "function") {
             onSuccessCallback(res.user);
           }
         } else {
           if (errBox) {
-            errBox.textContent = res.message;
+            errBox.textContent = isEn ? "Invalid email or password!" : res.message;
             errBox.style.display = "block";
           }
         }
@@ -631,10 +640,11 @@
         const logoutTrigger = e.target.closest("#header-logout-btn, .action-logout-trigger");
         if (logoutTrigger) {
           e.preventDefault();
-          if (confirm("Bạn có chắc chắn muốn đăng xuất tài khoản?")) {
+          const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+          if (confirm(isEn ? "Are you sure you want to sign out?" : "Bạn có chắc chắn muốn đăng xuất tài khoản?")) {
             this.model.logout();
             if (window.showToast) {
-              window.showToast("Đã đăng xuất tài khoản thành công!", "info");
+              window.showToast(isEn ? "Signed out successfully!" : "Đã đăng xuất tài khoản thành công!", "info");
             }
             // Nếu đang ở trang account.html thì reload để về form đăng nhập
             if (window.location.pathname.includes("account.html")) {
@@ -649,7 +659,7 @@
     }
 
     // Bảo vệ các hành động cần đăng nhập (Require Login Guard)
-    requireLogin(onSuccessCallback, message = "Vui lòng đăng nhập để thực hiện tính năng này!") {
+    requireLogin(onSuccessCallback, message = null) {
       if (this.model.isLoggedIn()) {
         if (typeof onSuccessCallback === "function") {
           onSuccessCallback(this.model.getCurrentUser());
@@ -657,7 +667,9 @@
         return true;
       }
 
-      this.view.showLoginRequiredModal(onSuccessCallback, message);
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+      const fallbackMsg = isEn ? "Please sign in to proceed with this feature!" : "Vui lòng đăng nhập để thực hiện tính năng này!";
+      this.view.showLoginRequiredModal(onSuccessCallback, message || fallbackMsg);
       return false;
     }
 
@@ -696,7 +708,7 @@
           // Lấy thông tin đơn hàng vừa tạo để lưu vào Model
           setTimeout(() => {
             const orderCodeEl = document.getElementById("order-code-badge");
-            const orderCode = orderCodeEl ? orderCodeEl.textContent.replace("Mã đơn hàng:", "").replace("Mã đơn:", "").trim() : "BL-" + Date.now().toString().slice(-5);
+            const orderCode = orderCodeEl ? orderCodeEl.textContent.replace("Order Code:", "").replace("Mã đơn hàng:", "").replace("Mã đơn:", "").trim() : "BL-" + Date.now().toString().slice(-5);
 
             const activeItems = window.activeCheckoutItems || [];
             const subtotal = activeItems.reduce((sum, item) => sum + item.price * item.quantity, 0);

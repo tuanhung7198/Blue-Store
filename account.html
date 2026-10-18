@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tài Khoản Thành Viên eSports | Blue Gaming Gear</title>
+    <title>Member Account | Blue Gaming Gear</title>
     <!-- Favicon -->
     <link
       rel="icon"
@@ -83,12 +83,12 @@
                 href="https://discord.gg/bluegaming"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Cộng đồng Discord eSports"
+                title="Discord eSports Community"
                 ><i class="fa-brands fa-discord"></i
               ></a>
               <a
                 href="mailto:support@blue.vn"
-                title="Hỗ trợ qua Email: support@blue.vn"
+                title="Email Support: support@blue.vn"
                 ><i class="fa-regular fa-envelope"></i
               ></a>
 
@@ -96,8 +96,10 @@
               <button
                 id="search-trigger-btn"
                 class="nav-icon-btn"
-                aria-label="Tìm kiếm sản phẩm"
-                title="Tìm kiếm (Ctrl+K)"
+                aria-label="Search products"
+                title="Search (Ctrl+K)"
+                data-i18n-aria-label="searchModalAria"
+                data-i18n-title="searchTitle"
               >
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
@@ -108,8 +110,10 @@
                   href="account.html"
                   class="nav-icon-btn header-user-btn"
                   id="header-user-btn"
-                  title="Tài khoản thành viên"
-                  aria-label="Tài khoản thành viên"
+                  title="Member Account"
+                  aria-label="Member Account"
+                  data-i18n-title="accountBtnTitle"
+                  data-i18n-aria-label="accountBtnAria"
                 >
                   <i class="fa-regular fa-user"></i>
                 </a>
@@ -117,39 +121,37 @@
                   <div class="user-dropdown-header">
                     <div class="user-dropdown-avatar" id="user-dd-avatar"></div>
                     <div class="user-dropdown-meta">
-                      <strong id="user-dd-name">Alex Nguyễn</strong>
-                      <span id="user-dd-rank">VIP Diamond</span>
+                      <strong id="user-dd-name">Alex Johnson</strong>
+                      <span id="user-dd-rank" data-i18n="userRankDiamond">VIP Diamond</span>
                       <small
                         id="user-dd-points"
                         style="
                           color: var(--blue-accent, #0052cc);
                           font-weight: 700;
                         "
-                        >1.850 điểm</small
+                        >1,850 Points</small
                       >
                     </div>
                   </div>
                   <ul class="user-dropdown-links">
                     <li>
-                      <a href="account.html?tab=profile"
-                        ><i class="fa-regular fa-id-badge"></i> Thông tin tài
-                        khoản</a
+                      <a href="account.html?tab=profile" data-i18n="accountProfile"
+                        ><i class="fa-regular fa-id-badge"></i> My Profile</a
                       >
                     </li>
                     <li>
-                      <a href="account.html?tab=orders"
-                        ><i class="fa-solid fa-box-open"></i> Đơn hàng của
-                        tôi</a
+                      <a href="account.html?tab=orders" data-i18n="accountOrders"
+                        ><i class="fa-solid fa-box-open"></i> My Orders</a
                       >
                     </li>
                     <li>
-                      <a href="account.html?tab=addresses"
-                        ><i class="fa-solid fa-location-dot"></i> Sổ địa chỉ</a
+                      <a href="account.html?tab=addresses" data-i18n="accountAddresses"
+                        ><i class="fa-solid fa-location-dot"></i> Address Book</a
                       >
                     </li>
                     <li>
-                      <a href="account.html?tab=rewards"
-                        ><i class="fa-solid fa-gift"></i> Điểm & Voucher</a
+                      <a href="account.html?tab=rewards" data-i18n="accountRewards"
+                        ><i class="fa-solid fa-gift"></i> Points & Vouchers</a
                       >
                     </li>
                     <li class="user-dropdown-divider"></li>
@@ -158,9 +160,10 @@
                         type="button"
                         class="btn-user-logout"
                         id="header-logout-btn"
+                        data-i18n="accountLogout"
                       >
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        Đăng xuất
+                        Sign Out
                       </button>
                     </li>
                   </ul>
@@ -171,8 +174,8 @@
               <button
                 id="theme-toggle-btn"
                 class="theme-toggle-btn glass-theme-btn"
-                aria-label="Chuyển chế độ Dark / Light"
-                title="Giao diện Sáng (Bấm để chuyển sang Dark Mode)"
+                aria-label="Toggle Dark / Light mode"
+                title="Light Mode (Click to switch to Dark Mode)"
               >
                 <span class="theme-toggle-badge">
                   <i class="fa-solid fa-sun"></i>
@@ -190,8 +193,10 @@
               <button
                 id="cart-trigger-btn"
                 class="nav-icon-btn cart-icon"
-                aria-label="Xem giỏ hàng"
-                title="Giỏ hàng"
+                aria-label="View shopping cart"
+                title="Shopping Cart"
+                data-i18n-aria-label="cartDrawerAria"
+                data-i18n-title="cartDrawerTitle"
               >
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span id="cart-badge" class="cart-badge">0</span>
@@ -236,8 +241,8 @@
                   type="button"
                   class="carousel-btn mega-prev-btn"
                   id="mega-prev-btn"
-                  aria-label="Sản phẩm trước"
-                  title="Trang trước"
+                  aria-label="Previous products"
+                  title="Previous page"
                   disabled
                 >
                   <i class="fa-solid fa-angle-left"></i>
@@ -246,8 +251,8 @@
                   type="button"
                   class="carousel-btn mega-next-btn"
                   id="mega-next-btn"
-                  aria-label="Sản phẩm tiếp theo"
-                  title="Trang tiếp theo"
+                  aria-label="Next products"
+                  title="Next page"
                 >
                   <i class="fa-solid fa-angle-right"></i>
                 </button>
@@ -258,14 +263,48 @@
       </div>
     </header>
 
+    <!-- LIVE SEARCH MODAL OVERLAY -->
+    <div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="Search products" data-i18n-aria-label="searchModalAria" style="display: none;">
+      <div class="search-modal-container">
+        <div class="search-modal-header">
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-input-icon"></i>
+            <input type="text" id="live-search-input" placeholder="Search mice, mechanical keyboards, mousepads, headsets..." data-i18n-placeholder="searchPlaceholder" autocomplete="off" />
+            <button id="search-clear-btn" class="search-clear-btn" aria-label="Clear search query" data-i18n-aria-label="searchClearAria" style="display: none;">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <button id="search-close-btn" class="search-close-btn" aria-label="Close search" data-i18n-aria-label="searchCloseAria">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="search-quick-tags">
+          <span class="quick-tag-label" data-i18n="searchQuickTagLabel">Quick search:</span>
+          <button class="quick-tag-btn" data-query="Mice" data-i18n="catMice">Mice</button>
+          <button class="quick-tag-btn" data-query="Keyboards" data-i18n="catKeyboards">Keyboards</button>
+          <button class="quick-tag-btn" data-query="Headphones" data-i18n="catHeadphones">Headphones</button>
+          <button class="quick-tag-btn" data-query="Mousepads" data-i18n="catMousepads">Mousepads</button>
+          <button class="quick-tag-btn" data-query="Logitech">Logitech</button>
+          <button class="quick-tag-btn" data-query="Razer">Razer</button>
+        </div>
+        <div id="search-results-container" class="search-results-container">
+          <div id="search-empty-prompt" class="search-empty-prompt">
+            <i class="fa-solid fa-keyboard prompt-icon"></i>
+            <p data-i18n="searchEmptyPrompt">Type product name, brand, or category for instant search.</p>
+          </div>
+          <div id="search-results-list" class="search-results-list" style="display: none;"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- MAIN CONTENT -->
     <main class="account-page-main">
       <div class="container">
         <!-- BREADCRUMB -->
-        <nav class="account-breadcrumb" aria-label="Đường dẫn trang">
-          <a href="index.html">Trang chủ</a>
+        <nav class="account-breadcrumb" aria-label="Breadcrumb navigation">
+          <a href="index.html" data-i18n="accBreadcrumbHome">Home</a>
           <span class="sep">/</span>
-          <span class="current">Tài khoản thành viên</span>
+          <span class="current" data-i18n="accBreadcrumbCurrent">Member Account</span>
         </nav>
 
         <!-- =============================================================
@@ -274,12 +313,11 @@
         <div class="auth-forms-container" id="auth-forms-container">
           <div class="auth-hero-header">
             <div class="auth-shield-badge">
-              <i class="fa-solid fa-shield-halved"></i> BLUE PASSPORT
+              <i class="fa-solid fa-shield-halved"></i> <span data-i18n="authPassportBadge">BLUE PASSPORT</span>
             </div>
-            <h2>TÀI KHOẢN THÀNH VIÊN</h2>
-            <p>
-              Đăng nhập để nhận ưu đãi VIP, theo dõi đơn hàng thời gian thực và
-              quản lý bảo hành điện tử chính hãng.
+            <h2 data-i18n="authHeroTitle">MEMBER ACCOUNT</h2>
+            <p data-i18n="authHeroDesc">
+              Sign in to unlock VIP perks, track orders in real time, and manage official eSports warranty.
             </p>
           </div>
 
@@ -298,10 +336,10 @@
                 class="auth-tab-btn active"
                 id="tab-login-btn"
               >
-                <i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng Nhập
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> <span data-i18n="tabLogin">Sign In</span>
               </button>
               <button type="button" class="auth-tab-btn" id="tab-register-btn">
-                <i class="fa-solid fa-user-plus"></i> Tạo Tài Khoản Mới
+                <i class="fa-solid fa-user-plus"></i> <span data-i18n="tabRegister">Create Account</span>
               </button>
             </div>
 
@@ -309,14 +347,15 @@
             <form id="form-login" class="auth-form-pane">
               <div class="auth-field-group">
                 <label for="login-email"
-                  >Địa chỉ Email <span class="req">*</span></label
+                  ><span data-i18n="labelLoginEmail">Email Address</span> <span class="req">*</span></label
                 >
                 <div class="auth-input-wrap">
                   <i class="fa-regular fa-envelope input-icon"></i>
                   <input
                     type="email"
                     id="login-email"
-                    placeholder="ví dụ: gamer@blue.vn"
+                    placeholder="e.g. gamer@blue.vn"
+                    data-i18n-placeholder="placeholderLoginEmail"
                     required
                     autocomplete="email"
                   />
@@ -326,18 +365,19 @@
               <div class="auth-field-group">
                 <div class="label-with-link">
                   <label for="login-password"
-                    >Mật khẩu <span class="req">*</span></label
+                    ><span data-i18n="labelLoginPassword">Password</span> <span class="req">*</span></label
                   >
                   <a
                     href="#"
                     class="forgot-link"
+                    data-i18n="linkForgotPassword"
                     onclick="
                       alert(
-                        'Vui lòng liên hệ CSKH qua hotline 1900 6868 hoặc email support@blue.vn để cấp lại mật khẩu!',
+                        'Please contact CSKH via hotline 1900 6868 or email support@blue.vn to reset your password!',
                       );
                       return false;
                     "
-                    >Quên mật khẩu?</a
+                    >Forgot password?</a
                   >
                 </div>
                 <div class="auth-input-wrap">
@@ -345,7 +385,8 @@
                   <input
                     type="password"
                     id="login-password"
-                    placeholder="Nhập mật khẩu của bạn"
+                    placeholder="Enter your password"
+                    data-i18n-placeholder="placeholderLoginPassword"
                     required
                     autocomplete="current-password"
                   />
@@ -353,7 +394,7 @@
                     type="button"
                     class="btn-toggle-eye"
                     data-target="login-password"
-                    aria-label="Hiện mật khẩu"
+                    aria-label="Show password"
                   >
                     <i class="fa-regular fa-eye"></i>
                   </button>
@@ -363,20 +404,18 @@
               <div class="auth-options-row">
                 <label class="remember-label">
                   <input type="checkbox" id="login-remember" checked />
-                  <span>Ghi nhớ phiên đăng nhập trên thiết bị này</span>
+                  <span data-i18n="labelRememberLogin">Remember my login on this device</span>
                 </label>
               </div>
 
               <button type="submit" class="btn-auth-primary">
-                <i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng Nhập
-                Ngay
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> <span data-i18n="btnSubmitLogin">Sign In Now</span>
               </button>
 
               <!-- Quick Demo Login Card (Dành cho GV chấm bài kiểm thử 1-Click) -->
               <div class="demo-accounts-card">
                 <div class="demo-card-title">
-                  <i class="fa-solid fa-bolt-lightning"></i> Tài Khoản Dùng Thử
-                  (1-Click Test cho Giảng Viên):
+                  <i class="fa-solid fa-bolt-lightning"></i> <span data-i18n="demoAccountsCardTitle">Demo Accounts (1-Click Tester Login):</span>
                 </div>
                 <div class="demo-buttons-grid">
                   <button
@@ -385,7 +424,7 @@
                     data-email="gamer@blue.vn"
                     data-pass="password123"
                   >
-                    <strong>Alex Nguyễn (VIP Diamond)</strong>
+                    <strong data-i18n="demoAlexName">Alex Johnson (VIP Diamond)</strong>
                     <span>gamer@blue.vn | pass: password123</span>
                   </button>
                   <button
@@ -394,7 +433,7 @@
                     data-email="jordan@blue.vn"
                     data-pass="password123"
                   >
-                    <strong>Jordan Trần (Challenger)</strong>
+                    <strong data-i18n="demoJordanName">Jordan Tran (Challenger)</strong>
                     <span>jordan@blue.vn | pass: password123</span>
                   </button>
                 </div>
@@ -409,14 +448,15 @@
             >
               <div class="auth-field-group">
                 <label for="reg-name"
-                  >Họ và Tên <span class="req">*</span></label
+                  ><span data-i18n="labelRegName">Full Name</span> <span class="req">*</span></label
                 >
                 <div class="auth-input-wrap">
                   <i class="fa-regular fa-user input-icon"></i>
                   <input
                     type="text"
                     id="reg-name"
-                    placeholder="Nguyễn Văn A"
+                    placeholder="Alex Johnson"
+                    data-i18n-placeholder="placeholderRegName"
                     required
                   />
                 </div>
@@ -424,7 +464,7 @@
 
               <div class="auth-field-group">
                 <label for="reg-email"
-                  >Email đăng ký <span class="req">*</span></label
+                  ><span data-i18n="labelRegEmail">Email Address</span> <span class="req">*</span></label
                 >
                 <div class="auth-input-wrap">
                   <i class="fa-regular fa-envelope input-icon"></i>
@@ -432,6 +472,7 @@
                     type="email"
                     id="reg-email"
                     placeholder="gamer@domain.com"
+                    data-i18n-placeholder="placeholderRegEmail"
                     required
                     autocomplete="email"
                   />
@@ -440,7 +481,7 @@
 
               <div class="auth-field-group">
                 <label for="reg-phone"
-                  >Số điện thoại liên hệ <span class="req">*</span></label
+                  ><span data-i18n="labelRegPhone">Contact Phone</span> <span class="req">*</span></label
                 >
                 <div class="auth-input-wrap">
                   <i class="fa-solid fa-phone input-icon"></i>
@@ -448,6 +489,7 @@
                     type="tel"
                     id="reg-phone"
                     placeholder="09xxxxxxxx"
+                    data-i18n-placeholder="placeholderRegPhone"
                     required
                     pattern="[0-9]{10,11}"
                   />
@@ -457,14 +499,15 @@
               <div class="auth-form-row">
                 <div class="auth-field-group">
                   <label for="reg-password"
-                    >Mật khẩu <span class="req">*</span></label
+                    ><span data-i18n="labelRegPassword">Password</span> <span class="req">*</span></label
                   >
                   <div class="auth-input-wrap">
                     <i class="fa-solid fa-lock input-icon"></i>
                     <input
                       type="password"
                       id="reg-password"
-                      placeholder="Tối thiểu 6 ký tự"
+                      placeholder="At least 6 characters"
+                      data-i18n-placeholder="placeholderRegPassword"
                       required
                       minlength="6"
                     />
@@ -472,7 +515,7 @@
                       type="button"
                       class="btn-toggle-eye"
                       data-target="reg-password"
-                      aria-label="Hiện mật khẩu"
+                      aria-label="Show password"
                     >
                       <i class="fa-regular fa-eye"></i>
                     </button>
@@ -481,14 +524,15 @@
 
                 <div class="auth-field-group">
                   <label for="reg-password-confirm"
-                    >Xác nhận mật khẩu <span class="req">*</span></label
+                    ><span data-i18n="labelRegConfirmPassword">Confirm Password</span> <span class="req">*</span></label
                   >
                   <div class="auth-input-wrap">
                     <i class="fa-solid fa-lock input-icon"></i>
                     <input
                       type="password"
                       id="reg-password-confirm"
-                      placeholder="Nhập lại mật khẩu"
+                      placeholder="Re-enter your password"
+                      data-i18n-placeholder="placeholderRegConfirmPassword"
                       required
                       minlength="6"
                     />
@@ -496,7 +540,7 @@
                       type="button"
                       class="btn-toggle-eye"
                       data-target="reg-password-confirm"
-                      aria-label="Hiện mật khẩu"
+                      aria-label="Show password"
                     >
                       <i class="fa-regular fa-eye"></i>
                     </button>
@@ -507,22 +551,14 @@
               <div class="auth-options-row">
                 <label class="remember-label">
                   <input type="checkbox" id="reg-agree" checked required />
-                  <span
-                    >Tôi đồng ý với
-                    <a
-                      href="#support"
-                      class="support-modal-trigger"
-                      data-support-tab="terms"
-                      >Điều khoản dịch vụ & Chính sách bảo mật</a
-                    >
-                    của Blue Gaming Gear</span
+                  <span data-i18n="labelTermsAgree"
+                    >I agree to Blue Gaming Gear's Terms of Service & Privacy Policy</span
                   >
                 </label>
               </div>
 
               <button type="submit" class="btn-auth-primary">
-                <i class="fa-solid fa-user-plus"></i> Đăng Ký Tài Khoản (Nhận
-                200 Điểm)
+                <i class="fa-solid fa-user-plus"></i> <span data-i18n="btnSubmitRegister">Create Account (Earn 200 Points)</span>
               </button>
             </form>
           </div>
@@ -552,38 +588,39 @@
                     type="button"
                     id="btn-change-avatar"
                     class="btn-change-avatar-round"
-                    title="Đổi ảnh đại diện"
+                    title="Change profile avatar"
+                    data-i18n-title="btnChangeAvatarTitle"
                   >
                     <i class="fa-solid fa-camera"></i>
                   </button>
                 </div>
                 <div class="user-info-meta">
-                  <h3 id="dash-user-name">Alex Nguyễn</h3>
+                  <h3 id="dash-user-name">Alex Johnson</h3>
                   <p id="dash-user-email">gamer@blue.vn</p>
                   <div class="user-badges-row">
                     <span class="user-rank-pill" id="dash-user-rank"
                       >VIP Diamond</span
                     >
                     <span class="user-points-pill" id="dash-user-points"
-                      >1.850 Điểm</span
+                      >1,850 Points</span
                     >
                   </div>
                 </div>
               </div>
 
               <!-- Menu Tabs -->
-              <nav class="dashboard-nav-menu" aria-label="Menu tài khoản">
+              <nav class="dashboard-nav-menu" aria-label="Account navigation">
                 <button
                   type="button"
                   class="dash-nav-item active"
                   data-tab="profile"
                 >
                   <i class="fa-regular fa-user"></i>
-                  <span>Thông tin tài khoản</span>
+                  <span data-i18n="dashTabProfile">Profile Information</span>
                 </button>
                 <button type="button" class="dash-nav-item" data-tab="orders">
                   <i class="fa-solid fa-box-open"></i>
-                  <span>Đơn hàng của tôi</span>
+                  <span data-i18n="dashTabOrders">My Orders</span>
                   <span class="nav-count-badge" id="badge-order-count">2</span>
                 </button>
                 <button
@@ -592,15 +629,15 @@
                   data-tab="addresses"
                 >
                   <i class="fa-solid fa-location-dot"></i>
-                  <span>Sổ địa chỉ giao hàng</span>
+                  <span data-i18n="dashTabAddresses">Shipping Addresses</span>
                 </button>
                 <button type="button" class="dash-nav-item" data-tab="rewards">
                   <i class="fa-solid fa-gift"></i>
-                  <span>Điểm thưởng & Voucher</span>
+                  <span data-i18n="dashTabRewards">Points & Vouchers</span>
                 </button>
                 <button type="button" class="dash-nav-item" data-tab="security">
                   <i class="fa-solid fa-shield-halved"></i>
-                  <span>Bảo mật & Đổi mật khẩu</span>
+                  <span data-i18n="dashTabSecurity">Security & Password</span>
                 </button>
                 <button
                   type="button"
@@ -608,7 +645,7 @@
                   data-tab="logout"
                 >
                   <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                  <span>Đăng xuất</span>
+                  <span data-i18n="dashTabLogout">Sign Out</span>
                 </button>
               </nav>
             </aside>
@@ -618,21 +655,20 @@
               <!-- TAB 1: THÔNG TIN TÀI KHOẢN -->
               <div class="dash-tab-pane active" id="pane-profile">
                 <div class="dash-pane-header">
-                  <h3>HỒ SƠ TÀI KHOẢN</h3>
-                  <p>
-                    Quản lý thông tin hồ sơ bảo mật để bảo vệ tài khoản và nhận
-                    ưu đãi eSports.
+                  <h3 data-i18n="paneProfileTitle">ACCOUNT PROFILE</h3>
+                  <p data-i18n="paneProfileDesc">
+                    Manage security settings and personal info to protect your account and receive eSports drops.
                   </p>
                 </div>
 
                 <form id="form-user-profile" class="dash-profile-form">
                   <div class="form-grid-2">
                     <div class="dash-form-group">
-                      <label for="prof-name">Họ và Tên</label>
+                      <label for="prof-name" data-i18n="profNameLabel">Full Name</label>
                       <input type="text" id="prof-name" required />
                     </div>
                     <div class="dash-form-group">
-                      <label for="prof-email">Email (Không thể thay đổi)</label>
+                      <label for="prof-email" data-i18n="profEmailLabel">Email (Read-only)</label>
                       <input
                         type="email"
                         id="prof-email"
@@ -645,52 +681,53 @@
 
                   <div class="form-grid-2">
                     <div class="dash-form-group">
-                      <label for="prof-phone">Số điện thoại</label>
+                      <label for="prof-phone" data-i18n="profPhoneLabel">Phone Number</label>
                       <input type="tel" id="prof-phone" required />
                     </div>
                     <div class="dash-form-group">
-                      <label for="prof-city">Tỉnh / Thành phố</label>
+                      <label for="prof-city" data-i18n="profCityLabel">City / Province</label>
                       <select id="prof-city">
-                        <option value="Hà Nội">Hà Nội</option>
-                        <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
-                        <option value="Đà Nẵng">Đà Nẵng</option>
-                        <option value="Hải Phòng">Hải Phòng</option>
-                        <option value="Cần Thơ">Cần Thơ</option>
-                        <option value="Khác">Tỉnh thành khác</option>
+                        <option value="Hà Nội" data-i18n="cityHanoi">Hanoi (Express 2h - 24h)</option>
+                        <option value="TP. Hồ Chí Minh" data-i18n="cityHcm">Ho Chi Minh City (24h - 48h)</option>
+                        <option value="Đà Nẵng" data-i18n="cityDanang">Da Nang</option>
+                        <option value="Hải Phòng" data-i18n="cityHaiphong">Hai Phong</option>
+                        <option value="Cần Thơ" data-i18n="cityCantho">Can Tho</option>
+                        <option value="Khác" data-i18n="cityOther">Other Provinces (Nationwide)</option>
                       </select>
                     </div>
                   </div>
 
                   <div class="dash-form-group">
-                    <label for="prof-address"
-                      >Địa chỉ chi tiết (Số nhà, ngõ, tên đường)</label
+                    <label for="prof-address" data-i18n="profAddressLabel"
+                      >Detailed Address (Street, Number, Ward)</label
                     >
                     <input
                       type="text"
                       id="prof-address"
-                      placeholder="Ví dụ: Số 18, Phố Tràng Thi, Hoàn Kiếm"
+                      placeholder="e.g. 18 Grand Avenue, Central District"
+                      data-i18n-placeholder="profAddressPlaceholder"
                       required
                     />
                   </div>
 
                   <div class="form-grid-2">
                     <div class="dash-form-group">
-                      <label for="prof-gender">Giới tính</label>
+                      <label for="prof-gender" data-i18n="profGenderLabel">Gender</label>
                       <select id="prof-gender">
-                        <option value="Nam">Nam</option>
-                        <option value="Nữ">Nữ</option>
-                        <option value="Khác">Không tiết lộ</option>
+                        <option value="Nam" data-i18n="genderMale">Male</option>
+                        <option value="Nữ" data-i18n="genderFemale">Female</option>
+                        <option value="Khác" data-i18n="genderOther">Undisclosed</option>
                       </select>
                     </div>
                     <div class="dash-form-group">
-                      <label for="prof-birthdate">Ngày sinh</label>
+                      <label for="prof-birthdate" data-i18n="profBirthdateLabel">Date of Birth</label>
                       <input type="date" id="prof-birthdate" />
                     </div>
                   </div>
 
                   <div class="dash-form-actions">
                     <button type="submit" class="btn-save-profile">
-                      <i class="fa-solid fa-floppy-disk"></i> Lưu Thay Đổi
+                      <i class="fa-solid fa-floppy-disk"></i> <span data-i18n="btnSaveProfile">Save Changes</span>
                     </button>
                   </div>
                 </form>
@@ -699,10 +736,9 @@
               <!-- TAB 2: ĐƠN HÀNG CỦA TÔI -->
               <div class="dash-tab-pane" id="pane-orders" style="display: none">
                 <div class="dash-pane-header">
-                  <h3>ĐƠN HÀNG CỦA TÔI</h3>
-                  <p>
-                    Tra cứu lịch sử mua hàng, tiến độ vận chuyển và bảo hành sản
-                    phẩm eSports.
+                  <h3 data-i18n="paneOrdersTitle">MY ORDERS</h3>
+                  <p data-i18n="paneOrdersDesc">
+                    Track order history, live delivery status, and warranty for your eSports gaming gear.
                   </p>
                 </div>
 
@@ -712,36 +748,41 @@
                     type="button"
                     class="order-filter-btn active"
                     data-status="all"
+                    data-i18n="orderFilterAll"
                   >
-                    Tất cả
+                    All
                   </button>
                   <button
                     type="button"
                     class="order-filter-btn"
                     data-status="processing"
+                    data-i18n="orderFilterProcessing"
                   >
-                    Chờ xác nhận
+                    Processing
                   </button>
                   <button
                     type="button"
                     class="order-filter-btn"
                     data-status="shipping"
+                    data-i18n="orderFilterShipping"
                   >
-                    Đang giao
+                    Shipping
                   </button>
                   <button
                     type="button"
                     class="order-filter-btn"
                     data-status="completed"
+                    data-i18n="orderFilterCompleted"
                   >
-                    Hoàn thành
+                    Completed
                   </button>
                   <button
                     type="button"
                     class="order-filter-btn"
                     data-status="cancelled"
+                    data-i18n="orderFilterCancelled"
                   >
-                    Đã hủy
+                    Cancelled
                   </button>
                 </div>
 
@@ -758,36 +799,34 @@
                 style="display: none"
               >
                 <div class="dash-pane-header">
-                  <h3>SỔ ĐỊA CHỈ GIAO HÀNG</h3>
-                  <p>
-                    Lưu sẵn địa chỉ nhận hàng để thanh toán nhanh chỉ với 1 thao
-                    tác.
+                  <h3 data-i18n="paneAddressesTitle">SHIPPING ADDRESSES</h3>
+                  <p data-i18n="paneAddressesDesc">
+                    Save preferred addresses for instant 1-click checkout.
                   </p>
                 </div>
 
                 <div class="address-cards-grid">
                   <div class="address-card is-default">
                     <div class="address-card-header">
-                      <strong>Nhà Riêng</strong>
-                      <span class="badge-default-addr">Mặc định</span>
+                      <strong data-i18n="addrHomeTitle">Home</strong>
+                      <span class="badge-default-addr" data-i18n="badgeDefaultAddr">Default</span>
                     </div>
                     <div class="address-card-body">
                       <div class="addr-line name-phone">
-                        <i class="fa-regular fa-user"></i> Alex Nguyễn - 0988
+                        <i class="fa-regular fa-user"></i> Alex Johnson - 0988
                         123 456
                       </div>
                       <div class="addr-line detail">
-                        <i class="fa-solid fa-location-dot"></i> Số 18, Phố
-                        Tràng Thi, Hoàn Kiếm, Hà Nội
+                        <i class="fa-solid fa-location-dot"></i> 18 Grand Avenue, Central District, Hanoi
                       </div>
                     </div>
                     <div class="address-card-actions">
                       <button
                         type="button"
                         class="btn-addr-action"
-                        onclick="alert('Đã cập nhật địa chỉ giao hàng!')"
+                        onclick="alert('Shipping address updated!')"
                       >
-                        <i class="fa-solid fa-pen"></i> Chỉnh sửa
+                        <i class="fa-solid fa-pen"></i> <span data-i18n="btnEditAddr">Edit</span>
                       </button>
                     </div>
                   </div>
@@ -796,13 +835,13 @@
                     class="address-card add-new-card"
                     onclick="
                       alert(
-                        'Tính năng thêm địa chỉ mới đã sẵn sàng! Bạn có thể lưu thêm văn phòng hoặc gaming house.',
+                        'New address feature ready! You can save office or gaming team house.',
                       )
                     "
                   >
                     <div class="add-new-inner">
                       <i class="fa-solid fa-plus"></i>
-                      <span>Thêm địa chỉ nhận hàng mới</span>
+                      <span data-i18n="btnAddNewAddr">Add New Shipping Address</span>
                     </div>
                   </div>
                 </div>
@@ -815,10 +854,9 @@
                 style="display: none"
               >
                 <div class="dash-pane-header">
-                  <h3>ĐIỂM THƯỞNG & MÃ ƯU ĐÃI VIP</h3>
-                  <p>
-                    Tích lũy điểm khi mua sắm thiết bị và đổi lấy voucher giảm
-                    giá độc quyền.
+                  <h3 data-i18n="paneRewardsTitle">REWARD POINTS & VIP VOUCHERS</h3>
+                  <p data-i18n="paneRewardsDesc">
+                    Earn points with every purchase and redeem exclusive pro-gamer discounts.
                   </p>
                 </div>
 
@@ -826,13 +864,13 @@
                 <div class="vip-tier-card">
                   <div class="tier-top">
                     <div>
-                      <span class="tier-label">HẠNG THÀNH VIÊN HIỆN TẠI</span>
+                      <span class="tier-label" data-i18n="tierCurrentLabel">CURRENT VIP TIER</span>
                       <h4 class="tier-name">
                         <i class="fa-solid fa-crown"></i> VIP DIAMOND MEMBER
                       </h4>
                     </div>
                     <div class="tier-points-box">
-                      <span class="p-num">1.850</span>
+                      <span class="p-num">1,850</span>
                       <span class="p-unit">Blue Points</span>
                     </div>
                   </div>
@@ -841,36 +879,37 @@
                       <div class="tier-fill" style="width: 74%"></div>
                     </div>
                     <div class="tier-milestones">
-                      <span>Đồng (0)</span>
-                      <span>Bạc (500)</span>
-                      <span>Vàng (1.000)</span>
-                      <span class="active-rank">Kim Cương (1.850)</span>
-                      <span>Tuyển Thủ (2.500)</span>
+                      <span>Bronze (0)</span>
+                      <span>Silver (500)</span>
+                      <span>Gold (1,000)</span>
+                      <span class="active-rank">Diamond (1,850)</span>
+                      <span>Pro Gamer (2,500)</span>
                     </div>
                   </div>
                 </div>
 
                 <!-- Danh sách Voucher -->
-                <div class="vouchers-section-title">
-                  Mã Giảm Giá Độc Quyền Dành Cho Bạn:
+                <div class="vouchers-section-title" data-i18n="vouchersSectionTitle">
+                  Exclusive Vouchers Available For You:
                 </div>
                 <div class="vouchers-grid">
                   <div class="voucher-ticket">
                     <div class="v-left">
                       <span class="v-percent">10%</span>
-                      <span class="v-type">GIẢM GIÁ</span>
+                      <span class="v-type">DISCOUNT</span>
                     </div>
                     <div class="v-right">
-                      <strong>GIẢM 10% TẤT CẢ GEAR</strong>
-                      <p>Áp dụng cho đơn hàng từ 1.000.000₫</p>
+                      <strong data-i18n="voucher10Title">10% OFF ALL GEAR</strong>
+                      <p data-i18n="voucher10Desc">Valid on orders over $40</p>
                       <div class="v-code-row">
                         <code>BLUEVIP10</code>
                         <button
                           type="button"
                           class="btn-copy-code"
                           data-code="BLUEVIP10"
+                          data-i18n="btnCopyCode"
                         >
-                          Sao chép
+                          Copy
                         </button>
                       </div>
                     </div>
@@ -884,16 +923,17 @@
                       <span class="v-type">FREESHIP</span>
                     </div>
                     <div class="v-right">
-                      <strong>MIỄN PHÍ VẬN CHUYỂN</strong>
-                      <p>Giao hỏa tốc toàn quốc, áp dụng đơn bất kỳ</p>
+                      <strong data-i18n="voucherFreeTitle">FREE EXPRESS SHIPPING</strong>
+                      <p data-i18n="voucherFreeDesc">Fast insured delivery nationwide on any order</p>
                       <div class="v-code-row">
                         <code>FREESHIP</code>
                         <button
                           type="button"
                           class="btn-copy-code"
                           data-code="FREESHIP"
+                          data-i18n="btnCopyCode"
                         >
-                          Sao chép
+                          Copy
                         </button>
                       </div>
                     </div>
@@ -901,20 +941,21 @@
 
                   <div class="voucher-ticket">
                     <div class="v-left cash-bg">
-                      <span class="v-percent">50K</span>
-                      <span class="v-type">TIỀN MẶT</span>
+                      <span class="v-percent">$2</span>
+                      <span class="v-type">VOUCHER</span>
                     </div>
                     <div class="v-right">
-                      <strong>GIẢM NGAY 50.000₫</strong>
-                      <p>Quà tặng tân thủ eSports cho lần đầu mua gear</p>
+                      <strong data-i18n="voucher50kTitle">$2.00 WELCOME GIFT</strong>
+                      <p data-i18n="voucher50kDesc">Welcome reward for first-time gear buyers</p>
                       <div class="v-code-row">
                         <code>GAMER50K</code>
                         <button
                           type="button"
                           class="btn-copy-code"
                           data-code="GAMER50K"
+                          data-i18n="btnCopyCode"
                         >
-                          Sao chép
+                          Copy
                         </button>
                       </div>
                     </div>
@@ -929,17 +970,16 @@
                 style="display: none"
               >
                 <div class="dash-pane-header">
-                  <h3>BẢO MẬT TÀI KHOẢN</h3>
-                  <p>
-                    Đổi mật khẩu định kỳ để bảo vệ an toàn cho tài khoản và các
-                    đơn hàng của bạn.
+                  <h3 data-i18n="paneSecurityTitle">ACCOUNT SECURITY</h3>
+                  <p data-i18n="paneSecurityDesc">
+                    Update your password regularly to secure your orders and account privileges.
                   </p>
                 </div>
 
                 <form id="form-change-password" class="dash-security-form">
                   <div class="dash-form-group">
                     <label for="pass-current"
-                      >Mật khẩu hiện tại <span class="req">*</span></label
+                      ><span data-i18n="passCurrentLabel">Current Password</span> <span class="req">*</span></label
                     >
                     <div class="auth-input-wrap">
                       <i class="fa-solid fa-lock input-icon"></i>
@@ -947,13 +987,14 @@
                         type="password"
                         id="pass-current"
                         required
-                        placeholder="Nhập mật khẩu hiện tại"
+                        placeholder="Enter current password"
+                        data-i18n-placeholder="passCurrentPlaceholder"
                       />
                       <button
                         type="button"
                         class="btn-toggle-eye"
                         data-target="pass-current"
-                        aria-label="Hiện mật khẩu"
+                        aria-label="Show password"
                       >
                         <i class="fa-regular fa-eye"></i>
                       </button>
@@ -963,7 +1004,7 @@
                   <div class="form-grid-2">
                     <div class="dash-form-group">
                       <label for="pass-new"
-                        >Mật khẩu mới <span class="req">*</span></label
+                        ><span data-i18n="passNewLabel">New Password</span> <span class="req">*</span></label
                       >
                       <div class="auth-input-wrap">
                         <i class="fa-solid fa-key input-icon"></i>
@@ -972,13 +1013,14 @@
                           id="pass-new"
                           required
                           minlength="6"
-                          placeholder="Tối thiểu 6 ký tự"
+                          placeholder="At least 6 characters"
+                          data-i18n-placeholder="passNewPlaceholder"
                         />
                         <button
                           type="button"
                           class="btn-toggle-eye"
                           data-target="pass-new"
-                          aria-label="Hiện mật khẩu"
+                          aria-label="Show password"
                         >
                           <i class="fa-regular fa-eye"></i>
                         </button>
@@ -987,7 +1029,7 @@
 
                     <div class="dash-form-group">
                       <label for="pass-confirm"
-                        >Xác nhận mật khẩu mới <span class="req">*</span></label
+                        ><span data-i18n="passConfirmLabel">Confirm New Password</span> <span class="req">*</span></label
                       >
                       <div class="auth-input-wrap">
                         <i class="fa-solid fa-check-double input-icon"></i>
@@ -996,13 +1038,14 @@
                           id="pass-confirm"
                           required
                           minlength="6"
-                          placeholder="Nhập lại mật khẩu mới"
+                          placeholder="Re-enter new password"
+                          data-i18n-placeholder="passConfirmPlaceholder"
                         />
                         <button
                           type="button"
                           class="btn-toggle-eye"
                           data-target="pass-confirm"
-                          aria-label="Hiện mật khẩu"
+                          aria-label="Show password"
                         >
                           <i class="fa-regular fa-eye"></i>
                         </button>
@@ -1012,8 +1055,7 @@
 
                   <div class="dash-form-actions">
                     <button type="submit" class="btn-save-profile">
-                      <i class="fa-solid fa-shield-halved"></i> Cập Nhật Mật
-                      Khẩu
+                      <i class="fa-solid fa-shield-halved"></i> <span data-i18n="btnUpdatePass">Update Password</span>
                     </button>
                   </div>
                 </form>
@@ -1030,9 +1072,7 @@
         <div class="footer-col brand-col">
           <a href="index.html" class="footer-logo">Blue</a>
           <p class="footer-desc" data-i18n="footerDesc">
-            Nhà phân phối thiết bị ngoại vi Gaming Gear cao cấp và phụ kiện
-            eSports hàng đầu Việt Nam. Cam kết 100% chính hãng, bảo hành tận
-            tâm.
+            Authorized distributor of high-performance tournament gaming gear and eSports hardware. 100% genuine with dedicated warranty.
           </p>
           <div class="footer-socials">
             <a
@@ -1066,20 +1106,20 @@
           </div>
         </div>
         <div class="footer-col">
-          <h3 data-i18n="catSectionTitle">Sản Phẩm</h3>
+          <h3 data-i18n="catSectionTitle">Products</h3>
           <ul>
-            <li><a href="products.html?category=Chuột" data-i18n="catMice">Chuột Gaming</a></li>
-            <li><a href="products.html?category=Bàn%20phím" data-i18n="catKeyboards">Bàn Phím Cơ</a></li>
+            <li><a href="products.html?category=Chuột" data-i18n="catMice">Gaming Mice</a></li>
+            <li><a href="products.html?category=Bàn%20phím" data-i18n="catKeyboards">Mechanical Keyboards</a></li>
             <li>
-              <a href="products.html?category=Lót%20chuột" data-i18n="catMousepads">Lót Chuột eSports</a>
+              <a href="products.html?category=Lót%20chuột" data-i18n="catMousepads">eSports Mousepads</a>
             </li>
             <li>
-              <a href="products.html?category=Tai%20nghe" data-i18n="catHeadphones">Tai Nghe & Audio</a>
+              <a href="products.html?category=Tai%20nghe" data-i18n="catHeadphones">Headsets & Audio</a>
             </li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3 data-i18n="footerServiceTitle">Hỗ Trợ & Chính Sách</h3>
+          <h3 data-i18n="footerServiceTitle">Customer Support</h3>
           <ul>
             <li>
               <a
@@ -1087,7 +1127,7 @@
                 class="support-modal-trigger"
                 data-support-tab="warranty"
                 data-i18n="footerWarranty"
-                >Chính Sách Bảo Hành</a
+                >Warranty Policy</a
               >
             </li>
             <li>
@@ -1096,7 +1136,7 @@
                 class="support-modal-trigger"
                 data-support-tab="returns"
                 data-i18n="footerReturn"
-                >Đổi Trả & Hoàn Tiền</a
+                >Returns & Refunds</a
               >
             </li>
             <li>
@@ -1105,21 +1145,20 @@
                 class="support-modal-trigger"
                 data-support-tab="guide"
                 data-i18n="footerShipping"
-                >Hướng Dẫn Mua Hàng</a
+                >Shopping Guide</a
               >
             </li>
-            <li><a href="account.html" data-i18n="accountOrders">Tra Cứu Đơn Hàng</a></li>
+            <li><a href="account.html" data-i18n="accountOrders">Track Orders</a></li>
           </ul>
         </div>
         <div class="footer-col newsletter-col">
-          <h3 data-i18n="footerNewsletterTitle">Bản Tin eSports</h3>
+          <h3 data-i18n="footerNewsletterTitle">eSports Newsletter</h3>
           <p data-i18n="footerNewsletterDesc">
-            Nhận thông báo sớm nhất về các đợt flash sale, mã giảm giá và giải
-            đấu.
+            Get instant drops on pro tournament gear, exclusive discount vouchers, and scrims announcements.
           </p>
           <div class="newsletter-form">
-            <input type="email" placeholder="Nhập địa chỉ email..." data-i18n-placeholder="footerEmailPlaceholder" />
-            <button type="button" aria-label="Gửi">
+            <input type="email" placeholder="Enter your email address..." data-i18n-placeholder="footerEmailPlaceholder" />
+            <button type="button" aria-label="Subscribe" data-i18n-aria-label="footerSubscribeBtn">
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </div>
@@ -1150,17 +1189,19 @@
       class="cart-drawer"
       role="dialog"
       aria-modal="true"
-      aria-label="Giỏ hàng của bạn"
+      aria-label="Shopping Cart"
+      data-i18n-aria-label="cartDrawerAria"
     >
       <div class="cart-drawer-header">
         <div class="cart-drawer-title-group">
-          <h3>Giỏ Hàng</h3>
-          <span id="cart-drawer-badge" class="cart-drawer-badge">0 món</span>
+          <h3 data-i18n="cartDrawerTitle">Shopping Cart</h3>
+          <span id="cart-drawer-badge" class="cart-drawer-badge">0 items</span>
         </div>
         <button
           id="cart-drawer-close"
           class="cart-drawer-close"
-          aria-label="Đóng giỏ hàng"
+          aria-label="Close cart"
+          data-i18n-aria-label="cartCloseAria"
         >
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -1170,8 +1211,8 @@
       <div class="cart-shipping-bar">
         <div class="shipping-info">
           <i class="fa-solid fa-truck-fast"></i>
-          <span id="shipping-text"
-            >Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫</span
+          <span id="shipping-text" data-i18n="shippingDefault"
+            >Free express delivery nationwide on orders over $40</span
           >
         </div>
         <div class="shipping-progress-track">
@@ -1190,12 +1231,12 @@
           <div class="empty-icon-wrap">
             <i class="fa-solid fa-bag-shopping"></i>
           </div>
-          <h4>Giỏ hàng của bạn đang trống</h4>
-          <p>
-            Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!
+          <h4 data-i18n="cartEmpty">Your shopping cart is empty</h4>
+          <p data-i18n="cartEmptyDesc">
+            Explore our premium eSports collection to elevate your battlestation!
           </p>
-          <button id="cart-continue-btn" class="cart-continue-btn">
-            Mua sắm ngay
+          <button id="cart-continue-btn" class="cart-continue-btn" data-i18n="cartContinueBtn">
+            Shop Now
           </button>
         </div>
 
@@ -1214,14 +1255,14 @@
         style="display: none"
       >
         <div class="cart-summary-row">
-          <span class="summary-label">Tạm tính</span>
-          <span id="cart-subtotal" class="summary-value">0₫</span>
+          <span class="summary-label" data-i18n="cartSubtotal">Subtotal:</span>
+          <span id="cart-subtotal" class="summary-value">$0.00</span>
         </div>
-        <p class="cart-tax-notice">
-          Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.
+        <p class="cart-tax-notice" data-i18n="cartTaxNotice">
+          VAT included. Free shipping discount applied if threshold reached.
         </p>
         <button id="cart-checkout-btn" class="cart-checkout-btn">
-          <span>TIẾN HÀNH THANH TOÁN</span>
+          <span data-i18n="cartCheckoutBtn">PROCEED TO CHECKOUT</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
@@ -1241,7 +1282,8 @@
           type="button"
           class="checkout-close-corner"
           id="checkout-modal-close-icon"
-          aria-label="Đóng thanh toán"
+          aria-label="Close checkout"
+          data-i18n-aria-label="checkoutCloseAria"
         >
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -1250,38 +1292,40 @@
         <div
           class="checkout-stepper-header"
           role="navigation"
-          aria-label="Tiến trình đặt hàng siêu tốc"
+          aria-label="Express checkout process"
         >
           <button
             type="button"
             class="step-node active"
             id="step-node-1"
             aria-current="step"
-            title="Bước 1: Địa chỉ nhận hàng"
+            title="Step 1: Shipping address"
+            data-i18n-title="step1NavTitle"
           >
             <span class="step-num">1</span>
-            <span class="step-label">Địa Chỉ Nhận Hàng</span>
+            <span class="step-label" data-i18n="step1Label">Shipping Address</span>
           </button>
           <div class="step-line" id="step-line-1" aria-hidden="true"></div>
           <button
             type="button"
             class="step-node"
             id="step-node-2"
-            title="Bước 2: Thanh toán & xác nhận"
+            title="Step 2: Payment & confirmation"
+            data-i18n-title="step2NavTitle"
             disabled
           >
             <span class="step-num">2</span>
-            <span class="step-label">Thanh Toán & Xác Nhận</span>
+            <span class="step-label" data-i18n="step2Label">Payment & Review</span>
           </button>
         </div>
 
         <!-- STEP 1: GIAO HÀNG -->
         <div class="checkout-step-pane active" id="checkout-step-1">
-          <h3 id="checkout-modal-title" class="checkout-pane-title">
-            Thông Tin Giao Hàng Siêu Tốc
+          <h3 id="checkout-modal-title" class="checkout-pane-title" data-i18n="step1PaneTitle">
+            Express Delivery Information
           </h3>
-          <p class="checkout-pane-subtitle">
-            Giao nhanh 24h & hỗ trợ đồng kiểm bưu tá trước khi thanh toán.
+          <p class="checkout-pane-subtitle" data-i18n="step1PaneSubtitle">
+            Fast 24h delivery with parcel inspection prior to payment.
           </p>
 
           <div class="checkout-mini-summary" id="checkout-mini-summary">
@@ -1295,66 +1339,70 @@
           >
             <div class="form-group">
               <label for="cust-name"
-                >Họ và tên người nhận <span class="req">*</span></label
+                ><span data-i18n="labelCustName">Recipient Full Name</span> <span class="req">*</span></label
               >
               <input
                 type="text"
                 id="cust-name"
-                placeholder="Ví dụ: Hoàng Long"
+                placeholder="e.g. Alex Johnson"
+                data-i18n-placeholder="placeholderCustName"
                 required
               />
             </div>
             <div class="form-group">
               <label for="cust-phone"
-                >Số điện thoại liên hệ <span class="req">*</span></label
+                ><span data-i18n="labelCustPhone">Contact Phone Number</span> <span class="req">*</span></label
               >
               <input
                 type="tel"
                 id="cust-phone"
-                placeholder="Ví dụ: 0912345678"
+                placeholder="e.g. 0912345678"
+                data-i18n-placeholder="placeholderCustPhone"
                 pattern="[0-9]{10,11}"
                 required
               />
             </div>
             <div class="form-group full-width">
               <label for="cust-address"
-                >Địa chỉ chi tiết (Số nhà, tên đường, phường/xã)
+                ><span data-i18n="labelCustAddress">Detailed Street Address (House No, Street, Ward)</span>
                 <span class="req">*</span></label
               >
               <input
                 type="text"
                 id="cust-address"
-                placeholder="Ví dụ: 88 Phố Cầu Giấy, P. Dịch Vọng"
+                placeholder="e.g. 18 Grand Avenue, Central District"
+                data-i18n-placeholder="placeholderCustAddress"
                 required
               />
             </div>
             <div class="form-group">
               <label for="cust-city"
-                >Tỉnh / Thành phố <span class="req">*</span></label
+                ><span data-i18n="labelCustCity">City / Province</span> <span class="req">*</span></label
               >
               <select id="cust-city" required>
-                <option value="Hà Nội">Hà Nội (Hỏa tốc 2h - 24h)</option>
-                <option value="TP. Hồ Chí Minh">
-                  TP. Hồ Chí Minh (Giao 24h - 48h)
+                <option value="Hà Nội" data-i18n="cityHanoi">Hanoi (Express 2h - 24h)</option>
+                <option value="TP. Hồ Chí Minh" data-i18n="cityHcm">
+                  Ho Chi Minh City (24h - 48h)
                 </option>
-                <option value="Đà Nẵng">Đà Nẵng</option>
-                <option value="Hải Phòng">Hải Phòng</option>
-                <option value="Cần Thơ">Cần Thơ</option>
-                <option value="Khác">Tỉnh thành khác (Toàn quốc)</option>
+                <option value="Đà Nẵng" data-i18n="cityDanang">Da Nang</option>
+                <option value="Hải Phòng" data-i18n="cityHaiphong">Hai Phong</option>
+                <option value="Cần Thơ" data-i18n="cityCantho">Can Tho</option>
+                <option value="Khác" data-i18n="cityOther">Other Provinces (Nationwide)</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="cust-note">Ghi chú giao hàng (Tùy chọn)</label>
+              <label for="cust-note" data-i18n="labelCustNote">Delivery Notes (Optional)</label>
               <input
                 type="text"
                 id="cust-note"
-                placeholder="Ví dụ: Cho đồng kiểm, gọi trước khi giao"
+                placeholder="e.g. Call before delivery, allow parcel check"
+                data-i18n-placeholder="placeholderCustNote"
               />
             </div>
 
             <div class="step-actions">
               <button type="button" class="btn-step-next" id="btn-goto-step2">
-                <span>Tiếp tục sang thanh toán</span>
+                <span data-i18n="btnGotoStep2">Continue to Payment</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
@@ -1367,9 +1415,9 @@
           id="checkout-step-2"
           style="display: none"
         >
-          <h3 class="checkout-pane-title">Phương Thức Thanh Toán</h3>
-          <p class="checkout-pane-subtitle">
-            Lựa chọn cổng thanh toán an toàn, bảo mật tiêu chuẩn eSports.
+          <h3 class="checkout-pane-title" data-i18n="step2PaneTitle">Payment Method</h3>
+          <p class="checkout-pane-subtitle" data-i18n="step2PaneSubtitle">
+            Select a secure, encrypted payment method for eSports gear.
           </p>
 
           <div class="payment-methods-list">
@@ -1379,10 +1427,9 @@
                 <i class="fa-solid fa-truck-ramp-box"></i>
               </div>
               <div class="pm-info">
-                <strong>Thanh toán khi nhận hàng (COD)</strong>
-                <span
-                  >Được mở hộp đồng kiểm ngoại quan cùng bưu tá trước khi trả
-                  tiền</span
+                <strong data-i18n="pmCodTitle">Cash on Delivery (COD)</strong>
+                <span data-i18n="pmCodDesc"
+                  >Inspect parcel upon receipt, pay directly to courier</span
                 >
               </div>
             </label>
@@ -1394,12 +1441,11 @@
               </div>
               <div class="pm-info">
                 <strong
-                  >Ví MoMo / Quét mã QR
-                  <span class="pm-tag">Ưu đãi -20.000₫</span></strong
+                  ><span data-i18n="pmMomoTitle">MoMo E-Wallet</span>
+                  <span class="pm-tag">-$0.80</span></strong
                 >
-                <span
-                  >Quét mã QR tức thì trên app MoMo, nhận hoàn tiền game
-                  thủ</span
+                <span data-i18n="pmMomoDesc"
+                  >Instant scan QR code payment, get $0.80 instant discount</span
                 >
               </div>
             </label>
@@ -1410,9 +1456,9 @@
                 <i class="fa-solid fa-credit-card"></i>
               </div>
               <div class="pm-info">
-                <strong>VNPAY-QR / Thẻ ATM & Thẻ Quốc Tế</strong>
-                <span
-                  >Cổng thanh toán quốc gia, quét mã trên 40 app ngân hàng</span
+                <strong data-i18n="pmVnpayTitle">VNPAY / Banking App</strong>
+                <span data-i18n="pmVnpayDesc"
+                  >Supports VietQR, all local & international bank apps</span
                 >
               </div>
             </label>
@@ -1426,7 +1472,7 @@
           <div class="step-actions dual-actions">
             <button type="button" class="btn-step-back" id="btn-backto-step1">
               <i class="fa-solid fa-arrow-left"></i>
-              <span>Quay lại</span>
+              <span data-i18n="btnBacktoStep1">Back to Shipping Info</span>
             </button>
             <button
               type="button"
@@ -1434,7 +1480,7 @@
               id="btn-confirm-order"
             >
               <i class="fa-solid fa-shield-check"></i>
-              <span>Xác nhận đặt hàng</span>
+              <span data-i18n="btnConfirmOrder">Confirm Order Now</span>
             </button>
           </div>
         </div>
@@ -1448,28 +1494,27 @@
           <div class="checkout-success-icon-glow">
             <i class="fa-solid fa-circle-check"></i>
           </div>
-          <h3>Đặt Hàng Thành Công!</h3>
+          <h3 data-i18n="step3SuccessTitle">Order Placed Successfully!</h3>
           <div class="order-code-badge" id="order-code-badge">
-            Mã đơn: BL-28491
+            Order Code: BL-28491
           </div>
-          <p id="checkout-order-summary" class="order-success-text">
-            Cảm ơn bạn đã lựa chọn Blue Gaming Gear. Đơn hàng của bạn đang được
-            đóng gói và chuẩn bị giao.
+          <p id="checkout-order-summary" class="order-success-text" data-i18n="orderSuccessText">
+            Thank you for shopping with Blue Gaming Gear. Your order is being packed and prepared for express courier pickup.
           </p>
           <div class="order-status-timeline">
             <div class="timeline-step done">
-              <i class="fa-solid fa-check"></i> Đã tiếp nhận
+              <i class="fa-solid fa-check"></i> <span data-i18n="timelineStep1">Order Received</span>
             </div>
             <div class="timeline-step active">
-              <i class="fa-solid fa-box"></i> Đang đóng gói
+              <i class="fa-solid fa-box"></i> <span data-i18n="timelineStep2">Packing Gear</span>
             </div>
             <div class="timeline-step">
-              <i class="fa-solid fa-truck-fast"></i> Bàn giao bưu tá
+              <i class="fa-solid fa-truck-fast"></i> <span data-i18n="timelineStep3">Handover to Courier</span>
             </div>
           </div>
           <div class="checkout-modal-actions">
-            <button id="checkout-modal-close" class="checkout-modal-btn">
-              Hoàn tất mua sắm
+            <button id="checkout-modal-close" class="checkout-modal-btn" data-i18n="btnCompleteShopping">
+              Complete Shopping
             </button>
           </div>
         </div>
@@ -1480,9 +1525,9 @@
     <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
     <!-- SCRIPTS (THEO THỨ TỰ MVC) -->
-    <script src="i18n.js?v=2.4"></script>
-    <script src="auth-mvc.js?v=2.4"></script>
-    <script src="main.js?v=2.4"></script>
-    <script src="account.js?v=2.4"></script>
+    <script src="i18n.js?v=2.5"></script>
+    <script src="auth-mvc.js?v=2.5"></script>
+    <script src="main.js?v=2.5"></script>
+    <script src="account.js?v=2.5"></script>
   </body>
 </html>

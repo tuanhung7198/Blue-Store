@@ -812,7 +812,8 @@ function addToCart(productId, quantity = 1, openDrawer = true, variant = "") {
   // Tìm sản phẩm linh hoạt (so sánh String để tương thích cả ID dạng chuỗi từ JSON-Server lẫn số)
   const product = allProducts.find((p) => String(p.id) === String(productId));
   if (!product) {
-    showToast("Không tìm thấy thông tin sản phẩm!", "error");
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+    showToast(isEn ? "Product information not found!" : "Không tìm thấy thông tin sản phẩm!", "error");
     return;
   }
 
@@ -917,8 +918,19 @@ function updateCartBadge() {
   const drawerBadge = document.getElementById("cart-drawer-badge");
 
   if (badge) badge.textContent = totalItems;
-  if (drawerBadge) drawerBadge.textContent = `${totalItems} món`;
+  if (drawerBadge) {
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+    drawerBadge.textContent = isEn
+      ? `${totalItems} ${totalItems === 1 ? "item" : "items"}`
+      : `${totalItems} món`;
+  }
 }
+
+function updateCartUI() {
+  updateCartBadge();
+  renderCartDrawer();
+}
+window.updateCartUI = updateCartUI;
 
 function renderCartDrawer() {
   const cart = getCart();
@@ -931,12 +943,18 @@ function renderCartDrawer() {
 
   if (!itemsList || !emptyState || !footer) return;
 
+  const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+
   if (cart.length === 0) {
     emptyState.style.display = "flex";
     itemsList.style.display = "none";
     footer.style.display = "none";
     if (shippingFill) shippingFill.style.width = "0%";
-    if (shippingText) shippingText.textContent = "Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫";
+    if (shippingText) {
+      shippingText.textContent = isEn
+        ? "Free express delivery nationwide on orders over $40"
+        : "Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫";
+    }
     return;
   }
 
@@ -950,14 +968,15 @@ function renderCartDrawer() {
   cart.forEach((item) => {
     const itemTotal = item.price * item.quantity;
     subtotal += itemTotal;
+    const pName = window.getProductName ? window.getProductName(item) : item.name;
 
     html += `
       <div class="cart-item-row" data-id="${item.id}">
         <div class="cart-item-thumb">
-          <img src="${item.image}" alt="${item.name}" loading="lazy" />
+          <img src="${item.image}" alt="${pName}" loading="lazy" />
         </div>
         <div class="cart-item-details">
-          <h4 class="cart-item-title">${item.name}</h4>
+          <h4 class="cart-item-title">${pName}</h4>
           ${item.variant ? `<div class="cart-item-variant" style="font-size: 11px; color: #64748b; margin: 2px 0 4px 0;"><i class="fa-solid fa-tag" style="margin-right: 4px; font-size: 10px;"></i>${item.variant}</div>` : ""}
           <div class="cart-item-price-unit">${formatCurrency(item.price)}</div>
           <div class="cart-item-actions">
@@ -988,10 +1007,14 @@ function renderCartDrawer() {
     const progress = Math.min((subtotal / FREE_SHIPPING_THRESHOLD) * 100, 100);
     shippingFill.style.width = `${progress}%`;
     if (subtotal >= FREE_SHIPPING_THRESHOLD) {
-      shippingText.innerHTML = `<strong style="color: #10b981;"><i class="fa-solid fa-check"></i> Bạn được MIỄN PHÍ vận chuyển!</strong>`;
+      shippingText.innerHTML = isEn
+        ? `<strong style="color: #10b981;"><i class="fa-solid fa-check"></i> You unlocked FREE Express Shipping!</strong>`
+        : `<strong style="color: #10b981;"><i class="fa-solid fa-check"></i> Bạn được MIỄN PHÍ vận chuyển!</strong>`;
     } else {
       const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
-      shippingText.textContent = `Mua thêm ${formatCurrency(remaining)} để được MIỄN PHÍ vận chuyển!`;
+      shippingText.textContent = isEn
+        ? `Add ${formatCurrency(remaining)} more to get FREE shipping!`
+        : `Mua thêm ${formatCurrency(remaining)} để được MIỄN PHÍ vận chuyển!`;
     }
   }
 }
@@ -1060,25 +1083,44 @@ function executeLiveSearch(query) {
   prompt.style.display = "none";
   list.style.display = "block";
 
-  // Lọc sản phẩm theo tên hoặc danh mục
+  const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+
+  // Lọc sản phẩm theo tên hoặc danh mục (hỗ trợ cả tiếng Anh lẫn tiếng Việt)
   const matches = allProducts.filter((product) => {
-    const nameMatch = product.name.toLowerCase().includes(trimmed);
-    const catMatch = product.category && product.category.toLowerCase().includes(trimmed);
-    return nameMatch || catMatch;
+    const nameVi = (product.name || "").toLowerCase();
+    const nameEn = (window.getProductName ? window.getProductName(product) : "").toLowerCase();
+    const catVi = (product.category || "").toLowerCase();
+    const catEn = (window.getCategoryName ? window.getCategoryName(product.category) : "").toLowerCase();
+
+    return (
+      nameVi.includes(trimmed) ||
+      nameEn.includes(trimmed) ||
+      catVi.includes(trimmed) ||
+      catEn.includes(trimmed)
+    );
   });
 
   if (matches.length === 0) {
+    const noResultsTitle = isEn
+      ? `No products found matching "${escapeHtml(query)}"`
+      : `Không tìm thấy sản phẩm nào khớp với "${escapeHtml(query)}"`;
+    const noResultsDesc = isEn
+      ? `Please try keywords like: Mice, Keyboard, Razer, Logitech, Corsair...`
+      : `Vui lòng thử từ khóa khác như: Chuột, Bàn phím, Razer, Logitech, Corsair...`;
     list.innerHTML = `
       <div class="search-no-results">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <h4>Không tìm thấy sản phẩm nào khớp với "${escapeHtml(query)}"</h4>
-        <p>Vui lòng thử từ khóa khác như: Chuột, Bàn phím, Razer, Logitech, Corsair...</p>
+        <h4>${noResultsTitle}</h4>
+        <p>${noResultsDesc}</p>
       </div>
     `;
     return;
   }
 
-  let html = `<div class="search-results-count">Tìm thấy <strong>${matches.length}</strong> sản phẩm phù hợp:</div>`;
+  const resultsCountText = isEn
+    ? `Found <strong>${matches.length}</strong> matching products:`
+    : `Tìm thấy <strong>${matches.length}</strong> sản phẩm phù hợp:`;
+  let html = `<div class="search-results-count">${resultsCountText}</div>`;
   html += `<div class="search-results-grid">`;
 
   matches.forEach((p) => {
@@ -1087,18 +1129,23 @@ function executeLiveSearch(query) {
         ? `<span class="s-old-price">${formatCurrency(p.price)}</span> <span class="s-new-price">${formatCurrency(p.sale_price)}</span>`
         : `<span class="s-price">${formatCurrency(p.price)}</span>`;
 
+    const pName = window.getProductName ? window.getProductName(p) : p.name;
+    const catName = window.getCategoryName ? window.getCategoryName(p.category) : (p.category || "Gear");
+    const addBtnTitle = isEn ? "Add to Cart" : "Thêm vào giỏ";
+    const addBtnText = isEn ? "Add" : "Thêm";
+
     html += `
       <div class="search-result-card" data-id="${p.id}">
         <div class="s-img-wrap">
-          <img src="${p.image}" alt="${p.name}" loading="lazy" />
+          <img src="${p.image}" alt="${pName}" loading="lazy" />
         </div>
         <div class="s-info">
-          <span class="s-category-tag">${p.category || "Gear"}</span>
-          <h4 class="s-title">${highlightQuery(p.name, trimmed)}</h4>
+          <span class="s-category-tag">${catName}</span>
+          <h4 class="s-title">${highlightQuery(pName, trimmed)}</h4>
           <div class="s-price-row">${priceDisplay}</div>
         </div>
-        <button class="s-add-btn" data-id="${p.id}" title="Thêm vào giỏ">
-          <i class="fa-solid fa-cart-plus"></i> Thêm
+        <button class="s-add-btn" data-id="${p.id}" title="${addBtnTitle}">
+          <i class="fa-solid fa-cart-plus"></i> ${addBtnText}
         </button>
       </div>
     `;
@@ -1207,7 +1254,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const quickTags = document.querySelectorAll(".quick-tag-btn");
   quickTags.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const q = btn.getAttribute("data-query");
+      const q = btn.textContent.trim() || btn.getAttribute("data-query");
       if (searchInput && q) {
         searchInput.value = q;
         executeLiveSearch(q);
@@ -1247,10 +1294,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const openCartCheckoutFlow = (customItems = null) => {
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
     const items = customItems || getCart();
     if (!items || items.length === 0) {
       if (window.showToast) {
-        window.showToast("Giỏ hàng của bạn đang trống!", "warning");
+        window.showToast(isEn ? "Your shopping cart is empty!" : "Giỏ hàng của bạn đang trống!", "warning");
       }
       return;
     }
@@ -1259,7 +1307,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.AuthModel && !window.AuthModel.isLoggedIn() && window.AuthController) {
       window.AuthController.requireLogin((user) => {
         openCartCheckoutFlow(customItems);
-      }, "Vui lòng đăng nhập tài khoản để tiến hành thanh toán và tích lũy điểm thưởng thành viên eSports!");
+      }, isEn ? "Please sign in to proceed with checkout and earn eSports member reward points!" : "Vui lòng đăng nhập tài khoản để tiến hành thanh toán và tích lũy điểm thưởng thành viên eSports!");
       return;
     }
 
@@ -1303,23 +1351,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Nạp danh sách tóm tắt sản phẩm vào Step 1
     if (miniSummary) {
-      let itemsListHTML = items.map((item) => `
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+      let itemsListHTML = items.map((item) => {
+        const pName = window.getProductName ? window.getProductName(item) : item.name;
+        const variantText = item.variant ? (isEn ? `Variant: ${item.variant} | ` : `Phiên bản: ${item.variant} | `) : "";
+        return `
         <div class="checkout-item-summary-row" style="display:flex; align-items:center; gap:12px; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,0.06);">
-          <img src="${item.image}" alt="${item.name}" style="width:48px; height:48px; object-fit:contain; border-radius:6px; background:rgba(0,0,0,0.06); flex-shrink:0;">
+          <img src="${item.image}" alt="${pName}" style="width:48px; height:48px; object-fit:contain; border-radius:6px; background:rgba(0,0,0,0.06); flex-shrink:0;">
           <div style="flex:1; min-width:0;">
-            <strong style="font-size:13px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${item.name}</strong>
-            <span style="font-size:12px; color:#64748b;">${item.variant ? `Phiên bản: ${item.variant} | ` : ""}${item.quantity} × ${formatCurrency(item.price)}</span>
+            <strong style="font-size:13px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${pName}</strong>
+            <span style="font-size:12px; color:#64748b;">${variantText}${item.quantity} × ${formatCurrency(item.price)}</span>
           </div>
           <strong style="font-size:13px; color:var(--color-primary); flex-shrink:0;">${formatCurrency(item.price * item.quantity)}</strong>
         </div>
-      `).join("");
+      `;
+      }).join("");
 
+      const subtotalLabel = isEn ? `Subtotal (${totalQty} ${totalQty === 1 ? 'item' : 'items'}):` : `Tổng tạm tính (${totalQty} món):`;
       miniSummary.innerHTML = `
         <div class="checkout-items-scrollable" style="max-height:160px; overflow-y:auto; padding-right:4px;">
           ${itemsListHTML}
         </div>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; padding-top:8px; border-top:1.5px solid rgba(0,102,255,0.25);">
-          <span style="font-size:13px; font-weight:600;">Tổng tạm tính (${totalQty} món):</span>
+          <span style="font-size:13px; font-weight:600;">${subtotalLabel}</span>
           <span style="font-size:15px; font-weight:800; color:var(--color-primary);">${formatCurrency(subtotal)}</span>
         </div>
       `;
@@ -1346,19 +1400,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const addrInput = document.getElementById("cust-address");
       const cityInput = document.getElementById("cust-city");
       const noteInput = document.getElementById("cust-note");
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
 
       if (!nameInput || !nameInput.value.trim()) {
-        if (window.showToast) window.showToast("Vui lòng nhập họ và tên người nhận!", "error");
+        if (window.showToast) window.showToast(isEn ? "Please enter recipient full name!" : "Vui lòng nhập họ và tên người nhận!", "error");
         if (nameInput) nameInput.focus();
         return;
       }
       if (!phoneInput || !phoneInput.value.trim() || phoneInput.value.trim().length < 9) {
-        if (window.showToast) window.showToast("Vui lòng nhập số điện thoại hợp lệ!", "error");
+        if (window.showToast) window.showToast(isEn ? "Please enter a valid contact phone number!" : "Vui lòng nhập số điện thoại hợp lệ!", "error");
         if (phoneInput) phoneInput.focus();
         return;
       }
       if (!addrInput || !addrInput.value.trim()) {
-        if (window.showToast) window.showToast("Vui lòng nhập địa chỉ nhận hàng!", "error");
+        if (window.showToast) window.showToast(isEn ? "Please enter detailed delivery address!" : "Vui lòng nhập địa chỉ nhận hàng!", "error");
         if (addrInput) addrInput.focus();
         return;
       }
@@ -1378,24 +1433,24 @@ document.addEventListener("DOMContentLoaded", () => {
       if (finalSummary) {
         finalSummary.innerHTML = `
           <div class="summary-row-item">
-            <span>Người nhận:</span>
+            <span>${isEn ? "Recipient:" : "Người nhận:"}</span>
             <strong>${checkoutCustomerData.name} (${checkoutCustomerData.phone})</strong>
           </div>
           <div class="summary-row-item">
-            <span>Địa chỉ:</span>
+            <span>${isEn ? "Address:" : "Địa chỉ:"}</span>
             <span>${checkoutCustomerData.address}, ${checkoutCustomerData.city}</span>
           </div>
           <div class="summary-row-item">
-            <span>Tạm tính (${totalQty} món):</span>
+            <span>${isEn ? `Subtotal (${totalQty} ${totalQty === 1 ? 'item' : 'items'}):` : `Tạm tính (${totalQty} món):`}</span>
             <span>${formatCurrency(subtotal)}</span>
           </div>
           <div class="summary-row-item">
-            <span>Phí giao hàng:</span>
-            <span style="color:#10b981; font-weight:700;">MIỄN PHÍ VẬN CHUYỂN</span>
+            <span>${isEn ? "Shipping Fee:" : "Phí giao hàng:"}</span>
+            <span style="color:#10b981; font-weight:700;">${isEn ? "FREE SHIPPING" : "MIỄN PHÍ VẬN CHUYỂN"}</span>
           </div>
-          ${discountMoMo > 0 ? `<div class="summary-row-item" style="color:#dc2626;"><span>Ưu đãi MoMo:</span><span>-20.000₫</span></div>` : ""}
+          ${discountMoMo > 0 ? `<div class="summary-row-item" style="color:#dc2626;"><span>${isEn ? "MoMo Discount:" : "Ưu đãi MoMo:"}</span><span>-${formatCurrency(discountMoMo)}</span></div>` : ""}
           <div class="summary-row-item total-row">
-            <span>Tổng thanh toán:</span>
+            <span>${isEn ? "Total Amount:" : "Tổng thanh toán:"}</span>
             <span>${formatCurrency(grandTotal)}</span>
           </div>
         `;
@@ -1464,8 +1519,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Xác nhận đặt hàng -> Step 3
   if (btnConfirmOrder) {
     btnConfirmOrder.addEventListener("click", () => {
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       const randCode = "BL-" + Math.floor(10000 + Math.random() * 90000);
-      if (orderCodeBadge) orderCodeBadge.textContent = `Mã đơn hàng: ${randCode}`;
+      if (orderCodeBadge) orderCodeBadge.textContent = `${isEn ? "Order Code:" : "Mã đơn hàng:"} ${randCode}`;
 
       const totalQty = activeCheckoutItems.reduce((sum, item) => sum + item.quantity, 0);
       const subtotal = activeCheckoutItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -1474,11 +1530,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const summaryText = document.getElementById("checkout-order-summary");
       if (summaryText) {
-        summaryText.innerHTML = `
-          Cảm ơn bạn <strong>${checkoutCustomerData.name}</strong> đã đặt mua thành công <strong>${totalQty} sản phẩm</strong> (${formatCurrency(grandTotal)}).<br>
-          Đơn hàng sẽ được giao tới: <em>${checkoutCustomerData.address}, ${checkoutCustomerData.city}</em>.<br>
-          Phương thức thanh toán: <strong>${checkoutCustomerData.paymentMethod}</strong>. CSKH sẽ liên hệ xác nhận trong ít phút!
-        `;
+        summaryText.innerHTML = isEn
+          ? `Thank you <strong>${checkoutCustomerData.name}</strong>! Your order for <strong>${totalQty} ${totalQty === 1 ? 'item' : 'items'}</strong> (${formatCurrency(grandTotal)}) has been received.<br>Shipping to: <em>${checkoutCustomerData.address}, ${checkoutCustomerData.city}</em>.<br>Payment: <strong>${checkoutCustomerData.paymentMethod}</strong>. Our customer care team will verify shortly!`
+          : `Cảm ơn bạn <strong>${checkoutCustomerData.name}</strong> đã đặt mua thành công <strong>${totalQty} sản phẩm</strong> (${formatCurrency(grandTotal)}).<br>Đơn hàng sẽ được giao tới: <em>${checkoutCustomerData.address}, ${checkoutCustomerData.city}</em>.<br>Phương thức thanh toán: <strong>${checkoutCustomerData.paymentMethod}</strong>. CSKH sẽ liên hệ xác nhận trong ít phút!`;
       }
 
       // Lưu đơn hàng vào AuthModel (lịch sử đơn hàng của tài khoản)
@@ -1505,7 +1559,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (step2Pane) step2Pane.style.display = "none";
       if (step3Pane) step3Pane.style.display = "block";
       if (window.showToast) {
-        window.showToast(`Đặt hàng thành công! Mã đơn: ${randCode}`, "success", 4000);
+        window.showToast(isEn ? `Order placed successfully! Order ID: ${randCode}` : `Đặt hàng thành công! Mã đơn: ${randCode}`, "success", 4000);
       }
     });
   }
@@ -1566,7 +1620,11 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("blue_esports_theme", nextTheme);
       initGlobalTheme();
       if (window.showToast) {
-        window.showToast(nextTheme === "dark" ? "Đã bật chế độ Dark eSports 🌙" : "Đã bật chế độ Sáng ☀️", "info", 1800);
+        const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+        const toastMsg = isEn
+          ? (nextTheme === "dark" ? "Switched to Dark Mode 🌙" : "Switched to Light Mode ☀️")
+          : (nextTheme === "dark" ? "Đã bật chế độ Dark eSports 🌙" : "Đã bật chế độ Sáng ☀️");
+        window.showToast(toastMsg, "info", 1800);
       }
       return;
     }
@@ -1623,6 +1681,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (err) {}
 
         const isSolid = icon.classList.contains("fa-solid");
+        const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
         if (isSolid) {
           icon.classList.remove("fa-solid");
           icon.classList.add("fa-regular");
@@ -1631,7 +1690,7 @@ document.addEventListener("DOMContentLoaded", () => {
             list = list.filter((id) => String(id) !== String(pid));
             try { localStorage.setItem("blue_wishlist", JSON.stringify(list)); } catch (err) {}
           }
-          showToast("Đã xóa khỏi danh sách yêu thích.", "info");
+          showToast(isEn ? "Removed from wishlist." : "Đã xóa khỏi danh sách yêu thích.", "info");
         } else {
           icon.classList.remove("fa-regular");
           icon.classList.add("fa-solid");
@@ -1640,7 +1699,7 @@ document.addEventListener("DOMContentLoaded", () => {
             list.push(String(pid));
             try { localStorage.setItem("blue_wishlist", JSON.stringify(list)); } catch (err) {}
           }
-          showToast("Đã thêm vào danh sách yêu thích! ❤️", "success");
+          showToast(isEn ? "Added to wishlist! ❤️" : "Đã thêm vào danh sách yêu thích! ❤️", "success");
         }
       }
       return;

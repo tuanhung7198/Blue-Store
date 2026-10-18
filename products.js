@@ -400,28 +400,38 @@ document.addEventListener("DOMContentLoaded", async () => {
   // 8. Render Active Chips
   function renderActiveChips() {
     if (!activeChipsContainer) return;
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
     const chips = [];
 
     if (filterState.category !== "all") {
-      chips.push({ key: "category", label: `Danh mục: ${filterState.category}` });
+      const catName = isEn ? (window.getCategoryName ? window.getCategoryName(filterState.category) : filterState.category) : filterState.category;
+      chips.push({ key: "category", label: isEn ? `Category: ${catName}` : `Danh mục: ${filterState.category}` });
     }
     if (filterState.brand !== "all") {
-      chips.push({ key: "brand", label: `Hãng: ${filterState.brand}` });
+      chips.push({ key: "brand", label: isEn ? `Brand: ${filterState.brand}` : `Hãng: ${filterState.brand}` });
     }
     if (filterState.spec !== "all") {
-      const specLabels = {
+      const specLabelsEn = {
+        wireless: "Wireless",
+        wired: "Wired",
+        ultralight: "Ultralight",
+        "8k": "4K/8K Polling",
+        magnetic: "Magnetic / HE",
+      };
+      const specLabelsVi = {
         wireless: "Không Dây",
         wired: "Có Dây",
         ultralight: "Siêu Nhẹ",
         "8k": "4K/8K Polling",
         magnetic: "Từ Tính / HE",
       };
-      chips.push({ key: "spec", label: `Tính năng: ${specLabels[filterState.spec] || filterState.spec}` });
+      const specMap = isEn ? specLabelsEn : specLabelsVi;
+      chips.push({ key: "spec", label: isEn ? `Feature: ${specMap[filterState.spec] || filterState.spec}` : `Tính năng: ${specMap[filterState.spec] || filterState.spec}` });
     }
     if (filterState.priceMin > 0 || filterState.priceMax < 12000000) {
       let priceLabel = "";
-      const minStr = filterState.priceMin.toLocaleString("vi-VN") + "₫";
-      const maxStr = filterState.priceMax.toLocaleString("vi-VN") + "₫";
+      const minStr = window.formatCurrency ? window.formatCurrency(filterState.priceMin) : filterState.priceMin.toLocaleString("vi-VN") + "₫";
+      const maxStr = window.formatCurrency ? window.formatCurrency(filterState.priceMax) : filterState.priceMax.toLocaleString("vi-VN") + "₫";
       if (filterState.priceMin === 0) {
         priceLabel = `< ${maxStr}`;
       } else if (filterState.priceMax >= 12000000) {
@@ -429,14 +439,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       } else {
         priceLabel = `${minStr} - ${maxStr}`;
       }
-      chips.push({ key: "price", label: `Giá: ${priceLabel}` });
+      chips.push({ key: "price", label: isEn ? `Price: ${priceLabel}` : `Giá: ${priceLabel}` });
     }
     if (filterState.status !== "all") {
-      const statusLabels = { hot: "Nổi bật (Hot)", sale: "Đang giảm giá", new: "Mới ra mắt" };
-      chips.push({ key: "status", label: `Tình trạng: ${statusLabels[filterState.status] || ""}` });
+      const statusLabelsEn = { hot: "Trending Hot", sale: "On Sale", new: "New Releases" };
+      const statusLabelsVi = { hot: "Nổi bật (Hot)", sale: "Đang giảm giá", new: "Mới ra mắt" };
+      const statusMap = isEn ? statusLabelsEn : statusLabelsVi;
+      chips.push({ key: "status", label: isEn ? `Status: ${statusMap[filterState.status] || ""}` : `Tình trạng: ${statusMap[filterState.status] || ""}` });
     }
     if (filterState.search.trim()) {
-      chips.push({ key: "search", label: `Tìm kiếm: "${filterState.search}"` });
+      chips.push({ key: "search", label: isEn ? `Search: "${filterState.search}"` : `Tìm kiếm: "${filterState.search}"` });
     }
 
     if (chips.length === 0) {
@@ -451,7 +463,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         (c) => `
       <span class="filter-chip">
         ${c.label}
-        <button type="button" data-chip-key="${c.key}" aria-label="Xóa bộ lọc">&times;</button>
+        <button type="button" data-chip-key="${c.key}" aria-label="${isEn ? 'Remove filter' : 'Xóa bộ lọc'}">&times;</button>
       </span>
     `
       )
@@ -459,7 +471,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     html += `
       <button type="button" id="btn-clear-all-chips" style="background:none; border:none; color:#ef4444; font-size:12px; font-weight:700; cursor:pointer; text-decoration:underline; margin-left:6px;">
-        Xóa tất cả
+        ${isEn ? 'Clear All Filters' : 'Xóa tất cả'}
       </button>
     `;
 
@@ -728,8 +740,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (btnApplyPrice) {
       const origText = btnApplyPrice.innerHTML;
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       btnApplyPrice.style.background = "#10b981";
-      btnApplyPrice.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>Đã áp dụng!</span>`;
+      btnApplyPrice.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>${isEn ? "Applied!" : "Đã áp dụng!"}</span>`;
       setTimeout(() => {
         btnApplyPrice.style.background = "";
         btnApplyPrice.innerHTML = origText;

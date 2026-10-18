@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tất Cả Sản Phẩm Gaming Gear | Blue</title>
+    <title>All Gaming Gear | Blue Gaming Gear</title>
     <link rel="stylesheet" href="style.css?v=2.4" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -70,36 +70,36 @@
               </div>
             </div>
             <div class="utilities">
-              <a href="https://discord.gg/bluegaming" target="_blank" rel="noopener noreferrer" title="Cộng đồng Discord eSports"><i class="fa-brands fa-discord"></i></a>
-              <a href="mailto:support@blue.vn" title="Hỗ trợ qua Email: support@blue.vn"><i class="fa-regular fa-envelope"></i></a>
-              <button id="search-trigger-btn" class="nav-icon-btn" aria-label="Tìm kiếm sản phẩm" title="Tìm kiếm (Ctrl+K)">
+              <a href="https://discord.gg/bluegaming" target="_blank" rel="noopener noreferrer" title="eSports Discord Community"><i class="fa-brands fa-discord"></i></a>
+              <a href="mailto:support@blue.vn" title="Email Support: support@blue.vn"><i class="fa-regular fa-envelope"></i></a>
+              <button id="search-trigger-btn" class="nav-icon-btn" aria-label="Search products" title="Search (Ctrl+K)" data-i18n-title="searchTitle" data-i18n-aria-label="searchTitle">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
               <!-- NÚT TÀI KHOẢN (ĐỒNG BỘ MVC AUTH) -->
               <div class="header-user-wrapper" id="header-user-wrapper">
-                <a href="account.html" class="nav-icon-btn header-user-btn" id="header-user-btn" title="Tài khoản thành viên" aria-label="Tài khoản thành viên">
+                <a href="account.html" class="nav-icon-btn header-user-btn" id="header-user-btn" title="Member Account" aria-label="Member Account" data-i18n-title="accountBtnTitle" data-i18n-aria-label="accountBtnAria">
                   <i class="fa-regular fa-user"></i>
                 </a>
                 <div class="user-dropdown-menu" id="user-dropdown-menu">
                   <div class="user-dropdown-header">
                     <div class="user-dropdown-avatar" id="user-dd-avatar"></div>
                     <div class="user-dropdown-meta">
-                      <strong id="user-dd-name">Alex Nguyễn</strong>
-                      <span id="user-dd-rank">VIP Diamond</span>
-                      <small id="user-dd-points" style="color: var(--blue-accent, #0052cc); font-weight:700;">1.850 điểm</small>
+                      <strong id="user-dd-name">Alex Johnson</strong>
+                      <span id="user-dd-rank" data-i18n="userRankDiamond">VIP Diamond</span>
+                      <small id="user-dd-points" style="color: var(--blue-accent, #0052cc); font-weight:700;">1,850 Points</small>
                     </div>
                   </div>
                   <ul class="user-dropdown-links">
-                    <li><a href="account.html?tab=profile"><i class="fa-regular fa-id-badge"></i> Thông tin tài khoản</a></li>
-                    <li><a href="account.html?tab=orders"><i class="fa-solid fa-box-open"></i> Đơn hàng của tôi</a></li>
-                    <li><a href="account.html?tab=addresses"><i class="fa-solid fa-location-dot"></i> Sổ địa chỉ</a></li>
-                    <li><a href="account.html?tab=rewards"><i class="fa-solid fa-gift"></i> Điểm & Voucher</a></li>
+                    <li><a href="account.html?tab=profile"><i class="fa-regular fa-id-badge"></i> <span data-i18n="accountProfile">My Profile</span></a></li>
+                    <li><a href="account.html?tab=orders"><i class="fa-solid fa-box-open"></i> <span data-i18n="accountOrders">My Orders</span></a></li>
+                    <li><a href="account.html?tab=addresses"><i class="fa-solid fa-location-dot"></i> <span data-i18n="accountAddresses">Address Book</span></a></li>
+                    <li><a href="account.html?tab=rewards"><i class="fa-solid fa-gift"></i> <span data-i18n="accountRewards">Points & Vouchers</span></a></li>
                     <li class="user-dropdown-divider"></li>
-                    <li><button type="button" class="btn-user-logout" id="header-logout-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</button></li>
+                    <li><button type="button" class="btn-user-logout" id="header-logout-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span data-i18n="accountLogout">Sign Out</span></button></li>
                   </ul>
                 </div>
               </div>
-              <button id="theme-toggle-btn" class="theme-toggle-btn glass-theme-btn" aria-label="Chuyển chế độ Dark / Light" title="Giao diện Sáng (Bấm để chuyển sang Dark Mode)">
+              <button id="theme-toggle-btn" class="theme-toggle-btn glass-theme-btn" aria-label="Switch Dark / Light mode" title="Light Theme (Click to switch to Dark Mode)">
                 <span class="theme-toggle-badge">
                   <i class="fa-solid fa-sun"></i>
                 </span>
@@ -111,7 +111,7 @@
                   </span>
                 </span>
               </button>
-              <button id="cart-trigger-btn" class="nav-icon-btn cart-icon" aria-label="Xem giỏ hàng" title="Giỏ hàng">
+              <button id="cart-trigger-btn" class="nav-icon-btn cart-icon" aria-label="View shopping cart" title="Shopping Cart" data-i18n-title="cartDrawerTitle" data-i18n-aria-label="cartDrawerAria">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span id="cart-badge" class="cart-badge">0</span>
               </button>
@@ -151,10 +151,10 @@
                 </div>
               </div>
               <div class="mega-carousel-controls">
-                <button type="button" class="carousel-btn mega-prev-btn" id="mega-prev-btn" aria-label="Sản phẩm trước" title="Trang trước" disabled>
+                <button type="button" class="carousel-btn mega-prev-btn" id="mega-prev-btn" aria-label="Previous products" title="Previous page" disabled>
                   <i class="fa-solid fa-angle-left"></i>
                 </button>
-                <button type="button" class="carousel-btn mega-next-btn" id="mega-next-btn" aria-label="Sản phẩm tiếp theo" title="Trang tiếp theo">
+                <button type="button" class="carousel-btn mega-next-btn" id="mega-next-btn" aria-label="Next products" title="Next page">
                   <i class="fa-solid fa-angle-right"></i>
                 </button>
               </div>
@@ -165,33 +165,33 @@
     </header>
 
     <!-- LIVE SEARCH MODAL OVERLAY -->
-    <div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="Tìm kiếm sản phẩm" style="display: none;">
+    <div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="Search products" data-i18n-aria-label="searchModalAria" style="display: none;">
       <div class="search-modal-container">
         <div class="search-modal-header">
           <div class="search-input-wrapper">
             <i class="fa-solid fa-magnifying-glass search-input-icon"></i>
-            <input type="text" id="live-search-input" placeholder="Tìm kiếm chuột, bàn phím cơ, lót chuột, tai nghe..." autocomplete="off" />
-            <button id="search-clear-btn" class="search-clear-btn" aria-label="Xóa từ khóa" style="display: none;">
+            <input type="text" id="live-search-input" placeholder="Search mice, mechanical keyboards, mousepads, headsets..." data-i18n-placeholder="searchPlaceholder" autocomplete="off" />
+            <button id="search-clear-btn" class="search-clear-btn" aria-label="Clear search query" data-i18n-aria-label="searchClearAria" style="display: none;">
               <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
-          <button id="search-close-btn" class="search-close-btn" aria-label="Đóng tìm kiếm">
+          <button id="search-close-btn" class="search-close-btn" aria-label="Close search" data-i18n-aria-label="searchCloseAria">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
         <div class="search-quick-tags">
-          <span class="quick-tag-label">Tìm nhanh:</span>
-          <button class="quick-tag-btn" data-query="Chuột">Chuột</button>
-          <button class="quick-tag-btn" data-query="Bàn phím">Bàn phím</button>
-          <button class="quick-tag-btn" data-query="Tai nghe">Tai nghe</button>
-          <button class="quick-tag-btn" data-query="Lót chuột">Lót chuột</button>
+          <span class="quick-tag-label" data-i18n="searchQuickTagLabel">Quick search:</span>
+          <button class="quick-tag-btn" data-query="Mice" data-i18n="catMice">Mice</button>
+          <button class="quick-tag-btn" data-query="Keyboards" data-i18n="catKeyboards">Keyboards</button>
+          <button class="quick-tag-btn" data-query="Headphones" data-i18n="catHeadphones">Headphones</button>
+          <button class="quick-tag-btn" data-query="Mousepads" data-i18n="catMousepads">Mousepads</button>
           <button class="quick-tag-btn" data-query="Logitech">Logitech</button>
           <button class="quick-tag-btn" data-query="Razer">Razer</button>
         </div>
         <div id="search-results-container" class="search-results-container">
           <div id="search-empty-prompt" class="search-empty-prompt">
             <i class="fa-solid fa-keyboard prompt-icon"></i>
-            <p>Nhập tên sản phẩm, thương hiệu hoặc danh mục để tìm kiếm tức thì.</p>
+            <p data-i18n="searchEmptyPrompt">Type product name, brand, or category for instant search.</p>
           </div>
           <div id="search-results-list" class="search-results-list" style="display: none;"></div>
         </div>
@@ -199,12 +199,12 @@
     </div>
 
     <!-- BREADCRUMB -->
-    <nav class="breadcrumb-wrapper" aria-label="Đường dẫn trang">
+    <nav class="breadcrumb-wrapper" aria-label="Breadcrumb navigation">
       <div class="container">
         <ol class="breadcrumb-list">
-          <li><a href="index.html"><i class="fa-solid fa-house" style="margin-right: 4px;"></i><span data-i18n="catalogBreadcrumbHome">Trang chủ</span></a></li>
+          <li><a href="index.html"><i class="fa-solid fa-house" style="margin-right: 4px;"></i><span data-i18n="catalogBreadcrumbHome">Home</span></a></li>
           <li class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
-          <li class="breadcrumb-current" id="breadcrumb-current-label" data-i18n="catalogBreadcrumbAll">Tất cả sản phẩm</li>
+          <li class="breadcrumb-current" id="breadcrumb-current-label" data-i18n="catalogBreadcrumbAll">All Products</li>
         </ol>
       </div>
     </nav>
@@ -223,7 +223,7 @@
       <!-- Catalog Layout -->
       <div class="products-layout">
         <!-- SIDEBAR BỘ LỌC -->
-        <aside class="products-sidebar" aria-label="Bộ lọc sản phẩm">
+        <aside class="products-sidebar" aria-label="Product filters">
           <div class="sidebar-header">
             <h2 class="sidebar-heading"><i class="fa-solid fa-sliders"></i> <span data-i18n="filterHeader">Filters</span></h2>
             <button id="btn-reset-filters" class="reset-filter-btn" type="button" data-i18n="filterReset">Reset</button>
@@ -338,8 +338,8 @@
         </aside>
 
         <!-- KHU VỰC SẢN PHẨM -->
-        <section class="products-main-content" aria-label="Danh sách sản phẩm">
-          <h2 class="sr-only">Danh mục sản phẩm</h2>
+        <section class="products-main-content" aria-label="Product catalog">
+          <h2 class="sr-only">Product Catalog</h2>
           <!-- Toolbar -->
           <div class="products-toolbar">
             <div class="toolbar-left">
@@ -371,15 +371,15 @@
           <!-- Empty State -->
           <div id="products-empty-state" class="products-empty-state" style="display: none;">
             <i class="fa-solid fa-box-open"></i>
-            <h3>Không tìm thấy sản phẩm phù hợp</h3>
-            <p>Hãy thử thay đổi mức giá, danh mục hoặc từ khóa tìm kiếm của bạn.</p>
-            <button id="btn-clear-empty-filters" class="btn-clear-filters" type="button">
-              Xóa bộ lọc để xem tất cả
+            <h3 data-i18n="searchNoResultsTitle">No matching products found</h3>
+            <p data-i18n="searchNoResultsDesc">Try adjusting your price range, category, or search keywords.</p>
+            <button id="btn-clear-empty-filters" class="btn-clear-filters" type="button" data-i18n="filterReset">
+              Reset Filters
             </button>
           </div>
 
           <!-- Phân trang -->
-          <nav id="products-pagination" class="products-pagination" aria-label="Phân trang sản phẩm">
+          <nav id="products-pagination" class="products-pagination" aria-label="Product pagination">
             <!-- JS render các nút phân trang -->
           </nav>
         </section>
@@ -392,9 +392,8 @@
         <!-- Brand & About -->
         <div class="footer-col brand-col">
           <h2 class="footer-logo">Blue</h2>
-          <p class="footer-desc">
-            Mang đến cho bạn những sản phẩm gear chất lượng và trải nghiệm chơi
-            game tuyệt đỉnh. Luôn đồng hành cùng mọi chiến thắng của bạn.
+          <p class="footer-desc" data-i18n="footerDesc">
+            Delivering tournament-grade eSports gear and supreme gaming experiences. Standing by every victory you make.
           </p>
           <div class="footer-socials">
             <a href="https://facebook.com/bluegaminggear" target="_blank" rel="noopener noreferrer" title="Facebook Blue Gaming Gear"><i class="fa-brands fa-facebook-f"></i></a>
@@ -406,44 +405,42 @@
 
         <!-- Quick Links -->
         <div class="footer-col links-col">
-          <h3>Về Chúng Tôi</h3>
+          <h3 data-i18n="footerAboutTitle">About Us</h3>
           <ul>
-            <li><a href="#support-brand" class="support-modal-trigger" data-support-tab="brand">Câu chuyện thương hiệu</a></li>
-            <li><a href="#support-careers" class="support-modal-trigger" data-support-tab="careers">Tuyển dụng</a></li>
-            <li><a href="products.html?status=hot">Tin tức công nghệ</a></li>
-            <li><a href="#support-privacy" class="support-modal-trigger" data-support-tab="privacy">Chính sách bảo mật</a></li>
+            <li><a href="#support-brand" class="support-modal-trigger" data-support-tab="brand" data-i18n="footerBrandStory">Brand Story</a></li>
+            <li><a href="#support-careers" class="support-modal-trigger" data-support-tab="careers" data-i18n="footerCareers">Careers</a></li>
+            <li><a href="products.html?status=hot" data-i18n="footerTechNews">Tech News</a></li>
+            <li><a href="#support-privacy" class="support-modal-trigger" data-support-tab="privacy" data-i18n="footerPrivacy">Privacy Policy</a></li>
           </ul>
         </div>
 
         <!-- Customer Service -->
         <div class="footer-col links-col">
-          <h3>Hỗ Trợ Khách Hàng</h3>
+          <h3 data-i18n="footerServiceTitle">Customer Service</h3>
           <ul>
-            <li><a href="#support-returns" class="support-modal-trigger" data-support-tab="returns">Chính sách đổi trả</a></li>
-            <li><a href="#support-warranty" class="support-modal-trigger" data-support-tab="warranty">Chính sách bảo hành</a></li>
-            <li><a href="#support-guide" class="support-modal-trigger" data-support-tab="guide">Hướng dẫn mua hàng</a></li>
-            <li><a href="#support-tech" class="support-modal-trigger" data-support-tab="tech">Hỗ trợ kỹ thuật</a></li>
+            <li><a href="#support-returns" class="support-modal-trigger" data-support-tab="returns" data-i18n="footerReturn">1-to-1 Return Policy</a></li>
+            <li><a href="#support-warranty" class="support-modal-trigger" data-support-tab="warranty" data-i18n="footerWarranty">Warranty Policy</a></li>
+            <li><a href="#support-guide" class="support-modal-trigger" data-support-tab="guide" data-i18n="footerShipping">Shipping Guide</a></li>
+            <li><a href="#support-tech" class="support-modal-trigger" data-support-tab="tech" data-i18n="footerFaq">FAQ & Help Center</a></li>
           </ul>
         </div>
 
         <!-- Contact Info -->
         <div class="footer-col contact-col">
-          <h3>Liên Hệ</h3>
-          <ul>
-            <li>
-              <i class="fa-solid fa-location-dot"></i> 123 Đường Công Nghệ, Quận
-              1, TP. HCM
-            </li>
-            <li><i class="fa-solid fa-phone"></i> Hotline: 1900 1234</li>
-            <li><i class="fa-solid fa-envelope"></i> Email: support@blue.vn</li>
-          </ul>
+          <h3 data-i18n="footerNewsletterTitle">Stay Connected</h3>
+          <p class="footer-newsletter-desc" data-i18n="footerNewsletterDesc">
+            Subscribe to receive exclusive drops, secret vouchers, and eSports tournament news.
+          </p>
+          <div class="footer-newsletter-form">
+            <input type="email" placeholder="Enter your email address..." data-i18n-placeholder="footerEmailPlaceholder" />
+            <button type="button" class="btn-subscribe" data-i18n="footerSubscribeBtn">Subscribe</button>
+          </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>
-          &copy; 2024
-          <span class="footer-brand-highlight">BLUE</span>. All rights reserved.
+        <p data-i18n="footerCopyright">
+          &copy; 2026 Blue Gaming Gear Inc. All rights reserved. Built for champions.
         </p>
       </div>
     </footer>
@@ -452,13 +449,25 @@
     <div id="cart-drawer-overlay" class="cart-drawer-overlay" style="display: none;"></div>
 
     <!-- SLIDE-OUT MINI CART DRAWER -->
-    <aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Giỏ hàng của bạn">
+    <aside
+      id="cart-drawer"
+      class="cart-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Shopping Cart"
+      data-i18n-aria-label="cartDrawerAria"
+    >
       <div class="cart-drawer-header">
         <div class="cart-drawer-title-group">
-          <h3 data-i18n="cartTitle">Giỏ Hàng</h3>
-          <span id="cart-drawer-badge" class="cart-drawer-badge">0 món</span>
+          <h3 data-i18n="cartDrawerTitle">Shopping Cart</h3>
+          <span id="cart-drawer-badge" class="cart-drawer-badge">0 items</span>
         </div>
-        <button id="cart-drawer-close" class="cart-drawer-close" aria-label="Đóng giỏ hàng">
+        <button
+          id="cart-drawer-close"
+          class="cart-drawer-close"
+          aria-label="Close cart"
+          data-i18n-aria-label="cartCloseAria"
+        >
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
@@ -467,10 +476,16 @@
       <div class="cart-shipping-bar">
         <div class="shipping-info">
           <i class="fa-solid fa-truck-fast"></i>
-          <span id="shipping-text" data-i18n="freeShippingNotice">Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫</span>
+          <span id="shipping-text" data-i18n="shippingDefault"
+            >Free express delivery nationwide on orders over $40</span
+          >
         </div>
         <div class="shipping-progress-track">
-          <div id="shipping-progress-fill" class="shipping-progress-fill" style="width: 0%;"></div>
+          <div
+            id="shipping-progress-fill"
+            class="shipping-progress-fill"
+            style="width: 0%"
+          ></div>
         </div>
       </div>
 
@@ -481,90 +496,178 @@
           <div class="empty-icon-wrap">
             <i class="fa-solid fa-bag-shopping"></i>
           </div>
-          <h4 data-i18n="cartEmpty">Giỏ hàng của bạn đang trống</h4>
-          <p data-i18n="cartEmptyDesc">Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!</p>
-          <button id="cart-continue-btn" class="cart-continue-btn" data-i18n="cartContinueBtn">Mua sắm ngay</button>
+          <h4 data-i18n="cartEmpty">Your shopping cart is empty</h4>
+          <p data-i18n="cartEmptyDesc">
+            Explore our premium eSports collection to elevate your battlestation!
+          </p>
+          <button id="cart-continue-btn" class="cart-continue-btn" data-i18n="cartContinueBtn">
+            Shop Now
+          </button>
         </div>
 
         <!-- Items List -->
-        <div id="cart-items-list" class="cart-items-list" style="display: none;"></div>
+        <div
+          id="cart-items-list"
+          class="cart-items-list"
+          style="display: none"
+        ></div>
       </div>
 
       <!-- Cart Footer -->
-      <div id="cart-drawer-footer" class="cart-drawer-footer" style="display: none;">
+      <div
+        id="cart-drawer-footer"
+        class="cart-drawer-footer"
+        style="display: none"
+      >
         <div class="cart-summary-row">
-          <span class="summary-label" data-i18n="cartSubtotal">Tạm tính</span>
-          <span id="cart-subtotal" class="summary-value">0₫</span>
+          <span class="summary-label" data-i18n="cartSubtotal">Subtotal:</span>
+          <span id="cart-subtotal" class="summary-value">$0.00</span>
         </div>
-        <p class="cart-tax-notice" data-i18n="cartTaxNotice">Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.</p>
+        <p class="cart-tax-notice" data-i18n="cartTaxNotice">
+          VAT included. Free shipping discount applied if threshold reached.
+        </p>
         <button id="cart-checkout-btn" class="cart-checkout-btn">
-          <span data-i18n="cartCheckoutBtn">TIẾN HÀNH THANH TOÁN</span>
+          <span data-i18n="cartCheckoutBtn">PROCEED TO CHECKOUT</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
     </aside>
 
     <!-- EXPRESS CHECKOUT 2-STEP MODAL -->
-    <div id="checkout-modal" class="checkout-modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+    <div
+      id="checkout-modal"
+      class="checkout-modal-overlay"
+      style="display: none"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="checkout-modal-title"
+    >
       <div class="checkout-modal-box express-checkout-box">
-        <button type="button" class="checkout-close-corner" id="checkout-modal-close-icon" aria-label="Đóng thanh toán">
+        <button
+          type="button"
+          class="checkout-close-corner"
+          id="checkout-modal-close-icon"
+          aria-label="Close checkout"
+          data-i18n-aria-label="checkoutCloseAria"
+        >
           <i class="fa-solid fa-xmark"></i>
         </button>
 
         <!-- Stepper Header -->
-        <div class="checkout-stepper-header" role="navigation" aria-label="Tiến trình đặt hàng siêu tốc">
-          <button type="button" class="step-node active" id="step-node-1" aria-current="step" title="Bước 1: Địa chỉ nhận hàng">
+        <div
+          class="checkout-stepper-header"
+          role="navigation"
+          aria-label="Express checkout process"
+        >
+          <button
+            type="button"
+            class="step-node active"
+            id="step-node-1"
+            aria-current="step"
+            title="Step 1: Shipping address"
+            data-i18n-title="step1NavTitle"
+          >
             <span class="step-num">1</span>
-            <span class="step-label">Địa Chỉ Nhận Hàng</span>
+            <span class="step-label" data-i18n="step1Label">Shipping Address</span>
           </button>
           <div class="step-line" id="step-line-1" aria-hidden="true"></div>
-          <button type="button" class="step-node" id="step-node-2" title="Bước 2: Thanh toán & xác nhận" disabled>
+          <button
+            type="button"
+            class="step-node"
+            id="step-node-2"
+            title="Step 2: Payment & confirmation"
+            data-i18n-title="step2NavTitle"
+            disabled
+          >
             <span class="step-num">2</span>
-            <span class="step-label">Thanh Toán & Xác Nhận</span>
+            <span class="step-label" data-i18n="step2Label">Payment & Review</span>
           </button>
         </div>
 
         <!-- STEP 1: GIAO HÀNG -->
         <div class="checkout-step-pane active" id="checkout-step-1">
-          <h3 id="checkout-modal-title" class="checkout-pane-title">Thông Tin Giao Hàng Siêu Tốc</h3>
-          <p class="checkout-pane-subtitle">Giao nhanh 24h & hỗ trợ đồng kiểm bưu tá trước khi thanh toán.</p>
-          
+          <h3 id="checkout-modal-title" class="checkout-pane-title" data-i18n="step1PaneTitle">
+            Express Delivery Information
+          </h3>
+          <p class="checkout-pane-subtitle" data-i18n="step1PaneSubtitle">
+            Fast 24h delivery with parcel inspection prior to payment.
+          </p>
+
           <div class="checkout-mini-summary" id="checkout-mini-summary">
             <!-- JS render tóm tắt nhanh sản phẩm giỏ hàng -->
           </div>
 
-          <form id="checkout-form-step1" class="checkout-form-grid" onsubmit="event.preventDefault();">
+          <form
+            id="checkout-form-step1"
+            class="checkout-form-grid"
+            onsubmit="event.preventDefault()"
+          >
             <div class="form-group">
-              <label for="cust-name">Họ và tên người nhận <span class="req">*</span></label>
-              <input type="text" id="cust-name" placeholder="Ví dụ: Hoàng Long" required />
+              <label for="cust-name"
+                ><span data-i18n="labelCustName">Recipient Full Name</span> <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="cust-name"
+                placeholder="e.g. Alex Johnson"
+                data-i18n-placeholder="placeholderCustName"
+                required
+              />
             </div>
             <div class="form-group">
-              <label for="cust-phone">Số điện thoại liên hệ <span class="req">*</span></label>
-              <input type="tel" id="cust-phone" placeholder="Ví dụ: 0912345678" pattern="[0-9]{10,11}" required />
+              <label for="cust-phone"
+                ><span data-i18n="labelCustPhone">Contact Phone Number</span> <span class="req">*</span></label
+              >
+              <input
+                type="tel"
+                id="cust-phone"
+                placeholder="e.g. 0912345678"
+                data-i18n-placeholder="placeholderCustPhone"
+                pattern="[0-9]{10,11}"
+                required
+              />
             </div>
             <div class="form-group full-width">
-              <label for="cust-address">Địa chỉ chi tiết (Số nhà, tên đường, phường/xã) <span class="req">*</span></label>
-              <input type="text" id="cust-address" placeholder="Ví dụ: 88 Phố Cầu Giấy, P. Dịch Vọng" required />
+              <label for="cust-address"
+                ><span data-i18n="labelCustAddress">Detailed Street Address (House No, Street, Ward)</span>
+                <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="cust-address"
+                placeholder="e.g. 18 Grand Avenue, Central District"
+                data-i18n-placeholder="placeholderCustAddress"
+                required
+              />
             </div>
             <div class="form-group">
-              <label for="cust-city">Tỉnh / Thành phố <span class="req">*</span></label>
+              <label for="cust-city"
+                ><span data-i18n="labelCustCity">City / Province</span> <span class="req">*</span></label
+              >
               <select id="cust-city" required>
-                <option value="Hà Nội">Hà Nội (Hỏa tốc 2h - 24h)</option>
-                <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh (Giao 24h - 48h)</option>
-                <option value="Đà Nẵng">Đà Nẵng</option>
-                <option value="Hải Phòng">Hải Phòng</option>
-                <option value="Cần Thơ">Cần Thơ</option>
-                <option value="Khác">Tỉnh thành khác (Toàn quốc)</option>
+                <option value="Hà Nội" data-i18n="cityHanoi">Hanoi (Express 2h - 24h)</option>
+                <option value="TP. Hồ Chí Minh" data-i18n="cityHcm">
+                  Ho Chi Minh City (24h - 48h)
+                </option>
+                <option value="Đà Nẵng" data-i18n="cityDanang">Da Nang</option>
+                <option value="Hải Phòng" data-i18n="cityHaiphong">Hai Phong</option>
+                <option value="Cần Thơ" data-i18n="cityCantho">Can Tho</option>
+                <option value="Khác" data-i18n="cityOther">Other Provinces (Nationwide)</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="cust-note">Ghi chú giao hàng (Tùy chọn)</label>
-              <input type="text" id="cust-note" placeholder="Ví dụ: Cho đồng kiểm, gọi trước khi giao" />
+              <label for="cust-note" data-i18n="labelCustNote">Delivery Notes (Optional)</label>
+              <input
+                type="text"
+                id="cust-note"
+                placeholder="e.g. Call before delivery, allow parcel check"
+                data-i18n-placeholder="placeholderCustNote"
+              />
             </div>
 
             <div class="step-actions">
               <button type="button" class="btn-step-next" id="btn-goto-step2">
-                <span>Tiếp tục sang thanh toán</span>
+                <span data-i18n="btnGotoStep2">Continue to Payment</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
@@ -572,35 +675,56 @@
         </div>
 
         <!-- STEP 2: PHƯƠNG THỨC THANH TOÁN -->
-        <div class="checkout-step-pane" id="checkout-step-2" style="display: none;">
-          <h3 class="checkout-pane-title">Phương Thức Thanh Toán</h3>
-          <p class="checkout-pane-subtitle">Lựa chọn cổng thanh toán an toàn, bảo mật tiêu chuẩn eSports.</p>
+        <div
+          class="checkout-step-pane"
+          id="checkout-step-2"
+          style="display: none"
+        >
+          <h3 class="checkout-pane-title" data-i18n="step2PaneTitle">Payment Method</h3>
+          <p class="checkout-pane-subtitle" data-i18n="step2PaneSubtitle">
+            Select a secure, encrypted payment method for eSports gear.
+          </p>
 
           <div class="payment-methods-list">
             <label class="payment-method-card payment-card-cod active">
               <input type="radio" name="payment-method" value="COD" checked />
-              <div class="pm-icon cod-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+              <div class="pm-icon cod-icon">
+                <i class="fa-solid fa-truck-ramp-box"></i>
+              </div>
               <div class="pm-info">
-                <strong>Thanh toán khi nhận hàng (COD)</strong>
-                <span>Được mở hộp đồng kiểm ngoại quan cùng bưu tá trước khi trả tiền</span>
+                <strong data-i18n="pmCodTitle">Cash on Delivery (COD)</strong>
+                <span data-i18n="pmCodDesc"
+                  >Inspect parcel upon receipt, pay directly to courier</span
+                >
               </div>
             </label>
 
             <label class="payment-method-card payment-card-momo">
               <input type="radio" name="payment-method" value="MOMO" />
-              <div class="pm-icon momo-icon"><i class="fa-solid fa-qrcode"></i></div>
+              <div class="pm-icon momo-icon">
+                <i class="fa-solid fa-qrcode"></i>
+              </div>
               <div class="pm-info">
-                <strong>Ví MoMo / Quét mã QR <span class="pm-tag">Ưu đãi -20.000₫</span></strong>
-                <span>Quét mã QR tức thì trên app MoMo, nhận hoàn tiền game thủ</span>
+                <strong
+                  ><span data-i18n="pmMomoTitle">MoMo E-Wallet</span>
+                  <span class="pm-tag">-$0.80</span></strong
+                >
+                <span data-i18n="pmMomoDesc"
+                  >Instant scan QR code payment, get $0.80 instant discount</span
+                >
               </div>
             </label>
 
             <label class="payment-method-card payment-card-vnpay">
               <input type="radio" name="payment-method" value="VNPAY" />
-              <div class="pm-icon vnpay-icon"><i class="fa-solid fa-credit-card"></i></div>
+              <div class="pm-icon vnpay-icon">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
               <div class="pm-info">
-                <strong>VNPAY-QR / Thẻ ATM & Thẻ Quốc Tế</strong>
-                <span>Cổng thanh toán quốc gia, quét mã trên 40 app ngân hàng</span>
+                <strong data-i18n="pmVnpayTitle">VNPAY / Banking App</strong>
+                <span data-i18n="pmVnpayDesc"
+                  >Supports VietQR, all local & international bank apps</span
+                >
               </div>
             </label>
           </div>
@@ -613,32 +737,50 @@
           <div class="step-actions dual-actions">
             <button type="button" class="btn-step-back" id="btn-backto-step1">
               <i class="fa-solid fa-arrow-left"></i>
-              <span>Quay lại</span>
+              <span data-i18n="btnBacktoStep1">Back to Shipping Info</span>
             </button>
-            <button type="button" class="btn-step-confirm" id="btn-confirm-order">
+            <button
+              type="button"
+              class="btn-step-confirm"
+              id="btn-confirm-order"
+            >
               <i class="fa-solid fa-shield-check"></i>
-              <span>Xác nhận đặt hàng</span>
+              <span data-i18n="btnConfirmOrder">Confirm Order Now</span>
             </button>
           </div>
         </div>
 
         <!-- STEP 3: ĐẶT HÀNG THÀNH CÔNG -->
-        <div class="checkout-step-pane checkout-success-pane" id="checkout-step-3" style="display: none;">
+        <div
+          class="checkout-step-pane checkout-success-pane"
+          id="checkout-step-3"
+          style="display: none"
+        >
           <div class="checkout-success-icon-glow">
             <i class="fa-solid fa-circle-check"></i>
           </div>
-          <h3>Đặt Hàng Thành Công!</h3>
-          <div class="order-code-badge" id="order-code-badge">Mã đơn: BL-28491</div>
-          <p id="checkout-order-summary" class="order-success-text">
-            Cảm ơn bạn đã lựa chọn Blue Gaming Gear. Đơn hàng của bạn đang được đóng gói và chuẩn bị giao.
+          <h3 data-i18n="step3SuccessTitle">Order Placed Successfully!</h3>
+          <div class="order-code-badge" id="order-code-badge">
+            Order Code: BL-28491
+          </div>
+          <p id="checkout-order-summary" class="order-success-text" data-i18n="orderSuccessText">
+            Thank you for shopping with Blue Gaming Gear. Your order is being packed and prepared for express courier pickup.
           </p>
           <div class="order-status-timeline">
-            <div class="timeline-step done"><i class="fa-solid fa-check"></i> Đã tiếp nhận</div>
-            <div class="timeline-step active"><i class="fa-solid fa-box"></i> Đang đóng gói</div>
-            <div class="timeline-step"><i class="fa-solid fa-truck-fast"></i> Bàn giao bưu tá</div>
+            <div class="timeline-step done">
+              <i class="fa-solid fa-check"></i> <span data-i18n="timelineStep1">Order Received</span>
+            </div>
+            <div class="timeline-step active">
+              <i class="fa-solid fa-box"></i> <span data-i18n="timelineStep2">Packing Gear</span>
+            </div>
+            <div class="timeline-step">
+              <i class="fa-solid fa-truck-fast"></i> <span data-i18n="timelineStep3">Handover to Courier</span>
+            </div>
           </div>
           <div class="checkout-modal-actions">
-            <button id="checkout-modal-close" class="checkout-modal-btn">Hoàn tất mua sắm</button>
+            <button id="checkout-modal-close" class="checkout-modal-btn" data-i18n="btnCompleteShopping">
+              Complete Shopping
+            </button>
           </div>
         </div>
       </div>
@@ -648,10 +790,10 @@
     <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
     <!-- SCRIPTS -->
-    <script src="i18n.js?v=2.4"></script>
-    <script src="auth-mvc.js?v=2.4"></script>
-    <script src="main.js?v=2.4"></script>
-    <script src="products.js?v=2.4"></script>
+    <script src="i18n.js?v=2.5"></script>
+    <script src="auth-mvc.js?v=2.5"></script>
+    <script src="main.js?v=2.5"></script>
+    <script src="products.js?v=2.5"></script>
   </body>
 </html>
 

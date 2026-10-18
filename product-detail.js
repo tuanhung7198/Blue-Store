@@ -300,7 +300,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   // =========================================================================
   // --- 9. QUICK SPECS TELEMETRY BAR & TOOLTIPS (Alex & Jordan) ---
   // =========================================================================
-  if (telemetryContainer) {
+  // =========================================================================
+  // --- 9. QUICK SPECS TELEMETRY BAR & TOOLTIPS (Alex & Jordan) ---
+  // =========================================================================
+  function renderTelemetryChips() {
+    if (!telemetryContainer) return;
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
     const isMouse = currentProduct.category === "Chuột";
     const isKeyboard = currentProduct.category === "Bàn phím";
     const isPad = currentProduct.category === "Lót chuột";
@@ -311,30 +316,30 @@ document.addEventListener("DOMContentLoaded", async () => {
         {
           type: "ergo",
           icon: "fa-solid fa-feather-pointed",
-          text: "49g Siêu Nhẹ",
-          title: "Trọng lượng siêu nhẹ",
-          desc: "Tối ưu hóa độ cơ động, triệt tiêu quán tính khi flick chuột nhanh trong game bắn súng và chống mỏi cổ tay khi chơi lâu."
+          text: isEn ? "49g Ultralight" : "49g Siêu Nhẹ",
+          title: isEn ? "Ultralight Tournament Weight" : "Trọng lượng siêu nhẹ",
+          desc: isEn ? "Maximum agility and zero inertia when flicking in tactical FPS, eliminating wrist fatigue." : "Tối ưu hóa độ cơ động, triệt tiêu quán tính khi flick chuột nhanh trong game bắn súng và chống mỏi cổ tay khi chơi lâu."
         },
         {
           type: "sensor",
           icon: "fa-solid fa-crosshairs",
           text: "PixArt PAW3395",
-          title: "Mắt đọc quang học PAW3395",
-          desc: "Mắt đọc chuẩn thi đấu eSports, tracking chuẩn 1:1 không gia tốc, độ chính xác 99.8% ở mọi cú vẩy tay nhanh."
+          title: isEn ? "PAW3395 Optical Sensor" : "Mắt đọc quang học PAW3395",
+          desc: isEn ? "eSports tournament sensor, 1:1 true tracking, 99.8% resolution accuracy across all flicking speeds." : "Mắt đọc chuẩn thi đấu eSports, tracking chuẩn 1:1 không gia tốc, độ chính xác 99.8% ở mọi cú vẩy tay nhanh."
         },
         {
           type: "speed",
           icon: "fa-solid fa-bolt",
-          text: "8000Hz Polling",
-          title: "Tần số gửi tín hiệu 8000Hz",
-          desc: "Tần số gửi dữ liệu 8.000 lần/giây, độ trễ chỉ 0.125ms (nhanh gấp 8 lần chuột văn phòng 1000Hz thông thường)."
+          text: isEn ? "8000Hz Ultra-Polling" : "8000Hz Polling",
+          title: isEn ? "8000Hz Report Rate" : "Tần số gửi tín hiệu 8000Hz",
+          desc: isEn ? "8,000 updates/sec with ultra-crisp 0.125ms latency (8x faster than standard 1000Hz mice)." : "Tần số gửi dữ liệu 8.000 lần/giây, độ trễ chỉ 0.125ms (nhanh gấp 8 lần chuột văn phòng 1000Hz thông thường)."
         },
         {
           type: "switch",
           icon: "fa-solid fa-shield",
-          text: "Omron Optical",
-          title: "Switch quang học Omron",
-          desc: "Phản hồi bằng tia hồng ngoại tức thì, độ bền 100 triệu lần click, chống hoàn toàn hiện tượng double-click."
+          text: isEn ? "Omron Optical Switches" : "Omron Optical",
+          title: isEn ? "Omron Optical Switches" : "Switch quang học Omron",
+          desc: isEn ? "Infrared instantaneous actuation, 100M click durability, zero debounce delay or double-clicking." : "Phản hồi bằng tia hồng ngoại tức thì, độ bền 100 triệu lần click, chống hoàn toàn hiện tượng double-click."
         }
       ];
     } else if (isKeyboard) {
@@ -342,30 +347,30 @@ document.addEventListener("DOMContentLoaded", async () => {
         {
           type: "speed",
           icon: "fa-solid fa-bolt",
-          text: "Rapid Trigger (0.1mm)",
-          title: "Công nghệ Rapid Trigger",
-          desc: "Nhận diện điểm nhả phím tức thì (chỉ từ 0.1mm), cho phép bấm lại phím ngay lập tức mà không cần nhả hết hành trình."
+          text: isEn ? "Rapid Trigger (0.1mm)" : "Rapid Trigger (0.1mm)",
+          title: isEn ? "Rapid Trigger Tech" : "Công nghệ Rapid Trigger",
+          desc: isEn ? "Instant key reset at 0.1mm release, allowing immediate keystroke re-activation without full travel." : "Nhận diện điểm nhả phím tức thì (chỉ từ 0.1mm), cho phép bấm lại phím ngay lập tức mà không cần nhả hết hành trình."
         },
         {
           type: "sensor",
           icon: "fa-solid fa-magnet",
-          text: "Hall Effect Magnetic",
-          title: "Switch Từ Tính Hall Effect",
-          desc: "Switch không tiếp điểm cơ học, tuổi thọ trên 100 triệu lần nhấn, độ nhạy tùy biến từng 0.02mm qua phần mềm."
+          text: isEn ? "Hall Effect Magnetic" : "Hall Effect Magnetic",
+          title: isEn ? "Magnetic Hall Effect Switches" : "Switch Từ Tính Hall Effect",
+          desc: isEn ? "Contactless magnetic sensors, 100M+ keystroke lifespan, customizable 0.02mm per-key sensitivity." : "Switch không tiếp điểm cơ học, tuổi thọ trên 100 triệu lần nhấn, độ nhạy tùy biến từng 0.02mm qua phần mềm."
         },
         {
           type: "speed",
           icon: "fa-solid fa-wave-square",
-          text: "8000Hz Polling Rate",
-          title: "Tần số phản hồi 8000Hz",
-          desc: "Quét ma trận phím siêu tốc 0.125ms, bắt trọn từng thao tác tổ hợp phím phức tạp trong tích tắc."
+          text: isEn ? "8000Hz Matrix Scan" : "8000Hz Polling Rate",
+          title: isEn ? "8000Hz Scan Rate" : "Tần số phản hồi 8000Hz",
+          desc: isEn ? "Ultra-fast 0.125ms matrix scan, capturing complex multi-key inputs with tournament-grade precision." : "Quét ma trận phím siêu tốc 0.125ms, bắt trọn từng thao tác tổ hợp phím phức tạp trong tích tắc."
         },
         {
           type: "ergo",
           icon: "fa-solid fa-layer-group",
-          text: "Nhôm CNC + Poron",
-          title: "Khung Nhôm & Đệm Poron",
-          desc: "Khung nhôm nguyên khối đầm chắc kết hợp đệm foam Poron triệt tiêu âm vang rỗng, cho âm gõ 'thock' đầm tai."
+          text: isEn ? "CNC Aluminum + Poron" : "Nhôm CNC + Poron",
+          title: isEn ? "Aluminum Case & Poron Dampening" : "Khung Nhôm & Đệm Poron",
+          desc: isEn ? "Solid anodized CNC frame combined with high-density Poron foam for signature deep acoustic thock." : "Khung nhôm nguyên khối đầm chắc kết hợp đệm foam Poron triệt tiêu âm vang rỗng, cho âm gõ 'thock' đầm tai."
         }
       ];
     } else if (isPad) {
@@ -373,23 +378,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         {
           type: "speed",
           icon: "fa-solid fa-wind",
-          text: "Hybrid Speed/Control",
-          title: "Bề mặt dệt Hybrid",
-          desc: "Bề mặt dệt vi sợi tối ưu hóa cân bằng giữa tốc độ lướt ban đầu và lực dừng chính xác khi ngắm bắn."
+          text: isEn ? "Hybrid Speed/Control" : "Hybrid Speed/Control",
+          title: isEn ? "Hybrid Micro-Woven Surface" : "Bề mặt dệt Hybrid",
+          desc: isEn ? "Micro-knit weave engineered for initial low friction combined with confident stopping power." : "Bề mặt dệt vi sợi tối ưu hóa cân bằng giữa tốc độ lướt ban đầu và lực dừng chính xác khi ngắm bắn."
         },
         {
           type: "ergo",
           icon: "fa-solid fa-border-all",
-          text: "Bo Viền Siêu Phẳng",
-          title: "Mũi may phẳng chìm",
-          desc: "Mũi may dập chìm bằng phẳng với mặt pad, không cạ vào cổ tay khi vẩy chuột biên độ lớn."
+          text: isEn ? "Sub-Surface Stitching" : "Bo Viền Siêu Phẳng",
+          title: isEn ? "Sub-Surface Border" : "Mũi may phẳng chìm",
+          desc: isEn ? "Ultra-dense sub-surface stitching sits completely flush, preventing forearm irritation during large swipes." : "Mũi may dập chìm bằng phẳng với mặt pad, không cạ vào cổ tay khi vẩy chuột biên độ lớn."
         },
         {
           type: "ergo",
           icon: "fa-solid fa-grip",
-          text: "Đế Poron 4mm",
-          title: "Đế Cao Su Poron 4mm",
-          desc: "Chất liệu cao su Poron cao cấp bám dính tuyệt đối vào mặt bàn, triệt tiêu hoàn toàn xê dịch."
+          text: isEn ? "4mm Japanese Poron" : "Đế Poron 4mm",
+          title: isEn ? "4mm Suction Foam Base" : "Đế Cao Su Poron 4mm",
+          desc: isEn ? "High-grade Japanese Poron rubber grips securely to desks with zero slip under intense load." : "Chất liệu cao su Poron cao cấp bám dính tuyệt đối vào mặt bàn, triệt tiêu hoàn toàn xê dịch."
         }
       ];
     } else {
@@ -397,16 +402,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         {
           type: "speed",
           icon: "fa-solid fa-wifi",
-          text: "Wireless 2.4GHz + BT",
-          title: "Kết nối đa kênh eSports",
-          desc: "Công nghệ không dây siêu trễ thấp chuẩn thi đấu, hỗ trợ chuyển đổi linh hoạt qua Bluetooth."
+          text: isEn ? "Tri-Mode Wireless (2.4G+BT)" : "Wireless 2.4GHz + BT",
+          title: isEn ? "Tournament Tri-Mode Connectivity" : "Kết nối đa kênh eSports",
+          desc: isEn ? "Ultra-low latency 2.4GHz eSports wireless, flexible Bluetooth 5.3, and analog 3.5mm wired mode." : "Công nghệ không dây siêu trễ thấp chuẩn thi đấu, hỗ trợ chuyển đổi linh hoạt qua Bluetooth."
         },
         {
           type: "switch",
           icon: "fa-solid fa-battery-full",
-          text: "Pin 70 Giờ",
-          title: "Thời lượng pin dài",
-          desc: "Thoải mái tập luyện và thi đấu liên tục nhiều ngày mà không lo gián đoạn."
+          text: isEn ? "70H Battery Life" : "Pin 70 Giờ",
+          title: isEn ? "Extended Battery Runtime" : "Thời lượng pin dài",
+          desc: isEn ? "Practice and compete for consecutive tournament days without interruptions or battery anxiety." : "Thoải mái tập luyện và thi đấu liên tục nhiều ngày mà không lo gián đoạn."
         }
       ];
     }
@@ -427,6 +432,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     telemetryContainer.innerHTML = chipsHtml;
   }
+  renderTelemetryChips();
 
   // =========================================================================
   // --- 10. BIẾN THỂ (VARIANTS) ---
@@ -524,12 +530,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (btnNotify) {
     btnNotify.addEventListener("click", () => {
       if (alertPreview) {
+        const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+        const pName = window.getProductName ? window.getProductName(currentProduct) : currentProduct.name;
         alertPreview.innerHTML = `
           <div class="alert-preview-card">
-            <img class="alert-preview-img" src="${mainImgEl.src}" alt="${currentProduct.name}">
+            <img class="alert-preview-img" src="${mainImgEl.src}" alt="${pName}">
             <div class="alert-preview-info">
-              <strong class="alert-preview-name">${currentProduct.name}</strong>
-              <span class="alert-preview-variant">Phiên bản: ${selectedColor}</span>
+              <strong class="alert-preview-name">${pName}</strong>
+              <span class="alert-preview-variant">${isEn ? "Edition:" : "Phiên bản:"} ${selectedColor}</span>
             </div>
           </div>
         `;
@@ -549,9 +557,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       e.preventDefault();
       const aName = document.getElementById("alert-name").value;
       const aEmail = document.getElementById("alert-email").value;
+      const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
       if (alertModal) alertModal.style.display = "none";
       if (window.showToast) {
-        window.showToast(`Cảm ơn ${aName}! Blue sẽ gửi thông báo đến ${aEmail} ngay khi có hàng.`, "success", 4000);
+        const msg = isEn
+          ? `Thank you ${aName}! Blue will send an email alert to ${aEmail} the moment gear arrives.`
+          : `Cảm ơn ${aName}! Blue sẽ gửi thông báo đến ${aEmail} ngay khi có hàng.`;
+        window.showToast(msg, "success", 4000);
       }
       alertForm.reset();
     });
@@ -571,7 +583,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (lightboxModal && lightboxImg) {
         lightboxImg.src = mainImgEl.src;
         if (lightboxCaption) {
-          lightboxCaption.textContent = `${currentProduct.name} - Soi chi tiết bề mặt Coating & Switch eSports`;
+          const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+          const pName = window.getProductName ? window.getProductName(currentProduct) : currentProduct.name;
+          lightboxCaption.textContent = isEn
+            ? `${pName} - Macro Close-up Coating & eSports Switch Details`
+            : `${pName} - Soi chi tiết bề mặt Coating & Switch eSports`;
         }
         lightboxModal.style.display = "flex";
       }
@@ -601,14 +617,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   const stickyBuyNow = document.getElementById("mobile-sticky-buynow");
 
   if (stickyBar) {
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+    const pName = window.getProductName ? window.getProductName(currentProduct) : currentProduct.name;
     if (stickyImg) stickyImg.src = currentProduct.image;
-    if (stickyName) stickyName.textContent = currentProduct.name;
-    if (stickyPrice) stickyPrice.textContent = format(currentProduct.sale_price ?? currentProduct.price);
+    if (stickyName) stickyName.textContent = pName;
+    if (stickyPrice) stickyPrice.textContent = (window.I18N && window.I18N.formatCurrency) ? window.I18N.formatCurrency(currentProduct.sale_price ?? currentProduct.price) : format(currentProduct.sale_price ?? currentProduct.price);
 
     if (stockState === "out-of-stock") {
       if (stickyAddCart) stickyAddCart.style.display = "none";
       if (stickyBuyNow) {
-        stickyBuyNow.textContent = "Báo Khi Có Hàng";
+        stickyBuyNow.textContent = isEn ? "Notify When Available" : "Báo Khi Có Hàng";
         stickyBuyNow.classList.add("btn-sticky-notify");
         stickyBuyNow.addEventListener("click", () => {
           if (btnNotify) btnNotify.click();
@@ -616,9 +634,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     } else {
       if (stockState === "pre-order") {
-        if (stickyBuyNow) stickyBuyNow.textContent = "Đặt Hàng Trước";
+        if (stickyBuyNow) stickyBuyNow.textContent = isEn ? "Pre-Order Now" : "Đặt Hàng Trước";
       } else {
-        if (stickyBuyNow) stickyBuyNow.textContent = "Mua Ngay";
+        if (stickyBuyNow) stickyBuyNow.textContent = isEn ? "Buy Now" : "Mua Ngay";
       }
       if (stickyAddCart) {
         stickyAddCart.addEventListener("click", () => {
@@ -747,46 +765,50 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // 20. Bảng Thông số kỹ thuật chi tiết
-  if (specsTableBody) {
+  function renderSpecsTable() {
+    if (!specsTableBody) return;
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
     const isMouse = currentProduct.category === "Chuột";
     const isKeyboard = currentProduct.category === "Bàn phím";
     const isPad = currentProduct.category === "Lót chuột";
 
+    const catName = isEn ? (window.getCategoryName ? window.getCategoryName(currentProduct.category) : currentProduct.category) : (currentProduct.category || "Gaming Gear");
+
     let specs = [
-      { name: "Thương hiệu", value: currentProduct.name.split(" ")[0] || "Chính hãng" },
-      { name: "Phân loại", value: currentProduct.category || "Gaming Gear" },
-      { name: "Tình trạng", value: stockState === "pre-order" ? "Hàng đặt trước chính hãng" : "Mới 100% nguyên hộp, phân phối chính ngạch" },
-      { name: "Chế độ bảo hành", value: "24 tháng 1 đổi 1 chính hãng" },
+      { name: isEn ? "Brand" : "Thương hiệu", value: currentProduct.name.split(" ")[0] || (isEn ? "Official" : "Chính hãng") },
+      { name: isEn ? "Category" : "Phân loại", value: catName },
+      { name: isEn ? "Condition" : "Tình trạng", value: stockState === "pre-order" ? (isEn ? "Official Pre-Order" : "Hàng đặt trước chính hãng") : (isEn ? "100% Brand New In Box, Authorized Import" : "Mới 100% nguyên hộp, phân phối chính ngạch") },
+      { name: isEn ? "Warranty" : "Chế độ bảo hành", value: isEn ? "24-Month Official 1:1 Replacement" : "24 tháng 1 đổi 1 chính hãng" },
     ];
 
     if (isMouse) {
       specs.push(
-        { name: "Cảm biến (Sensor)", value: "PixArt PAW3395 (26.000 DPI, 650 IPS, 50G gia tốc)" },
-        { name: "Tần số gửi tín hiệu", value: "Hỗ trợ 1000Hz - 8000Hz (Độ trễ phản hồi chỉ 0.125ms)" },
-        { name: "Trọng lượng thi đấu", value: "Siêu nhẹ (~49g - 54g phân bổ trọng tâm cân bằng)" },
-        { name: "Switch chính", value: "Omron Optical Switches độ bền 100 triệu lượt click" },
-        { name: "Feet chuột", value: "100% PTFE nguyên chất viền cong trơn tru" }
+        { name: isEn ? "Sensor" : "Cảm biến (Sensor)", value: isEn ? "PixArt PAW3395 (26,000 DPI, 650 IPS, 50G Acceleration)" : "PixArt PAW3395 (26.000 DPI, 650 IPS, 50G gia tốc)" },
+        { name: isEn ? "Polling Rate" : "Tần số gửi tín hiệu", value: isEn ? "Supported 1000Hz - 8000Hz (0.125ms Ultra-Low Latency)" : "Hỗ trợ 1000Hz - 8000Hz (Độ trễ phản hồi chỉ 0.125ms)" },
+        { name: isEn ? "Tournament Weight" : "Trọng lượng thi đấu", value: isEn ? "Ultralight (~49g - 54g Balanced Center of Gravity)" : "Siêu nhẹ (~49g - 54g phân bổ trọng tâm cân bằng)" },
+        { name: isEn ? "Main Switches" : "Switch chính", value: isEn ? "Omron Optical Switches (100M Click Durability)" : "Omron Optical Switches độ bền 100 triệu lượt click" },
+        { name: isEn ? "Mouse Skates" : "Feet chuột", value: isEn ? "100% Pure Virgin PTFE Curved Edges" : "100% PTFE nguyên chất viền cong trơn tru" }
       );
     } else if (isKeyboard) {
       specs.push(
-        { name: "Layout", value: "TKL / 75% gọn gàng tối ưu diện tích di chuột eSports" },
-        { name: "Công nghệ Switch", value: "Magnetic Hall Effect (Không tiếp điểm cơ học)" },
-        { name: "Tính năng eSports", value: "Rapid Trigger (0.1mm - 4.0mm), Dynamic Keystroke (DKS)" },
-        { name: "Keycap", value: "PBT Double-shot chống bóng và mờ ký tự" },
-        { name: "Cấu trúc vỏ", value: "Khung nhôm CNC cao cấp + Đệm tiêu âm Poron" }
+        { name: isEn ? "Layout" : "Layout", value: isEn ? "TKL / 75% Compact Layout for Optimal Desk Space" : "TKL / 75% gọn gàng tối ưu diện tích di chuột eSports" },
+        { name: isEn ? "Switch Technology" : "Công nghệ Switch", value: isEn ? "Magnetic Hall Effect (Non-Mechanical Contact)" : "Magnetic Hall Effect (Không tiếp điểm cơ học)" },
+        { name: isEn ? "eSports Features" : "Tính năng eSports", value: isEn ? "Rapid Trigger (0.1mm - 4.0mm), Dynamic Keystroke (DKS)" : "Rapid Trigger (0.1mm - 4.0mm), Dynamic Keystroke (DKS)" },
+        { name: isEn ? "Keycaps" : "Keycap", value: isEn ? "PBT Double-Shot Shine & Wear Resistant" : "PBT Double-shot chống bóng và mờ ký tự" },
+        { name: isEn ? "Chassis Build" : "Cấu trúc vỏ", value: isEn ? "CNC Anodized Aluminum + Poron Acoustic Gaskets" : "Khung nhôm CNC cao cấp + Đệm tiêu âm Poron" }
       );
     } else if (isPad) {
       specs.push(
-        { name: "Chất liệu bề mặt", value: "Vải dệt vi sợi Hybrid Speed & Control cân bằng" },
-        { name: "Chất liệu đế", value: "Cao su PORON cao cấp chống trượt tuyệt đối trên mặt bàn" },
-        { name: "Viền bo", value: "May bo viền phẳng dập thấp chống cấn cổ tay" },
-        { name: "Kích thước tiêu chuẩn", value: "XL (490 x 420mm) - Độ dày 4mm" }
+        { name: isEn ? "Surface Material" : "Chất liệu bề mặt", value: isEn ? "Micro-Woven Hybrid Fabric (Speed & Control Balanced)" : "Vải dệt vi sợi Hybrid Speed & Control cân bằng" },
+        { name: isEn ? "Base Material" : "Chất liệu đế", value: isEn ? "Premium Japanese PORON Foam (Zero Slip)" : "Cao su PORON cao cấp chống trượt tuyệt đối trên mặt bàn" },
+        { name: isEn ? "Stitching" : "Viền bo", value: isEn ? "Low-Profile Sub-Surface Micro-Stitching" : "May bo viền phẳng dập thấp chống cấn cổ tay" },
+        { name: isEn ? "Dimensions" : "Kích thước tiêu chuẩn", value: isEn ? "XL (490 x 420mm) - 4mm Thickness" : "XL (490 x 420mm) - Độ dày 4mm" }
       );
     } else {
       specs.push(
-        { name: "Kết nối", value: "Wireless 2.4GHz + Bluetooth 5.3 + Jack 3.5mm" },
-        { name: "Thời lượng pin", value: "Lên đến 50 - 70 giờ sử dụng liên tục" },
-        { name: "Đệm tai", value: "Memory Foam bọc vải dệt thoáng khí, cách âm thụ động" }
+        { name: isEn ? "Connectivity" : "Kết nối", value: isEn ? "Tri-Mode (Wireless 2.4GHz + BT 5.3 + 3.5mm)" : "Wireless 2.4GHz + Bluetooth 5.3 + Jack 3.5mm" },
+        { name: isEn ? "Battery Life" : "Thời lượng pin", value: isEn ? "Up to 50 - 70 Hours Continuous Play" : "Lên đến 50 - 70 giờ sử dụng liên tục" },
+        { name: isEn ? "Ear Cushions" : "Đệm tai", value: isEn ? "Breathable Memory Foam Mesh (Passive Isolation)" : "Memory Foam bọc vải dệt thoáng khí, cách âm thụ động" }
       );
     }
 
@@ -801,6 +823,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     specsTableBody.innerHTML = tbodyHtml;
   }
+  renderSpecsTable();
 
   // 21. Tabs Navigation (Hỗ trợ 4 tabs: Mô tả, Thông số, Chính sách, Đánh giá)
   const tabBtns = document.querySelectorAll(".tab-nav-btn");
@@ -916,6 +939,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     updateDetailTextInfo();
     updateStockBadge();
     renderDetailPrices();
+    renderTelemetryChips();
+    renderSpecsTable();
     renderRelatedProducts();
   });
 });

@@ -218,9 +218,216 @@
       stockPreorder: "Pre-order (Dispatches in 3 - 5 days)",
       stockOut: "Out of Stock (Restocking soon)",
 
+      // Stock Alert Modal
+      stockAlertTitle: "Notify Me When Available",
+      stockAlertSubtitle: "Leave your contact info and Blue Gaming Gear will notify you with an exclusive voucher as soon as new stock lands.",
+      stockAlertNameLabel: "Full Name",
+      stockAlertNamePlaceholder: "e.g. Alex Johnson",
+      stockAlertEmailLabel: "Notification Email",
+      stockAlertEmailPlaceholder: "e.g. gamer@domain.com",
+      stockAlertPhoneLabel: "Phone Number (SMS / WhatsApp)",
+      stockAlertPhonePlaceholder: "e.g. 0912345678",
+      stockAlertSubmitBtn: "Subscribe for Restock Alert",
+      stockAlertSuccessToast: "Subscribed successfully! We will notify you when gear arrives.",
+
       // Toasts
       toastSwitchLang: "Switched to English (USD)",
-      toastAddToCart: "Added to cart successfully!"
+      toastAddToCart: "Added to cart successfully!",
+
+      // Header Utilities & User Dropdown
+      searchTitle: "Search (Ctrl+K)",
+      accountBtnTitle: "Member Account",
+      accountBtnAria: "Member Account",
+      accountProfile: "My Profile",
+      accountOrders: "My Orders",
+      accountAddresses: "Address Book",
+      accountRewards: "Points & Vouchers",
+      accountLogout: "Sign Out",
+      demoAlexName: "Alex Johnson (VIP Diamond)",
+      demoJordanName: "Jordan Tran (Challenger)",
+      userRankDiamond: "VIP Diamond",
+
+      // Live Search Modal
+      searchModalAria: "Search products",
+      searchPlaceholder: "Search mice, mechanical keyboards, mousepads, headsets...",
+      searchClearAria: "Clear search query",
+      searchCloseAria: "Close search",
+      searchQuickTagLabel: "Quick search:",
+      searchEmptyPrompt: "Type product name, brand, or category for instant search.",
+      searchFoundPrefix: "Found",
+      searchFoundSuffix: "matching products:",
+      searchNoResultsTitle: "No products found matching",
+      searchNoResultsDesc: "Try keywords like: Mice, Keyboard, Razer, Logitech, Corsair...",
+      searchAddBtnTitle: "Add to Cart",
+
+      // Cart Drawer & Free Shipping
+      cartDrawerAria: "Your shopping cart",
+      cartCloseAria: "Close cart",
+      cartDrawerTitle: "Shopping Cart",
+      cartItemsCount: "items",
+      cartItemSingle: "item",
+      cartEmpty: "Your shopping cart is empty",
+      cartEmptyDesc: "Explore our premium eSports collection to elevate your battlestation!",
+      cartContinueBtn: "Shop Now",
+      cartSubtotal: "Subtotal:",
+      cartTaxNotice: "VAT included. Free shipping discount applied if threshold reached.",
+      cartCheckoutBtn: "PROCEED TO CHECKOUT",
+      shippingDefault: "Free express delivery nationwide on orders over $40",
+      shippingFreeUnlocked: "You unlocked FREE Express Shipping!",
+      shippingAddMorePrefix: "Add",
+      shippingAddMoreSuffix: "more to get FREE shipping!",
+
+      // Express Checkout 2-Step Modal
+      checkoutModalTitle: "Express Checkout",
+      checkoutCloseAria: "Close checkout",
+      step1NavTitle: "Step 1: Shipping address",
+      step2NavTitle: "Step 2: Payment & confirmation",
+      step1Label: "Shipping Address",
+      step2Label: "Payment & Review",
+      step1PaneTitle: "Express Delivery Information",
+      step1PaneSubtitle: "Fast 24h delivery with parcel inspection prior to payment.",
+      labelCustName: "Recipient Full Name",
+      placeholderCustName: "e.g. Alex Johnson",
+      labelCustPhone: "Contact Phone Number",
+      placeholderCustPhone: "e.g. 0912345678",
+      labelCustAddress: "Detailed Street Address (House No, Street, Ward)",
+      placeholderCustAddress: "e.g. 18 Grand Avenue, Central District",
+      labelCustCity: "City / Province",
+      cityHanoi: "Hanoi (Express 2h - 24h)",
+      cityHcm: "Ho Chi Minh City (24h - 48h)",
+      cityDanang: "Da Nang",
+      cityHaiphong: "Hai Phong",
+      cityCantho: "Can Tho",
+      cityOther: "Other Provinces (Nationwide)",
+      labelCustNote: "Delivery Notes (Optional)",
+      placeholderCustNote: "e.g. Call before delivery, allow parcel check",
+      btnGotoStep2: "Continue to Payment",
+      step2PaneTitle: "Payment Method",
+      step2PaneSubtitle: "Select a secure, encrypted payment method for eSports gear.",
+      pmCodTitle: "Cash on Delivery (COD)",
+      pmCodDesc: "Inspect parcel upon receipt, pay directly to courier",
+      pmMomoTitle: "MoMo E-Wallet",
+      pmMomoDesc: "Instant scan QR code payment, get $0.80 instant discount",
+      pmVnpayTitle: "VNPAY / Banking App",
+      pmVnpayDesc: "Supports VietQR, all local & international bank apps",
+      pmBankTitle: "Direct Bank Wire Transfer",
+      pmBankDesc: "Manual bank transfer to Blue Gaming Gear corporate account",
+      checkoutOrderReview: "Order Summary Review:",
+      checkoutSummarySubtotal: "Subtotal",
+      checkoutSummaryShipping: "Shipping Fee",
+      checkoutSummaryShippingFree: "FREE",
+      checkoutSummaryDiscount: "MoMo Discount",
+      checkoutSummaryTotal: "Total Amount",
+      btnBacktoStep1: "Back to Shipping Info",
+      btnConfirmOrder: "Confirm Order Now",
+      step3SuccessTitle: "Order Placed Successfully!",
+      orderCodePrefix: "Order Code:",
+      orderSuccessText: "Thank you for shopping with Blue Gaming Gear. Your order is being packed and prepared for express courier pickup.",
+      timelineStep1: "Order Received",
+      timelineStep2: "Packing Gear",
+      timelineStep3: "Handover to Courier",
+      btnCompleteShopping: "Complete Shopping",
+
+      // Account Page (account.html)
+      accPageTitle: "eSports Member Account | Blue Gaming Gear",
+      accBreadcrumbHome: "Home",
+      accBreadcrumbCurrent: "Member Account",
+      authPassportBadge: "BLUE PASSPORT",
+      authHeroTitle: "MEMBER ACCOUNT",
+      authHeroDesc: "Sign in to unlock VIP perks, track orders in real time, and manage official eSports warranty.",
+      tabLogin: "Sign In",
+      tabRegister: "Create Account",
+      labelLoginEmail: "Email Address",
+      placeholderLoginEmail: "e.g. gamer@blue.vn",
+      labelLoginPassword: "Password",
+      placeholderLoginPassword: "Enter your password",
+      linkForgotPassword: "Forgot password?",
+      labelRememberLogin: "Remember my login on this device",
+      btnSubmitLogin: "Sign In Now",
+      demoAccountsCardTitle: "Demo Accounts (1-Click Tester Login):",
+      labelRegName: "Full Name",
+      placeholderRegName: "Alex Johnson",
+      labelRegEmail: "Email Address",
+      placeholderRegEmail: "gamer@domain.com",
+      labelRegPhone: "Contact Phone",
+      placeholderRegPhone: "09xxxxxxxx",
+      labelRegPassword: "Password",
+      placeholderRegPassword: "At least 6 characters",
+      labelRegConfirmPassword: "Confirm Password",
+      placeholderRegConfirmPassword: "Re-enter your password",
+      labelTermsAgree: "I agree to Blue Gaming Gear's Terms of Service & Privacy Policy",
+      btnSubmitRegister: "Create Account (Earn 200 Points)",
+      
+      // Account Dashboard
+      btnChangeAvatarTitle: "Change profile avatar",
+      pointsUnit: "Points",
+      dashTabProfile: "Profile Information",
+      dashTabOrders: "My Orders",
+      dashTabAddresses: "Shipping Addresses",
+      dashTabRewards: "Points & Vouchers",
+      dashTabSecurity: "Security & Password",
+      dashTabLogout: "Sign Out",
+      
+      paneProfileTitle: "ACCOUNT PROFILE",
+      paneProfileDesc: "Manage security settings and personal info to protect your account and receive eSports drops.",
+      profNameLabel: "Full Name",
+      profEmailLabel: "Email (Read-only)",
+      profPhoneLabel: "Phone Number",
+      profCityLabel: "City / Province",
+      profAddressLabel: "Detailed Address (Street, Number, Ward)",
+      profAddressPlaceholder: "e.g. 18 Grand Avenue, Central District",
+      profGenderLabel: "Gender",
+      genderMale: "Male",
+      genderFemale: "Female",
+      genderOther: "Undisclosed",
+      profBirthdateLabel: "Date of Birth",
+      btnSaveProfile: "Save Changes",
+
+      paneOrdersTitle: "MY ORDERS",
+      paneOrdersDesc: "Track order history, live delivery status, and warranty for your eSports gaming gear.",
+      orderFilterAll: "All",
+      orderFilterProcessing: "Processing",
+      orderFilterShipping: "Shipping",
+      orderFilterCompleted: "Completed",
+      orderFilterCancelled: "Cancelled",
+      ordersEmptyTitle: "No orders found",
+      ordersEmptyDesc: "You don't have any orders with this status. Discover pro eSports gear now!",
+      btnShopNow: "Explore Gear Now",
+      orderCodeText: "Order ID:",
+      orderDeliverToText: "Deliver to:",
+      orderTotalText: "Total Amount:",
+      btnCancelOrder: "Cancel Order",
+      btnRepurchase: "Buy Again",
+
+      paneAddressesTitle: "SHIPPING ADDRESSES",
+      paneAddressesDesc: "Save preferred addresses for instant 1-click checkout.",
+      addrHomeTitle: "Home",
+      badgeDefaultAddr: "Default",
+      btnEditAddr: "Edit",
+      btnAddNewAddr: "Add New Shipping Address",
+
+      paneRewardsTitle: "REWARD POINTS & VIP VOUCHERS",
+      paneRewardsDesc: "Earn points with every purchase and redeem exclusive pro-gamer discounts.",
+      tierCurrentLabel: "CURRENT VIP TIER",
+      vouchersSectionTitle: "Exclusive Vouchers Available For You:",
+      voucher10Title: "10% OFF ALL GEAR",
+      voucher10Desc: "Valid on orders over $40",
+      voucherFreeTitle: "FREE EXPRESS SHIPPING",
+      voucherFreeDesc: "Fast insured delivery nationwide on any order",
+      voucher50kTitle: "$2.00 WELCOME GIFT",
+      voucher50kDesc: "Welcome reward for first-time gear buyers",
+      btnCopyCode: "Copy",
+      copiedCode: "Copied!",
+
+      paneSecurityTitle: "ACCOUNT SECURITY",
+      paneSecurityDesc: "Update your password regularly to secure your orders and account privileges.",
+      passCurrentLabel: "Current Password",
+      passCurrentPlaceholder: "Enter current password",
+      passNewLabel: "New Password",
+      passNewPlaceholder: "At least 6 characters",
+      passConfirmLabel: "Confirm New Password",
+      passConfirmPlaceholder: "Re-enter new password",
+      btnUpdatePass: "Update Password"
     },
 
     vi: {
@@ -432,9 +639,216 @@
       stockPreorder: "Đặt trước (Giao sau 3 - 5 ngày)",
       stockOut: "Tạm hết hàng (Đang về đợt mới)",
 
+      // Stock Alert Modal
+      stockAlertTitle: "Nhận Thông Báo Khi Hàng Về",
+      stockAlertSubtitle: "Để lại thông tin liên hệ, Blue Gaming Gear sẽ gửi thông báo và tặng voucher độc quyền ngay khi lô hàng cập bến kho.",
+      stockAlertNameLabel: "Họ và tên của bạn",
+      stockAlertNamePlaceholder: "Ví dụ: Hoàng Long",
+      stockAlertEmailLabel: "Địa chỉ Email nhận tin",
+      stockAlertEmailPlaceholder: "Ví dụ: gamer@gmail.com",
+      stockAlertPhoneLabel: "Số điện thoại nhận tin SMS / Zalo",
+      stockAlertPhonePlaceholder: "Ví dụ: 0912345678",
+      stockAlertSubmitBtn: "Đăng ký nhận tin miễn phí",
+      stockAlertSuccessToast: "Đăng ký nhận thông báo thành công! Blue sẽ báo bạn sớm nhất.",
+
       // Toasts
       toastSwitchLang: "Đã chuyển sang Tiếng Việt (VND)",
-      toastAddToCart: "Đã thêm sản phẩm vào giỏ hàng!"
+      toastAddToCart: "Đã thêm sản phẩm vào giỏ hàng!",
+
+      // Header Utilities & User Dropdown
+      searchTitle: "Tìm kiếm (Ctrl+K)",
+      accountBtnTitle: "Tài khoản thành viên",
+      accountBtnAria: "Tài khoản thành viên",
+      accountProfile: "Thông tin tài khoản",
+      accountOrders: "Đơn hàng của tôi",
+      accountAddresses: "Sổ địa chỉ",
+      accountRewards: "Điểm & Voucher",
+      accountLogout: "Đăng xuất",
+      demoAlexName: "Alex Nguyễn (VIP Diamond)",
+      demoJordanName: "Jordan Trần (Challenger)",
+      userRankDiamond: "VIP Diamond",
+
+      // Live Search Modal
+      searchModalAria: "Tìm kiếm sản phẩm",
+      searchPlaceholder: "Tìm kiếm chuột, bàn phím cơ, lót chuột, tai nghe...",
+      searchClearAria: "Xóa từ khóa",
+      searchCloseAria: "Đóng tìm kiếm",
+      searchQuickTagLabel: "Tìm nhanh:",
+      searchEmptyPrompt: "Nhập tên sản phẩm, thương hiệu hoặc danh mục để tìm kiếm tức thì.",
+      searchFoundPrefix: "Tìm thấy",
+      searchFoundSuffix: "sản phẩm phù hợp:",
+      searchNoResultsTitle: "Không tìm thấy sản phẩm nào khớp với",
+      searchNoResultsDesc: "Vui lòng thử từ khóa khác như: Chuột, Bàn phím, Razer, Logitech, Corsair...",
+      searchAddBtnTitle: "Thêm vào giỏ",
+
+      // Cart Drawer & Free Shipping
+      cartDrawerAria: "Giỏ hàng của bạn",
+      cartCloseAria: "Đóng giỏ hàng",
+      cartDrawerTitle: "Giỏ Hàng",
+      cartItemsCount: "món",
+      cartItemSingle: "món",
+      cartEmpty: "Giỏ hàng của bạn đang trống",
+      cartEmptyDesc: "Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!",
+      cartContinueBtn: "Mua sắm ngay",
+      cartSubtotal: "Tạm tính:",
+      cartTaxNotice: "Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.",
+      cartCheckoutBtn: "TIẾN HÀNH THANH TOÁN",
+      shippingDefault: "Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫",
+      shippingFreeUnlocked: "Bạn được MIỄN PHÍ vận chuyển!",
+      shippingAddMorePrefix: "Mua thêm",
+      shippingAddMoreSuffix: "để được MIỄN PHÍ vận chuyển!",
+
+      // Express Checkout 2-Step Modal
+      checkoutModalTitle: "Đặt Hàng Siêu Tốc",
+      checkoutCloseAria: "Đóng thanh toán",
+      step1NavTitle: "Bước 1: Địa chỉ nhận hàng",
+      step2NavTitle: "Bước 2: Thanh toán & xác nhận",
+      step1Label: "Địa Chỉ Nhận Hàng",
+      step2Label: "Thanh Toán & Xác Nhận",
+      step1PaneTitle: "Thông Tin Giao Hàng Siêu Tốc",
+      step1PaneSubtitle: "Giao nhanh 24h & hỗ trợ đồng kiểm bưu tá trước khi thanh toán.",
+      labelCustName: "Họ và tên người nhận",
+      placeholderCustName: "Ví dụ: Hoàng Long",
+      labelCustPhone: "Số điện thoại liên hệ",
+      placeholderCustPhone: "Ví dụ: 0912345678",
+      labelCustAddress: "Địa chỉ chi tiết (Số nhà, tên đường, phường/xã)",
+      placeholderCustAddress: "Ví dụ: 88 Phố Cầu Giấy, P. Dịch Vọng",
+      labelCustCity: "Tỉnh / Thành phố",
+      cityHanoi: "Hà Nội (Hỏa tốc 2h - 24h)",
+      cityHcm: "TP. Hồ Chí Minh (Giao 24h - 48h)",
+      cityDanang: "Đà Nẵng",
+      cityHaiphong: "Hải Phòng",
+      cityCantho: "Cần Thơ",
+      cityOther: "Tỉnh thành khác (Toàn quốc)",
+      labelCustNote: "Ghi chú giao hàng (Tùy chọn)",
+      placeholderCustNote: "Ví dụ: Cho đồng kiểm, gọi trước khi giao",
+      btnGotoStep2: "Tiếp tục sang thanh toán",
+      step2PaneTitle: "Phương Thức Thanh Toán",
+      step2PaneSubtitle: "Lựa chọn cổng thanh toán an toàn, bảo mật tiêu chuẩn eSports.",
+      pmCodTitle: "Thanh toán khi nhận hàng (COD)",
+      pmCodDesc: "Đồng kiểm bưu tá khi nhận hàng, thanh toán tiền mặt",
+      pmMomoTitle: "Ví điện tử MoMo",
+      pmMomoDesc: "Quét mã QR thanh toán tức thì, nhận ngay voucher giảm 20.000₫",
+      pmVnpayTitle: "Cổng thanh toán VNPAY / Ngân hàng",
+      pmVnpayDesc: "Hỗ trợ quét VietQR qua 40+ ứng dụng ngân hàng nội địa",
+      pmBankTitle: "Chuyển khoản ngân hàng trực tiếp",
+      pmBankDesc: "Chuyển khoản trực tiếp tới tài khoản công ty Blue Gaming Gear",
+      checkoutOrderReview: "Tóm Tắt Đơn Hàng:",
+      checkoutSummarySubtotal: "Tiền hàng",
+      checkoutSummaryShipping: "Phí vận chuyển",
+      checkoutSummaryShippingFree: "MIỄN PHÍ",
+      checkoutSummaryDiscount: "Giảm giá MoMo",
+      checkoutSummaryTotal: "Tổng thanh toán",
+      btnBacktoStep1: "Quay lại thông tin giao hàng",
+      btnConfirmOrder: "Xác Nhận Đặt Hàng Ngay",
+      step3SuccessTitle: "Đặt Hàng Thành Công!",
+      orderCodePrefix: "Mã đơn hàng:",
+      orderSuccessText: "Cảm ơn bạn đã lựa chọn Blue Gaming Gear. Đơn hàng của bạn đang được đóng gói và chuẩn bị giao.",
+      timelineStep1: "Đã tiếp nhận",
+      timelineStep2: "Đang đóng gói",
+      timelineStep3: "Bàn giao bưu tá",
+      btnCompleteShopping: "Hoàn tất mua sắm",
+
+      // Account Page (account.html)
+      accPageTitle: "Tài Khoản Thành Viên eSports | Blue Gaming Gear",
+      accBreadcrumbHome: "Trang chủ",
+      accBreadcrumbCurrent: "Tài khoản thành viên",
+      authPassportBadge: "BLUE PASSPORT",
+      authHeroTitle: "TÀI KHOẢN THÀNH VIÊN",
+      authHeroDesc: "Đăng nhập để nhận ưu đãi VIP, theo dõi đơn hàng thời gian thực và quản lý bảo hành điện tử chính hãng.",
+      tabLogin: "Đăng Nhập",
+      tabRegister: "Tạo Tài Khoản Mới",
+      labelLoginEmail: "Địa chỉ Email",
+      placeholderLoginEmail: "ví dụ: gamer@blue.vn",
+      labelLoginPassword: "Mật khẩu",
+      placeholderLoginPassword: "Nhập mật khẩu của bạn",
+      linkForgotPassword: "Quên mật khẩu?",
+      labelRememberLogin: "Ghi nhớ phiên đăng nhập trên thiết bị này",
+      btnSubmitLogin: "Đăng Nhập Ngay",
+      demoAccountsCardTitle: "Tài Khoản Dùng Thử (1-Click Test cho Giảng Viên):",
+      labelRegName: "Họ và Tên",
+      placeholderRegName: "Nguyễn Văn A",
+      labelRegEmail: "Email đăng ký",
+      placeholderRegEmail: "gamer@domain.com",
+      labelRegPhone: "Số điện thoại liên hệ",
+      placeholderRegPhone: "09xxxxxxxx",
+      labelRegPassword: "Mật khẩu",
+      placeholderRegPassword: "Tối thiểu 6 ký tự",
+      labelRegConfirmPassword: "Xác nhận mật khẩu",
+      placeholderRegConfirmPassword: "Nhập lại mật khẩu",
+      labelTermsAgree: "Tôi đồng ý với Điều khoản dịch vụ & Chính sách bảo mật của Blue Gaming Gear",
+      btnSubmitRegister: "Đăng Ký Tài Khoản (Nhận 200 Điểm)",
+      
+      // Account Dashboard
+      btnChangeAvatarTitle: "Đổi ảnh đại diện",
+      pointsUnit: "Điểm",
+      dashTabProfile: "Thông tin tài khoản",
+      dashTabOrders: "Đơn hàng của tôi",
+      dashTabAddresses: "Sổ địa chỉ giao hàng",
+      dashTabRewards: "Điểm thưởng & Voucher",
+      dashTabSecurity: "Bảo mật & Đổi mật khẩu",
+      dashTabLogout: "Đăng xuất",
+      
+      paneProfileTitle: "HỒ SƠ TÀI KHOẢN",
+      paneProfileDesc: "Quản lý thông tin hồ sơ bảo mật để bảo vệ tài khoản và nhận ưu đãi eSports.",
+      profNameLabel: "Họ và Tên",
+      profEmailLabel: "Email (Không thể thay đổi)",
+      profPhoneLabel: "Số điện thoại",
+      profCityLabel: "Tỉnh / Thành phố",
+      profAddressLabel: "Địa chỉ chi tiết (Số nhà, ngõ, tên đường)",
+      profAddressPlaceholder: "Ví dụ: Số 18, Phố Tràng Thi, Hoàn Kiếm",
+      profGenderLabel: "Giới tính",
+      genderMale: "Nam",
+      genderFemale: "Nữ",
+      genderOther: "Không tiết lộ",
+      profBirthdateLabel: "Ngày sinh",
+      btnSaveProfile: "Lưu Thay Đổi",
+
+      paneOrdersTitle: "ĐƠN HÀNG CỦA TÔI",
+      paneOrdersDesc: "Tra cứu lịch sử mua hàng, tiến độ vận chuyển và bảo hành sản phẩm eSports.",
+      orderFilterAll: "Tất cả",
+      orderFilterProcessing: "Chờ xác nhận",
+      orderFilterShipping: "Đang giao",
+      orderFilterCompleted: "Hoàn thành",
+      orderFilterCancelled: "Đã hủy",
+      ordersEmptyTitle: "Không có đơn hàng nào",
+      ordersEmptyDesc: "Bạn chưa có đơn hàng nào ở trạng thái này. Khám phá kho gear eSports và sở hữu ngay hôm nay!",
+      btnShopNow: "Khám Phá Sản Phẩm Ngay",
+      orderCodeText: "Mã đơn:",
+      orderDeliverToText: "Giao tới:",
+      orderTotalText: "Tổng thanh toán:",
+      btnCancelOrder: "Hủy đơn",
+      btnRepurchase: "Mua lại",
+
+      paneAddressesTitle: "SỔ ĐỊA CHỈ GIAO HÀNG",
+      paneAddressesDesc: "Lưu sẵn địa chỉ nhận hàng để thanh toán nhanh chỉ với 1 thao tác.",
+      addrHomeTitle: "Nhà Riêng",
+      badgeDefaultAddr: "Mặc định",
+      btnEditAddr: "Chỉnh sửa",
+      btnAddNewAddr: "Thêm địa chỉ nhận hàng mới",
+
+      paneRewardsTitle: "ĐIỂM THƯỞNG & MÃ ƯU ĐÃI VIP",
+      paneRewardsDesc: "Tích lũy điểm khi mua sắm thiết bị và đổi lấy voucher giảm giá độc quyền.",
+      tierCurrentLabel: "HẠNG THÀNH VIÊN HIỆN TẠI",
+      vouchersSectionTitle: "Mã Giảm Giá Độc Quyền Dành Cho Bạn:",
+      voucher10Title: "GIẢM 10% TẤT CẢ GEAR",
+      voucher10Desc: "Áp dụng cho đơn hàng từ 1.000.000₫",
+      voucherFreeTitle: "MIỄN PHÍ VẬN CHUYỂN",
+      voucherFreeDesc: "Giao hỏa tốc toàn quốc, áp dụng đơn bất kỳ",
+      voucher50kTitle: "GIẢM NGAY 50.000₫",
+      voucher50kDesc: "Quà tặng tân thủ eSports cho lần đầu mua gear",
+      btnCopyCode: "Sao chép",
+      copiedCode: "Đã chép!",
+
+      paneSecurityTitle: "BẢO MẬT TÀI KHOẢN",
+      paneSecurityDesc: "Đổi mật khẩu định kỳ để bảo vệ an toàn cho tài khoản và các đơn hàng của bạn.",
+      passCurrentLabel: "Mật khẩu hiện tại",
+      passCurrentPlaceholder: "Nhập mật khẩu hiện tại",
+      passNewLabel: "Mật khẩu mới",
+      passNewPlaceholder: "Tối thiểu 6 ký tự",
+      passConfirmLabel: "Xác nhận mật khẩu mới",
+      passConfirmPlaceholder: "Nhập lại mật khẩu mới",
+      btnUpdatePass: "Cập Nhật Mật Khẩu"
     }
   };
 
@@ -563,10 +977,13 @@
     // 2. Cập nhật trạng thái active trong dropdown
     document.querySelectorAll(".lang-item").forEach((item) => {
       const itemLang = item.getAttribute("data-lang");
+      const checkIcon = item.querySelector(".lang-check");
       if (itemLang === lang) {
         item.classList.add("active");
+        if (checkIcon) checkIcon.style.display = "inline-block";
       } else {
         item.classList.remove("active");
+        if (checkIcon) checkIcon.style.display = "none";
       }
     });
 
@@ -602,10 +1019,40 @@
       }
     });
 
-    // 7. Cập nhật document lang
+    // 7. Cập nhật aria-label
+    document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-aria-label");
+      if (t[key] !== undefined) {
+        el.setAttribute("aria-label", t[key]);
+      }
+    });
+
+    // 8. Cập nhật tên mặc định và điểm trong Header Dropdown nếu chưa đăng nhập
+    if (!window.AuthModel || !window.AuthModel.isLoggedIn()) {
+      const ddName = document.getElementById("user-dd-name");
+      const ddPoints = document.getElementById("user-dd-points");
+      if (ddName) ddName.textContent = lang === "en" ? "Alex Johnson" : "Alex Nguyễn";
+      if (ddPoints) ddPoints.textContent = lang === "en" ? "1,850 Points" : "1.850 điểm";
+    }
+
+    // 9. Cập nhật tiêu đề trang (Document Title)
+    const currentPath = window.location.pathname;
+    if (currentPath.includes("products.html")) {
+      document.title = lang === "en" ? "All Gaming Gear | Blue Gaming Gear" : "Tất Cả Sản Phẩm Gaming Gear | Blue";
+    } else if (currentPath.includes("account.html")) {
+      document.title = lang === "en" ? "Member Account | Blue Gaming Gear" : "Tài Khoản Thành Viên eSports | Blue Gaming Gear";
+    } else if (currentPath.includes("product-detail.html")) {
+      const pTitle = document.getElementById("detail-product-title");
+      const name = pTitle && pTitle.textContent && !pTitle.textContent.includes("Loading") && !pTitle.textContent.includes("Đang tải") ? pTitle.textContent : (lang === "en" ? "Product Details" : "Chi Tiết Sản Phẩm");
+      document.title = `${name} | Blue Gaming Gear`;
+    } else if (currentPath.includes("index.html") || currentPath.endsWith("/") || currentPath === "") {
+      document.title = lang === "en" ? "Blue Gaming Gear | Pro Tournament Hardware" : "Blue Gaming Gear | Thiết Bị eSports Thi Đấu Đỉnh Cao";
+    }
+
+    // 10. Cập nhật document lang
     document.documentElement.lang = lang;
 
-    // 8. Bắn sự kiện ra toàn bộ ứng dụng để các module khác (Cart, Products, Mega, Hero) tự cập nhật
+    // 11. Bắn sự kiện ra toàn bộ ứng dụng để các module khác (Cart, Products, Mega, Hero) tự cập nhật
     window.dispatchEvent(new CustomEvent("blue:language-change", { detail: { lang, t } }));
   }
 
