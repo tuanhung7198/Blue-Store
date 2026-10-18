@@ -1,0 +1,322 @@
+[
+  {
+    "id": 1,
+    "name": "Chuột Gaming Không Dây Logitech G Pro X Superlight",
+    "price": 2990000,
+    "sale_price": null,
+    "image": "https://anphat.com.vn/media/product/46381_logitech_g_pro_x_superlight_2_white__1_.jpg",
+    "image_hover": "https://i.ebayimg.com/images/g/7E4AAOSwJWBlPhKE/s-l1600.webp",
+    "category": "Chuột",
+    "hot": true
+  },
+  {
+    "id": 2,
+    "name": "Bàn Phím Cơ Razer Huntsman V2",
+    "price": 3590000,
+    "sale_price": null,
+    "image": "https://i.ebayimg.com/images/g/UugAAeSwz2Zpj8tN/s-l1600.webp",
+    "image_hover": "https://i.ebayimg.com/images/g/YBEAAeSwOcNpj8tM/s-l1600.webp",
+    "category": "Bàn phím",
+    "hot": true
+  },
+  {
+    "id": 3,
+    "name": "Tai Nghe Gaming Corsair HS80",
+    "price": 2490000,
+    "sale_price": null,
+    "image": "https://product.hstatic.net/200000722513/product/led_rgb_wireless_ca_9011235_ap_0001_2_436fee75cc8d499e9d7619b9efef8acd_8f3b7e1f606c49b8b209034703d29d54.jpg",
+    "image_hover": "https://i.ebayimg.com/images/g/8yAAAOSwxkplv5t8/s-l1600.webp",
+    "category": "Tai nghe",
+    "hot": true
+  },
+  {
+    "id": 4,
+    "name": "Chuột Razer DeathAdder V3 Pro",
+    "price": 3190000,
+    "sale_price": null,
+    "image": "https://i.ebayimg.com/images/g/4o8AAOSw6AJlS41e/s-l960.webp",
+    "image_hover": "https://i.ebayimg.com/images/g/fI8AAeSwuGhooE5d/s-l960.webp",
+    "category": "Chuột",
+    "hot": true
+  },
+  {
+    "id": 5,
+    "name": "Bàn Phím Cơ Không Dây Keychron K8 Pro",
+    "price": 2200000,
+    "sale_price": null,
+    "image": "https://i.ebayimg.com/images/g/no4AAeSwy2FoGkIg/s-l1600.webp",
+    "image_hover": "https://i.ebayimg.com/images/g/XZEAAeSw9RtoGkIg/s-l1600.webp",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 6,
+    "name": "Lót Chuột SteelSeries QcK Heavy",
+    "price": 590000,
+    "sale_price": null,
+    "image": "https://i.ebayimg.com/images/g/bSAAAeSwEQFqg~sp/s-l960.webp",
+    "image_hover": "https://i.ebayimg.com/images/g/X-YAAeSw7DBqg~sp/s-l960.webp",
+    "category": "Lót chuột",
+    "hot": false
+  },
+  {
+    "id": 7,
+    "name": "Màn Hình Gaming LG UltraGear 27GN800",
+    "price": 6990000,
+    "sale_price": null,
+    "image": "https://cdn-transformations.hacom.vn/insecure/f:webp/q:85/rt:fit/w:640/aHR0cHM6Ly9oYW5vaWNvbXB1dGVyY2RuLmNvbS9tZWRpYS9wcm9kdWN0LzkyMjYwX21hbl9oaW5oX2xnX3VsdHJhZ2Vhcl8yN2c4NTBhX2JfNC5qcGc.webp",
+    "image_hover": "https://cdn-transformations.hacom.vn/insecure/f:webp/q:75/rt:fit/w:640/aHR0cHM6Ly9oYW5vaWNvbXB1dGVyY2RuLmNvbS9tZWRpYS9wcm9kdWN0LzkyMjYwX21hbl9oaW5oX2xnX3VsdHJhZ2Vhcl8yN2c4NTBhX2JfNi5qcGc.webp",
+    "category": "Màn hình",
+    "hot": false
+  },
+  {
+    "id": 8,
+    "name": "Ghế Gaming Secretlab Titan Evo 2022",
+    "price": 11500000,
+    "sale_price": null,
+    "image": "https://anphat.com.vn/media/product/56154_razer_soma_chroma__1_.png",
+    "image_hover": "https://anphat.com.vn/media/product/56154_razer_soma_chroma__6_.png",
+    "category": "Ghế gaming",
+    "hot": false
+  },
+  {
+    "id": 9,
+    "name": "Tai Nghe Gaming HyperX Cloud III",
+    "price": 2390000,
+    "sale_price": 1990000,
+    "image": "https://www.phongcachxanh.vn/cdn/shop/files/hyperx-cloud-iii-1201660528.jpg?v=1762146563&width=800",
+    "image_hover": "https://www.phongcachxanh.vn/cdn/shop/files/hyperx-cloud-iii-1201660520.jpg?v=1762146449&width=800",
+    "category": "Tai nghe",
+    "hot": false
+  },
+  {
+    "id": 10,
+    "name": "Chuột Có Dây Logitech G102 Lightsync",
+    "price": 499000,
+    "sale_price": 399000,
+    "image": "https://bizweb.dktcdn.net/100/600/527/products/bc2b14b9-94b4-4eaf-a604-1b43db45363a.jpg?v=1762491179127",
+    "image_hover": "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/l/o/logitech-g102-lightsync-rgb-white-1_eb113ff7e83b4289812fb9bff7034b4d_1.jpg",
+    "category": "Chuột",
+    "hot": false
+  },
+  {
+    "id": 11,
+    "name": "Bàn Phím Cơ AKKO 3098B",
+    "price": 2190000,
+    "sale_price": 1890000,
+    "image": "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/b/a/ban-phim-co-akko-3098b-plus-black-gold-cream-yellow-pro-switch_1.jpg",
+    "image_hover": "https://nguyencongpc.vn/media/product/27905-akko-3098s-dracula-castle-6.jpg",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 12,
+    "name": "Lót Chuột RGB Razer Goliathus Extended",
+    "price": 1190000,
+    "sale_price": 890000,
+    "image": "https://cdn-transformations.hacom.vn/insecure/f:webp/q:85/rt:fit/w:640/aHR0cHM6Ly9oYW5vaWNvbXB1dGVyY2RuLmNvbS9tZWRpYS9wcm9kdWN0LzUxNTEwX3JhemVyX2dvbGlhdGh1c19tZXJjdXJ5X21vdXNlcGFkX2V4dGVuZGVkX3J6MDJfMDI1MDAzMTZfcjNtMV9fMV8ucG5n.webp",
+    "image_hover": "https://cdn-transformations.hacom.vn/insecure/f:webp/q:85/rt:fit/w:640/aHR0cHM6Ly9oYW5vaWNvbXB1dGVyY2RuLmNvbS9tZWRpYS9wcm9kdWN0LzkwNjEwX2Jhbl9kaV9jaHVvdF9yYXplcl9nb2xpYXRodXNfY2hyb21hXzN4bF9nYW1pbmdfbW91c2VfbWF0X3J6MDJfMDI1MDA3MDBfcjNtMV8xLmpwZw.webp",
+    "category": "Lót chuột",
+    "hot": false
+  },
+  {
+    "id": 13,
+    "name": "Bàn Phím Cơ Không Dây ASUS ROG Azoth",
+    "price": 6290000,
+    "sale_price": 5790000,
+    "image": "https://anphat.com.vn/media/product/56233_asus_rog_azoth_extreme_20_edition__1_.jpg",
+    "image_hover": "https://anphat.com.vn/media/product/56233_asus_rog_azoth_extreme_20_edition__7_.webp",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 14,
+    "name": "Bàn Phím Cơ SteelSeries Apex Pro TKL 2023",
+    "price": 4990000,
+    "sale_price": null,
+    "image": "https://m.media-amazon.com/images/I/61Q3AgxXpEL._AC_SX466_.jpg",
+    "image_hover": "https://m.media-amazon.com/images/I/713vLZcw3FL._AC_SX466_.jpg",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 15,
+    "name": "Bàn Phím Cơ Corsair K70 RGB PRO",
+    "price": 3890000,
+    "sale_price": 3290000,
+    "image": "https://m.media-amazon.com/images/I/8113Zj6ES8L._AC_SX466_.jpg",
+    "image_hover": "https://m.media-amazon.com/images/I/81HVfO2DU6L._AC_SX466_.jpg",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 16,
+    "name": "Bàn Phím Cơ MonsGeek M1W V3 Wireless",
+    "price": 2490000,
+    "sale_price": null,
+    "image": "https://m.media-amazon.com/images/I/51IGZqWlRxL._AC_SX466_.jpg",
+    "image_hover": "https://m.media-amazon.com/images/I/61JDqMe5ERL._AC_SX466_.jpg",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 17,
+    "name": "Bàn Phím Cơ FL-Esports OG87 Retro White",
+    "price": 2150000,
+    "sale_price": 1850000,
+    "image": "https://product.hstatic.net/200000637319/product/image_-_2024-03-11t133834.985_fa87e869f1aa4d199536dd752850abbb_master.png",
+    "image_hover": "https://product.hstatic.net/200000637319/product/image_-_2024-03-11t133842.552_3a2c5e9ef7b74039ad40b64533d1d1d0_master.png",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 18,
+    "name": "Bàn Phím Cơ Aula F75 Wireless Gasket",
+    "price": 1290000,
+    "sale_price": 990000,
+    "image": "https://cdn2.cellphones.com.vn/x/media/catalog/product/b/a/ban-phim-khong-day-aula-f75-glacier-blue.jpg?_gl=1*lq25kh*_gcl_aw*R0NMLjE3OTIzMDY0ODkuQ2p3S0NBand1Y3pXQmhBOUVpd0FZR2dFb1k5ZmtiamV4OWJ4TU9VdnRRdnUwc1I0cklkWmlLTXlkeHI2RVdFUHFyM29VUmRDb2NHazdSb0MwMjhRQXZEX0J3RQ..*_gcl_au*MTg2OTAxNDUzMC4xNzkwNDgzNDk4*_ga*MTc3MTA3MTUxNy4xNzkwNDgzNDk4*_ga_QLK8WFHNK9*czE3OTIzMDY0ODkkbzQkZzAkdDE3OTIzMDY0OTEkajU4JGwwJGg4NjcyNDE0NjM.",
+    "image_hover": "https://cdn2.cellphones.com.vn/x/media/catalog/product/b/a/ban-phim-khong-day-aula-f75-glacier-blue-3.jpg?_gl=1*yoeff1*_gcl_aw*R0NMLjE3OTIzMDY0ODkuQ2p3S0NBand1Y3pXQmhBOUVpd0FZR2dFb1k5ZmtiamV4OWJ4TU9VdnRRdnUwc1I0cklkWmlLTXlkeHI2RVdFUHFyM29VUmRDb2NHazdSb0MwMjhRQXZEX0J3RQ..*_gcl_au*MTg2OTAxNDUzMC4xNzkwNDgzNDk4*_ga*MTc3MTA3MTUxNy4xNzkwNDgzNDk4*_ga_QLK8WFHNK9*czE3OTIzMDY0ODkkbzQkZzAkdDE3OTIzMDY0OTEkajU4JGwwJGg4NjcyNDE0NjM.",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 19,
+    "name": "Bàn Phím Cơ Varmilo VA87M Sea Melody",
+    "price": 3100000,
+    "sale_price": null,
+    "image": "https://product.hstatic.net/1000333506/product/12_b5646fb4d41a468a91b9b4fe1badd74d.jpg",
+    "image_hover": "https://product.hstatic.net/1000333506/product/47107_3__small__5943f9ca23b24e00b13b7b053ccf6d42.jpg",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 20,
+    "name": "Bàn Phím Từ Tính ATK68 Magnetic Switch",
+    "price": 2350000,
+    "sale_price": 1990000,
+    "image": "https://www.atk.store/cdn/shop/files/b987fbdf989c16ab216fb7d2fec77348_70a6cff7-4f3c-4c0f-a58b-c1633a4159e9.png?v=1776050485&width=1200",
+    "image_hover": "https://www.atk.store/cdn/shop/files/37efe26d5b548dfbbb336d3c655a770a_121cb89d-d6b0-4488-8b81-c74cf1e00450.jpg?v=1780053426&width=700",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 21,
+    "name": "Bàn Phím Cơ Ducky One 3 Daybreak",
+    "price": 2890000,
+    "sale_price": null,
+    "image": "https://gearshop.vn/upload/resizer.php?src=https://gearshop.vn/upload/images/Product/Ducky/Ducky%20One%203/Daybreak/Ducky-One-3-Fullsize-Daybreak-(9).jpg&w=1200&h=1200&q=72&zc=2",
+    "image_hover": "https://gearshop.vn/upload/resizer.php?src=https://gearshop.vn/upload/images/Product/Ducky/Ducky%20One%203/Daybreak/Ducky-One-3-Fullsize-Daybreak-(1).jpg&w=1200&h=1200&q=72&zc=2",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 22,
+    "name": "Bàn Phím Cơ Leopold FC900R PD Ash Yellow",
+    "price": 3250000,
+    "sale_price": null,
+    "image": "https://owlgaming.vn/wp-content/uploads/2023/05/ban-phim-co-leopold-fc900r-bt-pd-ash-yellow-600x600.jpg",
+    "image_hover": "https://owlgaming.vn/wp-content/uploads/2023/05/ban-phim-co-leopold-fc900r-bt-pd-ash-yellow-1-600x600.jpg",
+    "category": "Bàn phím",
+    "hot": false
+  },
+  {
+    "id": 23,
+    "name": "Chuột Gaming Không Dây Razer Viper V3 Pro",
+    "price": 3990000,
+    "sale_price": null,
+    "image": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/razer-viper-v3-pro-se-chu-t-d-i-x-ng-kem-dongle-1k-1216921951.jpg?v=1768533249",
+    "image_hover": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/razer-viper-v3-pro-se-chu-t-d-i-x-ng-kem-dongle-1k-1216921946.jpg?v=1768533192",
+    "category": "Chuột",
+    "hot": false
+  },
+  {
+    "id": 24,
+    "name": "Chuột Gaming Không Dây Pulsar X2V2",
+    "price": 2490000,
+    "sale_price": 2190000,
+    "image": "https://cdn.shopify.com/s/files/1/0455/0914/8840/files/X2_v2_Wireless_Mouse_Medium_Black_001.png?v=1758619152",
+    "image_hover": "https://cdn.shopify.com/s/files/1/0455/0914/8840/products/X2V2gamingmouse_medium_Black_bottom_68046cfc-e724-4d2c-8161-83f96037de4e-175789.png?v=1758619152",
+    "category": "Chuột",
+    "hot": false
+  },
+  {
+    "id": 25,
+    "name": "Chuột Gaming Không Dây Zowie EC2-CW",
+    "price": 3890000,
+    "sale_price": null,
+    "image": "https://product.hstatic.net/200000722513/product/01-ec2-cw-top-removebg-preview_2594e765fe5e4a80b31060f53c71877e.png",
+    "image_hover": "https://product.hstatic.net/200000722513/product/gearvn-chuot-zowie-ec2-cw-1_216edcf5d9184ed0a9a76861c32217a2.jpg",
+    "category": "Chuột",
+    "hot": false
+  },
+  {
+    "id": 26,
+    "name": "Chuột Gaming Siêu Nhẹ ATK Blazing Sky F1 Pro",
+    "price": 1490000,
+    "sale_price": 1250000,
+    "image": "https://cdn.shopify.com/s/files/1/0691/4942/5882/files/ATK_Blazing_Sky_F1_Black.jpg?v=1756979076",
+    "image_hover": "https://cdn.shopify.com/s/files/1/0691/4942/5882/files/ATK_Blazing_Sky_F1_White.jpg?v=1756979076",
+    "category": "Chuột",
+    "hot": false
+  },
+  {
+    "id": 27,
+    "name": "Chuột Gaming Không Dây Ninjutso Sora V2",
+    "price": 2590000,
+    "sale_price": null,
+    "image": "https://cdn.shopify.com/s/files/1/0277/2507/0400/files/2_e4678c92-8d25-4663-a47b-7ce89b6e64ff.jpg?v=1706976734",
+    "image_hover": "https://cdn.shopify.com/s/files/1/0277/2507/0400/files/1_fc47a72a-d895-4be4-a133-264f52dfeb98.jpg?v=1717589054",
+    "category": "Chuột",
+    "hot": false
+  },
+  {
+    "id": 28,
+    "name": "Chuột Gaming Có Dây Endgame Gear OP1 8k",
+    "price": 1890000,
+    "sale_price": 1690000,
+    "image": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/chu-t-endgame-gear-op1-8k-40118067331317.jpg?v=1709366730",
+    "image_hover": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/chu-t-endgame-gear-op1-8k-40118068248821.jpg?v=1709366566",
+    "category": "Chuột",
+    "hot": false
+  },
+  {
+    "id": 29,
+    "name": "Chuột Gaming Không Dây Lamzu Maya 4K",
+    "price": 2690000,
+    "sale_price": null,
+    "image": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/chu-t-khong-day-sieu-nh-lamzu-maya-x-h-tr-8khz-41689029837045.jpg?v=1762221468",
+    "image_hover": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/chu-t-khong-day-sieu-nh-lamzu-maya-x-di-kem-dongle-8khz-1123787583.jpg?v=1762221468",
+    "category": "Chuột",
+    "hot": false
+  },
+  {
+    "id": 30,
+    "name": "Lót Chuột Artisan Ninja FX Zero XSoft",
+    "price": 1490000,
+    "sale_price": null,
+    "image": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/lot-chu-t-v-i-artisan-ninja-fx-zero-1167254172.jpg?v=1747394246",
+    "image_hover": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/lot-chu-t-v-i-artisan-ninja-fx-zero-1167254174.jpg?v=1747394252",
+    "category": "Lót chuột",
+    "hot": false
+  },
+  {
+    "id": 31,
+    "name": "Lót Chuột BenQ Zowie G-SR-SE Bi",
+    "price": 1100000,
+    "sale_price": 950000,
+    "image": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/zowie-g-sr-se-orange-lot-chu-t-ch-i-game-esports-1251170899.jpg?v=1785142870",
+    "image_hover": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/zowie-g-sr-se-orange-lot-chu-t-ch-i-game-esports-1251170901.jpg?v=1785142812",
+    "category": "Lót chuột",
+    "hot": false
+  },
+  {
+    "id": 32,
+    "name": "Lót Chuột Kính Cường Lực Pulsar Superglide",
+    "price": 2390000,
+    "sale_price": 1990000,
+    "image": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/pulsar-superglide3-glass-mousepad-type-s-lot-chu-t-kinh-c-ng-l-c-1248333438.jpg?v=1783594991",
+    "image_hover": "https://cdn.shopify.com/s/files/1/0636/9044/0949/files/pulsar-superglide3-glass-mousepad-type-s-lot-chu-t-kinh-c-ng-l-c-1248333437.jpg?v=1783594930",
+    "category": "Lót chuột",
+    "hot": false
+  }
+]

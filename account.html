@@ -1,0 +1,1487 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tài Khoản Thành Viên eSports | Blue Gaming Gear</title>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://anphat.com.vn/media/product/46381_logitech_g_pro_x_superlight_2_white__1_.jpg"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="main-header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="nav-left">
+            <a href="index.html" class="logo">Blue</a>
+          </div>
+          <div class="nav-center">
+            <ul class="nav-links">
+              <li>
+                <a href="products.html" data-mega="all">Tất cả sản phẩm</a>
+              </li>
+              <li>
+                <a href="products.html?category=Chuột" data-mega="Chuột"
+                  >Chuột</a
+                >
+              </li>
+              <li>
+                <a href="products.html?category=Bàn%20phím" data-mega="Bàn phím"
+                  >Bàn phím</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html?category=Lót%20chuột"
+                  data-mega="Lót chuột"
+                  >Lót chuột</a
+                >
+              </li>
+              <li>
+                <a href="products.html?status=sale">Ưu đãi & Phần thưởng</a>
+              </li>
+              <li>
+                <a
+                  href="#support"
+                  class="support-modal-trigger"
+                  data-support-tab="warranty"
+                  >Hỗ trợ</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="nav-right">
+            <div class="lang-currency">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg"
+                alt="VI"
+                class="flag"
+              />
+              <span>VI / VND</span>
+              <i class="fa-solid fa-chevron-down" style="font-size: 10px"></i>
+            </div>
+            <div class="utilities">
+              <a
+                href="https://discord.gg/bluegaming"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Cộng đồng Discord eSports"
+                ><i class="fa-brands fa-discord"></i
+              ></a>
+              <a
+                href="mailto:support@blue.vn"
+                title="Hỗ trợ qua Email: support@blue.vn"
+                ><i class="fa-regular fa-envelope"></i
+              ></a>
+
+              <!-- Nút tìm kiếm -->
+              <button
+                id="search-trigger-btn"
+                class="nav-icon-btn"
+                aria-label="Tìm kiếm sản phẩm"
+                title="Tìm kiếm (Ctrl+K)"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+
+              <!-- NÚT TÀI KHOẢN (ĐỒNG BỘ MVC AUTH) -->
+              <div class="header-user-wrapper" id="header-user-wrapper">
+                <a
+                  href="account.html"
+                  class="nav-icon-btn header-user-btn"
+                  id="header-user-btn"
+                  title="Tài khoản thành viên"
+                  aria-label="Tài khoản thành viên"
+                >
+                  <i class="fa-regular fa-user"></i>
+                </a>
+                <div class="user-dropdown-menu" id="user-dropdown-menu">
+                  <div class="user-dropdown-header">
+                    <div class="user-dropdown-avatar" id="user-dd-avatar"></div>
+                    <div class="user-dropdown-meta">
+                      <strong id="user-dd-name">Alex Nguyễn</strong>
+                      <span id="user-dd-rank">VIP Diamond</span>
+                      <small
+                        id="user-dd-points"
+                        style="
+                          color: var(--blue-accent, #0052cc);
+                          font-weight: 700;
+                        "
+                        >1.850 điểm</small
+                      >
+                    </div>
+                  </div>
+                  <ul class="user-dropdown-links">
+                    <li>
+                      <a href="account.html?tab=profile"
+                        ><i class="fa-regular fa-id-badge"></i> Thông tin tài
+                        khoản</a
+                      >
+                    </li>
+                    <li>
+                      <a href="account.html?tab=orders"
+                        ><i class="fa-solid fa-box-open"></i> Đơn hàng của
+                        tôi</a
+                      >
+                    </li>
+                    <li>
+                      <a href="account.html?tab=addresses"
+                        ><i class="fa-solid fa-location-dot"></i> Sổ địa chỉ</a
+                      >
+                    </li>
+                    <li>
+                      <a href="account.html?tab=rewards"
+                        ><i class="fa-solid fa-gift"></i> Điểm & Voucher</a
+                      >
+                    </li>
+                    <li class="user-dropdown-divider"></li>
+                    <li>
+                      <button
+                        type="button"
+                        class="btn-user-logout"
+                        id="header-logout-btn"
+                      >
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Đăng xuất
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Nút chuyển theme Dark/Light -->
+              <button
+                id="theme-toggle-btn"
+                class="theme-toggle-btn glass-theme-btn"
+                aria-label="Chuyển chế độ Dark / Light"
+                title="Chế độ Dark eSports (Bấm để chuyển)"
+              >
+                <span class="theme-toggle-badge">
+                  <i class="fa-solid fa-moon"></i>
+                </span>
+                <span class="theme-toggle-content">
+                  <span class="theme-toggle-label">Dark Mode</span>
+                  <span class="theme-toggle-chevrons">
+                    <i class="fa-solid fa-chevron-up"></i>
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </span>
+                </span>
+              </button>
+
+              <!-- Nút Giỏ Hàng -->
+              <button
+                id="cart-trigger-btn"
+                class="nav-icon-btn cart-icon"
+                aria-label="Xem giỏ hàng"
+                title="Giỏ hàng"
+              >
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-badge" class="cart-badge">0</span>
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Mega Menu -->
+      <div id="mega-menu" class="mega-menu">
+        <div class="mega-container">
+          <div class="mega-sidebar">
+            <ul class="mega-categories-list">
+              <li class="cat-item active" data-id="Chuột">Chuột</li>
+              <li class="cat-item" data-id="Bàn phím">Bàn phím</li>
+              <li class="cat-item" data-id="Lót chuột">Lót chuột</li>
+              <li class="cat-item" data-id="Tai nghe">Headphones</li>
+              <li class="cat-item" data-id="Tay cầm">Controller</li>
+              <li class="cat-item" data-id="Phụ kiện">Accessories</li>
+              <li class="cat-item" data-id="Gift Cards">Gift Cards</li>
+            </ul>
+          </div>
+          <div class="mega-content">
+            <div class="mega-header">
+              <div class="mega-title-area">
+                <h3 id="mega-current-cat" class="mega-title">CHUỘT</h3>
+              </div>
+              <a href="products.html" class="view-all"
+                >Xem tất cả
+                <i
+                  class="fa-solid fa-chevron-right"
+                  style="font-size: 10px; margin-left: 4px"
+                ></i
+              ></a>
+            </div>
+            <div class="mega-products-wrapper">
+              <div class="mega-products-viewport">
+                <div id="mega-products" class="mega-products-grid">
+                  <!-- JS sẽ render nội dung từ db.json vào đây -->
+                </div>
+              </div>
+              <div class="mega-carousel-controls">
+                <button
+                  type="button"
+                  class="carousel-btn mega-prev-btn"
+                  id="mega-prev-btn"
+                  aria-label="Sản phẩm trước"
+                  title="Trang trước"
+                  disabled
+                >
+                  <i class="fa-solid fa-angle-left"></i>
+                </button>
+                <button
+                  type="button"
+                  class="carousel-btn mega-next-btn"
+                  id="mega-next-btn"
+                  aria-label="Sản phẩm tiếp theo"
+                  title="Trang tiếp theo"
+                >
+                  <i class="fa-solid fa-angle-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="account-page-main">
+      <div class="container">
+        <!-- BREADCRUMB -->
+        <nav class="account-breadcrumb" aria-label="Đường dẫn trang">
+          <a href="index.html">Trang chủ</a>
+          <span class="sep">/</span>
+          <span class="current">Tài khoản thành viên</span>
+        </nav>
+
+        <!-- =============================================================
+             KHỐI 1: FORM XÁC THỰC (KHI CHƯA ĐĂNG NHẬP)
+             ============================================================= -->
+        <div class="auth-forms-container" id="auth-forms-container">
+          <div class="auth-hero-header">
+            <div class="auth-shield-badge">
+              <i class="fa-solid fa-shield-halved"></i> BLUE PASSPORT
+            </div>
+            <h2>TÀI KHOẢN THÀNH VIÊN</h2>
+            <p>
+              Đăng nhập để nhận ưu đãi VIP, theo dõi đơn hàng thời gian thực và
+              quản lý bảo hành điện tử chính hãng.
+            </p>
+          </div>
+
+          <!-- Thông báo lỗi/thành công -->
+          <div
+            id="auth-alert-box"
+            class="auth-alert-box"
+            style="display: none"
+          ></div>
+
+          <div class="auth-card-box">
+            <!-- Tab Chuyển Đổi Đăng Nhập / Đăng Ký -->
+            <div class="auth-tabs-nav">
+              <button
+                type="button"
+                class="auth-tab-btn active"
+                id="tab-login-btn"
+              >
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng Nhập
+              </button>
+              <button type="button" class="auth-tab-btn" id="tab-register-btn">
+                <i class="fa-solid fa-user-plus"></i> Tạo Tài Khoản Mới
+              </button>
+            </div>
+
+            <!-- 1. FORM ĐĂNG NHẬP -->
+            <form id="form-login" class="auth-form-pane">
+              <div class="auth-field-group">
+                <label for="login-email"
+                  >Địa chỉ Email <span class="req">*</span></label
+                >
+                <div class="auth-input-wrap">
+                  <i class="fa-regular fa-envelope input-icon"></i>
+                  <input
+                    type="email"
+                    id="login-email"
+                    placeholder="ví dụ: gamer@blue.vn"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+
+              <div class="auth-field-group">
+                <div class="label-with-link">
+                  <label for="login-password"
+                    >Mật khẩu <span class="req">*</span></label
+                  >
+                  <a
+                    href="#"
+                    class="forgot-link"
+                    onclick="
+                      alert(
+                        'Vui lòng liên hệ CSKH qua hotline 1900 6868 hoặc email support@blue.vn để cấp lại mật khẩu!',
+                      );
+                      return false;
+                    "
+                    >Quên mật khẩu?</a
+                  >
+                </div>
+                <div class="auth-input-wrap">
+                  <i class="fa-solid fa-lock input-icon"></i>
+                  <input
+                    type="password"
+                    id="login-password"
+                    placeholder="Nhập mật khẩu của bạn"
+                    required
+                    autocomplete="current-password"
+                  />
+                  <button
+                    type="button"
+                    class="btn-toggle-eye"
+                    data-target="login-password"
+                    aria-label="Hiện mật khẩu"
+                  >
+                    <i class="fa-regular fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="auth-options-row">
+                <label class="remember-label">
+                  <input type="checkbox" id="login-remember" checked />
+                  <span>Ghi nhớ phiên đăng nhập trên thiết bị này</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn-auth-primary">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng Nhập
+                Ngay
+              </button>
+
+              <!-- Quick Demo Login Card (Dành cho GV chấm bài kiểm thử 1-Click) -->
+              <div class="demo-accounts-card">
+                <div class="demo-card-title">
+                  <i class="fa-solid fa-bolt-lightning"></i> Tài Khoản Dùng Thử
+                  (1-Click Test cho Giảng Viên):
+                </div>
+                <div class="demo-buttons-grid">
+                  <button
+                    type="button"
+                    class="btn-quick-demo-user"
+                    data-email="gamer@blue.vn"
+                    data-pass="password123"
+                  >
+                    <strong>Alex Nguyễn (VIP Diamond)</strong>
+                    <span>gamer@blue.vn | pass: password123</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn-quick-demo-user"
+                    data-email="jordan@blue.vn"
+                    data-pass="password123"
+                  >
+                    <strong>Jordan Trần (Challenger)</strong>
+                    <span>jordan@blue.vn | pass: password123</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <!-- 2. FORM ĐĂNG KÝ -->
+            <form
+              id="form-register"
+              class="auth-form-pane"
+              style="display: none"
+            >
+              <div class="auth-field-group">
+                <label for="reg-name"
+                  >Họ và Tên <span class="req">*</span></label
+                >
+                <div class="auth-input-wrap">
+                  <i class="fa-regular fa-user input-icon"></i>
+                  <input
+                    type="text"
+                    id="reg-name"
+                    placeholder="Nguyễn Văn A"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="auth-field-group">
+                <label for="reg-email"
+                  >Email đăng ký <span class="req">*</span></label
+                >
+                <div class="auth-input-wrap">
+                  <i class="fa-regular fa-envelope input-icon"></i>
+                  <input
+                    type="email"
+                    id="reg-email"
+                    placeholder="gamer@domain.com"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+
+              <div class="auth-field-group">
+                <label for="reg-phone"
+                  >Số điện thoại liên hệ <span class="req">*</span></label
+                >
+                <div class="auth-input-wrap">
+                  <i class="fa-solid fa-phone input-icon"></i>
+                  <input
+                    type="tel"
+                    id="reg-phone"
+                    placeholder="09xxxxxxxx"
+                    required
+                    pattern="[0-9]{10,11}"
+                  />
+                </div>
+              </div>
+
+              <div class="auth-form-row">
+                <div class="auth-field-group">
+                  <label for="reg-password"
+                    >Mật khẩu <span class="req">*</span></label
+                  >
+                  <div class="auth-input-wrap">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input
+                      type="password"
+                      id="reg-password"
+                      placeholder="Tối thiểu 6 ký tự"
+                      required
+                      minlength="6"
+                    />
+                    <button
+                      type="button"
+                      class="btn-toggle-eye"
+                      data-target="reg-password"
+                      aria-label="Hiện mật khẩu"
+                    >
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="auth-field-group">
+                  <label for="reg-password-confirm"
+                    >Xác nhận mật khẩu <span class="req">*</span></label
+                  >
+                  <div class="auth-input-wrap">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input
+                      type="password"
+                      id="reg-password-confirm"
+                      placeholder="Nhập lại mật khẩu"
+                      required
+                      minlength="6"
+                    />
+                    <button
+                      type="button"
+                      class="btn-toggle-eye"
+                      data-target="reg-password-confirm"
+                      aria-label="Hiện mật khẩu"
+                    >
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="auth-options-row">
+                <label class="remember-label">
+                  <input type="checkbox" id="reg-agree" checked required />
+                  <span
+                    >Tôi đồng ý với
+                    <a
+                      href="#support"
+                      class="support-modal-trigger"
+                      data-support-tab="terms"
+                      >Điều khoản dịch vụ & Chính sách bảo mật</a
+                    >
+                    của Blue Gaming Gear</span
+                  >
+                </label>
+              </div>
+
+              <button type="submit" class="btn-auth-primary">
+                <i class="fa-solid fa-user-plus"></i> Đăng Ký Tài Khoản (Nhận
+                200 Điểm)
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- =============================================================
+             KHỐI 2: DASHBOARD QUẢN LÝ (KHI ĐÃ ĐĂNG NHẬP)
+             ============================================================= -->
+        <div
+          class="account-dashboard-container"
+          id="account-dashboard-container"
+          style="display: none"
+        >
+          <div class="dashboard-grid">
+            <!-- SIDEBAR ĐIỀU HƯỚNG TÀI KHOẢN -->
+            <aside class="dashboard-sidebar">
+              <!-- Card tóm tắt cá nhân -->
+              <div class="user-summary-card">
+                <div class="user-avatar-wrap">
+                  <img
+                    id="dash-user-avatar"
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=80"
+                    alt="Avatar"
+                    class="dash-avatar-img"
+                  />
+                  <button
+                    type="button"
+                    id="btn-change-avatar"
+                    class="btn-change-avatar-round"
+                    title="Đổi ảnh đại diện"
+                  >
+                    <i class="fa-solid fa-camera"></i>
+                  </button>
+                </div>
+                <div class="user-info-meta">
+                  <h3 id="dash-user-name">Alex Nguyễn</h3>
+                  <p id="dash-user-email">gamer@blue.vn</p>
+                  <div class="user-badges-row">
+                    <span class="user-rank-pill" id="dash-user-rank"
+                      >VIP Diamond</span
+                    >
+                    <span class="user-points-pill" id="dash-user-points"
+                      >1.850 Điểm</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Menu Tabs -->
+              <nav class="dashboard-nav-menu" aria-label="Menu tài khoản">
+                <button
+                  type="button"
+                  class="dash-nav-item active"
+                  data-tab="profile"
+                >
+                  <i class="fa-regular fa-user"></i>
+                  <span>Thông tin tài khoản</span>
+                </button>
+                <button type="button" class="dash-nav-item" data-tab="orders">
+                  <i class="fa-solid fa-box-open"></i>
+                  <span>Đơn hàng của tôi</span>
+                  <span class="nav-count-badge" id="badge-order-count">2</span>
+                </button>
+                <button
+                  type="button"
+                  class="dash-nav-item"
+                  data-tab="addresses"
+                >
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>Sổ địa chỉ giao hàng</span>
+                </button>
+                <button type="button" class="dash-nav-item" data-tab="rewards">
+                  <i class="fa-solid fa-gift"></i>
+                  <span>Điểm thưởng & Voucher</span>
+                </button>
+                <button type="button" class="dash-nav-item" data-tab="security">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <span>Bảo mật & Đổi mật khẩu</span>
+                </button>
+                <button
+                  type="button"
+                  class="dash-nav-item nav-item-logout"
+                  data-tab="logout"
+                >
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  <span>Đăng xuất</span>
+                </button>
+              </nav>
+            </aside>
+
+            <!-- KHU VỰC NỘI DUNG TỪNG TAB -->
+            <section class="dashboard-content-area">
+              <!-- TAB 1: THÔNG TIN TÀI KHOẢN -->
+              <div class="dash-tab-pane active" id="pane-profile">
+                <div class="dash-pane-header">
+                  <h3>HỒ SƠ TÀI KHOẢN</h3>
+                  <p>
+                    Quản lý thông tin hồ sơ bảo mật để bảo vệ tài khoản và nhận
+                    ưu đãi eSports.
+                  </p>
+                </div>
+
+                <form id="form-user-profile" class="dash-profile-form">
+                  <div class="form-grid-2">
+                    <div class="dash-form-group">
+                      <label for="prof-name">Họ và Tên</label>
+                      <input type="text" id="prof-name" required />
+                    </div>
+                    <div class="dash-form-group">
+                      <label for="prof-email">Email (Không thể thay đổi)</label>
+                      <input
+                        type="email"
+                        id="prof-email"
+                        readonly
+                        disabled
+                        style="opacity: 0.7; cursor: not-allowed"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-grid-2">
+                    <div class="dash-form-group">
+                      <label for="prof-phone">Số điện thoại</label>
+                      <input type="tel" id="prof-phone" required />
+                    </div>
+                    <div class="dash-form-group">
+                      <label for="prof-city">Tỉnh / Thành phố</label>
+                      <select id="prof-city">
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                        <option value="Đà Nẵng">Đà Nẵng</option>
+                        <option value="Hải Phòng">Hải Phòng</option>
+                        <option value="Cần Thơ">Cần Thơ</option>
+                        <option value="Khác">Tỉnh thành khác</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="dash-form-group">
+                    <label for="prof-address"
+                      >Địa chỉ chi tiết (Số nhà, ngõ, tên đường)</label
+                    >
+                    <input
+                      type="text"
+                      id="prof-address"
+                      placeholder="Ví dụ: Số 18, Phố Tràng Thi, Hoàn Kiếm"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-grid-2">
+                    <div class="dash-form-group">
+                      <label for="prof-gender">Giới tính</label>
+                      <select id="prof-gender">
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Khác">Không tiết lộ</option>
+                      </select>
+                    </div>
+                    <div class="dash-form-group">
+                      <label for="prof-birthdate">Ngày sinh</label>
+                      <input type="date" id="prof-birthdate" />
+                    </div>
+                  </div>
+
+                  <div class="dash-form-actions">
+                    <button type="submit" class="btn-save-profile">
+                      <i class="fa-solid fa-floppy-disk"></i> Lưu Thay Đổi
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- TAB 2: ĐƠN HÀNG CỦA TÔI -->
+              <div class="dash-tab-pane" id="pane-orders" style="display: none">
+                <div class="dash-pane-header">
+                  <h3>ĐƠN HÀNG CỦA TÔI</h3>
+                  <p>
+                    Tra cứu lịch sử mua hàng, tiến độ vận chuyển và bảo hành sản
+                    phẩm eSports.
+                  </p>
+                </div>
+
+                <!-- Bộ lọc trạng thái đơn -->
+                <div class="orders-filter-bar">
+                  <button
+                    type="button"
+                    class="order-filter-btn active"
+                    data-status="all"
+                  >
+                    Tất cả
+                  </button>
+                  <button
+                    type="button"
+                    class="order-filter-btn"
+                    data-status="processing"
+                  >
+                    Chờ xác nhận
+                  </button>
+                  <button
+                    type="button"
+                    class="order-filter-btn"
+                    data-status="shipping"
+                  >
+                    Đang giao
+                  </button>
+                  <button
+                    type="button"
+                    class="order-filter-btn"
+                    data-status="completed"
+                  >
+                    Hoàn thành
+                  </button>
+                  <button
+                    type="button"
+                    class="order-filter-btn"
+                    data-status="cancelled"
+                  >
+                    Đã hủy
+                  </button>
+                </div>
+
+                <!-- Danh sách đơn hàng render bằng JS -->
+                <div class="orders-list-container" id="orders-list-container">
+                  <!-- Render bởi account.js -->
+                </div>
+              </div>
+
+              <!-- TAB 3: SỔ ĐỊA CHỈ -->
+              <div
+                class="dash-tab-pane"
+                id="pane-addresses"
+                style="display: none"
+              >
+                <div class="dash-pane-header">
+                  <h3>SỔ ĐỊA CHỈ GIAO HÀNG</h3>
+                  <p>
+                    Lưu sẵn địa chỉ nhận hàng để thanh toán nhanh chỉ với 1 thao
+                    tác.
+                  </p>
+                </div>
+
+                <div class="address-cards-grid">
+                  <div class="address-card is-default">
+                    <div class="address-card-header">
+                      <strong>Nhà Riêng</strong>
+                      <span class="badge-default-addr">Mặc định</span>
+                    </div>
+                    <div class="address-card-body">
+                      <div class="addr-line name-phone">
+                        <i class="fa-regular fa-user"></i> Alex Nguyễn - 0988
+                        123 456
+                      </div>
+                      <div class="addr-line detail">
+                        <i class="fa-solid fa-location-dot"></i> Số 18, Phố
+                        Tràng Thi, Hoàn Kiếm, Hà Nội
+                      </div>
+                    </div>
+                    <div class="address-card-actions">
+                      <button
+                        type="button"
+                        class="btn-addr-action"
+                        onclick="alert('Đã cập nhật địa chỉ giao hàng!')"
+                      >
+                        <i class="fa-solid fa-pen"></i> Chỉnh sửa
+                      </button>
+                    </div>
+                  </div>
+
+                  <div
+                    class="address-card add-new-card"
+                    onclick="
+                      alert(
+                        'Tính năng thêm địa chỉ mới đã sẵn sàng! Bạn có thể lưu thêm văn phòng hoặc gaming house.',
+                      )
+                    "
+                  >
+                    <div class="add-new-inner">
+                      <i class="fa-solid fa-plus"></i>
+                      <span>Thêm địa chỉ nhận hàng mới</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TAB 4: ĐIỂM THƯỞNG & VOUCHER -->
+              <div
+                class="dash-tab-pane"
+                id="pane-rewards"
+                style="display: none"
+              >
+                <div class="dash-pane-header">
+                  <h3>ĐIỂM THƯỞNG & MÃ ƯU ĐÃI VIP</h3>
+                  <p>
+                    Tích lũy điểm khi mua sắm thiết bị và đổi lấy voucher giảm
+                    giá độc quyền.
+                  </p>
+                </div>
+
+                <!-- Thẻ Hạng Hội Viên VIP -->
+                <div class="vip-tier-card">
+                  <div class="tier-top">
+                    <div>
+                      <span class="tier-label">HẠNG THÀNH VIÊN HIỆN TẠI</span>
+                      <h4 class="tier-name">
+                        <i class="fa-solid fa-crown"></i> VIP DIAMOND MEMBER
+                      </h4>
+                    </div>
+                    <div class="tier-points-box">
+                      <span class="p-num">1.850</span>
+                      <span class="p-unit">Blue Points</span>
+                    </div>
+                  </div>
+                  <div class="tier-progress-wrap">
+                    <div class="tier-progress-bar">
+                      <div class="tier-fill" style="width: 74%"></div>
+                    </div>
+                    <div class="tier-milestones">
+                      <span>Đồng (0)</span>
+                      <span>Bạc (500)</span>
+                      <span>Vàng (1.000)</span>
+                      <span class="active-rank">Kim Cương (1.850)</span>
+                      <span>Tuyển Thủ (2.500)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Danh sách Voucher -->
+                <div class="vouchers-section-title">
+                  Mã Giảm Giá Độc Quyền Dành Cho Bạn:
+                </div>
+                <div class="vouchers-grid">
+                  <div class="voucher-ticket">
+                    <div class="v-left">
+                      <span class="v-percent">10%</span>
+                      <span class="v-type">GIẢM GIÁ</span>
+                    </div>
+                    <div class="v-right">
+                      <strong>GIẢM 10% TẤT CẢ GEAR</strong>
+                      <p>Áp dụng cho đơn hàng từ 1.000.000₫</p>
+                      <div class="v-code-row">
+                        <code>BLUEVIP10</code>
+                        <button
+                          type="button"
+                          class="btn-copy-code"
+                          data-code="BLUEVIP10"
+                        >
+                          Sao chép
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="voucher-ticket">
+                    <div class="v-left freeship-bg">
+                      <span class="v-percent"
+                        ><i class="fa-solid fa-truck-fast"></i
+                      ></span>
+                      <span class="v-type">FREESHIP</span>
+                    </div>
+                    <div class="v-right">
+                      <strong>MIỄN PHÍ VẬN CHUYỂN</strong>
+                      <p>Giao hỏa tốc toàn quốc, áp dụng đơn bất kỳ</p>
+                      <div class="v-code-row">
+                        <code>FREESHIP</code>
+                        <button
+                          type="button"
+                          class="btn-copy-code"
+                          data-code="FREESHIP"
+                        >
+                          Sao chép
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="voucher-ticket">
+                    <div class="v-left cash-bg">
+                      <span class="v-percent">50K</span>
+                      <span class="v-type">TIỀN MẶT</span>
+                    </div>
+                    <div class="v-right">
+                      <strong>GIẢM NGAY 50.000₫</strong>
+                      <p>Quà tặng tân thủ eSports cho lần đầu mua gear</p>
+                      <div class="v-code-row">
+                        <code>GAMER50K</code>
+                        <button
+                          type="button"
+                          class="btn-copy-code"
+                          data-code="GAMER50K"
+                        >
+                          Sao chép
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TAB 5: BẢO MẬT & ĐỔI MẬT KHẨU -->
+              <div
+                class="dash-tab-pane"
+                id="pane-security"
+                style="display: none"
+              >
+                <div class="dash-pane-header">
+                  <h3>BẢO MẬT TÀI KHOẢN</h3>
+                  <p>
+                    Đổi mật khẩu định kỳ để bảo vệ an toàn cho tài khoản và các
+                    đơn hàng của bạn.
+                  </p>
+                </div>
+
+                <form id="form-change-password" class="dash-security-form">
+                  <div class="dash-form-group">
+                    <label for="pass-current"
+                      >Mật khẩu hiện tại <span class="req">*</span></label
+                    >
+                    <div class="auth-input-wrap">
+                      <i class="fa-solid fa-lock input-icon"></i>
+                      <input
+                        type="password"
+                        id="pass-current"
+                        required
+                        placeholder="Nhập mật khẩu hiện tại"
+                      />
+                      <button
+                        type="button"
+                        class="btn-toggle-eye"
+                        data-target="pass-current"
+                        aria-label="Hiện mật khẩu"
+                      >
+                        <i class="fa-regular fa-eye"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="form-grid-2">
+                    <div class="dash-form-group">
+                      <label for="pass-new"
+                        >Mật khẩu mới <span class="req">*</span></label
+                      >
+                      <div class="auth-input-wrap">
+                        <i class="fa-solid fa-key input-icon"></i>
+                        <input
+                          type="password"
+                          id="pass-new"
+                          required
+                          minlength="6"
+                          placeholder="Tối thiểu 6 ký tự"
+                        />
+                        <button
+                          type="button"
+                          class="btn-toggle-eye"
+                          data-target="pass-new"
+                          aria-label="Hiện mật khẩu"
+                        >
+                          <i class="fa-regular fa-eye"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="dash-form-group">
+                      <label for="pass-confirm"
+                        >Xác nhận mật khẩu mới <span class="req">*</span></label
+                      >
+                      <div class="auth-input-wrap">
+                        <i class="fa-solid fa-check-double input-icon"></i>
+                        <input
+                          type="password"
+                          id="pass-confirm"
+                          required
+                          minlength="6"
+                          placeholder="Nhập lại mật khẩu mới"
+                        />
+                        <button
+                          type="button"
+                          class="btn-toggle-eye"
+                          data-target="pass-confirm"
+                          aria-label="Hiện mật khẩu"
+                        >
+                          <i class="fa-regular fa-eye"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="dash-form-actions">
+                    <button type="submit" class="btn-save-profile">
+                      <i class="fa-solid fa-shield-halved"></i> Cập Nhật Mật
+                      Khẩu
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+      <div class="container footer-container">
+        <div class="footer-col brand-col">
+          <a href="index.html" class="footer-logo">Blue</a>
+          <p class="footer-desc">
+            Nhà phân phối thiết bị ngoại vi Gaming Gear cao cấp và phụ kiện
+            eSports hàng đầu Việt Nam. Cam kết 100% chính hãng, bảo hành tận
+            tâm.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+              ><i class="fa-brands fa-tiktok"></i
+            ></a>
+            <a
+              href="https://discord.gg/bluegaming"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Discord"
+              ><i class="fa-brands fa-discord"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Sản Phẩm</h3>
+          <ul>
+            <li><a href="products.html?category=Chuột">Chuột Gaming</a></li>
+            <li><a href="products.html?category=Bàn%20phím">Bàn Phím Cơ</a></li>
+            <li>
+              <a href="products.html?category=Lót%20chuột">Lót Chuột eSports</a>
+            </li>
+            <li>
+              <a href="products.html?category=Tai%20nghe">Tai Nghe & Audio</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Hỗ Trợ & Chính Sách</h3>
+          <ul>
+            <li>
+              <a
+                href="#support-warranty"
+                class="support-modal-trigger"
+                data-support-tab="warranty"
+                >Chính Sách Bảo Hành</a
+              >
+            </li>
+            <li>
+              <a
+                href="#support-returns"
+                class="support-modal-trigger"
+                data-support-tab="returns"
+                >Đổi Trả & Hoàn Tiền</a
+              >
+            </li>
+            <li>
+              <a
+                href="#support-guide"
+                class="support-modal-trigger"
+                data-support-tab="guide"
+                >Hướng Dẫn Mua Hàng</a
+              >
+            </li>
+            <li><a href="account.html">Tra Cứu Đơn Hàng</a></li>
+          </ul>
+        </div>
+        <div class="footer-col newsletter-col">
+          <h3>Bản Tin eSports</h3>
+          <p>
+            Nhận thông báo sớm nhất về các đợt flash sale, mã giảm giá và giải
+            đấu.
+          </p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Nhập địa chỉ email..." />
+            <button type="button" aria-label="Gửi">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>&copy; 2026 Blue Gaming Gear Inc. All rights reserved.</p>
+          <div class="payment-methods">
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-solid fa-money-bill-wave"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CART DRAWER OVERLAY -->
+    <div
+      id="cart-drawer-overlay"
+      class="cart-drawer-overlay"
+      style="display: none"
+    ></div>
+
+    <!-- SLIDE-OUT MINI CART DRAWER -->
+    <aside
+      id="cart-drawer"
+      class="cart-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Giỏ hàng của bạn"
+    >
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title-group">
+          <h3>Giỏ Hàng</h3>
+          <span id="cart-drawer-badge" class="cart-drawer-badge">0 món</span>
+        </div>
+        <button
+          id="cart-drawer-close"
+          class="cart-drawer-close"
+          aria-label="Đóng giỏ hàng"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Free Shipping Indicator -->
+      <div class="cart-shipping-bar">
+        <div class="shipping-info">
+          <i class="fa-solid fa-truck-fast"></i>
+          <span id="shipping-text"
+            >Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫</span
+          >
+        </div>
+        <div class="shipping-progress-track">
+          <div
+            id="shipping-progress-fill"
+            class="shipping-progress-fill"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Cart Body -->
+      <div class="cart-drawer-body">
+        <!-- Empty State -->
+        <div id="cart-empty-state" class="cart-empty-state">
+          <div class="empty-icon-wrap">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+          <h4>Giỏ hàng của bạn đang trống</h4>
+          <p>
+            Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!
+          </p>
+          <button id="cart-continue-btn" class="cart-continue-btn">
+            Mua sắm ngay
+          </button>
+        </div>
+
+        <!-- Items List -->
+        <div
+          id="cart-items-list"
+          class="cart-items-list"
+          style="display: none"
+        ></div>
+      </div>
+
+      <!-- Cart Footer -->
+      <div
+        id="cart-drawer-footer"
+        class="cart-drawer-footer"
+        style="display: none"
+      >
+        <div class="cart-summary-row">
+          <span class="summary-label">Tạm tính</span>
+          <span id="cart-subtotal" class="summary-value">0₫</span>
+        </div>
+        <p class="cart-tax-notice">
+          Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.
+        </p>
+        <button id="cart-checkout-btn" class="cart-checkout-btn">
+          <span>TIẾN HÀNH THANH TOÁN</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- EXPRESS CHECKOUT 2-STEP MODAL -->
+    <div
+      id="checkout-modal"
+      class="checkout-modal-overlay"
+      style="display: none"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="checkout-modal-title"
+    >
+      <div class="checkout-modal-box express-checkout-box">
+        <button
+          type="button"
+          class="checkout-close-corner"
+          id="checkout-modal-close-icon"
+          aria-label="Đóng thanh toán"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Stepper Header -->
+        <div
+          class="checkout-stepper-header"
+          role="navigation"
+          aria-label="Tiến trình đặt hàng siêu tốc"
+        >
+          <button
+            type="button"
+            class="step-node active"
+            id="step-node-1"
+            aria-current="step"
+            title="Bước 1: Địa chỉ nhận hàng"
+          >
+            <span class="step-num">1</span>
+            <span class="step-label">Địa Chỉ Nhận Hàng</span>
+          </button>
+          <div class="step-line" id="step-line-1" aria-hidden="true"></div>
+          <button
+            type="button"
+            class="step-node"
+            id="step-node-2"
+            title="Bước 2: Thanh toán & xác nhận"
+            disabled
+          >
+            <span class="step-num">2</span>
+            <span class="step-label">Thanh Toán & Xác Nhận</span>
+          </button>
+        </div>
+
+        <!-- STEP 1: GIAO HÀNG -->
+        <div class="checkout-step-pane active" id="checkout-step-1">
+          <h3 id="checkout-modal-title" class="checkout-pane-title">
+            Thông Tin Giao Hàng Siêu Tốc
+          </h3>
+          <p class="checkout-pane-subtitle">
+            Giao nhanh 24h & hỗ trợ đồng kiểm bưu tá trước khi thanh toán.
+          </p>
+
+          <div class="checkout-mini-summary" id="checkout-mini-summary">
+            <!-- JS render tóm tắt nhanh sản phẩm giỏ hàng -->
+          </div>
+
+          <form
+            id="checkout-form-step1"
+            class="checkout-form-grid"
+            onsubmit="event.preventDefault()"
+          >
+            <div class="form-group">
+              <label for="cust-name"
+                >Họ và tên người nhận <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="cust-name"
+                placeholder="Ví dụ: Hoàng Long"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="cust-phone"
+                >Số điện thoại liên hệ <span class="req">*</span></label
+              >
+              <input
+                type="tel"
+                id="cust-phone"
+                placeholder="Ví dụ: 0912345678"
+                pattern="[0-9]{10,11}"
+                required
+              />
+            </div>
+            <div class="form-group full-width">
+              <label for="cust-address"
+                >Địa chỉ chi tiết (Số nhà, tên đường, phường/xã)
+                <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="cust-address"
+                placeholder="Ví dụ: 88 Phố Cầu Giấy, P. Dịch Vọng"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="cust-city"
+                >Tỉnh / Thành phố <span class="req">*</span></label
+              >
+              <select id="cust-city" required>
+                <option value="Hà Nội">Hà Nội (Hỏa tốc 2h - 24h)</option>
+                <option value="TP. Hồ Chí Minh">
+                  TP. Hồ Chí Minh (Giao 24h - 48h)
+                </option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+                <option value="Hải Phòng">Hải Phòng</option>
+                <option value="Cần Thơ">Cần Thơ</option>
+                <option value="Khác">Tỉnh thành khác (Toàn quốc)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cust-note">Ghi chú giao hàng (Tùy chọn)</label>
+              <input
+                type="text"
+                id="cust-note"
+                placeholder="Ví dụ: Cho đồng kiểm, gọi trước khi giao"
+              />
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="btn-step-next" id="btn-goto-step2">
+                <span>Tiếp tục sang thanh toán</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- STEP 2: PHƯƠNG THỨC THANH TOÁN -->
+        <div
+          class="checkout-step-pane"
+          id="checkout-step-2"
+          style="display: none"
+        >
+          <h3 class="checkout-pane-title">Phương Thức Thanh Toán</h3>
+          <p class="checkout-pane-subtitle">
+            Lựa chọn cổng thanh toán an toàn, bảo mật tiêu chuẩn eSports.
+          </p>
+
+          <div class="payment-methods-list">
+            <label class="payment-method-card payment-card-cod active">
+              <input type="radio" name="payment-method" value="COD" checked />
+              <div class="pm-icon cod-icon">
+                <i class="fa-solid fa-truck-ramp-box"></i>
+              </div>
+              <div class="pm-info">
+                <strong>Thanh toán khi nhận hàng (COD)</strong>
+                <span
+                  >Được mở hộp đồng kiểm ngoại quan cùng bưu tá trước khi trả
+                  tiền</span
+                >
+              </div>
+            </label>
+
+            <label class="payment-method-card payment-card-momo">
+              <input type="radio" name="payment-method" value="MOMO" />
+              <div class="pm-icon momo-icon">
+                <i class="fa-solid fa-qrcode"></i>
+              </div>
+              <div class="pm-info">
+                <strong
+                  >Ví MoMo / Quét mã QR
+                  <span class="pm-tag">Ưu đãi -20.000₫</span></strong
+                >
+                <span
+                  >Quét mã QR tức thì trên app MoMo, nhận hoàn tiền game
+                  thủ</span
+                >
+              </div>
+            </label>
+
+            <label class="payment-method-card payment-card-vnpay">
+              <input type="radio" name="payment-method" value="VNPAY" />
+              <div class="pm-icon vnpay-icon">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+              <div class="pm-info">
+                <strong>VNPAY-QR / Thẻ ATM & Thẻ Quốc Tế</strong>
+                <span
+                  >Cổng thanh toán quốc gia, quét mã trên 40 app ngân hàng</span
+                >
+              </div>
+            </label>
+          </div>
+
+          <!-- Tóm tắt địa chỉ & Tổng thanh toán -->
+          <div class="checkout-final-summary" id="checkout-final-summary">
+            <!-- JS render tổng kết đơn hàng -->
+          </div>
+
+          <div class="step-actions dual-actions">
+            <button type="button" class="btn-step-back" id="btn-backto-step1">
+              <i class="fa-solid fa-arrow-left"></i>
+              <span>Quay lại</span>
+            </button>
+            <button
+              type="button"
+              class="btn-step-confirm"
+              id="btn-confirm-order"
+            >
+              <i class="fa-solid fa-shield-check"></i>
+              <span>Xác nhận đặt hàng</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 3: ĐẶT HÀNG THÀNH CÔNG -->
+        <div
+          class="checkout-step-pane checkout-success-pane"
+          id="checkout-step-3"
+          style="display: none"
+        >
+          <div class="checkout-success-icon-glow">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <h3>Đặt Hàng Thành Công!</h3>
+          <div class="order-code-badge" id="order-code-badge">
+            Mã đơn: BL-28491
+          </div>
+          <p id="checkout-order-summary" class="order-success-text">
+            Cảm ơn bạn đã lựa chọn Blue Gaming Gear. Đơn hàng của bạn đang được
+            đóng gói và chuẩn bị giao.
+          </p>
+          <div class="order-status-timeline">
+            <div class="timeline-step done">
+              <i class="fa-solid fa-check"></i> Đã tiếp nhận
+            </div>
+            <div class="timeline-step active">
+              <i class="fa-solid fa-box"></i> Đang đóng gói
+            </div>
+            <div class="timeline-step">
+              <i class="fa-solid fa-truck-fast"></i> Bàn giao bưu tá
+            </div>
+          </div>
+          <div class="checkout-modal-actions">
+            <button id="checkout-modal-close" class="checkout-modal-btn">
+              Hoàn tất mua sắm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- SCRIPTS (THEO THỨ TỰ MVC) -->
+    <script src="auth-mvc.js"></script>
+    <script src="main.js"></script>
+    <script src="account.js"></script>
+  </body>
+</html>
