@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tất Cả Sản Phẩm Gaming Gear | Blue</title>
-    <link rel="stylesheet" href="style.css?v=2.2" />
+    <link rel="stylesheet" href="style.css?v=2.3" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -205,9 +205,9 @@
     <nav class="breadcrumb-wrapper" aria-label="Đường dẫn trang">
       <div class="container">
         <ol class="breadcrumb-list">
-          <li><a href="index.html"><i class="fa-solid fa-house" style="margin-right: 4px;"></i>Trang chủ</a></li>
+          <li><a href="index.html"><i class="fa-solid fa-house" style="margin-right: 4px;"></i><span data-i18n="catalogBreadcrumbHome">Trang chủ</span></a></li>
           <li class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
-          <li class="breadcrumb-current" id="breadcrumb-current-label">Tất cả sản phẩm</li>
+          <li class="breadcrumb-current" id="breadcrumb-current-label" data-i18n="catalogBreadcrumbAll">Tất cả sản phẩm</li>
         </ol>
       </div>
     </nav>
@@ -216,8 +216,8 @@
     <main class="container">
       <!-- Page Header -->
       <header class="products-page-header">
-        <h1 id="catalog-page-title">TẤT CẢ SẢN PHẨM</h1>
-        <p>Bộ sưu tập thiết bị gaming gear chuyên nghiệp, phục vụ các game thủ và thi đấu eSports đỉnh cao.</p>
+        <h1 id="catalog-page-title" data-i18n="catalogTitle">TẤT CẢ SẢN PHẨM</h1>
+        <p data-i18n="secTrendingSub">Bộ sưu tập thiết bị gaming gear chuyên nghiệp, phục vụ các game thủ và thi đấu eSports đỉnh cao.</p>
       </header>
 
       <!-- Active Filter Chips -->
@@ -228,13 +228,13 @@
         <!-- SIDEBAR BỘ LỌC -->
         <aside class="products-sidebar" aria-label="Bộ lọc sản phẩm">
           <div class="sidebar-header">
-            <h2 class="sidebar-heading"><i class="fa-solid fa-sliders"></i> Bộ Lọc</h2>
-            <button id="btn-reset-filters" class="reset-filter-btn" type="button">Đặt lại</button>
+            <h2 class="sidebar-heading"><i class="fa-solid fa-sliders"></i> <span data-i18n="filterHeader">Bộ Lọc</span></h2>
+            <button id="btn-reset-filters" class="reset-filter-btn" type="button" data-i18n="filterReset">Đặt lại</button>
           </div>
 
           <!-- Lọc danh mục -->
           <div class="filter-group">
-            <div class="filter-title">Danh Mục</div>
+            <div class="filter-title" data-i18n="filterCategory">Danh Mục</div>
             <ul class="category-filter-list" id="category-filter-list">
               <!-- Render động bằng JS -->
             </ul>
@@ -243,7 +243,7 @@
           <!-- Lọc theo giá: Dual Range Slider & Custom Input -->
           <div class="filter-group price-filter-group">
             <div class="price-filter-header">
-              <div class="filter-title" style="margin-bottom:0;">Khoảng Giá</div>
+              <div class="filter-title" style="margin-bottom:0;" data-i18n="filterPrice">Khoảng Giá</div>
               <span class="price-range-badge" id="price-range-display">0₫ - 12.000.000₫</span>
             </div>
 
@@ -458,7 +458,7 @@
     <aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Giỏ hàng của bạn">
       <div class="cart-drawer-header">
         <div class="cart-drawer-title-group">
-          <h3>Giỏ Hàng</h3>
+          <h3 data-i18n="cartTitle">Giỏ Hàng</h3>
           <span id="cart-drawer-badge" class="cart-drawer-badge">0 món</span>
         </div>
         <button id="cart-drawer-close" class="cart-drawer-close" aria-label="Đóng giỏ hàng">
@@ -470,7 +470,7 @@
       <div class="cart-shipping-bar">
         <div class="shipping-info">
           <i class="fa-solid fa-truck-fast"></i>
-          <span id="shipping-text">Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫</span>
+          <span id="shipping-text" data-i18n="freeShippingNotice">Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫</span>
         </div>
         <div class="shipping-progress-track">
           <div id="shipping-progress-fill" class="shipping-progress-fill" style="width: 0%;"></div>
@@ -484,9 +484,9 @@
           <div class="empty-icon-wrap">
             <i class="fa-solid fa-bag-shopping"></i>
           </div>
-          <h4>Giỏ hàng của bạn đang trống</h4>
-          <p>Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!</p>
-          <button id="cart-continue-btn" class="cart-continue-btn">Mua sắm ngay</button>
+          <h4 data-i18n="cartEmpty">Giỏ hàng của bạn đang trống</h4>
+          <p data-i18n="cartEmptyDesc">Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!</p>
+          <button id="cart-continue-btn" class="cart-continue-btn" data-i18n="cartContinueBtn">Mua sắm ngay</button>
         </div>
 
         <!-- Items List -->
@@ -496,12 +496,12 @@
       <!-- Cart Footer -->
       <div id="cart-drawer-footer" class="cart-drawer-footer" style="display: none;">
         <div class="cart-summary-row">
-          <span class="summary-label">Tạm tính</span>
+          <span class="summary-label" data-i18n="cartSubtotal">Tạm tính</span>
           <span id="cart-subtotal" class="summary-value">0₫</span>
         </div>
-        <p class="cart-tax-notice">Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.</p>
+        <p class="cart-tax-notice" data-i18n="cartTaxNotice">Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.</p>
         <button id="cart-checkout-btn" class="cart-checkout-btn">
-          <span>TIẾN HÀNH THANH TOÁN</span>
+          <span data-i18n="cartCheckoutBtn">TIẾN HÀNH THANH TOÁN</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
@@ -651,10 +651,10 @@
     <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
     <!-- SCRIPTS -->
-    <script src="i18n.js?v=2.2"></script>
-    <script src="auth-mvc.js?v=2.2"></script>
-    <script src="main.js?v=2.2"></script>
-    <script src="products.js?v=2.2"></script>
+    <script src="i18n.js?v=2.3"></script>
+    <script src="auth-mvc.js?v=2.3"></script>
+    <script src="main.js?v=2.3"></script>
+    <script src="products.js?v=2.3"></script>
   </body>
 </html>
 

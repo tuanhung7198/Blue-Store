@@ -216,17 +216,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     stockState = "in-stock";
   }
 
-  if (stockBadge && stockText) {
+  function updateStockBadge() {
+    if (!stockBadge || !stockText) return;
     stockBadge.className = "detail-stock-badge";
+    const t = (k, fb) => (window.I18N ? window.I18N.t(k) : fb);
     if (stockState === "in-stock") {
       stockBadge.classList.add("stock-in");
-      stockText.textContent = "Còn hàng (Sẵn sàng giao 24h)";
+      stockText.textContent = t("stockIn", "Còn hàng (Sẵn sàng giao 24h)");
     } else if (stockState === "pre-order") {
       stockBadge.classList.add("stock-preorder");
-      stockText.textContent = "Đặt trước (Giao sau 3 - 5 ngày)";
+      stockText.textContent = t("stockPreorder", "Đặt trước (Giao sau 3 - 5 ngày)");
     } else {
       stockBadge.classList.add("stock-out");
-      stockText.textContent = "Tạm hết hàng (Đang về đợt mới)";
+      stockText.textContent = t("stockOut", "Tạm hết hàng (Đang về đợt mới)");
 
       // Disable mua thông thường & hiện nút Nhận thông báo (Lead capture)
       if (btnAddToCart) btnAddToCart.style.display = "none";
@@ -237,6 +239,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (qtyPlus) qtyPlus.disabled = true;
     }
   }
+  updateStockBadge();
 
   // 7. Flash Sale đếm ngược thời gian thực
   if (flashSaleBar) {
@@ -269,10 +272,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (priceBox && currentProduct) {
       if (isSale) {
         const discountPercent = Math.round(((currentProduct.price - currentProduct.sale_price) / currentProduct.price) * 100);
+        const saveWord = window.I18N && window.I18N.getCurrentLang() === "en" ? "Save" : "Tiết kiệm";
         priceBox.innerHTML = `
           <span class="detail-current-price">${format(currentProduct.sale_price)}</span>
           <span class="detail-old-price">${format(currentProduct.price)}</span>
-          <span class="detail-discount-pill">Tiết kiệm ${discountPercent}%</span>
+          <span class="detail-discount-pill">${saveWord} ${discountPercent}%</span>
         `;
       } else {
         priceBox.innerHTML = `
@@ -872,7 +876,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <img class="hover-img" src="${prod.image_hover || prod.image}" alt="${prod.name}" loading="lazy">
               </div>
               <button class="add-to-cart-btn" data-id="${prod.id}">
-                <i class="fa-solid fa-cart-plus" style="margin-right: 6px;"></i>Thêm Vào Giỏ Hàng
+                <i class="fa-solid fa-cart-plus" style="margin-right: 6px;"></i>${window.I18N ? window.I18N.t("addToCartBtn") : "Add to Cart"}
               </button>
             </div>
             <div class="card-info">
@@ -902,6 +906,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 23. Lắng nghe sự kiện đổi ngôn ngữ để cập nhật giá tiền tức thì
   window.addEventListener("blue:language-change", () => {
+    updateStockBadge();
     renderDetailPrices();
     renderRelatedProducts();
   });

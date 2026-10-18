@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blue Gaming Gear | Thiết Bị eSports Thi Đấu Đỉnh Cao</title>
-    <link rel="stylesheet" href="style.css?v=2.2" />
+    <link rel="stylesheet" href="style.css?v=2.3" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -220,13 +220,13 @@
 
     <main class="trending-section">
       <div class="trending-header">
-        <h2 class="trending-title"><span>SẢN PHẨM THỊNH HÀNH</span></h2>
+        <h2 class="trending-title"><span data-i18n="secTrending">SẢN PHẨM THỊNH HÀNH</span></h2>
         <div class="trending-tabs">
-          <button class="tab-btn active" data-target="tab-hot">Nổi Bật</button>
+          <button class="tab-btn active" data-target="tab-hot" data-i18n="tabHot">Nổi Bật</button>
           <span class="tab-divider">|</span>
-          <button class="tab-btn" data-target="tab-sale">Bán Chạy Nhất</button>
+          <button class="tab-btn" data-target="tab-sale" data-i18n="tabSale">Bán Chạy Nhất</button>
           <span class="tab-divider">|</span>
-          <button class="tab-btn" data-target="tab-new">Mới Ra Mắt</button>
+          <button class="tab-btn" data-target="tab-new" data-i18n="tabNew">Mới Ra Mắt</button>
         </div>
       </div>
 
@@ -245,26 +245,25 @@
     <section class="shop-by-category">
       <div class="category-header">
         <div class="category-title-area">
-          <h2>Mua sắm theo loại gear</h2>
-          <p>Khám phá gear theo danh mục và đi thẳng đến bộ setup bạn cần.</p>
+          <h2 data-i18n="catSectionTitle">Mua sắm theo loại gear</h2>
+          <p data-i18n="catSectionSub">Khám phá gear theo danh mục và đi thẳng đến bộ setup bạn cần.</p>
         </div>
         <div class="view-all-wrapper">
-          <a href="products.html" class="view-all-link"
-            >XEM TẤT CẢ DANH MỤC <i class="fa-solid fa-arrow-right"></i
-          ></a>
+          <a href="products.html" class="view-all-link">
+            <span data-i18n="catViewAll">XEM TẤT CẢ DANH MỤC</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
       </div>
       <div class="category-grid">
         <!-- Chuột -->
         <div class="cat-card">
           <div class="cat-card-content">
-            <h3>Chuột không dây</h3>
-            <p>
-              Form dáng siêu nhẹ được tinh chỉnh cho tốc độ, kiểm soát và độ
-              chính xác thi đấu.
+            <h3 data-i18n="catMiceTitle">Chuột không dây</h3>
+            <p data-i18n="catMiceDesc">
+              Form dáng siêu nhẹ được tinh chỉnh cho tốc độ, kiểm soát và độ chính xác thi đấu.
             </p>
             <a href="products.html?category=Chuột" class="explore-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-              Khám phá <i class="fa-solid fa-arrow-right"></i>
+              <span data-i18n="exploreBtn">Khám phá</span> <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
           <div class="cat-card-image">
@@ -278,13 +277,12 @@
         <!-- Bàn phím -->
         <div class="cat-card">
           <div class="cat-card-content">
-            <h3>Bàn phím chơi game</h3>
-            <p>
-              Bàn phím Magnetic, Hall Effect và cơ học được tạo cho thao tác
-              nhanh.
+            <h3 data-i18n="catKeyboardsTitle">Bàn phím chơi game</h3>
+            <p data-i18n="catKeyboardsDesc">
+              Bàn phím Magnetic, Hall Effect và cơ học được tạo cho thao tác nhanh.
             </p>
             <a href="products.html?category=Bàn%20phím" class="explore-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-              Khám phá <i class="fa-solid fa-arrow-right"></i>
+              <span data-i18n="exploreBtn">Khám phá</span> <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
           <div class="cat-card-image">
@@ -298,10 +296,10 @@
         <!-- Lót chuột -->
         <div class="cat-card">
           <div class="cat-card-content">
-            <h3>Lót chuột</h3>
-            <p>Bề mặt được thiết kế cho tracking ổn định và lực dừng tự tin.</p>
+            <h3 data-i18n="catMousepadsTitle">Lót chuột thi đấu</h3>
+            <p data-i18n="catMousepadsDesc">Bề mặt vải vi sợi và đế PORON bám bàn cho khả năng vẩy chuột chính xác.</p>
             <a href="products.html?category=Lót%20chuột" class="explore-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-              Khám phá <i class="fa-solid fa-arrow-right"></i>
+              <span data-i18n="exploreBtn">Khám phá</span> <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
           <div class="cat-card-image">
@@ -315,13 +313,12 @@
         <!-- Tai nghe -->
         <div class="cat-card">
           <div class="cat-card-content">
-            <h3>Tai nghe gaming</h3>
-            <p>
-              Thiết bị âm thanh độ trễ thấp cho sự tập trung, rõ ràng và đắm
-              chìm.
+            <h3 data-i18n="catHeadsetsTitle">Tai nghe gaming</h3>
+            <p data-i18n="catHeadsetsDesc">
+              Âm thanh vòm không gian chuẩn xác, tách bạch từng tiếng bước chân.
             </p>
             <a href="products.html?category=Tai%20nghe" class="explore-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-              Khám phá <i class="fa-solid fa-arrow-right"></i>
+              <span data-i18n="exploreBtn">Khám phá</span> <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
           <div class="cat-card-image">
@@ -336,7 +333,7 @@
 
     <!-- FEEDBACK SECTION -->
     <section class="user-feedback">
-      <h2 class="feedback-title">Ảnh feedback từ người dùng</h2>
+      <h2 class="feedback-title" data-i18n="feedbackTitle">Ảnh feedback từ người dùng</h2>
       <div class="feedback-carousel">
         <div class="feedback-track">
           <!-- 6 Hình ảnh feedback -->
@@ -423,7 +420,7 @@
         <!-- Brand & About -->
         <div class="footer-col brand-col">
           <h2 class="footer-logo">Blue</h2>
-          <p class="footer-desc">
+          <p class="footer-desc" data-i18n="footerDesc">
             Mang đến cho bạn những sản phẩm gear chất lượng và trải nghiệm chơi
             game tuyệt đỉnh. Luôn đồng hành cùng mọi chiến thắng của bạn.
           </p>
@@ -437,44 +434,42 @@
 
         <!-- Quick Links -->
         <div class="footer-col links-col">
-          <h3>Về Chúng Tôi</h3>
+          <h3 data-i18n="footerAboutTitle">Về Chúng Tôi</h3>
           <ul>
-            <li><a href="#support-brand" class="support-modal-trigger" data-support-tab="brand">Câu chuyện thương hiệu</a></li>
-            <li><a href="#support-careers" class="support-modal-trigger" data-support-tab="careers">Tuyển dụng</a></li>
-            <li><a href="products.html?status=hot">Tin tức công nghệ</a></li>
-            <li><a href="#support-privacy" class="support-modal-trigger" data-support-tab="privacy">Chính sách bảo mật</a></li>
+            <li><a href="#support-brand" class="support-modal-trigger" data-support-tab="brand" data-i18n="footerBrandStory">Câu chuyện thương hiệu</a></li>
+            <li><a href="#support-careers" class="support-modal-trigger" data-support-tab="careers" data-i18n="footerCareers">Tuyển dụng</a></li>
+            <li><a href="products.html?status=hot" data-i18n="footerTechNews">Tin tức công nghệ</a></li>
+            <li><a href="#support-privacy" class="support-modal-trigger" data-support-tab="privacy" data-i18n="footerPrivacy">Chính sách bảo mật</a></li>
           </ul>
         </div>
 
         <!-- Customer Service -->
         <div class="footer-col links-col">
-          <h3>Hỗ Trợ Khách Hàng</h3>
+          <h3 data-i18n="footerServiceTitle">Hỗ Trợ Khách Hàng</h3>
           <ul>
-            <li><a href="#support-returns" class="support-modal-trigger" data-support-tab="returns">Chính sách đổi trả</a></li>
-            <li><a href="#support-warranty" class="support-modal-trigger" data-support-tab="warranty">Chính sách bảo hành</a></li>
-            <li><a href="#support-guide" class="support-modal-trigger" data-support-tab="guide">Hướng dẫn mua hàng</a></li>
-            <li><a href="#support-tech" class="support-modal-trigger" data-support-tab="tech">Hỗ trợ kỹ thuật</a></li>
+            <li><a href="#support-returns" class="support-modal-trigger" data-support-tab="returns" data-i18n="footerReturn">Chính sách đổi trả</a></li>
+            <li><a href="#support-warranty" class="support-modal-trigger" data-support-tab="warranty" data-i18n="footerWarranty">Chính sách bảo hành</a></li>
+            <li><a href="#support-guide" class="support-modal-trigger" data-support-tab="guide" data-i18n="footerShipping">Hướng dẫn mua hàng</a></li>
+            <li><a href="#support-tech" class="support-modal-trigger" data-support-tab="tech" data-i18n="footerFaq">Hỗ trợ kỹ thuật</a></li>
           </ul>
         </div>
 
         <!-- Contact Info -->
         <div class="footer-col contact-col">
-          <h3>Liên Hệ</h3>
-          <ul>
-            <li>
-              <i class="fa-solid fa-location-dot"></i> 123 Đường Công Nghệ, Quận
-              1, TP. HCM
-            </li>
-            <li><i class="fa-solid fa-phone"></i> Hotline: 1900 1234</li>
-            <li><i class="fa-solid fa-envelope"></i> Email: support@blue.vn</li>
-          </ul>
+          <h3 data-i18n="footerNewsletterTitle">Đăng Ký Nhận Tin</h3>
+          <p class="footer-newsletter-desc" data-i18n="footerNewsletterDesc">
+            Nhận thông tin về các dòng sản phẩm mới, mã giảm giá độc quyền và sự kiện eSports.
+          </p>
+          <div class="footer-newsletter-form">
+            <input type="email" placeholder="Nhập địa chỉ email..." data-i18n-placeholder="footerEmailPlaceholder" />
+            <button type="button" class="btn-subscribe" data-i18n="footerSubscribeBtn">Đăng ký</button>
+          </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>
-          &copy; 2024
-          <span class="footer-brand-highlight">BLUE</span>. All rights reserved.
+        <p data-i18n="footerCopyright">
+          &copy; 2026 Blue Gaming Gear Inc. Bảo lưu mọi quyền. Thiết kế dành cho game thủ chuyên nghiệp.
         </p>
       </div>
     </footer>
@@ -486,7 +481,7 @@
     <aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Giỏ hàng của bạn">
       <div class="cart-drawer-header">
         <div class="cart-drawer-title-group">
-          <h3>Giỏ Hàng</h3>
+          <h3 data-i18n="cartTitle">Giỏ Hàng</h3>
           <span id="cart-drawer-badge" class="cart-drawer-badge">0 món</span>
         </div>
         <button id="cart-drawer-close" class="cart-drawer-close" aria-label="Đóng giỏ hàng">
@@ -498,7 +493,7 @@
       <div class="cart-shipping-bar">
         <div class="shipping-info">
           <i class="fa-solid fa-truck-fast"></i>
-          <span id="shipping-text">Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫</span>
+          <span id="shipping-text" data-i18n="freeShippingNotice">Miễn phí vận chuyển toàn quốc cho đơn hôm nay!</span>
         </div>
         <div class="shipping-progress-track">
           <div id="shipping-progress-fill" class="shipping-progress-fill" style="width: 0%;"></div>
@@ -512,9 +507,9 @@
           <div class="empty-icon-wrap">
             <i class="fa-solid fa-bag-shopping"></i>
           </div>
-          <h4>Giỏ hàng của bạn đang trống</h4>
-          <p>Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!</p>
-          <button id="cart-continue-btn" class="cart-continue-btn">Mua sắm ngay</button>
+          <h4 data-i18n="cartEmpty">Giỏ hàng của bạn đang trống</h4>
+          <p data-i18n="cartEmptyDesc">Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!</p>
+          <button id="cart-continue-btn" class="cart-continue-btn" data-i18n="cartContinueBtn">Mua sắm ngay</button>
         </div>
 
         <!-- Items List -->
@@ -524,12 +519,12 @@
       <!-- Cart Footer -->
       <div id="cart-drawer-footer" class="cart-drawer-footer" style="display: none;">
         <div class="cart-summary-row">
-          <span class="summary-label">Tạm tính</span>
+          <span class="summary-label" data-i18n="cartSubtotal">Tạm tính:</span>
           <span id="cart-subtotal" class="summary-value">0₫</span>
         </div>
-        <p class="cart-tax-notice">Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.</p>
+        <p class="cart-tax-notice" data-i18n="cartTaxNotice">Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.</p>
         <button id="cart-checkout-btn" class="cart-checkout-btn">
-          <span>TIẾN HÀNH THANH TOÁN</span>
+          <span data-i18n="cartCheckoutBtn">TIẾN HÀNH THANH TOÁN</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
@@ -678,8 +673,8 @@
     <!-- TOAST NOTIFICATION CONTAINER -->
     <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
-    <script src="i18n.js?v=2.2"></script>
-    <script src="auth-mvc.js?v=2.2"></script>
-    <script src="main.js?v=2.2"></script>
+    <script src="i18n.js?v=2.3"></script>
+    <script src="auth-mvc.js?v=2.3"></script>
+    <script src="main.js?v=2.3"></script>
   </body>
 </html>

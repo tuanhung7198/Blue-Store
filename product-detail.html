@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chi Tiết Sản Phẩm | Blue Gaming Gear</title>
-    <link rel="stylesheet" href="style.css?v=2.2" />
+    <link rel="stylesheet" href="style.css?v=2.3" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -369,17 +369,17 @@
 
             <button type="button" id="btn-detail-add-cart" class="btn-add-detail">
               <i class="fa-solid fa-cart-plus"></i>
-              <span>Thêm Vào Giỏ Hàng</span>
+              <span data-i18n="detailAddToCart">Thêm Vào Giỏ Hàng</span>
             </button>
 
             <button type="button" id="btn-detail-buynow" class="btn-buynow-detail">
               <i class="fa-solid fa-bolt"></i>
-              <span>Mua Ngay</span>
+              <span data-i18n="detailBuyNow">Mua Ngay</span>
             </button>
 
             <button type="button" id="btn-detail-notify" class="btn-notify-detail" style="display: none;">
               <i class="fa-solid fa-bell"></i>
-              <span>Nhận Thông Báo Khi Có Hàng</span>
+              <span data-i18n="detailNotify">Nhận Thông Báo Khi Có Hàng</span>
             </button>
           </div>
 
@@ -388,29 +388,29 @@
             <div class="trust-item trust-item-shipping">
               <div class="trust-icon"><i class="fa-solid fa-truck-fast"></i></div>
               <div class="trust-text">
-                <div class="trust-title">Giao Hàng Miễn Phí</div>
-                <p>Toàn quốc cho đơn hàng từ 1.000.000₫</p>
+                <div class="trust-title" data-i18n="trust1Title">Giao Hàng Miễn Phí</div>
+                <p data-i18n="trust1Desc">Toàn quốc cho đơn hàng từ 1.000.000₫</p>
               </div>
             </div>
             <div class="trust-item trust-item-warranty">
               <div class="trust-icon"><i class="fa-solid fa-shield-halved"></i></div>
               <div class="trust-text">
-                <div class="trust-title">Bảo Hành 24 Tháng</div>
-                <p>1 đổi 1 nhanh chóng nếu phát sinh lỗi từ NSX</p>
+                <div class="trust-title" data-i18n="trust2Title">Bảo Hành 24 Tháng</div>
+                <p data-i18n="trust2Desc">1 đổi 1 nhanh chóng nếu phát sinh lỗi từ NSX</p>
               </div>
             </div>
             <div class="trust-item trust-item-returns">
               <div class="trust-icon"><i class="fa-solid fa-rotate-left"></i></div>
               <div class="trust-text">
-                <div class="trust-title">Đổi Trả Trong 7 Ngày</div>
-                <p>Hỗ trợ đổi mới linh hoạt, an tâm trải nghiệm</p>
+                <div class="trust-title" data-i18n="footerReturn">Đổi Trả Trong 7 Ngày</div>
+                <p data-i18n="trust2Desc">Hỗ trợ đổi mới linh hoạt, an tâm trải nghiệm</p>
               </div>
             </div>
             <div class="trust-item trust-item-authentic">
               <div class="trust-icon"><i class="fa-solid fa-circle-check"></i></div>
               <div class="trust-text">
-                <div class="trust-title">100% Chính Hãng</div>
-                <p>Đầy đủ tem seal, nguồn gốc xuất xứ rõ ràng</p>
+                <div class="trust-title" data-i18n="trust3Title">100% Chính Hãng</div>
+                <p data-i18n="trust3Desc">Đầy đủ tem seal, nguồn gốc xuất xứ rõ ràng</p>
               </div>
             </div>
           </div>
@@ -421,10 +421,10 @@
       <section class="detail-tabs-section" aria-label="Chi tiết và thông số sản phẩm">
         <h2 class="sr-only">Thông tin chi tiết sản phẩm</h2>
         <div class="detail-tabs-header" role="tablist" aria-label="Chi tiết thông số và đánh giá">
-          <button class="tab-nav-btn active" role="tab" aria-selected="true" aria-controls="tab-desc" id="tab-nav-desc" data-tab="tab-desc">Mô Tả Sản Phẩm</button>
-          <button class="tab-nav-btn" role="tab" aria-selected="false" aria-controls="tab-specs" id="tab-nav-specs" data-tab="tab-specs">Thông Số Kỹ Thuật</button>
-          <button class="tab-nav-btn" role="tab" aria-selected="false" aria-controls="tab-policy" id="tab-nav-policy" data-tab="tab-policy">Chính Sách & Hỗ Trợ</button>
-          <button class="tab-nav-btn" role="tab" aria-selected="false" aria-controls="tab-reviews" id="tab-nav-reviews" data-tab="tab-reviews">Đánh Giá Thực Tế (58)</button>
+          <button class="tab-nav-btn active" role="tab" aria-selected="true" aria-controls="tab-desc" id="tab-nav-desc" data-tab="tab-desc" data-i18n="detailTabDesc">Mô Tả Sản Phẩm</button>
+          <button class="tab-nav-btn" role="tab" aria-selected="false" aria-controls="tab-specs" id="tab-nav-specs" data-tab="tab-specs" data-i18n="detailTabSpecs">Thông Số Kỹ Thuật</button>
+          <button class="tab-nav-btn" role="tab" aria-selected="false" aria-controls="tab-policy" id="tab-nav-policy" data-tab="tab-policy" data-i18n="detailTabWarranty">Chính Sách & Hỗ Trợ</button>
+          <button class="tab-nav-btn" role="tab" aria-selected="false" aria-controls="tab-reviews" id="tab-nav-reviews" data-tab="tab-reviews" data-i18n="detailTabReviews">Đánh Giá Thực Tế (58)</button>
         </div>
 
         <!-- Tab 1: Mô tả -->
@@ -584,7 +584,7 @@
 
       <!-- SẢN PHẨM CÙNG DANH MỤC -->
       <section class="related-products-section">
-        <h2 class="related-title">SẢN PHẨM CÙNG DANH MỤC</h2>
+        <h2 class="related-title" data-i18n="detailRelatedTitle">SẢN PHẨM CÙNG DANH MỤC</h2>
         <div id="detail-related-grid" class="product-grid">
           <!-- JS render 4 sản phẩm cùng danh mục -->
         </div>
@@ -597,7 +597,7 @@
         <!-- Brand & About -->
         <div class="footer-col brand-col">
           <h2 class="footer-logo">Blue</h2>
-          <p class="footer-desc">
+          <p class="footer-desc" data-i18n="footerDesc">
             Mang đến cho bạn những sản phẩm gear chất lượng và trải nghiệm chơi
             game tuyệt đỉnh. Luôn đồng hành cùng mọi chiến thắng của bạn.
           </p>
@@ -611,44 +611,42 @@
 
         <!-- Quick Links -->
         <div class="footer-col links-col">
-          <h3>Về Chúng Tôi</h3>
+          <h3 data-i18n="footerAboutTitle">Về Chúng Tôi</h3>
           <ul>
-            <li><a href="#support-brand" class="support-modal-trigger" data-support-tab="brand">Câu chuyện thương hiệu</a></li>
-            <li><a href="#support-careers" class="support-modal-trigger" data-support-tab="careers">Tuyển dụng</a></li>
-            <li><a href="products.html?status=hot">Tin tức công nghệ</a></li>
-            <li><a href="#support-privacy" class="support-modal-trigger" data-support-tab="privacy">Chính sách bảo mật</a></li>
+            <li><a href="#support-brand" class="support-modal-trigger" data-support-tab="brand" data-i18n="footerBrandStory">Câu chuyện thương hiệu</a></li>
+            <li><a href="#support-careers" class="support-modal-trigger" data-support-tab="careers" data-i18n="footerCareers">Tuyển dụng</a></li>
+            <li><a href="products.html?status=hot" data-i18n="footerTechNews">Tin tức công nghệ</a></li>
+            <li><a href="#support-privacy" class="support-modal-trigger" data-support-tab="privacy" data-i18n="footerPrivacy">Chính sách bảo mật</a></li>
           </ul>
         </div>
 
         <!-- Customer Service -->
         <div class="footer-col links-col">
-          <h3>Hỗ Trợ Khách Hàng</h3>
+          <h3 data-i18n="footerServiceTitle">Hỗ Trợ Khách Hàng</h3>
           <ul>
-            <li><a href="#support-returns" class="support-modal-trigger" data-support-tab="returns">Chính sách đổi trả</a></li>
-            <li><a href="#support-warranty" class="support-modal-trigger" data-support-tab="warranty">Chính sách bảo hành</a></li>
-            <li><a href="#support-guide" class="support-modal-trigger" data-support-tab="guide">Hướng dẫn mua hàng</a></li>
-            <li><a href="#support-tech" class="support-modal-trigger" data-support-tab="tech">Hỗ trợ kỹ thuật</a></li>
+            <li><a href="#support-returns" class="support-modal-trigger" data-support-tab="returns" data-i18n="footerReturn">Chính sách đổi trả</a></li>
+            <li><a href="#support-warranty" class="support-modal-trigger" data-support-tab="warranty" data-i18n="footerWarranty">Chính sách bảo hành</a></li>
+            <li><a href="#support-guide" class="support-modal-trigger" data-support-tab="guide" data-i18n="footerShipping">Hướng dẫn mua hàng</a></li>
+            <li><a href="#support-tech" class="support-modal-trigger" data-support-tab="tech" data-i18n="footerFaq">Hỗ trợ kỹ thuật</a></li>
           </ul>
         </div>
 
         <!-- Contact Info -->
         <div class="footer-col contact-col">
-          <h3>Liên Hệ</h3>
-          <ul>
-            <li>
-              <i class="fa-solid fa-location-dot"></i> 123 Đường Công Nghệ, Quận
-              1, TP. HCM
-            </li>
-            <li><i class="fa-solid fa-phone"></i> Hotline: 1900 1234</li>
-            <li><i class="fa-solid fa-envelope"></i> Email: support@blue.vn</li>
-          </ul>
+          <h3 data-i18n="footerNewsletterTitle">Đăng Ký Nhận Tin</h3>
+          <p class="footer-newsletter-desc" data-i18n="footerNewsletterDesc">
+            Nhận thông tin về các dòng sản phẩm mới, mã giảm giá độc quyền và sự kiện eSports.
+          </p>
+          <div class="footer-newsletter-form">
+            <input type="email" placeholder="Nhập địa chỉ email..." data-i18n-placeholder="footerEmailPlaceholder" />
+            <button type="button" class="btn-subscribe" data-i18n="footerSubscribeBtn">Đăng ký</button>
+          </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>
-          &copy; 2024
-          <span class="footer-brand-highlight">BLUE</span>. All rights reserved.
+        <p data-i18n="footerCopyright">
+          &copy; 2026 Blue Gaming Gear Inc. Bảo lưu mọi quyền. Thiết kế dành cho game thủ chuyên nghiệp.
         </p>
       </div>
     </footer>
@@ -672,7 +670,7 @@
       <div class="cart-shipping-bar">
         <div class="shipping-info">
           <i class="fa-solid fa-truck-fast"></i>
-          <span id="shipping-text">Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫</span>
+          <span id="shipping-text" data-i18n="freeShippingNotice">Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫</span>
         </div>
         <div class="shipping-progress-track">
           <div id="shipping-progress-fill" class="shipping-progress-fill" style="width: 0%;"></div>
@@ -686,9 +684,9 @@
           <div class="empty-icon-wrap">
             <i class="fa-solid fa-bag-shopping"></i>
           </div>
-          <h4>Giỏ hàng của bạn đang trống</h4>
-          <p>Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!</p>
-          <button id="cart-continue-btn" class="cart-continue-btn">Mua sắm ngay</button>
+          <h4 data-i18n="cartEmpty">Giỏ hàng của bạn đang trống</h4>
+          <p data-i18n="cartEmptyDesc">Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!</p>
+          <button id="cart-continue-btn" class="cart-continue-btn" data-i18n="cartContinueBtn">Mua sắm ngay</button>
         </div>
 
         <!-- Items List -->
@@ -698,12 +696,12 @@
       <!-- Cart Footer -->
       <div id="cart-drawer-footer" class="cart-drawer-footer" style="display: none;">
         <div class="cart-summary-row">
-          <span class="summary-label">Tạm tính</span>
+          <span class="summary-label" data-i18n="cartSubtotal">Tạm tính</span>
           <span id="cart-subtotal" class="summary-value">0₫</span>
         </div>
-        <p class="cart-tax-notice">Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.</p>
+        <p class="cart-tax-notice" data-i18n="cartTaxNotice">Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.</p>
         <button id="cart-checkout-btn" class="cart-checkout-btn">
-          <span>TIẾN HÀNH THANH TOÁN</span>
+          <span data-i18n="cartCheckoutBtn">TIẾN HÀNH THANH TOÁN</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
@@ -911,10 +909,10 @@
     <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
     <!-- SCRIPTS -->
-    <script src="i18n.js?v=2.2"></script>
-    <script src="auth-mvc.js?v=2.2"></script>
-    <script src="main.js?v=2.2"></script>
-    <script src="product-detail.js?v=2.2"></script>
+    <script src="i18n.js?v=2.3"></script>
+    <script src="auth-mvc.js?v=2.3"></script>
+    <script src="main.js?v=2.3"></script>
+    <script src="product-detail.js?v=2.3"></script>
   </body>
 </html>
 

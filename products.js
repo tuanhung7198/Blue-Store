@@ -342,7 +342,7 @@ document.addEventListener("DOMContentLoaded", async () => {
               <img class="hover-img" src="${product.image_hover || product.image}" alt="${product.name}" loading="lazy">
             </div>
             <button class="add-to-cart-btn" data-id="${product.id}">
-              <i class="fa-solid fa-cart-plus" style="margin-right: 6px;"></i>Thêm Vào Giỏ Hàng
+              <i class="fa-solid fa-cart-plus" style="margin-right: 6px;"></i><span>${window.I18N && window.I18N.t ? window.I18N.t("addToCartBtn") : "Thêm Vào Giỏ Hàng"}</span>
             </button>
           </div>
           <div class="card-info">

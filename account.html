@@ -23,7 +23,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=2.2" />
+    <link rel="stylesheet" href="style.css?v=2.3" />
   </head>
   <body>
     <!-- HEADER -->
@@ -1032,7 +1032,7 @@
       <div class="container footer-container">
         <div class="footer-col brand-col">
           <a href="index.html" class="footer-logo">Blue</a>
-          <p class="footer-desc">
+          <p class="footer-desc" data-i18n="footerDesc">
             Nhà phân phối thiết bị ngoại vi Gaming Gear cao cấp và phụ kiện
             eSports hàng đầu Việt Nam. Cam kết 100% chính hãng, bảo hành tận
             tâm.
@@ -1069,26 +1069,27 @@
           </div>
         </div>
         <div class="footer-col">
-          <h3>Sản Phẩm</h3>
+          <h3 data-i18n="catSectionTitle">Sản Phẩm</h3>
           <ul>
-            <li><a href="products.html?category=Chuột">Chuột Gaming</a></li>
-            <li><a href="products.html?category=Bàn%20phím">Bàn Phím Cơ</a></li>
+            <li><a href="products.html?category=Chuột" data-i18n="catMice">Chuột Gaming</a></li>
+            <li><a href="products.html?category=Bàn%20phím" data-i18n="catKeyboards">Bàn Phím Cơ</a></li>
             <li>
-              <a href="products.html?category=Lót%20chuột">Lót Chuột eSports</a>
+              <a href="products.html?category=Lót%20chuột" data-i18n="catMousepads">Lót Chuột eSports</a>
             </li>
             <li>
-              <a href="products.html?category=Tai%20nghe">Tai Nghe & Audio</a>
+              <a href="products.html?category=Tai%20nghe" data-i18n="catHeadphones">Tai Nghe & Audio</a>
             </li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3>Hỗ Trợ & Chính Sách</h3>
+          <h3 data-i18n="footerServiceTitle">Hỗ Trợ & Chính Sách</h3>
           <ul>
             <li>
               <a
                 href="#support-warranty"
                 class="support-modal-trigger"
                 data-support-tab="warranty"
+                data-i18n="footerWarranty"
                 >Chính Sách Bảo Hành</a
               >
             </li>
@@ -1097,6 +1098,7 @@
                 href="#support-returns"
                 class="support-modal-trigger"
                 data-support-tab="returns"
+                data-i18n="footerReturn"
                 >Đổi Trả & Hoàn Tiền</a
               >
             </li>
@@ -1105,20 +1107,21 @@
                 href="#support-guide"
                 class="support-modal-trigger"
                 data-support-tab="guide"
+                data-i18n="footerShipping"
                 >Hướng Dẫn Mua Hàng</a
               >
             </li>
-            <li><a href="account.html">Tra Cứu Đơn Hàng</a></li>
+            <li><a href="account.html" data-i18n="accountOrders">Tra Cứu Đơn Hàng</a></li>
           </ul>
         </div>
         <div class="footer-col newsletter-col">
-          <h3>Bản Tin eSports</h3>
-          <p>
+          <h3 data-i18n="footerNewsletterTitle">Bản Tin eSports</h3>
+          <p data-i18n="footerNewsletterDesc">
             Nhận thông báo sớm nhất về các đợt flash sale, mã giảm giá và giải
             đấu.
           </p>
           <div class="newsletter-form">
-            <input type="email" placeholder="Nhập địa chỉ email..." />
+            <input type="email" placeholder="Nhập địa chỉ email..." data-i18n-placeholder="footerEmailPlaceholder" />
             <button type="button" aria-label="Gửi">
               <i class="fa-solid fa-paper-plane"></i>
             </button>
@@ -1127,7 +1130,7 @@
       </div>
       <div class="footer-bottom">
         <div class="container footer-bottom-inner">
-          <p>&copy; 2026 Blue Gaming Gear Inc. All rights reserved.</p>
+          <p data-i18n="footerCopyright">&copy; 2026 Blue Gaming Gear Inc. All rights reserved.</p>
           <div class="payment-methods">
             <i class="fa-brands fa-cc-visa"></i>
             <i class="fa-brands fa-cc-mastercard"></i>
@@ -1480,9 +1483,9 @@
     <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
     <!-- SCRIPTS (THEO THỨ TỰ MVC) -->
-    <script src="i18n.js?v=2.2"></script>
-    <script src="auth-mvc.js?v=2.2"></script>
-    <script src="main.js?v=2.2"></script>
-    <script src="account.js?v=2.2"></script>
+    <script src="i18n.js?v=2.3"></script>
+    <script src="auth-mvc.js?v=2.3"></script>
+    <script src="main.js?v=2.3"></script>
+    <script src="account.js?v=2.3"></script>
   </body>
 </html>

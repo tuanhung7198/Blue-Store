@@ -44,7 +44,7 @@ function renderProducts(products, container) {
                     <img class="hover-img" src="${product.image_hover || product.image}" alt="${product.name}" loading="lazy">
                 </div>
                 <button class="add-to-cart-btn" data-id="${product.id}">
-                  <i class="fa-solid fa-cart-plus" style="margin-right: 6px;"></i>Thêm Vào Giỏ Hàng
+                  <i class="fa-solid fa-cart-plus" style="margin-right: 6px;"></i><span>${window.I18N && window.I18N.t ? window.I18N.t("addToCartBtn") : "Thêm Vào Giỏ Hàng"}</span>
                 </button>
             </div>
             <div class="card-info">
@@ -243,6 +243,9 @@ window.addEventListener("blue:language-change", () => {
       updateCartUI();
     }
   }
+  if (typeof window.renderHeroCarousel === "function") {
+    window.renderHeroCarousel();
+  }
 });
 
 // --- Logic giao diện Mega Menu (Hover tất cả các mục header: Tất cả sản phẩm, Chuột, Bàn phím, Lót chuột) ---
@@ -374,57 +377,71 @@ document.addEventListener("DOMContentLoaded", () => {
 // ==========================================
 // Bọc trong IIFE để tránh xung đột với các hàm hiện có
 (() => {
-  const heroSlidesData = [
-    {
-      id: 1,
-      title: "ZERO+",
-      subtitle: "Chuột Gaming Không Dây Siêu Nhẹ Chuẩn eSports",
-      slogan: "Phản xạ thần tốc &nbsp;&nbsp;&nbsp; Chiến thắng tuyệt đối",
-      promo: "TIẾT KIỆM ĐẾN 400.000₫",
-      badge:
-        "Tặng Kèm 2 Quà Tặng: Bao tay thi đấu eSports + Khui mở từ tính ATK",
-      image:
-        "https://www.atk.store/cdn/shop/files/c5fffce82cca11be1e96b75a10a809f2.png?v=1779182532&width=1200",
-      ctaText: "Khám Phá Chuột Gaming",
-      link: "products.html?category=Chuột",
-    },
-    {
-      id: 2,
-      title: "BLAZING SKY",
-      subtitle: "Chuột Không Dây Tần Số Phản Hồi Cực Đại 8000Hz",
-      slogan: "Bứt Phá Mọi Giới Hạn Thi Đấu Chuyên Nghiệp",
-      promo: "CHỈ TỪ 1.490.000₫",
-      badge: "Miễn Phí Giao Hàng Toàn Quốc Cho Đơn Hôm Nay",
-      image:
-        "https://www.atk.store/cdn/shop/files/20260714-191013.jpg?v=1784027464&width=1200",
-      ctaText: "Mua Ngay Hôm Nay",
-      link: "product-detail.html?id=26",
-    },
-    {
-      id: 3,
-      title: "ATK68",
-      subtitle: "Bàn Phím Từ Tính Rapid Trigger Siêu Nhạy 0.1mm",
-      slogan: "Công Nghệ Rapid Trigger Định Đoạt Chiến Thắng",
-      promo: "TIẾT KIỆM 360.000₫",
-      badge: "Tặng Kèm Dây Cáp Xoắn Coiled Cable Cao Cấp",
-      image:
-        "https://www.atk.store/cdn/shop/files/b987fbdf989c16ab216fb7d2fec77348_70a6cff7-4f3c-4c0f-a58b-c1633a4159e9.png?v=1776050485&width=1200",
-      ctaText: "Xem Chi Tiết ATK68",
-      link: "product-detail.html?id=20",
-    },
-    {
-      id: 4,
-      title: "VXE MAD R",
-      subtitle: "Chuột Không Dây Trọng Lượng Siêu Nhẹ 39g Mắt Đọc PAW3395",
-      slogan: "Làm Chủ Mọi Đấu Trường FPS Đỉnh Cao",
-      promo: "CHỈ TỪ 890.000₫",
-      badge: "Được Tin Dùng Bởi Tuyển Thủ eSports Hàng Đầu",
-      image:
-        "https://file.hstatic.net/200000722513/file/chuot-atk-blazing-sky-f1-pro-max-black-3_cb1dd62479f64bf485e925bdfebde9a9.png",
-      ctaText: "Săn Ngay 890K",
-      link: "products.html?category=Chuột",
-    },
+  const heroSlideImages = [
+    "https://www.atk.store/cdn/shop/files/c5fffce82cca11be1e96b75a10a809f2.png?v=1779182532&width=1200",
+    "https://www.atk.store/cdn/shop/files/20260714-191013.jpg?v=1784027464&width=1200",
+    "https://www.atk.store/cdn/shop/files/b987fbdf989c16ab216fb7d2fec77348_70a6cff7-4f3c-4c0f-a58b-c1633a4159e9.png?v=1776050485&width=1200",
+    "https://file.hstatic.net/200000722513/file/chuot-atk-blazing-sky-f1-pro-max-black-3_cb1dd62479f64bf485e925bdfebde9a9.png"
   ];
+
+  function getHeroSlides() {
+    const lang = (window.I18N && window.I18N.getCurrentLang) ? window.I18N.getCurrentLang() : (localStorage.getItem("blue_language") || "en");
+    const data = (window.I18N && window.I18N.getData) ? window.I18N.getData() : null;
+    const slides = (data && data[lang] && data[lang].heroSlides) ? data[lang].heroSlides : null;
+    if (slides && slides.length > 0) {
+      return slides.map((s, idx) => ({
+        ...s,
+        id: idx + 1,
+        image: heroSlideImages[idx] || heroSlideImages[0]
+      }));
+    }
+    return [
+      {
+        id: 1,
+        title: "ZERO+",
+        subtitle: lang === "en" ? "Ultralight Wireless eSports Gaming Mouse" : "Chuột Gaming Không Dây Siêu Nhẹ Chuẩn eSports",
+        slogan: lang === "en" ? "Lightning Reflexes &nbsp;&nbsp;&nbsp; Absolute Victory" : "Phản xạ thần tốc &nbsp;&nbsp;&nbsp; Chiến thắng tuyệt đối",
+        promo: lang === "en" ? "SAVE UP TO $16.00" : "TIẾT KIỆM ĐẾN 400.000₫",
+        badge: lang === "en" ? "Includes 2 Free Gifts: eSports Gaming Sleeve + ATK Magnetic Opener" : "Tặng Kèm 2 Quà Tặng: Bao tay thi đấu eSports + Khui mở từ tính ATK",
+        image: heroSlideImages[0],
+        ctaText: lang === "en" ? "Explore Gaming Mice" : "Khám Phá Chuột Gaming",
+        link: "products.html?category=Chuột"
+      },
+      {
+        id: 2,
+        title: "BLAZING SKY",
+        subtitle: lang === "en" ? "True 8000Hz Ultra-Polling Wireless Gaming Mouse" : "Chuột Không Dây Tần Số Phản Hồi Cực Đại 8000Hz",
+        slogan: lang === "en" ? "Break All Limits in Competitive Gaming" : "Bứt Phá Mọi Giới Hạn Thi Đấu Chuyên Nghiệp",
+        promo: lang === "en" ? "STARTING AT $59.60" : "CHỈ TỪ 1.490.000₫",
+        badge: lang === "en" ? "Free Insured Express Delivery on Today's Orders" : "Miễn Phí Giao Hàng Toàn Quốc Cho Đơn Hôm Nay",
+        image: heroSlideImages[1],
+        ctaText: lang === "en" ? "Shop Now Today" : "Mua Ngay Hôm Nay",
+        link: "product-detail.html?id=26"
+      },
+      {
+        id: 3,
+        title: "ATK68",
+        subtitle: lang === "en" ? "Magnetic Hall Effect eSports Mechanical Keyboard" : "Bàn Phím Từ Tính Rapid Trigger Siêu Nhạy 0.1mm",
+        slogan: lang === "en" ? "Rapid Trigger 0.1mm &nbsp;&nbsp;&nbsp; Ultra-Low Latency" : "Công Nghệ Rapid Trigger Định Đoạt Chiến Thắng",
+        promo: lang === "en" ? "OFFICIAL 24-MONTH REPLACEMENT WARRANTY" : "TIẾT KIỆM 360.000₫",
+        badge: lang === "en" ? "Gift: Premium Coiled Cable & Switch Puller" : "Tặng Kèm Dây Cáp Xoắn Coiled Cable Cao Cấp",
+        image: heroSlideImages[2],
+        ctaText: lang === "en" ? "Explore Keyboards" : "Xem Chi Tiết ATK68",
+        link: "products.html?category=Bàn%20phím"
+      },
+      {
+        id: 4,
+        title: "VXE MAD R",
+        subtitle: lang === "en" ? "Ultralight 39g Wireless Gaming Mouse with PAW3395" : "Chuột Không Dây Trọng Lượng Siêu Nhẹ 39g Mắt Đọc PAW3395",
+        slogan: lang === "en" ? "Dominate Every FPS Battlefield" : "Làm Chủ Mọi Đấu Trường FPS Đỉnh Cao",
+        promo: lang === "en" ? "STARTING AT $35.60" : "CHỈ TỪ 890.000₫",
+        badge: lang === "en" ? "Trusted by World-Class eSports Champions" : "Được Tin Dùng Bởi Tuyển Thủ eSports Hàng Đầu",
+        image: heroSlideImages[3],
+        ctaText: lang === "en" ? "Shop Now $35.60" : "Săn Ngay 890K",
+        link: "products.html?category=Chuột"
+      }
+    ];
+  }
 
   const SLIDE_DURATION = 4000; // 4 giây hiển thị mỗi banner theo yêu cầu
   let currentSlide = 0;
@@ -439,6 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!wrapper || !indicatorsContainer) return;
 
+    const heroSlidesData = getHeroSlides();
     let slidesHTML = "";
     let indicatorsHTML = "";
 
@@ -601,6 +619,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     renderHeroCarousel();
   }
+  window.renderHeroCarousel = renderHeroCarousel;
 })();
 
 // ==========================================
