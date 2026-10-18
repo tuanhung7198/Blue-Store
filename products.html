@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tất Cả Sản Phẩm Gaming Gear | Blue</title>
-    <link rel="stylesheet" href="style.css?v=2.3" />
+    <link rel="stylesheet" href="style.css?v=2.4" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -125,27 +125,24 @@
         <div class="mega-container">
           <div class="mega-sidebar">
             <ul class="mega-categories-list">
-              <li class="cat-item active" data-id="Chuột">Chuột</li>
-              <li class="cat-item" data-id="Bàn phím">Bàn phím</li>
-              <li class="cat-item" data-id="Lót chuột">Lót chuột</li>
-              <li class="cat-item" data-id="Tai nghe">Headphones</li>
-              <li class="cat-item" data-id="Tay cầm">Controller</li>
-              <li class="cat-item" data-id="Phụ kiện">Accessories</li>
-              <li class="cat-item" data-id="Gift Cards">Gift Cards</li>
+              <li class="cat-item active" data-id="Chuột" data-i18n="catMice">Mice</li>
+              <li class="cat-item" data-id="Bàn phím" data-i18n="catKeyboards">Keyboards</li>
+              <li class="cat-item" data-id="Lót chuột" data-i18n="catMousepads">Mousepads</li>
+              <li class="cat-item" data-id="Tai nghe" data-i18n="catHeadphones">Headphones</li>
+              <li class="cat-item" data-id="Tay cầm" data-i18n="catController">Controller</li>
+              <li class="cat-item" data-id="Phụ kiện" data-i18n="catAccessories">Accessories</li>
+              <li class="cat-item" data-id="Gift Cards" data-i18n="catGiftCards">Gift Cards</li>
             </ul>
           </div>
           <div class="mega-content">
             <div class="mega-header">
               <div class="mega-title-area">
-                <h3 id="mega-current-cat" class="mega-title">CHUỘT</h3>
+                <h3 id="mega-current-cat" class="mega-title">MICE</h3>
               </div>
-              <a href="products.html" class="view-all"
-                >Xem tất cả
-                <i
-                  class="fa-solid fa-chevron-right"
-                  style="font-size: 10px; margin-left: 4px"
-                ></i
-              ></a>
+              <a href="products.html" class="view-all">
+                <span data-i18n="megaViewAll">View all</span>
+                <i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-left: 4px"></i>
+              </a>
             </div>
             <div class="mega-products-wrapper">
               <div class="mega-products-viewport">
@@ -216,8 +213,8 @@
     <main class="container">
       <!-- Page Header -->
       <header class="products-page-header">
-        <h1 id="catalog-page-title" data-i18n="catalogTitle">TẤT CẢ SẢN PHẨM</h1>
-        <p data-i18n="secTrendingSub">Bộ sưu tập thiết bị gaming gear chuyên nghiệp, phục vụ các game thủ và thi đấu eSports đỉnh cao.</p>
+        <h1 id="catalog-page-title" data-i18n="catalogTitle">ALL GAMING GEAR</h1>
+        <p data-i18n="catalogSubtitle">Pro-grade gaming peripherals and battle-tested eSports hardware.</p>
       </header>
 
       <!-- Active Filter Chips -->
@@ -228,13 +225,13 @@
         <!-- SIDEBAR BỘ LỌC -->
         <aside class="products-sidebar" aria-label="Bộ lọc sản phẩm">
           <div class="sidebar-header">
-            <h2 class="sidebar-heading"><i class="fa-solid fa-sliders"></i> <span data-i18n="filterHeader">Bộ Lọc</span></h2>
-            <button id="btn-reset-filters" class="reset-filter-btn" type="button" data-i18n="filterReset">Đặt lại</button>
+            <h2 class="sidebar-heading"><i class="fa-solid fa-sliders"></i> <span data-i18n="filterHeader">Filters</span></h2>
+            <button id="btn-reset-filters" class="reset-filter-btn" type="button" data-i18n="filterReset">Reset</button>
           </div>
 
           <!-- Lọc danh mục -->
           <div class="filter-group">
-            <div class="filter-title" data-i18n="filterCategory">Danh Mục</div>
+            <div class="filter-title" data-i18n="filterCategory">Category</div>
             <ul class="category-filter-list" id="category-filter-list">
               <!-- Render động bằng JS -->
             </ul>
@@ -243,33 +240,33 @@
           <!-- Lọc theo giá: Dual Range Slider & Custom Input -->
           <div class="filter-group price-filter-group">
             <div class="price-filter-header">
-              <div class="filter-title" style="margin-bottom:0;" data-i18n="filterPrice">Khoảng Giá</div>
-              <span class="price-range-badge" id="price-range-display">0₫ - 12.000.000₫</span>
+              <div class="filter-title" style="margin-bottom:0;" data-i18n="filterPrice">Price Range</div>
+              <span class="price-range-badge" id="price-range-display">$0.00 - $480.00</span>
             </div>
 
             <!-- Thanh trượt kép Dual Range Slider -->
             <div class="price-slider-container" id="price-slider-container">
               <div class="price-slider-track"></div>
               <div class="price-slider-progress" id="price-slider-progress"></div>
-              <input type="range" id="price-range-min" min="0" max="12000000" step="50000" value="0" aria-label="Giá tối thiểu" />
-              <input type="range" id="price-range-max" min="0" max="12000000" step="50000" value="12000000" aria-label="Giá tối đa" />
+              <input type="range" id="price-range-min" min="0" max="12000000" step="50000" value="0" aria-label="Min price" />
+              <input type="range" id="price-range-max" min="0" max="12000000" step="50000" value="12000000" aria-label="Max price" />
             </div>
 
             <!-- Ô nhập số tiền tùy chọn -->
             <div class="price-inputs-row">
               <div class="price-input-group">
-                <span class="price-input-label">Từ (₫)</span>
+                <span class="price-input-label" data-i18n="priceFrom">From ($)</span>
                 <div class="price-input-wrapper">
                   <input type="number" id="price-min-input" min="0" max="12000000" step="50000" value="0" placeholder="0" />
-                  <span class="price-currency">₫</span>
+                  <span class="price-currency" data-i18n="currencySymbol">$</span>
                 </div>
               </div>
               <span class="price-separator">—</span>
               <div class="price-input-group">
-                <span class="price-input-label">Đến (₫)</span>
+                <span class="price-input-label" data-i18n="priceTo">To ($)</span>
                 <div class="price-input-wrapper">
-                  <input type="number" id="price-max-input" min="0" max="12000000" step="50000" value="12000000" placeholder="12.000.000" />
-                  <span class="price-currency">₫</span>
+                  <input type="number" id="price-max-input" min="0" max="12000000" step="50000" value="12000000" placeholder="480" />
+                  <span class="price-currency" data-i18n="currencySymbol">$</span>
                 </div>
               </div>
             </div>
@@ -279,48 +276,48 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Áp Dụng Khoảng Giá</span>
+              <span data-i18n="btnApplyPrice">Apply Price Range</span>
             </button>
 
             <!-- Các mức giá chọn nhanh -->
             <div class="price-quick-presets">
-              <span class="price-presets-label">Mức giá phổ biến:</span>
+              <span class="price-presets-label" data-i18n="pricePresetsLabel">Popular price ranges:</span>
               <div class="price-presets-chips">
-                <button type="button" class="price-preset-btn active" data-min="0" data-max="12000000">Mọi mức giá</button>
-                <button type="button" class="price-preset-btn" data-min="0" data-max="1000000">&lt; 1 triệu</button>
-                <button type="button" class="price-preset-btn" data-min="1000000" data-max="2000000">1tr - 2tr</button>
-                <button type="button" class="price-preset-btn" data-min="2000000" data-max="4000000">2tr - 4tr</button>
-                <button type="button" class="price-preset-btn" data-min="4000000" data-max="12000000">&gt; 4 triệu</button>
+                <button type="button" class="price-preset-btn active" data-min="0" data-max="12000000" data-i18n="presetAll">All Prices</button>
+                <button type="button" class="price-preset-btn" data-min="0" data-max="1000000" data-i18n="presetUnder1M">&lt; $40</button>
+                <button type="button" class="price-preset-btn" data-min="1000000" data-max="2000000" data-i18n="preset1M2M">$40 - $80</button>
+                <button type="button" class="price-preset-btn" data-min="2000000" data-max="4000000" data-i18n="preset2M4M">$80 - $160</button>
+                <button type="button" class="price-preset-btn" data-min="4000000" data-max="12000000" data-i18n="presetOver4M">&gt; $160</button>
               </div>
             </div>
           </div>
 
           <!-- Lọc theo tình trạng -->
           <div class="filter-group">
-            <div class="filter-title">Tình Trạng</div>
+            <div class="filter-title" data-i18n="filterStatus">Availability</div>
             <div class="status-options-list">
               <label class="custom-filter-option">
                 <input type="radio" name="status-filter" value="all" checked />
-                <span>Tất cả</span>
+                <span data-i18n="statusAll">All</span>
               </label>
               <label class="custom-filter-option">
                 <input type="radio" name="status-filter" value="sale" />
-                <span>Đang giảm giá</span>
+                <span data-i18n="statusSale">On Sale</span>
               </label>
               <label class="custom-filter-option">
                 <input type="radio" name="status-filter" value="hot" />
-                <span>Sản phẩm Nổi bật</span>
+                <span data-i18n="statusHot">Featured</span>
               </label>
               <label class="custom-filter-option">
                 <input type="radio" name="status-filter" value="new" />
-                <span>Mới ra mắt</span>
+                <span data-i18n="statusNew">New Arrivals</span>
               </label>
             </div>
           </div>
 
           <!-- Lọc theo thương hiệu -->
           <div class="filter-group">
-            <div class="filter-title">Thương Hiệu</div>
+            <div class="filter-title" data-i18n="filterBrand">Brand</div>
             <div class="brand-options-list" id="brand-filter-list" style="max-height: 190px; overflow-y: auto; padding-right: 4px;">
               <!-- Render động bằng JS -->
             </div>
@@ -328,14 +325,14 @@
 
           <!-- Lọc theo tính năng / thông số kỹ thuật -->
           <div class="filter-group">
-            <div class="filter-title">Thông Số & Tính Năng</div>
+            <div class="filter-title" data-i18n="filterFeatures">Specs & Features</div>
             <div class="spec-tags-list" id="spec-tags-list" style="display: flex; flex-wrap: wrap; gap: 6px;">
-              <button type="button" class="spec-tag-btn active" data-spec="all">Tất cả</button>
-              <button type="button" class="spec-tag-btn" data-spec="wireless">Không Dây</button>
-              <button type="button" class="spec-tag-btn" data-spec="wired">Có Dây</button>
-              <button type="button" class="spec-tag-btn" data-spec="ultralight">Siêu Nhẹ</button>
-              <button type="button" class="spec-tag-btn" data-spec="8k">4K / 8K Polling</button>
-              <button type="button" class="spec-tag-btn" data-spec="magnetic">Từ Tính / HE</button>
+              <button type="button" class="spec-tag-btn active" data-spec="all" data-i18n="specAll">All</button>
+              <button type="button" class="spec-tag-btn" data-spec="wireless" data-i18n="specWireless">Wireless</button>
+              <button type="button" class="spec-tag-btn" data-spec="wired" data-i18n="specWired">Wired</button>
+              <button type="button" class="spec-tag-btn" data-spec="ultralight" data-i18n="specUltralight">Ultralight</button>
+              <button type="button" class="spec-tag-btn" data-spec="8k" data-i18n="spec8k">4K / 8K Polling</button>
+              <button type="button" class="spec-tag-btn" data-spec="magnetic" data-i18n="specMagnetic">Magnetic / HE</button>
             </div>
           </div>
         </aside>
@@ -346,21 +343,21 @@
           <!-- Toolbar -->
           <div class="products-toolbar">
             <div class="toolbar-left">
-              <span id="products-count-label" class="products-count">Đang tải sản phẩm...</span>
+              <span id="products-count-label" class="products-count">Loading products...</span>
             </div>
             <div class="toolbar-right">
               <div class="toolbar-search">
                 <i class="fa-solid fa-magnifying-glass toolbar-search-icon"></i>
-                <input type="text" id="catalog-search-input" placeholder="Lọc nhanh tên gear..." />
+                <input type="text" id="catalog-search-input" placeholder="Quick filter gear by name..." data-i18n-placeholder="filterSearchPlaceholder" />
               </div>
               <div class="toolbar-sort">
-                <label for="catalog-sort-select" class="sort-label">Sắp xếp:</label>
+                <label for="catalog-sort-select" class="sort-label" data-i18n="filterSort">Sort by:</label>
                 <select id="catalog-sort-select" class="sort-select">
-                  <option value="newest">Mới nhất (Mặc định)</option>
-                  <option value="price_asc">Giá: Thấp đến cao</option>
-                  <option value="price_desc">Giá: Cao đến thấp</option>
-                  <option value="hot">Sản phẩm Hot nhất</option>
-                  <option value="name_asc">Tên: A - Z</option>
+                  <option value="newest" data-i18n="sortNewest">Newest (Default)</option>
+                  <option value="price_asc" data-i18n="sortPriceAsc">Price: Low to High</option>
+                  <option value="price_desc" data-i18n="sortPriceDesc">Price: High to Low</option>
+                  <option value="hot" data-i18n="sortHot">Featured / Trending</option>
+                  <option value="name_asc" data-i18n="sortNameAsc">Name: A - Z</option>
                 </select>
               </div>
             </div>
@@ -651,10 +648,10 @@
     <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
     <!-- SCRIPTS -->
-    <script src="i18n.js?v=2.3"></script>
-    <script src="auth-mvc.js?v=2.3"></script>
-    <script src="main.js?v=2.3"></script>
-    <script src="products.js?v=2.3"></script>
+    <script src="i18n.js?v=2.4"></script>
+    <script src="auth-mvc.js?v=2.4"></script>
+    <script src="main.js?v=2.4"></script>
+    <script src="products.js?v=2.4"></script>
   </body>
 </html>
 

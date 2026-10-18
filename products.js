@@ -131,10 +131,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     let html = "";
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
     categories.forEach((catKey) => {
       const count = catMap[catKey] || 0;
       if (count === 0 && catKey !== "all") return;
-      const label = catKey === "all" ? "Tất Cả Sản Phẩm" : catKey;
+      let label = catKey;
+      if (catKey === "all") {
+        label = isEn ? "All Products" : "Tất Cả Sản Phẩm";
+      } else if (isEn) {
+        label = window.getCategoryName ? window.getCategoryName(catKey) : catKey;
+      }
       const isActive = filterState.category === catKey ? "active" : "";
       html += `
         <li class="cat-filter-item ${isActive}" data-category="${catKey}">
@@ -149,6 +155,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // 4. Render danh sách thương hiệu bên sidebar
   function renderBrandSidebar() {
     if (!brandListContainer) return;
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
     const brandMap = { all: catalogProducts.length };
     catalogProducts.forEach((p) => {
       const b = detectBrand(p.name);
@@ -159,10 +166,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const sortedBrands = Object.keys(brandMap).filter((b) => b !== "all" && b !== "Khác");
     sortedBrands.sort((a, b) => (brandMap[b] || 0) - (brandMap[a] || 0));
 
+    const allBrandsText = isEn ? "All Brands" : "Tất cả thương hiệu";
     let html = `
       <label class="custom-filter-option">
         <input type="radio" name="brand-filter" value="all" ${filterState.brand === "all" ? "checked" : ""} />
-        <span>Tất cả thương hiệu</span>
+        <span>${allBrandsText}</span>
         <span class="cat-count" style="margin-left:auto;">${catalogProducts.length}</span>
       </label>
     `;
@@ -330,6 +338,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         priceHtml = `<div class="card-price"><span class="current-price">${window.formatCurrency ? window.formatCurrency(product.price) : product.price.toLocaleString("vi-VN") + "₫"}</span></div>`;
       }
 
+      const pName = window.getProductName ? window.getProductName(product) : product.name;
       html += `
         <div class="product-item" data-product-id="${product.id}">
           <div class="card-image-wrapper">
@@ -338,15 +347,15 @@ document.addEventListener("DOMContentLoaded", async () => {
               <i class="fa-regular fa-heart"></i>
             </button>
             <div class="image-swap-container">
-              <img class="main-img" src="${product.image}" alt="${product.name}" loading="lazy">
-              <img class="hover-img" src="${product.image_hover || product.image}" alt="${product.name}" loading="lazy">
+              <img class="main-img" src="${product.image}" alt="${pName}" loading="lazy">
+              <img class="hover-img" src="${product.image_hover || product.image}" alt="${pName}" loading="lazy">
             </div>
             <button class="add-to-cart-btn" data-id="${product.id}">
               <i class="fa-solid fa-cart-plus" style="margin-right: 6px;"></i><span>${window.I18N && window.I18N.t ? window.I18N.t("addToCartBtn") : "Thêm Vào Giỏ Hàng"}</span>
             </button>
           </div>
           <div class="card-info">
-            <h3 title="${product.name}">${product.name}</h3>
+            <h3 title="${pName}">${pName}</h3>
             ${priceHtml}
           </div>
         </div>
@@ -459,25 +468,36 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 9. Cập nhật UI State, URL & Tiêu đề
   function updateUIState(totalFiltered) {
-    let catTitle = "TẤT CẢ SẢN PHẨM";
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+    let catTitle = isEn ? "ALL GAMING GEAR" : "TẤT CẢ SẢN PHẨM";
     if (filterState.category !== "all" && filterState.brand !== "all") {
-      catTitle = `${filterState.category.toUpperCase()} ${filterState.brand.toUpperCase()}`;
+      const catName = isEn ? (window.getCategoryName ? window.getCategoryName(filterState.category) : filterState.category) : filterState.category;
+      catTitle = `${catName.toUpperCase()} ${filterState.brand.toUpperCase()}`;
     } else if (filterState.category !== "all") {
-      catTitle = filterState.category.toUpperCase();
+      const catName = isEn ? (window.getCategoryName ? window.getCategoryName(filterState.category) : filterState.category) : filterState.category;
+      catTitle = catName.toUpperCase();
     } else if (filterState.brand !== "all") {
-      catTitle = `SẢN PHẨM ${filterState.brand.toUpperCase()}`;
+      catTitle = isEn ? `${filterState.brand.toUpperCase()} GEAR` : `SẢN PHẨM ${filterState.brand.toUpperCase()}`;
     }
 
     if (pageHeaderTitle) pageHeaderTitle.textContent = catTitle;
     if (breadcrumbCurrent) {
-      breadcrumbCurrent.textContent = filterState.category === "all" ? (filterState.brand === "all" ? "Tất cả sản phẩm" : filterState.brand) : filterState.category;
+      if (filterState.category === "all") {
+        breadcrumbCurrent.textContent = filterState.brand === "all" ? (isEn ? "All Products" : "Tất cả sản phẩm") : filterState.brand;
+      } else {
+        breadcrumbCurrent.textContent = isEn ? (window.getCategoryName ? window.getCategoryName(filterState.category) : filterState.category) : filterState.category;
+      }
     }
 
     // Count label
     if (productsCountEl) {
       const start = totalFiltered === 0 ? 0 : (filterState.page - 1) * filterState.perPage + 1;
       const end = Math.min(filterState.page * filterState.perPage, totalFiltered);
-      productsCountEl.innerHTML = `Hiển thị <strong>${start}-${end}</strong> trên tổng số <strong>${totalFiltered}</strong> sản phẩm`;
+      if (isEn) {
+        productsCountEl.innerHTML = `Showing <strong>${start}–${end}</strong> of <strong>${totalFiltered}</strong> products`;
+      } else {
+        productsCountEl.innerHTML = `Hiển thị <strong>${start}–${end}</strong> trên tổng số <strong>${totalFiltered}</strong> sản phẩm`;
+      }
     }
 
     // Đồng bộ URL mà không reload trang
@@ -564,8 +584,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function updatePriceDisplay(minVal, maxVal) {
     if (priceDisplayBadge) {
-      const minFormatted = minVal.toLocaleString("vi-VN") + "₫";
-      const maxFormatted = maxVal.toLocaleString("vi-VN") + "₫";
+      const minFormatted = window.formatCurrency ? window.formatCurrency(minVal) : minVal.toLocaleString("vi-VN") + "₫";
+      const maxFormatted = window.formatCurrency ? window.formatCurrency(maxVal) : maxVal.toLocaleString("vi-VN") + "₫";
       priceDisplayBadge.textContent = `${minFormatted} - ${maxFormatted}`;
     }
   }
@@ -900,6 +920,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 11. Lắng nghe sự kiện chuyển đổi ngôn ngữ/tiền tệ để cập nhật giá tiền trên Catalog
   window.addEventListener("blue:language-change", () => {
+    renderCategorySidebar();
+    renderBrandSidebar();
     applyFilters(false);
+    updatePriceDisplay(filterState.priceMin, filterState.priceMax);
   });
 });

@@ -118,24 +118,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // 3. Cập nhật thông tin tiêu đề và breadcrumb
-  document.title = `${currentProduct.name} | Blue Gaming Gear`;
-  if (breadcrumbCategory) {
-    breadcrumbCategory.textContent = currentProduct.category || "Gear";
-    breadcrumbCategory.href = `products.html?category=${encodeURIComponent(currentProduct.category || "")}`;
+  // 3. Cập nhật thông tin tiêu đề và breadcrumb đa ngôn ngữ
+  function updateDetailTextInfo() {
+    if (!currentProduct) return;
+    const pName = window.getProductName ? window.getProductName(currentProduct) : currentProduct.name;
+    const catName = window.getCategoryName ? window.getCategoryName(currentProduct.category) : (currentProduct.category || "Gear");
+    document.title = `${pName} | Blue Gaming Gear`;
+    if (breadcrumbCategory) {
+      breadcrumbCategory.textContent = catName;
+      breadcrumbCategory.href = `products.html?category=${encodeURIComponent(currentProduct.category || "")}`;
+    }
+    if (breadcrumbProduct) {
+      breadcrumbProduct.textContent = pName;
+    }
+    if (categoryTag) {
+      categoryTag.textContent = catName;
+    }
+    if (titleEl) {
+      titleEl.textContent = pName;
+    }
+    if (skuEl) {
+      skuEl.textContent = `BL-${currentProduct.id.toString().padStart(4, "0")}`;
+    }
   }
-  if (breadcrumbProduct) {
-    breadcrumbProduct.textContent = currentProduct.name;
-  }
-  if (categoryTag) {
-    categoryTag.textContent = currentProduct.category || "Gaming Gear";
-  }
-  if (titleEl) {
-    titleEl.textContent = currentProduct.name;
-  }
-  if (skuEl) {
-    skuEl.textContent = `BL-${currentProduct.id.toString().padStart(4, "0")}`;
-  }
+  updateDetailTextInfo();
 
   // 4. Render hình ảnh & Gallery thumbnails
   if (mainImgEl) {
@@ -863,6 +869,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         const isHeartActive = userWishlist.includes(String(prod.id));
+        const rName = window.getProductName ? window.getProductName(prod) : prod.name;
 
         rHtml += `
           <div class="product-item" data-product-id="${prod.id}">
@@ -872,15 +879,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <i class="${isHeartActive ? "fa-solid" : "fa-regular"} fa-heart"></i>
               </button>
               <div class="image-swap-container">
-                <img class="main-img" src="${prod.image}" alt="${prod.name}" loading="lazy">
-                <img class="hover-img" src="${prod.image_hover || prod.image}" alt="${prod.name}" loading="lazy">
+                <img class="main-img" src="${prod.image}" alt="${rName}" loading="lazy">
+                <img class="hover-img" src="${prod.image_hover || prod.image}" alt="${rName}" loading="lazy">
               </div>
               <button class="add-to-cart-btn" data-id="${prod.id}">
                 <i class="fa-solid fa-cart-plus" style="margin-right: 6px;"></i>${window.I18N ? window.I18N.t("addToCartBtn") : "Add to Cart"}
               </button>
             </div>
             <div class="card-info">
-              <h3 title="${prod.name}">${prod.name}</h3>
+              <h3 title="${rName}">${rName}</h3>
               ${priceHtml}
             </div>
           </div>
@@ -906,6 +913,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 23. Lắng nghe sự kiện đổi ngôn ngữ để cập nhật giá tiền tức thì
   window.addEventListener("blue:language-change", () => {
+    updateDetailTextInfo();
     updateStockBadge();
     renderDetailPrices();
     renderRelatedProducts();

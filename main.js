@@ -34,21 +34,22 @@ function renderProducts(products, container) {
       priceHtml = `<div class="card-price">${formatCurrency(product.price)}</div>`;
     }
 
+    const pName = window.getProductName ? window.getProductName(product) : product.name;
     html += `
         <div class="product-item" data-product-id="${product.id}">
             <div class="card-image-wrapper">
                 ${newBadge}
                 <button class="card-heart" data-id="${product.id}" aria-label="Yêu thích"><i class="fa-regular fa-heart"></i></button>
                 <div class="image-swap-container">
-                    <img class="main-img" src="${product.image}" alt="${product.name}" loading="lazy">
-                    <img class="hover-img" src="${product.image_hover || product.image}" alt="${product.name}" loading="lazy">
+                    <img class="main-img" src="${product.image}" alt="${pName}" loading="lazy">
+                    <img class="hover-img" src="${product.image_hover || product.image}" alt="${pName}" loading="lazy">
                 </div>
                 <button class="add-to-cart-btn" data-id="${product.id}">
                   <i class="fa-solid fa-cart-plus" style="margin-right: 6px;"></i><span>${window.I18N && window.I18N.t ? window.I18N.t("addToCartBtn") : "Thêm Vào Giỏ Hàng"}</span>
                 </button>
             </div>
             <div class="card-info">
-                <h3>${product.name}</h3>
+                <h3 title="${pName}">${pName}</h3>
                 ${priceHtml}
             </div>
         </div>
@@ -142,19 +143,37 @@ function renderMegaMenu(category) {
 
   let html = "";
   filtered.forEach((p) => {
+    const pName = window.getProductName ? window.getProductName(p) : p.name;
     html += `
-          <div class="mega-product-card" data-id="${p.id}" title="${p.name}">
+          <div class="mega-product-card" data-id="${p.id}" title="${pName}">
               <div class="mega-img-wrapper">
-                  <img src="${p.image}" alt="${p.name}" loading="lazy">
+                  <img src="${p.image}" alt="${pName}" loading="lazy">
               </div>
-              <p class="mega-product-name">${p.name}</p>
+              <p class="mega-product-name">${pName}</p>
           </div>
       `;
   });
   container.innerHTML = html;
 
   if (title) {
-    title.textContent = (targetCategory === "all" || !targetCategory ? "TẤT CẢ SẢN PHẨM" : targetCategory).toUpperCase();
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+    const catMapEn = {
+      "Chuột": "MICE",
+      "Bàn phím": "KEYBOARDS",
+      "Lót chuột": "MOUSEPADS",
+      "Tai nghe": "HEADSETS",
+      "Tay cầm": "CONTROLLERS",
+      "Controller": "CONTROLLERS",
+      "Phụ kiện": "ACCESSORIES",
+      "Accessories": "ACCESSORIES",
+      "Gift Cards": "GIFT CARDS",
+      "all": "ALL PRODUCTS"
+    };
+    if (isEn) {
+      title.textContent = catMapEn[targetCategory] || (targetCategory === "all" || !targetCategory ? "ALL PRODUCTS" : targetCategory.toUpperCase());
+    } else {
+      title.textContent = (targetCategory === "all" || !targetCategory ? "TẤT CẢ SẢN PHẨM" : targetCategory).toUpperCase();
+    }
   }
 
   if (viewAllBtn) {
@@ -449,6 +468,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let startTime = null;
   let elapsedBeforePause = 0;
   let isPaused = false;
+  let heroSlidesData = [];
 
   function renderHeroCarousel() {
     const wrapper = document.getElementById("hero-slides-wrapper");
@@ -456,7 +476,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!wrapper || !indicatorsContainer) return;
 
-    const heroSlidesData = getHeroSlides();
+    heroSlidesData = getHeroSlides();
     let slidesHTML = "";
     let indicatorsHTML = "";
 
@@ -570,8 +590,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function nextSlide() {
+    const slides = document.querySelectorAll(".hero-slide");
+    const count = slides.length || (heroSlidesData && heroSlidesData.length) || 4;
     let next = currentSlide + 1;
-    if (next >= heroSlidesData.length) next = 0;
+    if (next >= count) next = 0;
     goToSlide(next);
   }
 

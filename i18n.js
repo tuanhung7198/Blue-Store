@@ -162,22 +162,47 @@
       saveDiscount: "Save",
 
       // Catalog Page (products.html)
-      catalogTitle: "All Gaming Gear & Peripherals",
+      catalogTitle: "ALL GAMING GEAR",
+      catalogSubtitle: "Pro-grade gaming peripherals and battle-tested eSports hardware.",
       catalogBreadcrumbHome: "Home",
       catalogBreadcrumbAll: "All Products",
-      filterHeader: "Filter Products",
+      filterHeader: "Filters",
       filterReset: "Reset All",
       filterCategory: "Category",
       filterBrand: "Brand",
       filterPrice: "Price Range",
-      filterFeatures: "Key Features",
-      filterSort: "Sort by",
-      sortNewest: "Newest Arrivals",
+      filterFeatures: "Specs & Features",
+      filterStatus: "Availability",
+      filterSort: "Sort by:",
+      sortNewest: "Newest (Default)",
       sortPriceAsc: "Price: Low to High",
       sortPriceDesc: "Price: High to Low",
       sortHot: "Featured / Trending",
+      sortNameAsc: "Name: A - Z",
       productsCountPrefix: "Showing",
+      productsCountOf: "of",
       productsCountSuffix: "products",
+      filterSearchPlaceholder: "Quick filter gear by name...",
+      priceFrom: "From ($)",
+      priceTo: "To ($)",
+      btnApplyPrice: "Apply Price Range",
+      pricePresetsLabel: "Popular price ranges:",
+      presetAll: "All Prices",
+      presetUnder1M: "< $40",
+      preset1M2M: "$40 - $80",
+      preset2M4M: "$80 - $160",
+      presetOver4M: "> $160",
+      statusAll: "All",
+      statusSale: "On Sale",
+      statusHot: "Featured",
+      statusNew: "New Arrivals",
+      allBrands: "All Brands",
+      specAll: "All",
+      specWireless: "Wireless",
+      specWired: "Wired",
+      specUltralight: "Ultralight",
+      spec8k: "4K / 8K Polling",
+      specMagnetic: "Magnetic / HE",
 
       // Product Detail (product-detail.html)
       detailTabDesc: "Description",
@@ -351,22 +376,47 @@
       saveDiscount: "Tiết kiệm",
 
       // Catalog Page (products.html)
-      catalogTitle: "Tất Cả Thiết Bị Gaming Gear",
+      catalogTitle: "TẤT CẢ SẢN PHẨM",
+      catalogSubtitle: "Bộ sưu tập thiết bị gaming gear chuyên nghiệp, phục vụ các game thủ và thi đấu eSports đỉnh cao.",
       catalogBreadcrumbHome: "Trang chủ",
       catalogBreadcrumbAll: "Tất cả sản phẩm",
-      filterHeader: "Bộ Lọc Sản Phẩm",
-      filterReset: "Xóa Bộ Lọc",
+      filterHeader: "Bộ Lọc",
+      filterReset: "Đặt lại",
       filterCategory: "Danh Mục",
       filterBrand: "Thương Hiệu",
       filterPrice: "Khoảng Giá",
-      filterFeatures: "Tính Năng Nổi Bật",
-      filterSort: "Sắp Xếp",
-      sortNewest: "Mới nhất",
-      sortPriceAsc: "Giá: Thấp đến Cao",
-      sortPriceDesc: "Giá: Cao đến Thấp",
-      sortHot: "Nổi bật nhất",
+      filterFeatures: "Thông Số & Tính Năng",
+      filterStatus: "Tình Trạng",
+      filterSort: "Sắp xếp:",
+      sortNewest: "Mới nhất (Mặc định)",
+      sortPriceAsc: "Giá: Thấp đến cao",
+      sortPriceDesc: "Giá: Cao đến thấp",
+      sortHot: "Sản phẩm Hot nhất",
+      sortNameAsc: "Tên: A - Z",
       productsCountPrefix: "Hiển thị",
+      productsCountOf: "trên tổng số",
       productsCountSuffix: "sản phẩm",
+      filterSearchPlaceholder: "Lọc nhanh tên gear...",
+      priceFrom: "Từ (₫)",
+      priceTo: "Đến (₫)",
+      btnApplyPrice: "Áp Dụng Khoảng Giá",
+      pricePresetsLabel: "Mức giá phổ biến:",
+      presetAll: "Mọi mức giá",
+      presetUnder1M: "< 1 triệu",
+      preset1M2M: "1tr - 2tr",
+      preset2M4M: "2tr - 4tr",
+      presetOver4M: "> 4 triệu",
+      statusAll: "Tất cả",
+      statusSale: "Đang giảm giá",
+      statusHot: "Sản phẩm Nổi bật",
+      statusNew: "Mới ra mắt",
+      allBrands: "Tất cả thương hiệu",
+      specAll: "Tất cả",
+      specWireless: "Không Dây",
+      specWired: "Có Dây",
+      specUltralight: "Siêu Nhẹ",
+      spec8k: "4K / 8K Polling",
+      specMagnetic: "Từ Tính / HE",
 
       // Product Detail (product-detail.html)
       detailTabDesc: "Mô Tả Sản Phẩm",
@@ -406,6 +456,93 @@
     } else {
       return `${amount.toLocaleString("vi-VN")}₫`;
     }
+  }
+
+  // Từ điển tên sản phẩm tiếng Anh chuẩn quốc tế cho toàn bộ 32 sản phẩm
+  const PRODUCT_NAMES_EN = {
+    1: "Logitech G Pro X Superlight Wireless Gaming Mouse",
+    2: "Razer Huntsman V2 Optical Gaming Keyboard",
+    3: "Corsair HS80 RGB Wireless Gaming Headset",
+    4: "Razer DeathAdder V3 Pro Wireless Gaming Mouse",
+    5: "Keychron K8 Pro Wireless Mechanical Keyboard",
+    6: "SteelSeries QcK Heavy Thick Cloth Gaming Mousepad",
+    7: "LG UltraGear 27GN800 QHD 144Hz Gaming Monitor",
+    8: "Secretlab Titan Evo 2022 Premium Gaming Chair",
+    9: "HyperX Cloud III Wireless eSports Gaming Headset",
+    10: "Logitech G102 Lightsync RGB Wired Gaming Mouse",
+    11: "AKKO 3098B Multi-Mode Wireless Mechanical Keyboard",
+    12: "Razer Goliathus Extended Chroma RGB Mousepad",
+    13: "ASUS ROG Azoth 75% Custom Wireless Mechanical Keyboard",
+    14: "SteelSeries Apex Pro TKL 2023 OmniPoint Mechanical Keyboard",
+    15: "Corsair K70 RGB PRO Mechanical Gaming Keyboard",
+    16: "MonsGeek M1W V3 Aluminum Wireless Mechanical Keyboard",
+    17: "FL-Esports OG87 Retro White Mechanical Keyboard",
+    18: "Aula F75 Wireless Gasket-Mount Mechanical Keyboard",
+    19: "Varmilo VA87M Sea Melody Mechanical Keyboard",
+    20: "ATK68 Magnetic Switch Hall Effect Gaming Keyboard",
+    21: "Ducky One 3 Daybreak Hot-Swap Mechanical Keyboard",
+    22: "Leopold FC900R PD Ash Yellow High-End Mechanical Keyboard",
+    23: "Razer Viper V3 Pro Ultra-Lightweight Wireless Gaming Mouse",
+    24: "Pulsar X2V2 Wireless Competitive eSports Mouse",
+    25: "Zowie EC2-CW Ergonomic Wireless eSports Mouse",
+    26: "ATK Blazing Sky F1 Pro 8000Hz Ultralight Wireless Mouse",
+    27: "Ninjutso Sora V2 Ultralight 39g Wireless Mouse",
+    28: "Endgame Gear OP1 8k Wired 8000Hz Competitive Mouse",
+    29: "Lamzu Maya 4K Wireless eSports Gaming Mouse",
+    30: "Artisan Ninja FX Zero XSoft Japanese Gaming Mousepad",
+    31: "BenQ Zowie G-SR-SE Bi Competitive eSports Mousepad",
+    32: "Pulsar Superglide Ultra-Fast Tempered Glass Mousepad"
+  };
+
+  const CATEGORY_MAP_EN = {
+    "all": "All Products",
+    "Chuột": "Mice",
+    "Bàn phím": "Keyboards",
+    "Lót chuột": "Mousepads",
+    "Tai nghe": "Headsets",
+    "Màn hình": "Monitors",
+    "Ghế gaming": "Gaming Chairs",
+    "Tay cầm": "Controllers",
+    "Controller": "Controllers",
+    "Phụ kiện": "Accessories",
+    "Accessories": "Accessories",
+    "Gift Cards": "Gift Cards"
+  };
+
+  function getProductName(product) {
+    if (!product) return "";
+    const lang = getCurrentLang();
+    if (lang === "en") {
+      const pid = product.id !== undefined ? Number(product.id) : null;
+      if (pid && PRODUCT_NAMES_EN[pid]) {
+        return PRODUCT_NAMES_EN[pid];
+      }
+      if (product.name_en) return product.name_en;
+      return (product.name || "")
+        .replace(/^Chuột Gaming Không Dây\s+/i, "Wireless Gaming Mouse ")
+        .replace(/^Chuột Không Dây\s+/i, "Wireless Mouse ")
+        .replace(/^Chuột Gaming Có Dây\s+/i, "Wired Gaming Mouse ")
+        .replace(/^Chuột Có Dây\s+/i, "Wired Mouse ")
+        .replace(/^Chuột\s+/i, "Mouse ")
+        .replace(/^Bàn Phím Cơ Không Dây\s+/i, "Wireless Mechanical Keyboard ")
+        .replace(/^Bàn Phím Cơ\s+/i, "Mechanical Keyboard ")
+        .replace(/^Bàn Phím Từ Tính\s+/i, "Magnetic Switch Keyboard ")
+        .replace(/^Lót Chuột Kính Cường Lực\s+/i, "Tempered Glass Mousepad ")
+        .replace(/^Lót Chuột\s+/i, "Mousepad ")
+        .replace(/^Tai Nghe Gaming\s+/i, "Gaming Headset ")
+        .replace(/^Tai Nghe\s+/i, "Headset ")
+        .replace(/^Màn Hình Gaming\s+/i, "Gaming Monitor ")
+        .replace(/^Ghế Gaming\s+/i, "Gaming Chair ");
+    }
+    return product.name || "";
+  }
+
+  function getCategoryName(category) {
+    if (!category) return "";
+    if (getCurrentLang() === "en") {
+      return CATEGORY_MAP_EN[category] || category;
+    }
+    return category;
   }
 
   // Áp dụng ngôn ngữ vào DOM
@@ -537,9 +674,13 @@
     getCurrentLang,
     switchLanguage,
     applyLanguage,
+    getProductName,
+    getCategoryName,
     t: (key) => (I18N_DATA[getCurrentLang()] || I18N_DATA.en)[key] || key
   };
   window.formatCurrency = formatCurrency;
+  window.getProductName = getProductName;
+  window.getCategoryName = getCategoryName;
 
   // Khởi tạo ngay khi DOM sẵn sàng
   if (document.readyState === "loading") {

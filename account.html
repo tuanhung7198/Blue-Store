@@ -23,7 +23,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=2.3" />
+    <link rel="stylesheet" href="style.css?v=2.4" />
   </head>
   <body>
     <!-- HEADER -->
@@ -206,27 +206,24 @@
         <div class="mega-container">
           <div class="mega-sidebar">
             <ul class="mega-categories-list">
-              <li class="cat-item active" data-id="Chuột">Chuột</li>
-              <li class="cat-item" data-id="Bàn phím">Bàn phím</li>
-              <li class="cat-item" data-id="Lót chuột">Lót chuột</li>
-              <li class="cat-item" data-id="Tai nghe">Headphones</li>
-              <li class="cat-item" data-id="Tay cầm">Controller</li>
-              <li class="cat-item" data-id="Phụ kiện">Accessories</li>
-              <li class="cat-item" data-id="Gift Cards">Gift Cards</li>
+              <li class="cat-item active" data-id="Chuột" data-i18n="catMice">Mice</li>
+              <li class="cat-item" data-id="Bàn phím" data-i18n="catKeyboards">Keyboards</li>
+              <li class="cat-item" data-id="Lót chuột" data-i18n="catMousepads">Mousepads</li>
+              <li class="cat-item" data-id="Tai nghe" data-i18n="catHeadphones">Headphones</li>
+              <li class="cat-item" data-id="Tay cầm" data-i18n="catController">Controller</li>
+              <li class="cat-item" data-id="Phụ kiện" data-i18n="catAccessories">Accessories</li>
+              <li class="cat-item" data-id="Gift Cards" data-i18n="catGiftCards">Gift Cards</li>
             </ul>
           </div>
           <div class="mega-content">
             <div class="mega-header">
               <div class="mega-title-area">
-                <h3 id="mega-current-cat" class="mega-title">CHUỘT</h3>
+                <h3 id="mega-current-cat" class="mega-title">MICE</h3>
               </div>
-              <a href="products.html" class="view-all"
-                >Xem tất cả
-                <i
-                  class="fa-solid fa-chevron-right"
-                  style="font-size: 10px; margin-left: 4px"
-                ></i
-              ></a>
+              <a href="products.html" class="view-all">
+                <span data-i18n="megaViewAll">View all</span>
+                <i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-left: 4px"></i>
+              </a>
             </div>
             <div class="mega-products-wrapper">
               <div class="mega-products-viewport">
@@ -1483,9 +1480,9 @@
     <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
     <!-- SCRIPTS (THEO THỨ TỰ MVC) -->
-    <script src="i18n.js?v=2.3"></script>
-    <script src="auth-mvc.js?v=2.3"></script>
-    <script src="main.js?v=2.3"></script>
-    <script src="account.js?v=2.3"></script>
+    <script src="i18n.js?v=2.4"></script>
+    <script src="auth-mvc.js?v=2.4"></script>
+    <script src="main.js?v=2.4"></script>
+    <script src="account.js?v=2.4"></script>
   </body>
 </html>
