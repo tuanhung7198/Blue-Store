@@ -548,12 +548,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Tạm dừng khi rê chuột vào banner để người dùng đọc thông tin hoặc click mua
-    const banner = document.getElementById("hero-carousel");
-    if (banner) {
-      banner.addEventListener("mouseenter", pauseCarousel);
-      banner.addEventListener("mouseleave", resumeCarousel);
-    }
+    // Chạy liên tục không gián đoạn ngay cả khi trỏ chuột vào banner (liên tục 4 giây/slide)
 
     // Tự động tạm dừng khi tab trình duyệt không active để tiết kiệm tài nguyên
     document.addEventListener("visibilitychange", () => {
