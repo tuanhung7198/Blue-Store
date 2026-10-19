@@ -100,6 +100,29 @@
       },
     ];
 
+    static DEFAULT_ADDRESSES = [
+      {
+        id: "addr_1",
+        userId: 1,
+        tag: "Home",
+        recipientName: "Alex Johnson",
+        phone: "0988 123 456",
+        street: "18 Grand Avenue, Central District",
+        city: "Hà Nội",
+        isDefault: true,
+      },
+      {
+        id: "addr_2",
+        userId: 1,
+        tag: "Gaming Team House",
+        recipientName: "Alex Johnson (eSports Team)",
+        phone: "0988 123 456",
+        street: "Penthouse 12B, Sky Tower, Cau Giay",
+        city: "Hà Nội",
+        isDefault: false,
+      },
+    ];
+
     constructor() {
       this.initStorage();
     }
@@ -110,6 +133,9 @@
       }
       if (!localStorage.getItem(AuthModel.STORAGE_KEYS.ORDERS_DB)) {
         localStorage.setItem(AuthModel.STORAGE_KEYS.ORDERS_DB, JSON.stringify(AuthModel.DEFAULT_ORDERS));
+      }
+      if (!localStorage.getItem(AuthModel.STORAGE_KEYS.ADDRESSES_DB)) {
+        localStorage.setItem(AuthModel.STORAGE_KEYS.ADDRESSES_DB, JSON.stringify(AuthModel.DEFAULT_ADDRESSES));
       }
     }
 
@@ -127,11 +153,13 @@
       localStorage.setItem(AuthModel.STORAGE_KEYS.USERS_DB, JSON.stringify(users));
     }
 
-    // Người dùng đang đăng nhập hiện tại
+    // Người dùng đang đăng nhập hiện tại (ưu tiên sessionStorage khi uncheck Remember Me, sau đó localStorage)
     getCurrentUser() {
       try {
-        const raw = localStorage.getItem(AuthModel.STORAGE_KEYS.AUTH_USER);
-        return raw ? JSON.parse(raw) : null;
+        const sessionRaw = sessionStorage.getItem(AuthModel.STORAGE_KEYS.AUTH_USER);
+        if (sessionRaw) return JSON.parse(sessionRaw);
+        const localRaw = localStorage.getItem(AuthModel.STORAGE_KEYS.AUTH_USER);
+        return localRaw ? JSON.parse(localRaw) : null;
       } catch (e) {
         return null;
       }
@@ -142,7 +170,7 @@
       return this.getCurrentUser() !== null;
     }
 
-    // Đăng nhập
+    // Đăng nhập có phân vùng lưu trữ theo Remember Me
     login(email, password, remember = true) {
       const cleanEmail = (email || "").trim().toLowerCase();
       const cleanPass = (password || "").trim();
@@ -162,7 +190,15 @@
       const sessionUser = { ...found };
       delete sessionUser.password;
 
-      localStorage.setItem(AuthModel.STORAGE_KEYS.AUTH_USER, JSON.stringify(sessionUser));
+      // Bảo mật phiên làm việc: Ghi vào localStorage nếu Remember Me, hoặc sessionStorage nếu dùng máy công cộng
+      if (remember) {
+        localStorage.setItem(AuthModel.STORAGE_KEYS.AUTH_USER, JSON.stringify(sessionUser));
+        sessionStorage.removeItem(AuthModel.STORAGE_KEYS.AUTH_USER);
+      } else {
+        sessionStorage.setItem(AuthModel.STORAGE_KEYS.AUTH_USER, JSON.stringify(sessionUser));
+        localStorage.removeItem(AuthModel.STORAGE_KEYS.AUTH_USER);
+      }
+
       this.dispatchAuthEvent("login", sessionUser);
 
       return {
@@ -219,6 +255,7 @@
     // Đăng xuất
     logout() {
       localStorage.removeItem(AuthModel.STORAGE_KEYS.AUTH_USER);
+      sessionStorage.removeItem(AuthModel.STORAGE_KEYS.AUTH_USER);
       this.dispatchAuthEvent("logout", null);
       return { success: true };
     }
@@ -245,7 +282,14 @@
 
       const sessionUser = { ...users[idx] };
       delete sessionUser.password;
-      localStorage.setItem(AuthModel.STORAGE_KEYS.AUTH_USER, JSON.stringify(sessionUser));
+
+      // Cập nhật đúng nơi lưu trữ của phiên làm việc
+      if (sessionStorage.getItem(AuthModel.STORAGE_KEYS.AUTH_USER)) {
+        sessionStorage.setItem(AuthModel.STORAGE_KEYS.AUTH_USER, JSON.stringify(sessionUser));
+      } else {
+        localStorage.setItem(AuthModel.STORAGE_KEYS.AUTH_USER, JSON.stringify(sessionUser));
+      }
+
       this.dispatchAuthEvent("update", sessionUser);
 
       return { success: true, user: sessionUser };
@@ -360,6 +404,122 @@
         localStorage.setItem(AuthModel.STORAGE_KEYS.AUTH_USER, JSON.stringify(current));
         this.dispatchAuthEvent("update", current);
       }
+    }
+
+    // Lấy danh sách địa chỉ giao hàng của người dùng
+    getUserAddresses(userId = null) {
+      const current = this.getCurrentUser();
+      const uid = userId || (current ? current.id : 1);
+      try {
+        const raw = localStorage.getItem(AuthModel.STORAGE_KEYS.ADDRESSES_DB);
+        let all = raw ? JSON.parse(raw) : null;
+        if (!all || !Array.isArray(all) || all.length === 0) {
+          localStorage.setItem(AuthModel.STORAGE_KEYS.ADDRESSES_DB, JSON.stringify(AuthModel.DEFAULT_ADDRESSES));
+          return AuthModel.DEFAULT_ADDRESSES.filter((a) => a.userId === uid || !a.userId);
+        }
+        let userAddrs = all.filter((a) => a.userId === uid);
+        if (userAddrs.length === 0) {
+          userAddrs = AuthModel.DEFAULT_ADDRESSES.map((a) => ({
+            ...a,
+            id: `addr_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`,
+            userId: uid,
+          }));
+          all.push(...userAddrs);
+          localStorage.setItem(AuthModel.STORAGE_KEYS.ADDRESSES_DB, JSON.stringify(all));
+        }
+        return userAddrs;
+      } catch (e) {
+        return AuthModel.DEFAULT_ADDRESSES;
+      }
+    }
+
+    // Thêm mới hoặc cập nhật địa chỉ giao hàng
+    saveUserAddress(addrData) {
+      const current = this.getCurrentUser();
+      const uid = current ? current.id : 1;
+      let raw = localStorage.getItem(AuthModel.STORAGE_KEYS.ADDRESSES_DB);
+      let all = [];
+      try {
+        all = raw ? JSON.parse(raw) : [...AuthModel.DEFAULT_ADDRESSES];
+      } catch (e) {
+        all = [...AuthModel.DEFAULT_ADDRESSES];
+      }
+
+      if (addrData.isDefault) {
+        all = all.map((a) => (a.userId === uid ? { ...a, isDefault: false } : a));
+      }
+
+      if (addrData.id) {
+        const idx = all.findIndex((a) => a.id === addrData.id && a.userId === uid);
+        if (idx > -1) {
+          all[idx] = { ...all[idx], ...addrData, userId: uid };
+        } else {
+          all.push({ ...addrData, id: addrData.id || `addr_${Date.now()}`, userId: uid });
+        }
+      } else {
+        const newAddr = {
+          ...addrData,
+          id: `addr_${Date.now()}`,
+          userId: uid,
+          isDefault: addrData.isDefault || false,
+        };
+        if (!all.some((a) => a.userId === uid)) {
+          newAddr.isDefault = true;
+        }
+        all.push(newAddr);
+      }
+
+      localStorage.setItem(AuthModel.STORAGE_KEYS.ADDRESSES_DB, JSON.stringify(all));
+      return { success: true };
+    }
+
+    // Đặt địa chỉ làm mặc định
+    setDefaultAddress(addressId) {
+      const current = this.getCurrentUser();
+      const uid = current ? current.id : 1;
+      let raw = localStorage.getItem(AuthModel.STORAGE_KEYS.ADDRESSES_DB);
+      let all = [];
+      try {
+        all = raw ? JSON.parse(raw) : [...AuthModel.DEFAULT_ADDRESSES];
+      } catch (e) {
+        all = [...AuthModel.DEFAULT_ADDRESSES];
+      }
+
+      all = all.map((a) => {
+        if (a.userId === uid) {
+          return { ...a, isDefault: a.id === addressId };
+        }
+        return a;
+      });
+
+      localStorage.setItem(AuthModel.STORAGE_KEYS.ADDRESSES_DB, JSON.stringify(all));
+      return { success: true };
+    }
+
+    // Xóa địa chỉ giao hàng
+    deleteUserAddress(addressId) {
+      const current = this.getCurrentUser();
+      const uid = current ? current.id : 1;
+      let raw = localStorage.getItem(AuthModel.STORAGE_KEYS.ADDRESSES_DB);
+      let all = [];
+      try {
+        all = raw ? JSON.parse(raw) : [...AuthModel.DEFAULT_ADDRESSES];
+      } catch (e) {
+        all = [...AuthModel.DEFAULT_ADDRESSES];
+      }
+
+      const targetAddr = all.find((a) => a.id === addressId && a.userId === uid);
+      all = all.filter((a) => !(a.id === addressId && a.userId === uid));
+
+      if (targetAddr && targetAddr.isDefault) {
+        const remaining = all.filter((a) => a.userId === uid);
+        if (remaining.length > 0) {
+          remaining[0].isDefault = true;
+        }
+      }
+
+      localStorage.setItem(AuthModel.STORAGE_KEYS.ADDRESSES_DB, JSON.stringify(all));
+      return { success: true };
     }
 
     // Bắn Custom Event để các View khác cập nhật ngay
@@ -641,7 +801,9 @@
         if (logoutTrigger) {
           e.preventDefault();
           const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
-          if (confirm(isEn ? "Are you sure you want to sign out?" : "Bạn có chắc chắn muốn đăng xuất tài khoản?")) {
+          const t = window.I18N && window.I18N.I18N_DATA ? (window.I18N.I18N_DATA[isEn ? "en" : "vi"] || {}) : {};
+
+          const executeLogout = () => {
             this.model.logout();
             if (window.showToast) {
               window.showToast(isEn ? "Signed out successfully!" : "Đã đăng xuất tài khoản thành công!", "info");
@@ -649,6 +811,21 @@
             // Nếu đang ở trang account.html thì reload để về form đăng nhập
             if (window.location.pathname.includes("account.html")) {
               window.location.href = "account.html";
+            }
+          };
+
+          if (typeof window.showCyberConfirm === "function") {
+            window.showCyberConfirm({
+              title: t.confirmSignOutTitle || (isEn ? "Sign Out of Blue Passport?" : "Đăng xuất Blue Passport?"),
+              message: t.confirmSignOutMsg || (isEn ? "Are you sure you want to end your current session? You will need to sign in again to access VIP rewards and order history." : "Bạn có chắc chắn muốn kết thúc phiên đăng nhập? Bạn sẽ cần đăng nhập lại để xem điểm VIP và quản lý đơn hàng."),
+              confirmText: isEn ? "Sign Out" : "Đăng xuất",
+              cancelText: isEn ? "Stay Signed In" : "Ở lại",
+              isDanger: true,
+              onConfirm: executeLogout,
+            });
+          } else {
+            if (confirm(isEn ? "Are you sure you want to sign out?" : "Bạn có chắc chắn muốn đăng xuất tài khoản?")) {
+              executeLogout();
             }
           }
         }
@@ -734,6 +911,112 @@
       }
     }
   }
+
+  // =========================================================================
+  // 4. [GLOBAL HELPER] - CYBER CONFIRM MODAL (THAY THẾ WINDOW.CONFIRM NATIVE)
+  // =========================================================================
+  window.showCyberConfirm = function ({
+    title = "CONFIRM ACTION",
+    message = "Are you sure you want to proceed?",
+    confirmText = "Confirm",
+    cancelText = "Dismiss",
+    isDanger = false,
+    onConfirm = null,
+    onCancel = null,
+  }) {
+    let modal = document.getElementById("blue-cyber-confirm-modal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "blue-cyber-confirm-modal";
+      modal.className = "cyber-modal-overlay";
+      modal.setAttribute("role", "dialog");
+      modal.setAttribute("aria-modal", "true");
+      modal.innerHTML = `
+        <div class="cyber-modal-card">
+          <div class="cyber-modal-header">
+            <div class="cyber-modal-icon ${isDanger ? "is-danger" : "is-info"}">
+              <i class="fa-solid ${isDanger ? "fa-triangle-exclamation" : "fa-circle-question"}"></i>
+            </div>
+            <h4 class="cyber-modal-title" id="cyber-confirm-title"></h4>
+            <button type="button" class="cyber-modal-close" id="cyber-confirm-close" aria-label="Close modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="cyber-modal-body">
+            <p class="cyber-modal-message" id="cyber-confirm-message"></p>
+          </div>
+          <div class="cyber-modal-actions">
+            <button type="button" class="btn-cyber-cancel" id="cyber-confirm-btn-cancel"></button>
+            <button type="button" class="btn-cyber-action ${isDanger ? "btn-cyber-danger" : "btn-cyber-primary"}" id="cyber-confirm-btn-ok"></button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+
+    const titleEl = modal.querySelector("#cyber-confirm-title");
+    const msgEl = modal.querySelector("#cyber-confirm-message");
+    const btnOk = modal.querySelector("#cyber-confirm-btn-ok");
+    const btnCancel = modal.querySelector("#cyber-confirm-btn-cancel");
+    const btnClose = modal.querySelector("#cyber-confirm-close");
+    const iconWrap = modal.querySelector(".cyber-modal-icon");
+
+    if (titleEl) titleEl.textContent = title;
+    if (msgEl) msgEl.textContent = message;
+    if (btnOk) {
+      btnOk.textContent = confirmText;
+      btnOk.className = `btn-cyber-action ${isDanger ? "btn-cyber-danger" : "btn-cyber-primary"}`;
+    }
+    if (btnCancel) btnCancel.textContent = cancelText;
+    if (iconWrap) {
+      iconWrap.className = `cyber-modal-icon ${isDanger ? "is-danger" : "is-info"}`;
+      iconWrap.innerHTML = `<i class="fa-solid ${isDanger ? "fa-triangle-exclamation" : "fa-circle-question"}"></i>`;
+    }
+
+    const closeModal = () => {
+      modal.classList.remove("active");
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 200);
+      document.removeEventListener("keydown", handleKeydown);
+    };
+
+    const handleKeydown = (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+        if (typeof onCancel === "function") onCancel();
+      }
+    };
+
+    btnOk.onclick = () => {
+      closeModal();
+      if (typeof onConfirm === "function") onConfirm();
+    };
+
+    btnCancel.onclick = () => {
+      closeModal();
+      if (typeof onCancel === "function") onCancel();
+    };
+
+    btnClose.onclick = () => {
+      closeModal();
+      if (typeof onCancel === "function") onCancel();
+    };
+
+    modal.onclick = (e) => {
+      if (e.target === modal) {
+        closeModal();
+        if (typeof onCancel === "function") onCancel();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeydown);
+    modal.style.display = "flex";
+    requestAnimationFrame(() => {
+      modal.classList.add("active");
+      btnOk.focus();
+    });
+  };
 
   // Khởi tạo các instance MVC toàn cục
   const authModelInstance = new AuthModel();

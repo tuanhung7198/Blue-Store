@@ -1,7 +1,7 @@
 /**
  * i18n.js - HỆ THỐNG ĐA NGÔN NGỮ & ĐỔI TIỀN TỆ QUỐC TẾ TOÀN DIỆN
  * Blue Gaming Gear - eSports E-Commerce Platform
- * 
+ *
  * Hỗ trợ:
  * - English (EN / USD) - MẶC ĐỊNH CHO NGƯỜI DÙNG MỚI THEO YÊU CẦU
  * - Tiếng Việt (VI / VND)
@@ -11,12 +11,13 @@
   const I18N_DATA = {
     en: {
       langLabel: "EN / USD",
-      flagSrc: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg",
+      flagSrc:
+        "https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg",
       flagAlt: "EN",
       currency: "USD",
       currencySymbol: "$",
       rate: 1 / 25000,
-      
+
       // Header Nav
       navAll: "All Products",
       navMice: "Mice",
@@ -38,7 +39,8 @@
       catGiftCards: "Gift Cards",
 
       // Search Modal
-      searchPlaceholder: "Search mice, mechanical keyboards, mousepads, headsets...",
+      searchPlaceholder:
+        "Search mice, mechanical keyboards, mousepads, headsets...",
       quickSearchLabel: "Quick search:",
       searchTagMice: "Mice",
       searchTagKeyboards: "Keyboards",
@@ -53,9 +55,10 @@
           subtitle: "Ultralight Wireless eSports Gaming Mouse",
           slogan: "Lightning Reflexes &nbsp;&nbsp;&nbsp; Absolute Victory",
           promo: "SAVE UP TO $16.00",
-          badge: "Includes 2 Free Gifts: eSports Gaming Sleeve + ATK Magnetic Opener",
+          badge:
+            "Includes 2 Free Gifts: eSports Gaming Sleeve + ATK Magnetic Opener",
           ctaText: "Explore Gaming Mice",
-          link: "products.html?category=Chuột"
+          link: "products.html?category=Chuột",
         },
         {
           title: "BLAZING SKY",
@@ -64,7 +67,7 @@
           promo: "STARTING AT $59.60",
           badge: "Free Insured Express Delivery on Today's Orders",
           ctaText: "Shop Now Today",
-          link: "product-detail.html?id=26"
+          link: "product-detail.html?id=26",
         },
         {
           title: "ATK RS7 PRO",
@@ -73,7 +76,7 @@
           promo: "OFFICIAL 24-MONTH REPLACEMENT WARRANTY",
           badge: "Gift: Premium Coiled Cable & Switch Puller",
           ctaText: "Explore Keyboards",
-          link: "products.html?category=Bàn%20phím"
+          link: "products.html?category=Bàn%20phím",
         },
         {
           title: "ARTISAN ZERO",
@@ -82,8 +85,8 @@
           promo: "100% GENUINE IMPORTED FROM JAPAN",
           badge: "Exclusive: Teflon Skates & Microfiber Cleaning Cloth",
           ctaText: "Shop Mousepads",
-          link: "products.html?category=Lót%20chuột"
-        }
+          link: "products.html?category=Lót%20chuột",
+        },
       ],
 
       // Trending Products Section
@@ -94,16 +97,21 @@
 
       // Shop by Category Section
       catSectionTitle: "Shop by Gear Type",
-      catSectionSub: "Explore gear by category and go straight to your battle station.",
+      catSectionSub:
+        "Explore gear by category and go straight to your battle station.",
       catViewAll: "VIEW ALL CATEGORIES",
       catMiceTitle: "Wireless Mice",
-      catMiceDesc: "Ultralight ergonomics fine-tuned for speed, control, and tournament precision.",
+      catMiceDesc:
+        "Ultralight ergonomics fine-tuned for speed, control, and tournament precision.",
       catKeyboardsTitle: "Gaming Keyboards",
-      catKeyboardsDesc: "Magnetic, Hall Effect, and mechanical switches engineered for instantaneous actuation.",
+      catKeyboardsDesc:
+        "Magnetic, Hall Effect, and mechanical switches engineered for instantaneous actuation.",
       catMousepadsTitle: "eSports Mousepads",
-      catMousepadsDesc: "High-grade PORON bases and micro-weave surfaces engineered for pixel-perfect aim.",
+      catMousepadsDesc:
+        "High-grade PORON bases and micro-weave surfaces engineered for pixel-perfect aim.",
       catHeadsetsTitle: "eSports Headsets",
-      catHeadsetsDesc: "Studio-grade spatial audio tuned for pinpoint footsteps and situational awareness.",
+      catHeadsetsDesc:
+        "Studio-grade spatial audio tuned for pinpoint footsteps and situational awareness.",
       exploreBtn: "Explore",
 
       // User Feedback Section
@@ -120,7 +128,8 @@
       trust4Desc: "Direct assistance via Discord & Hotline",
 
       // Footer
-      footerDesc: "Delivering tournament-grade eSports gear and supreme gaming experiences. Standing by every victory you make.",
+      footerDesc:
+        "Delivering tournament-grade eSports gear and supreme gaming experiences. Standing by every victory you make.",
       footerAboutTitle: "About Us",
       footerBrandStory: "Brand Story",
       footerCareers: "Careers",
@@ -132,17 +141,21 @@
       footerReturn: "1-to-1 Return Policy",
       footerFaq: "FAQ & Help Center",
       footerNewsletterTitle: "Stay Connected",
-      footerNewsletterDesc: "Subscribe to receive exclusive drops, secret vouchers, and eSports tournament news.",
+      footerNewsletterDesc:
+        "Subscribe to receive exclusive drops, secret vouchers, and eSports tournament news.",
       footerEmailPlaceholder: "Enter your email address...",
       footerSubscribeBtn: "Subscribe",
-      footerCopyright: "© 2026 Blue Gaming Gear Inc. All rights reserved. Built for champions.",
+      footerCopyright:
+        "© 2026 Blue Gaming Gear Inc. All rights reserved. Built for champions.",
 
       // Cart Drawer
       cartTitle: "Shopping Cart",
       cartEmpty: "Your shopping cart is empty",
-      cartEmptyDesc: "Explore our premium eSports collection to elevate your battlestation!",
+      cartEmptyDesc:
+        "Explore our premium eSports collection to elevate your battlestation!",
       cartSubtotal: "Subtotal:",
-      cartTaxNotice: "VAT included. Free shipping discount applied if threshold reached.",
+      cartTaxNotice:
+        "VAT included. Free shipping discount applied if threshold reached.",
       cartCheckoutBtn: "Proceed to Checkout",
       cartContinueBtn: "Continue Shopping",
       freeShippingNotice: "Free express shipping applied for today's orders!",
@@ -163,7 +176,8 @@
 
       // Catalog Page (products.html)
       catalogTitle: "ALL GAMING GEAR",
-      catalogSubtitle: "Pro-grade gaming peripherals and battle-tested eSports hardware.",
+      catalogSubtitle:
+        "Pro-grade gaming peripherals and battle-tested eSports hardware.",
       catalogBreadcrumbHome: "Home",
       catalogBreadcrumbAll: "All Products",
       filterHeader: "Filters",
@@ -220,7 +234,8 @@
 
       // Stock Alert Modal
       stockAlertTitle: "Notify Me When Available",
-      stockAlertSubtitle: "Leave your contact info and Blue Gaming Gear will notify you with an exclusive voucher as soon as new stock lands.",
+      stockAlertSubtitle:
+        "Leave your contact info and Blue Gaming Gear will notify you with an exclusive voucher as soon as new stock lands.",
       stockAlertNameLabel: "Full Name",
       stockAlertNamePlaceholder: "e.g. Alex Johnson",
       stockAlertEmailLabel: "Notification Email",
@@ -228,7 +243,8 @@
       stockAlertPhoneLabel: "Phone Number (SMS / WhatsApp)",
       stockAlertPhonePlaceholder: "e.g. 0912345678",
       stockAlertSubmitBtn: "Subscribe for Restock Alert",
-      stockAlertSuccessToast: "Subscribed successfully! We will notify you when gear arrives.",
+      stockAlertSuccessToast:
+        "Subscribed successfully! We will notify you when gear arrives.",
 
       // Toasts
       toastSwitchLang: "Switched to English (USD)",
@@ -249,15 +265,18 @@
 
       // Live Search Modal
       searchModalAria: "Search products",
-      searchPlaceholder: "Search mice, mechanical keyboards, mousepads, headsets...",
+      searchPlaceholder:
+        "Search mice, mechanical keyboards, mousepads, headsets...",
       searchClearAria: "Clear search query",
       searchCloseAria: "Close search",
       searchQuickTagLabel: "Quick search:",
-      searchEmptyPrompt: "Type product name, brand, or category for instant search.",
+      searchEmptyPrompt:
+        "Type product name, brand, or category for instant search.",
       searchFoundPrefix: "Found",
       searchFoundSuffix: "matching products:",
       searchNoResultsTitle: "No products found matching",
-      searchNoResultsDesc: "Try keywords like: Mice, Keyboard, Razer, Logitech, Corsair...",
+      searchNoResultsDesc:
+        "Try keywords like: Mice, Keyboard, Razer, Logitech, Corsair...",
       searchAddBtnTitle: "Add to Cart",
 
       // Cart Drawer & Free Shipping
@@ -267,10 +286,12 @@
       cartItemsCount: "items",
       cartItemSingle: "item",
       cartEmpty: "Your shopping cart is empty",
-      cartEmptyDesc: "Explore our premium eSports collection to elevate your battlestation!",
+      cartEmptyDesc:
+        "Explore our premium eSports collection to elevate your battlestation!",
       cartContinueBtn: "Shop Now",
       cartSubtotal: "Subtotal:",
-      cartTaxNotice: "VAT included. Free shipping discount applied if threshold reached.",
+      cartTaxNotice:
+        "VAT included. Free shipping discount applied if threshold reached.",
       cartCheckoutBtn: "PROCEED TO CHECKOUT",
       shippingDefault: "Free express delivery nationwide on orders over $40",
       shippingFreeUnlocked: "You unlocked FREE Express Shipping!",
@@ -285,7 +306,8 @@
       step1Label: "Shipping Address",
       step2Label: "Payment & Review",
       step1PaneTitle: "Express Delivery Information",
-      step1PaneSubtitle: "Fast 24h delivery with parcel inspection prior to payment.",
+      step1PaneSubtitle:
+        "Fast 24h delivery with parcel inspection prior to payment.",
       labelCustName: "Recipient Full Name",
       placeholderCustName: "e.g. Alex Johnson",
       labelCustPhone: "Contact Phone Number",
@@ -303,7 +325,8 @@
       placeholderCustNote: "e.g. Call before delivery, allow parcel check",
       btnGotoStep2: "Continue to Payment",
       step2PaneTitle: "Payment Method",
-      step2PaneSubtitle: "Select a secure, encrypted payment method for eSports gear.",
+      step2PaneSubtitle:
+        "Select a secure, encrypted payment method for eSports gear.",
       pmCodTitle: "Cash on Delivery (COD)",
       pmCodDesc: "Inspect parcel upon receipt, pay directly to courier",
       pmMomoTitle: "MoMo E-Wallet",
@@ -322,7 +345,8 @@
       btnConfirmOrder: "Confirm Order Now",
       step3SuccessTitle: "Order Placed Successfully!",
       orderCodePrefix: "Order Code:",
-      orderSuccessText: "Thank you for shopping with Blue Gaming Gear. Your order is being packed and prepared for express courier pickup.",
+      orderSuccessText:
+        "Thank you for shopping with Blue Gaming Gear. Your order is being packed and prepared for express courier pickup.",
       timelineStep1: "Order Received",
       timelineStep2: "Packing Gear",
       timelineStep3: "Handover to Courier",
@@ -334,7 +358,8 @@
       accBreadcrumbCurrent: "Member Account",
       authPassportBadge: "BLUE PASSPORT",
       authHeroTitle: "MEMBER ACCOUNT",
-      authHeroDesc: "Sign in to unlock VIP perks, track orders in real time, and manage official eSports warranty.",
+      authHeroDesc:
+        "Sign in to unlock VIP perks, track orders in real time, and manage official eSports warranty.",
       tabLogin: "Sign In",
       tabRegister: "Create Account",
       labelLoginEmail: "Email Address",
@@ -355,9 +380,10 @@
       placeholderRegPassword: "At least 6 characters",
       labelRegConfirmPassword: "Confirm Password",
       placeholderRegConfirmPassword: "Re-enter your password",
-      labelTermsAgree: "I agree to Blue Gaming Gear's Terms of Service & Privacy Policy",
+      labelTermsAgree:
+        "I agree to Blue Gaming Gear's Terms of Service & Privacy Policy",
       btnSubmitRegister: "Create Account (Earn 200 Points)",
-      
+
       // Account Dashboard
       btnChangeAvatarTitle: "Change profile avatar",
       pointsUnit: "Points",
@@ -367,9 +393,10 @@
       dashTabRewards: "Points & Vouchers",
       dashTabSecurity: "Security & Password",
       dashTabLogout: "Sign Out",
-      
+
       paneProfileTitle: "ACCOUNT PROFILE",
-      paneProfileDesc: "Manage security settings and personal info to protect your account and receive eSports drops.",
+      paneProfileDesc:
+        "Manage security settings and personal info to protect your account and receive eSports drops.",
       profNameLabel: "Full Name",
       profEmailLabel: "Email (Read-only)",
       profPhoneLabel: "Phone Number",
@@ -384,14 +411,16 @@
       btnSaveProfile: "Save Changes",
 
       paneOrdersTitle: "MY ORDERS",
-      paneOrdersDesc: "Track order history, live delivery status, and warranty for your eSports gaming gear.",
+      paneOrdersDesc:
+        "Track order history, live delivery status, and warranty for your eSports gaming gear.",
       orderFilterAll: "All",
       orderFilterProcessing: "Processing",
       orderFilterShipping: "Shipping",
       orderFilterCompleted: "Completed",
       orderFilterCancelled: "Cancelled",
       ordersEmptyTitle: "No orders found",
-      ordersEmptyDesc: "You don't have any orders with this status. Discover pro eSports gear now!",
+      ordersEmptyDesc:
+        "You don't have any orders with this status. Discover pro eSports gear now!",
       btnShopNow: "Explore Gear Now",
       orderCodeText: "Order ID:",
       orderDeliverToText: "Deliver to:",
@@ -400,14 +429,16 @@
       btnRepurchase: "Buy Again",
 
       paneAddressesTitle: "SHIPPING ADDRESSES",
-      paneAddressesDesc: "Save preferred addresses for instant 1-click checkout.",
+      paneAddressesDesc:
+        "Save preferred addresses for instant 1-click checkout.",
       addrHomeTitle: "Home",
       badgeDefaultAddr: "Default",
       btnEditAddr: "Edit",
       btnAddNewAddr: "Add New Shipping Address",
 
       paneRewardsTitle: "REWARD POINTS & VIP VOUCHERS",
-      paneRewardsDesc: "Earn points with every purchase and redeem exclusive pro-gamer discounts.",
+      paneRewardsDesc:
+        "Earn points with every purchase and redeem exclusive pro-gamer discounts.",
       tierCurrentLabel: "CURRENT VIP TIER",
       vouchersSectionTitle: "Exclusive Vouchers Available For You:",
       voucher10Title: "10% OFF ALL GEAR",
@@ -420,19 +451,72 @@
       copiedCode: "Copied!",
 
       paneSecurityTitle: "ACCOUNT SECURITY",
-      paneSecurityDesc: "Update your password regularly to secure your orders and account privileges.",
+      paneSecurityDesc:
+        "Update your password regularly to secure your orders and account privileges.",
       passCurrentLabel: "Current Password",
       passCurrentPlaceholder: "Enter current password",
       passNewLabel: "New Password",
       passNewPlaceholder: "At least 6 characters",
       passConfirmLabel: "Confirm New Password",
       passConfirmPlaceholder: "Re-enter new password",
-      btnUpdatePass: "Update Password"
+      btnUpdatePass: "Update Password",
+
+      // Password Strength Meter
+      pwdStrengthDefault: "Password strength: None",
+      pwdStrengthWeak: "Weak",
+      pwdStrengthFair: "Fair",
+      pwdStrengthGood: "Good",
+      pwdStrengthStrong: "Strong (eSports Grade)",
+      pwdStrengthHint: "8+ chars with uppercase, number & symbol",
+
+      // Forgot Password Modal
+      forgotModalTitle: "RESET BLUE PASSPORT",
+      forgotModalSubtitle: "Enter your registered email to receive a password reset verification code.",
+      forgotModalEmailLabel: "Registered Email",
+      forgotModalEmailPlaceholder: "e.g. gamer@blue.vn",
+      forgotModalBtnSend: "Send Verification Code",
+      forgotModalSuccessTitle: "Verification Code Sent!",
+      forgotModalSuccessDesc: "We dispatched a 6-digit recovery code to",
+      forgotModalHotlineNote: "Need urgent access? Contact 24/7 Gamer Hotline: 1900 6868",
+      forgotModalClose: "Close",
+
+      // Address Book Modal & Actions
+      paneAddressesHeaderAdd: "Add Address",
+      addrTagLabel: "Address Label / Type",
+      addrTagHome: "Home",
+      addrTagOffice: "Office / Studio",
+      addrTagGaming: "Gaming Team House",
+      addrTagOther: "Other",
+      addrRecipientName: "Recipient Name",
+      addrPhone: "Contact Phone",
+      addrStreet: "Street Address",
+      addrCity: "City / Province",
+      addrIsDefault: "Set as default shipping address",
+      addrBtnSave: "Save Address",
+      addrBtnCancel: "Cancel",
+      addrModalAddTitle: "ADD NEW SHIPPING ADDRESS",
+      addrModalEditTitle: "EDIT SHIPPING ADDRESS",
+      btnSetDefaultAddr: "Set Default",
+      btnDeleteAddr: "Delete",
+      confirmDeleteAddrTitle: "Delete Shipping Address?",
+      confirmDeleteAddrMsg: "Are you sure you want to remove this address from your Blue Passport?",
+      toastAddrSaved: "Shipping address saved successfully!",
+      toastAddrDeleted: "Shipping address deleted!",
+      toastAddrDefaultSet: "Default shipping address updated!",
+
+      // Confirmation Modals
+      confirmSignOutTitle: "Sign Out of Blue Passport?",
+      confirmSignOutMsg: "Are you sure you want to end your current session? You will need to sign in again to access VIP rewards and order history.",
+      confirmCancelOrderTitle: "Cancel Order",
+      confirmCancelOrderMsg: "Are you sure you want to cancel order",
+      btnModalConfirm: "Confirm",
+      btnModalCancel: "Dismiss",
     },
 
     vi: {
       langLabel: "VI / VND",
-      flagSrc: "https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg",
+      flagSrc:
+        "https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg",
       flagAlt: "VI",
       currency: "VND",
       currencySymbol: "₫",
@@ -474,9 +558,10 @@
           subtitle: "Chuột Gaming Không Dây Siêu Nhẹ Chuẩn eSports",
           slogan: "Phản xạ thần tốc &nbsp;&nbsp;&nbsp; Chiến thắng tuyệt đối",
           promo: "TIẾT KIỆM ĐẾN 400.000₫",
-          badge: "Tặng Kèm 2 Quà Tặng: Bao tay thi đấu eSports + Khui mở từ tính ATK",
+          badge:
+            "Tặng Kèm 2 Quà Tặng: Bao tay thi đấu eSports + Khui mở từ tính ATK",
           ctaText: "Khám Phá Chuột Gaming",
-          link: "products.html?category=Chuột"
+          link: "products.html?category=Chuột",
         },
         {
           title: "BLAZING SKY",
@@ -485,7 +570,7 @@
           promo: "CHỈ TỪ 1.490.000₫",
           badge: "Miễn Phí Giao Hàng Toàn Quốc Cho Đơn Hôm Nay",
           ctaText: "Mua Ngay Hôm Nay",
-          link: "product-detail.html?id=26"
+          link: "product-detail.html?id=26",
         },
         {
           title: "ATK RS7 PRO",
@@ -494,7 +579,7 @@
           promo: "BẢO HÀNH CHÍNH HÃNG 24 THÁNG 1 ĐỔI 1",
           badge: "Tặng Kèm: Dây xoắn Custom cao cấp & Dụng cụ nhổ switch",
           ctaText: "Khám Phá Bàn Phím",
-          link: "products.html?category=Bàn%20phím"
+          link: "products.html?category=Bàn%20phím",
         },
         {
           title: "ARTISAN ZERO",
@@ -503,8 +588,8 @@
           promo: "100% CHÍNH HÃNG NHẬP KHẨU TỪ NHẬT BẢN",
           badge: "Đặc quyền: Tặng kèm bộ feet dán chuột & khăn lau chuyên dụng",
           ctaText: "Xem Lót Chuột",
-          link: "products.html?category=Lót%20chuột"
-        }
+          link: "products.html?category=Lót%20chuột",
+        },
       ],
 
       // Trending Products Section
@@ -515,16 +600,21 @@
 
       // Shop by Category Section
       catSectionTitle: "Mua sắm theo loại gear",
-      catSectionSub: "Khám phá gear theo danh mục và đi thẳng đến bộ setup bạn cần.",
+      catSectionSub:
+        "Khám phá gear theo danh mục và đi thẳng đến bộ setup bạn cần.",
       catViewAll: "XEM TẤT CẢ DANH MỤC",
       catMiceTitle: "Chuột không dây",
-      catMiceDesc: "Form dáng siêu nhẹ được tinh chỉnh cho tốc độ, kiểm soát và độ chính xác thi đấu.",
+      catMiceDesc:
+        "Form dáng siêu nhẹ được tinh chỉnh cho tốc độ, kiểm soát và độ chính xác thi đấu.",
       catKeyboardsTitle: "Bàn phím chơi game",
-      catKeyboardsDesc: "Bàn phím Magnetic, Hall Effect và cơ học được tạo cho thao tác nhanh.",
+      catKeyboardsDesc:
+        "Bàn phím Magnetic, Hall Effect và cơ học được tạo cho thao tác nhanh.",
       catMousepadsTitle: "Lót chuột thi đấu",
-      catMousepadsDesc: "Bề mặt vải vi sợi và đế PORON bám bàn cho khả năng vẩy chuột chính xác.",
+      catMousepadsDesc:
+        "Bề mặt vải vi sợi và đế PORON bám bàn cho khả năng vẩy chuột chính xác.",
       catHeadsetsTitle: "Tai nghe gaming",
-      catHeadsetsDesc: "Âm thanh vòm không gian chuẩn xác, tách bạch từng tiếng bước chân.",
+      catHeadsetsDesc:
+        "Âm thanh vòm không gian chuẩn xác, tách bạch từng tiếng bước chân.",
       exploreBtn: "Khám phá",
 
       // User Feedback Section
@@ -541,7 +631,8 @@
       trust4Desc: "Kỹ thuật viên tư vấn nhiệt tình",
 
       // Footer
-      footerDesc: "Mang đến cho bạn những sản phẩm gear chất lượng và trải nghiệm chơi game tuyệt đỉnh. Luôn đồng hành cùng mọi chiến thắng của bạn.",
+      footerDesc:
+        "Mang đến cho bạn những sản phẩm gear chất lượng và trải nghiệm chơi game tuyệt đỉnh. Luôn đồng hành cùng mọi chiến thắng của bạn.",
       footerAboutTitle: "Về Chúng Tôi",
       footerBrandStory: "Câu chuyện thương hiệu",
       footerCareers: "Tuyển dụng",
@@ -553,17 +644,21 @@
       footerReturn: "Đổi trả hoàn tiền 1-1",
       footerFaq: "Câu hỏi thường gặp",
       footerNewsletterTitle: "Đăng Ký Nhận Tin",
-      footerNewsletterDesc: "Nhận thông tin về các dòng sản phẩm mới, mã giảm giá độc quyền và sự kiện eSports.",
+      footerNewsletterDesc:
+        "Nhận thông tin về các dòng sản phẩm mới, mã giảm giá độc quyền và sự kiện eSports.",
       footerEmailPlaceholder: "Nhập địa chỉ email của bạn...",
       footerSubscribeBtn: "Đăng ký",
-      footerCopyright: "© 2026 Blue Gaming Gear Inc. Bảo lưu mọi quyền. Thiết kế dành cho game thủ chuyên nghiệp.",
+      footerCopyright:
+        "© 2026 Blue Gaming Gear Inc. Bảo lưu mọi quyền. Thiết kế dành cho game thủ chuyên nghiệp.",
 
       // Cart Drawer
       cartTitle: "Giỏ Hàng",
       cartEmpty: "Giỏ hàng của bạn đang trống",
-      cartEmptyDesc: "Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!",
+      cartEmptyDesc:
+        "Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!",
       cartSubtotal: "Tạm tính:",
-      cartTaxNotice: "Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.",
+      cartTaxNotice:
+        "Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.",
       cartCheckoutBtn: "Tiến hành thanh toán",
       cartContinueBtn: "Tiếp tục mua sắm",
       freeShippingNotice: "Miễn phí vận chuyển toàn quốc cho đơn hôm nay!",
@@ -584,7 +679,8 @@
 
       // Catalog Page (products.html)
       catalogTitle: "TẤT CẢ SẢN PHẨM",
-      catalogSubtitle: "Bộ sưu tập thiết bị gaming gear chuyên nghiệp, phục vụ các game thủ và thi đấu eSports đỉnh cao.",
+      catalogSubtitle:
+        "Bộ sưu tập thiết bị gaming gear chuyên nghiệp, phục vụ các game thủ và thi đấu eSports đỉnh cao.",
       catalogBreadcrumbHome: "Trang chủ",
       catalogBreadcrumbAll: "Tất cả sản phẩm",
       filterHeader: "Bộ Lọc",
@@ -641,7 +737,8 @@
 
       // Stock Alert Modal
       stockAlertTitle: "Nhận Thông Báo Khi Hàng Về",
-      stockAlertSubtitle: "Để lại thông tin liên hệ, Blue Gaming Gear sẽ gửi thông báo và tặng voucher độc quyền ngay khi lô hàng cập bến kho.",
+      stockAlertSubtitle:
+        "Để lại thông tin liên hệ, Blue Gaming Gear sẽ gửi thông báo và tặng voucher độc quyền ngay khi lô hàng cập bến kho.",
       stockAlertNameLabel: "Họ và tên của bạn",
       stockAlertNamePlaceholder: "Ví dụ: Hoàng Long",
       stockAlertEmailLabel: "Địa chỉ Email nhận tin",
@@ -649,7 +746,8 @@
       stockAlertPhoneLabel: "Số điện thoại nhận tin SMS / Zalo",
       stockAlertPhonePlaceholder: "Ví dụ: 0912345678",
       stockAlertSubmitBtn: "Đăng ký nhận tin miễn phí",
-      stockAlertSuccessToast: "Đăng ký nhận thông báo thành công! Blue sẽ báo bạn sớm nhất.",
+      stockAlertSuccessToast:
+        "Đăng ký nhận thông báo thành công! Blue sẽ báo bạn sớm nhất.",
 
       // Toasts
       toastSwitchLang: "Đã chuyển sang Tiếng Việt (VND)",
@@ -674,11 +772,13 @@
       searchClearAria: "Xóa từ khóa",
       searchCloseAria: "Đóng tìm kiếm",
       searchQuickTagLabel: "Tìm nhanh:",
-      searchEmptyPrompt: "Nhập tên sản phẩm, thương hiệu hoặc danh mục để tìm kiếm tức thì.",
+      searchEmptyPrompt:
+        "Nhập tên sản phẩm, thương hiệu hoặc danh mục để tìm kiếm tức thì.",
       searchFoundPrefix: "Tìm thấy",
       searchFoundSuffix: "sản phẩm phù hợp:",
       searchNoResultsTitle: "Không tìm thấy sản phẩm nào khớp với",
-      searchNoResultsDesc: "Vui lòng thử từ khóa khác như: Chuột, Bàn phím, Razer, Logitech, Corsair...",
+      searchNoResultsDesc:
+        "Vui lòng thử từ khóa khác như: Chuột, Bàn phím, Razer, Logitech, Corsair...",
       searchAddBtnTitle: "Thêm vào giỏ",
 
       // Cart Drawer & Free Shipping
@@ -688,10 +788,12 @@
       cartItemsCount: "món",
       cartItemSingle: "món",
       cartEmpty: "Giỏ hàng của bạn đang trống",
-      cartEmptyDesc: "Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!",
+      cartEmptyDesc:
+        "Khám phá bộ sưu tập gaming gear cao cấp để nâng tầm setup của bạn!",
       cartContinueBtn: "Mua sắm ngay",
       cartSubtotal: "Tạm tính:",
-      cartTaxNotice: "Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.",
+      cartTaxNotice:
+        "Đã bao gồm VAT. Phí giao hàng sẽ được áp dụng ưu đãi nếu đạt mốc.",
       cartCheckoutBtn: "TIẾN HÀNH THANH TOÁN",
       shippingDefault: "Miễn phí giao hàng toàn quốc cho đơn từ 1.000.000₫",
       shippingFreeUnlocked: "Bạn được MIỄN PHÍ vận chuyển!",
@@ -706,7 +808,8 @@
       step1Label: "Địa Chỉ Nhận Hàng",
       step2Label: "Thanh Toán & Xác Nhận",
       step1PaneTitle: "Thông Tin Giao Hàng Siêu Tốc",
-      step1PaneSubtitle: "Giao nhanh 24h & hỗ trợ đồng kiểm bưu tá trước khi thanh toán.",
+      step1PaneSubtitle:
+        "Giao nhanh 24h & hỗ trợ đồng kiểm bưu tá trước khi thanh toán.",
       labelCustName: "Họ và tên người nhận",
       placeholderCustName: "Ví dụ: Hoàng Long",
       labelCustPhone: "Số điện thoại liên hệ",
@@ -724,15 +827,18 @@
       placeholderCustNote: "Ví dụ: Cho đồng kiểm, gọi trước khi giao",
       btnGotoStep2: "Tiếp tục sang thanh toán",
       step2PaneTitle: "Phương Thức Thanh Toán",
-      step2PaneSubtitle: "Lựa chọn cổng thanh toán an toàn, bảo mật tiêu chuẩn eSports.",
+      step2PaneSubtitle:
+        "Lựa chọn cổng thanh toán an toàn, bảo mật tiêu chuẩn eSports.",
       pmCodTitle: "Thanh toán khi nhận hàng (COD)",
       pmCodDesc: "Đồng kiểm bưu tá khi nhận hàng, thanh toán tiền mặt",
       pmMomoTitle: "Ví điện tử MoMo",
-      pmMomoDesc: "Quét mã QR thanh toán tức thì, nhận ngay voucher giảm 20.000₫",
+      pmMomoDesc:
+        "Quét mã QR thanh toán tức thì, nhận ngay voucher giảm 20.000₫",
       pmVnpayTitle: "Cổng thanh toán VNPAY / Ngân hàng",
       pmVnpayDesc: "Hỗ trợ quét VietQR qua 40+ ứng dụng ngân hàng nội địa",
       pmBankTitle: "Chuyển khoản ngân hàng trực tiếp",
-      pmBankDesc: "Chuyển khoản trực tiếp tới tài khoản công ty Blue Gaming Gear",
+      pmBankDesc:
+        "Chuyển khoản trực tiếp tới tài khoản công ty Blue Gaming Gear",
       checkoutOrderReview: "Tóm Tắt Đơn Hàng:",
       checkoutSummarySubtotal: "Tiền hàng",
       checkoutSummaryShipping: "Phí vận chuyển",
@@ -743,7 +849,8 @@
       btnConfirmOrder: "Xác Nhận Đặt Hàng Ngay",
       step3SuccessTitle: "Đặt Hàng Thành Công!",
       orderCodePrefix: "Mã đơn hàng:",
-      orderSuccessText: "Cảm ơn bạn đã lựa chọn Blue Gaming Gear. Đơn hàng của bạn đang được đóng gói và chuẩn bị giao.",
+      orderSuccessText:
+        "Cảm ơn bạn đã lựa chọn Blue Gaming Gear. Đơn hàng của bạn đang được đóng gói và chuẩn bị giao.",
       timelineStep1: "Đã tiếp nhận",
       timelineStep2: "Đang đóng gói",
       timelineStep3: "Bàn giao bưu tá",
@@ -755,7 +862,8 @@
       accBreadcrumbCurrent: "Tài khoản thành viên",
       authPassportBadge: "BLUE PASSPORT",
       authHeroTitle: "TÀI KHOẢN THÀNH VIÊN",
-      authHeroDesc: "Đăng nhập để nhận ưu đãi VIP, theo dõi đơn hàng thời gian thực và quản lý bảo hành điện tử chính hãng.",
+      authHeroDesc:
+        "Đăng nhập để nhận ưu đãi VIP, theo dõi đơn hàng thời gian thực và quản lý bảo hành điện tử chính hãng.",
       tabLogin: "Đăng Nhập",
       tabRegister: "Tạo Tài Khoản Mới",
       labelLoginEmail: "Địa chỉ Email",
@@ -765,7 +873,8 @@
       linkForgotPassword: "Quên mật khẩu?",
       labelRememberLogin: "Ghi nhớ phiên đăng nhập trên thiết bị này",
       btnSubmitLogin: "Đăng Nhập Ngay",
-      demoAccountsCardTitle: "Tài Khoản Dùng Thử (1-Click Test cho Giảng Viên):",
+      demoAccountsCardTitle:
+        "Tài Khoản Dùng Thử (1-Click Test cho Giảng Viên):",
       labelRegName: "Họ và Tên",
       placeholderRegName: "Nguyễn Văn A",
       labelRegEmail: "Email đăng ký",
@@ -776,9 +885,10 @@
       placeholderRegPassword: "Tối thiểu 6 ký tự",
       labelRegConfirmPassword: "Xác nhận mật khẩu",
       placeholderRegConfirmPassword: "Nhập lại mật khẩu",
-      labelTermsAgree: "Tôi đồng ý với Điều khoản dịch vụ & Chính sách bảo mật của Blue Gaming Gear",
+      labelTermsAgree:
+        "Tôi đồng ý với Điều khoản dịch vụ & Chính sách bảo mật của Blue Gaming Gear",
       btnSubmitRegister: "Đăng Ký Tài Khoản (Nhận 200 Điểm)",
-      
+
       // Account Dashboard
       btnChangeAvatarTitle: "Đổi ảnh đại diện",
       pointsUnit: "Điểm",
@@ -788,9 +898,10 @@
       dashTabRewards: "Điểm thưởng & Voucher",
       dashTabSecurity: "Bảo mật & Đổi mật khẩu",
       dashTabLogout: "Đăng xuất",
-      
+
       paneProfileTitle: "HỒ SƠ TÀI KHOẢN",
-      paneProfileDesc: "Quản lý thông tin hồ sơ bảo mật để bảo vệ tài khoản và nhận ưu đãi eSports.",
+      paneProfileDesc:
+        "Quản lý thông tin hồ sơ bảo mật để bảo vệ tài khoản và nhận ưu đãi eSports.",
       profNameLabel: "Họ và Tên",
       profEmailLabel: "Email (Không thể thay đổi)",
       profPhoneLabel: "Số điện thoại",
@@ -805,14 +916,16 @@
       btnSaveProfile: "Lưu Thay Đổi",
 
       paneOrdersTitle: "ĐƠN HÀNG CỦA TÔI",
-      paneOrdersDesc: "Tra cứu lịch sử mua hàng, tiến độ vận chuyển và bảo hành sản phẩm eSports.",
+      paneOrdersDesc:
+        "Tra cứu lịch sử mua hàng, tiến độ vận chuyển và bảo hành sản phẩm eSports.",
       orderFilterAll: "Tất cả",
       orderFilterProcessing: "Chờ xác nhận",
       orderFilterShipping: "Đang giao",
       orderFilterCompleted: "Hoàn thành",
       orderFilterCancelled: "Đã hủy",
       ordersEmptyTitle: "Không có đơn hàng nào",
-      ordersEmptyDesc: "Bạn chưa có đơn hàng nào ở trạng thái này. Khám phá kho gear eSports và sở hữu ngay hôm nay!",
+      ordersEmptyDesc:
+        "Bạn chưa có đơn hàng nào ở trạng thái này. Khám phá kho gear eSports và sở hữu ngay hôm nay!",
       btnShopNow: "Khám Phá Sản Phẩm Ngay",
       orderCodeText: "Mã đơn:",
       orderDeliverToText: "Giao tới:",
@@ -821,14 +934,16 @@
       btnRepurchase: "Mua lại",
 
       paneAddressesTitle: "SỔ ĐỊA CHỈ GIAO HÀNG",
-      paneAddressesDesc: "Lưu sẵn địa chỉ nhận hàng để thanh toán nhanh chỉ với 1 thao tác.",
+      paneAddressesDesc:
+        "Lưu sẵn địa chỉ nhận hàng để thanh toán nhanh chỉ với 1 thao tác.",
       addrHomeTitle: "Nhà Riêng",
       badgeDefaultAddr: "Mặc định",
       btnEditAddr: "Chỉnh sửa",
       btnAddNewAddr: "Thêm địa chỉ nhận hàng mới",
 
       paneRewardsTitle: "ĐIỂM THƯỞNG & MÃ ƯU ĐÃI VIP",
-      paneRewardsDesc: "Tích lũy điểm khi mua sắm thiết bị và đổi lấy voucher giảm giá độc quyền.",
+      paneRewardsDesc:
+        "Tích lũy điểm khi mua sắm thiết bị và đổi lấy voucher giảm giá độc quyền.",
       tierCurrentLabel: "HẠNG THÀNH VIÊN HIỆN TẠI",
       vouchersSectionTitle: "Mã Giảm Giá Độc Quyền Dành Cho Bạn:",
       voucher10Title: "GIẢM 10% TẤT CẢ GEAR",
@@ -841,15 +956,67 @@
       copiedCode: "Đã chép!",
 
       paneSecurityTitle: "BẢO MẬT TÀI KHOẢN",
-      paneSecurityDesc: "Đổi mật khẩu định kỳ để bảo vệ an toàn cho tài khoản và các đơn hàng của bạn.",
+      paneSecurityDesc:
+        "Đổi mật khẩu định kỳ để bảo vệ an toàn cho tài khoản và các đơn hàng của bạn.",
       passCurrentLabel: "Mật khẩu hiện tại",
       passCurrentPlaceholder: "Nhập mật khẩu hiện tại",
       passNewLabel: "Mật khẩu mới",
       passNewPlaceholder: "Tối thiểu 6 ký tự",
       passConfirmLabel: "Xác nhận mật khẩu mới",
       passConfirmPlaceholder: "Nhập lại mật khẩu mới",
-      btnUpdatePass: "Cập Nhật Mật Khẩu"
-    }
+      btnUpdatePass: "Cập Nhật Mật Khẩu",
+
+      // Password Strength Meter
+      pwdStrengthDefault: "Độ mạnh mật khẩu: Chưa nhập",
+      pwdStrengthWeak: "Yếu",
+      pwdStrengthFair: "Trung bình",
+      pwdStrengthGood: "Tốt",
+      pwdStrengthStrong: "Mạnh (Chuẩn eSports)",
+      pwdStrengthHint: "8+ ký tự gồm chữ hoa, số và ký tự đặc biệt",
+
+      // Forgot Password Modal
+      forgotModalTitle: "KHÔI PHỤC BLUE PASSPORT",
+      forgotModalSubtitle: "Nhập email đã đăng ký để nhận mã xác thực đặt lại mật khẩu.",
+      forgotModalEmailLabel: "Email đăng ký",
+      forgotModalEmailPlaceholder: "Ví dụ: gamer@blue.vn",
+      forgotModalBtnSend: "Gửi Mã Khôi Phục",
+      forgotModalSuccessTitle: "Đã Gửi Mã Xác Thực!",
+      forgotModalSuccessDesc: "Chúng tôi đã gửi mã xác thực 6 số đến",
+      forgotModalHotlineNote: "Cần hỗ trợ khẩn cấp? Hotline CSKH 24/7: 1900 6868",
+      forgotModalClose: "Đóng",
+
+      // Address Book Modal & Actions
+      paneAddressesHeaderAdd: "Thêm địa chỉ",
+      addrTagLabel: "Loại địa chỉ",
+      addrTagHome: "Nhà riêng",
+      addrTagOffice: "Văn phòng / Studio",
+      addrTagGaming: "Gaming Team House",
+      addrTagOther: "Khác",
+      addrRecipientName: "Tên người nhận",
+      addrPhone: "Số điện thoại",
+      addrStreet: "Địa chỉ chi tiết (Số nhà, đường)",
+      addrCity: "Tỉnh / Thành phố",
+      addrIsDefault: "Đặt làm địa chỉ giao hàng mặc định",
+      addrBtnSave: "Lưu Địa Chỉ",
+      addrBtnCancel: "Hủy bỏ",
+      addrModalAddTitle: "THÊM ĐỊA CHỈ GIAO HÀNG MỚI",
+      addrModalEditTitle: "CHỈNH SỬA ĐỊA CHỈ GIAO HÀNG",
+      btnSetDefaultAddr: "Đặt mặc định",
+      btnDeleteAddr: "Xóa",
+      confirmDeleteAddrTitle: "Xóa địa chỉ này?",
+      confirmDeleteAddrMsg: "Bạn có chắc chắn muốn xóa địa chỉ này khỏi Blue Passport không?",
+      toastAddrSaved: "Đã lưu địa chỉ giao hàng thành công!",
+      toastAddrDeleted: "Đã xóa địa chỉ giao hàng!",
+      toastAddrDefaultSet: "Đã cập nhật địa chỉ mặc định!",
+
+      // Confirmation Modals
+      confirmSignOutTitle: "Đăng xuất Blue Passport?",
+      confirmSignOutMsg: "Bạn có chắc chắn muốn kết thúc phiên đăng nhập? Bạn sẽ cần đăng nhập lại để xem điểm VIP và quản lý đơn hàng.",
+      confirmCancelOrderTitle: "Hủy đơn hàng",
+      confirmCancelOrderMsg: "Bạn có chắc chắn muốn hủy đơn hàng",
+      btnModalConfirm: "Xác nhận",
+      btnModalCancel: "Đóng",
+    },
   };
 
   // Lấy ngôn ngữ hiện tại: MẶC ĐỊNH LÀ "en" CHO NGƯỜI DÙNG MỚI THEO YÊU CẦU
@@ -905,22 +1072,22 @@
     29: "Lamzu Maya 4K Wireless eSports Gaming Mouse",
     30: "Artisan Ninja FX Zero XSoft Japanese Gaming Mousepad",
     31: "BenQ Zowie G-SR-SE Bi Competitive eSports Mousepad",
-    32: "Pulsar Superglide Ultra-Fast Tempered Glass Mousepad"
+    32: "Pulsar Superglide Ultra-Fast Tempered Glass Mousepad",
   };
 
   const CATEGORY_MAP_EN = {
-    "all": "All Products",
-    "Chuột": "Mice",
+    all: "All Products",
+    Chuột: "Mice",
     "Bàn phím": "Keyboards",
     "Lót chuột": "Mousepads",
     "Tai nghe": "Headsets",
     "Màn hình": "Monitors",
     "Ghế gaming": "Gaming Chairs",
     "Tay cầm": "Controllers",
-    "Controller": "Controllers",
+    Controller: "Controllers",
     "Phụ kiện": "Accessories",
-    "Accessories": "Accessories",
-    "Gift Cards": "Gift Cards"
+    Accessories: "Accessories",
+    "Gift Cards": "Gift Cards",
   };
 
   function getProductName(product) {
@@ -1031,29 +1198,54 @@
     if (!window.AuthModel || !window.AuthModel.isLoggedIn()) {
       const ddName = document.getElementById("user-dd-name");
       const ddPoints = document.getElementById("user-dd-points");
-      if (ddName) ddName.textContent = lang === "en" ? "Alex Johnson" : "Alex Nguyễn";
-      if (ddPoints) ddPoints.textContent = lang === "en" ? "1,850 Points" : "1.850 điểm";
+      if (ddName)
+        ddName.textContent = lang === "en" ? "Alex Johnson" : "Alex Nguyễn";
+      if (ddPoints)
+        ddPoints.textContent = lang === "en" ? "1,850 Points" : "1.850 điểm";
     }
 
     // 9. Cập nhật tiêu đề trang (Document Title)
     const currentPath = window.location.pathname;
     if (currentPath.includes("products.html")) {
-      document.title = lang === "en" ? "All Gaming Gear | Blue Gaming Gear" : "Tất Cả Sản Phẩm Gaming Gear | Blue";
+      document.title =
+        lang === "en"
+          ? "All Gaming Gear | Blue Gaming Gear"
+          : "Tất Cả Sản Phẩm Gaming Gear | Blue";
     } else if (currentPath.includes("account.html")) {
-      document.title = lang === "en" ? "Member Account | Blue Gaming Gear" : "Tài Khoản Thành Viên eSports | Blue Gaming Gear";
+      document.title =
+        lang === "en"
+          ? "Member Account | Blue Gaming Gear"
+          : "Tài Khoản Thành Viên eSports | Blue Gaming Gear";
     } else if (currentPath.includes("product-detail.html")) {
       const pTitle = document.getElementById("detail-product-title");
-      const name = pTitle && pTitle.textContent && !pTitle.textContent.includes("Loading") && !pTitle.textContent.includes("Đang tải") ? pTitle.textContent : (lang === "en" ? "Product Details" : "Chi Tiết Sản Phẩm");
+      const name =
+        pTitle &&
+        pTitle.textContent &&
+        !pTitle.textContent.includes("Loading") &&
+        !pTitle.textContent.includes("Đang tải")
+          ? pTitle.textContent
+          : lang === "en"
+            ? "Product Details"
+            : "Chi Tiết Sản Phẩm";
       document.title = `${name} | Blue Gaming Gear`;
-    } else if (currentPath.includes("index.html") || currentPath.endsWith("/") || currentPath === "") {
-      document.title = lang === "en" ? "Blue Gaming Gear | Pro Tournament Hardware" : "Blue Gaming Gear | Thiết Bị eSports Thi Đấu Đỉnh Cao";
+    } else if (
+      currentPath.includes("index.html") ||
+      currentPath.endsWith("/") ||
+      currentPath === ""
+    ) {
+      document.title =
+        lang === "en"
+          ? "Blue Gaming Gear | Pro Tournament Hardware"
+          : "Blue Gaming Gear | Thiết Bị eSports Thi Đấu Đỉnh Cao";
     }
 
     // 10. Cập nhật document lang
     document.documentElement.lang = lang;
 
     // 11. Bắn sự kiện ra toàn bộ ứng dụng để các module khác (Cart, Products, Mega, Hero) tự cập nhật
-    window.dispatchEvent(new CustomEvent("blue:language-change", { detail: { lang, t } }));
+    window.dispatchEvent(
+      new CustomEvent("blue:language-change", { detail: { lang, t } }),
+    );
   }
 
   // Chuyển đổi ngôn ngữ
@@ -1123,7 +1315,7 @@
     applyLanguage,
     getProductName,
     getCategoryName,
-    t: (key) => (I18N_DATA[getCurrentLang()] || I18N_DATA.en)[key] || key
+    t: (key) => (I18N_DATA[getCurrentLang()] || I18N_DATA.en)[key] || key,
   };
   window.formatCurrency = formatCurrency;
   window.getProductName = getProductName;

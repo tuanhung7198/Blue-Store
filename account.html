@@ -370,13 +370,8 @@
                   <a
                     href="#"
                     class="forgot-link"
+                    id="btn-open-forgot-pass"
                     data-i18n="linkForgotPassword"
-                    onclick="
-                      alert(
-                        'Please contact CSKH via hotline 1900 6868 or email support@blue.vn to reset your password!',
-                      );
-                      return false;
-                    "
                     >Forgot password?</a
                   >
                 </div>
@@ -519,6 +514,18 @@
                     >
                       <i class="fa-regular fa-eye"></i>
                     </button>
+                  </div>
+                  <div class="password-strength-meter" id="reg-password-strength" aria-live="polite">
+                    <div class="strength-bars">
+                      <span class="bar-seg" data-step="1"></span>
+                      <span class="bar-seg" data-step="2"></span>
+                      <span class="bar-seg" data-step="3"></span>
+                      <span class="bar-seg" data-step="4"></span>
+                    </div>
+                    <div class="strength-info">
+                      <span class="strength-text" id="reg-strength-text" data-i18n="pwdStrengthDefault">Password strength: None</span>
+                      <span class="strength-hint" data-i18n="pwdStrengthHint">8+ chars with uppercase, number & symbol</span>
+                    </div>
                   </div>
                 </div>
 
@@ -799,51 +806,21 @@
                 style="display: none"
               >
                 <div class="dash-pane-header">
-                  <h3 data-i18n="paneAddressesTitle">SHIPPING ADDRESSES</h3>
-                  <p data-i18n="paneAddressesDesc">
-                    Save preferred addresses for instant 1-click checkout.
-                  </p>
+                  <div class="dash-pane-header-actions">
+                    <div>
+                      <h3 data-i18n="paneAddressesTitle">SHIPPING ADDRESSES</h3>
+                      <p data-i18n="paneAddressesDesc">
+                        Save preferred addresses for instant 1-click checkout.
+                      </p>
+                    </div>
+                    <button type="button" class="btn-cyber-primary btn-add-addr-top" id="btn-add-address-top">
+                      <i class="fa-solid fa-plus"></i> <span data-i18n="paneAddressesHeaderAdd">Add Address</span>
+                    </button>
+                  </div>
                 </div>
 
-                <div class="address-cards-grid">
-                  <div class="address-card is-default">
-                    <div class="address-card-header">
-                      <strong data-i18n="addrHomeTitle">Home</strong>
-                      <span class="badge-default-addr" data-i18n="badgeDefaultAddr">Default</span>
-                    </div>
-                    <div class="address-card-body">
-                      <div class="addr-line name-phone">
-                        <i class="fa-regular fa-user"></i> Alex Johnson - 0988
-                        123 456
-                      </div>
-                      <div class="addr-line detail">
-                        <i class="fa-solid fa-location-dot"></i> 18 Grand Avenue, Central District, Hanoi
-                      </div>
-                    </div>
-                    <div class="address-card-actions">
-                      <button
-                        type="button"
-                        class="btn-addr-action"
-                        onclick="alert('Shipping address updated!')"
-                      >
-                        <i class="fa-solid fa-pen"></i> <span data-i18n="btnEditAddr">Edit</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div
-                    class="address-card add-new-card"
-                    onclick="
-                      alert(
-                        'New address feature ready! You can save office or gaming team house.',
-                      )
-                    "
-                  >
-                    <div class="add-new-inner">
-                      <i class="fa-solid fa-plus"></i>
-                      <span data-i18n="btnAddNewAddr">Add New Shipping Address</span>
-                    </div>
-                  </div>
+                <div class="address-cards-grid" id="address-cards-grid">
+                  <!-- Dynamic address cards rendered via account.js -->
                 </div>
               </div>
 
@@ -1024,6 +1001,18 @@
                         >
                           <i class="fa-regular fa-eye"></i>
                         </button>
+                      </div>
+                      <div class="password-strength-meter" id="pass-new-strength" aria-live="polite">
+                        <div class="strength-bars">
+                          <span class="bar-seg" data-step="1"></span>
+                          <span class="bar-seg" data-step="2"></span>
+                          <span class="bar-seg" data-step="3"></span>
+                          <span class="bar-seg" data-step="4"></span>
+                        </div>
+                        <div class="strength-info">
+                          <span class="strength-text" id="pass-new-strength-text" data-i18n="pwdStrengthDefault">Password strength: None</span>
+                          <span class="strength-hint" data-i18n="pwdStrengthHint">8+ chars with uppercase, number & symbol</span>
+                        </div>
                       </div>
                     </div>
 
@@ -1267,6 +1256,137 @@
         </button>
       </div>
     </aside>
+
+    <!-- MODAL: FORGOT PASSWORD RECOVERY -->
+    <div id="modal-forgot-password" class="cyber-modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="forgot-modal-title">
+      <div class="cyber-modal-card forgot-modal-card">
+        <div class="cyber-modal-header">
+          <div class="cyber-modal-icon is-info">
+            <i class="fa-solid fa-unlock-keyhole"></i>
+          </div>
+          <div>
+            <h4 class="cyber-modal-title" id="forgot-modal-title" data-i18n="forgotModalTitle">RESET BLUE PASSPORT</h4>
+            <p class="cyber-modal-subtitle" data-i18n="forgotModalSubtitle">Enter your registered email to receive a password reset verification code.</p>
+          </div>
+          <button type="button" class="cyber-modal-close" id="btn-close-forgot-modal" aria-label="Close modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="cyber-modal-body">
+          <form id="form-forgot-password" class="forgot-pass-form">
+            <div class="auth-field-group">
+              <label for="forgot-email"><span data-i18n="forgotModalEmailLabel">Registered Email</span> <span class="req">*</span></label>
+              <div class="auth-input-wrap">
+                <i class="fa-regular fa-envelope input-icon"></i>
+                <input type="email" id="forgot-email" required placeholder="e.g. gamer@blue.vn" data-i18n-placeholder="forgotModalEmailPlaceholder" autocomplete="email" />
+              </div>
+            </div>
+            <div class="forgot-modal-status" id="forgot-modal-status" style="display: none;"></div>
+            <div class="cyber-modal-actions">
+              <button type="button" class="btn-cyber-cancel" id="btn-cancel-forgot-modal" data-i18n="btnModalCancel">Dismiss</button>
+              <button type="submit" class="btn-cyber-primary" id="btn-submit-forgot-modal">
+                <i class="fa-solid fa-paper-plane"></i> <span data-i18n="forgotModalBtnSend">Send Verification Code</span>
+              </button>
+            </div>
+          </form>
+          <div class="forgot-hotline-note">
+            <i class="fa-solid fa-headset"></i> <span data-i18n="forgotModalHotlineNote">Need urgent access? Contact 24/7 Gamer Hotline: 1900 6868</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: SHIPPING ADDRESS (ADD / EDIT) -->
+    <div id="modal-address" class="cyber-modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-address-title">
+      <div class="cyber-modal-card address-modal-card">
+        <div class="cyber-modal-header">
+          <div class="cyber-modal-icon is-info">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div>
+            <h4 class="cyber-modal-title" id="modal-address-title" data-i18n="addrModalAddTitle">ADD NEW SHIPPING ADDRESS</h4>
+            <p class="cyber-modal-subtitle" data-i18n="paneAddressesDesc">Save preferred addresses for instant 1-click checkout.</p>
+          </div>
+          <button type="button" class="cyber-modal-close" id="btn-close-address-modal" aria-label="Close modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="cyber-modal-body">
+          <form id="form-manage-address" class="manage-address-form">
+            <input type="hidden" id="addr-id-input" value="" />
+            
+            <div class="auth-field-group">
+              <label for="addr-tag-select"><span data-i18n="addrTagLabel">Address Label / Type</span> <span class="req">*</span></label>
+              <div class="auth-input-wrap">
+                <i class="fa-solid fa-tag input-icon"></i>
+                <select id="addr-tag-select" class="cyber-select" required>
+                  <option value="Home" data-i18n="addrTagHome">Home</option>
+                  <option value="Office / Studio" data-i18n="addrTagOffice">Office / Studio</option>
+                  <option value="Gaming Team House" data-i18n="addrTagGaming">Gaming Team House</option>
+                  <option value="Other" data-i18n="addrTagOther">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="auth-field-group">
+                <label for="addr-name-input"><span data-i18n="addrRecipientName">Recipient Name</span> <span class="req">*</span></label>
+                <div class="auth-input-wrap">
+                  <i class="fa-regular fa-user input-icon"></i>
+                  <input type="text" id="addr-name-input" required placeholder="Alex Johnson" />
+                </div>
+              </div>
+              <div class="auth-field-group">
+                <label for="addr-phone-input"><span data-i18n="addrPhone">Contact Phone</span> <span class="req">*</span></label>
+                <div class="auth-input-wrap">
+                  <i class="fa-solid fa-phone input-icon"></i>
+                  <input type="tel" id="addr-phone-input" required placeholder="09xxxxxxxx" pattern="[0-9]{10,11}" />
+                </div>
+              </div>
+            </div>
+
+            <div class="auth-field-group">
+              <label for="addr-street-input"><span data-i18n="addrStreet">Street Address</span> <span class="req">*</span></label>
+              <div class="auth-input-wrap">
+                <i class="fa-solid fa-road input-icon"></i>
+                <input type="text" id="addr-street-input" required placeholder="18 Grand Avenue, Central District" />
+              </div>
+            </div>
+
+            <div class="auth-field-group">
+              <label for="addr-city-select"><span data-i18n="addrCity">City / Province</span> <span class="req">*</span></label>
+              <div class="auth-input-wrap">
+                <i class="fa-solid fa-city input-icon"></i>
+                <select id="addr-city-select" class="cyber-select" required>
+                  <option value="Hà Nội">Hà Nội</option>
+                  <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                  <option value="Đà Nẵng">Đà Nẵng</option>
+                  <option value="Hải Phòng">Hải Phòng</option>
+                  <option value="Cần Thơ">Cần Thơ</option>
+                  <option value="Bình Dương">Bình Dương</option>
+                  <option value="Đồng Nai">Đồng Nai</option>
+                  <option value="Quảng Ninh">Quảng Ninh</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="auth-checkbox-group">
+              <input type="checkbox" id="addr-is-default-checkbox" />
+              <label for="addr-is-default-checkbox" data-i18n="addrIsDefault">Set as default shipping address</label>
+            </div>
+
+            <div class="cyber-modal-actions">
+              <button type="button" class="btn-cyber-cancel" id="btn-cancel-address-modal" data-i18n="addrBtnCancel">Cancel</button>
+              <button type="submit" class="btn-cyber-primary" id="btn-save-address-modal">
+                <i class="fa-solid fa-floppy-disk"></i> <span data-i18n="addrBtnSave">Save Address</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <!-- EXPRESS CHECKOUT 2-STEP MODAL -->
     <div
