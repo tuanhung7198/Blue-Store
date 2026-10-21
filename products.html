@@ -777,7 +777,24 @@
               <i class="fa-solid fa-truck-fast"></i> <span data-i18n="timelineStep3">Handover to Courier</span>
             </div>
           </div>
-          <div class="checkout-modal-actions">
+                    <!-- GUEST CONVERSION CARD -->
+          <div id="checkout-guest-convert-card" class="checkout-guest-convert-card" style="display: none;">
+            <div class="guest-convert-header">
+              <div class="guest-convert-icon"><i class="fa-solid fa-crown"></i></div>
+              <div>
+                <h4 class="guest-convert-title" data-i18n="guestConvertTitle">Activate Blue Passport Member</h4>
+                <p class="guest-convert-sub" data-i18n="guestConvertSub">Set a password to earn 200 MVP points and activate 24-month e-warranty for this order!</p>
+              </div>
+            </div>
+            <div class="guest-convert-form">
+              <input type="password" id="guest-convert-pass" placeholder="Enter password (min 6 characters)" data-i18n-placeholder="guestConvertPassPlaceholder" class="guest-convert-input" />
+              <button type="button" id="guest-convert-btn" class="guest-convert-btn">
+                <i class="fa-solid fa-user-plus"></i> <span data-i18n="btnCreateAccountNow">Create Account Now</span>
+              </button>
+            </div>
+            <div id="guest-convert-msg" class="guest-convert-msg" style="display: none;"></div>
+          </div>
+<div class="checkout-modal-actions">
             <button id="checkout-modal-close" class="checkout-modal-btn" data-i18n="btnCompleteShopping">
               <i class="fa-solid fa-bag-shopping"></i> <span data-i18n="btnCompleteShopping">Complete Shopping</span>
             </button>

@@ -1,3 +1,28 @@
+
+// [INLINE FORM ERROR HELPERS]
+function setCheckoutFieldError(inputEl, errorMsg) {
+  if (!inputEl) return;
+  const group = inputEl.closest(".form-group");
+  if (!group) return;
+  group.classList.add("has-error");
+  let errText = group.querySelector(".field-error-text");
+  if (!errText) {
+    errText = document.createElement("span");
+    errText.className = "field-error-text";
+    group.appendChild(errText);
+  }
+  errText.textContent = errorMsg;
+}
+
+function clearCheckoutFieldError(inputEl) {
+  if (!inputEl) return;
+  const group = inputEl.closest(".form-group");
+  if (!group) return;
+  group.classList.remove("has-error");
+  const errText = group.querySelector(".field-error-text");
+  if (errText) errText.remove();
+}
+
 // Dữ liệu sản phẩm được nạp động từ Backend/db.json qua JSON-Server API hoặc products.json
 let allProducts = [];
 
@@ -926,8 +951,12 @@ function addToCart(productId, quantity = 1, openDrawer = true, variant = "") {
   }
 
   saveCart(cart);
+  const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
   const variantText = effectiveVariant ? ` (${effectiveVariant})` : "";
-  showToast(`Đã thêm <strong>${product.name}${variantText}</strong> vào giỏ hàng!`, "success");
+  const toastMsg = isEn
+    ? `Added <strong>${product.name}${variantText}</strong> to cart!`
+    : `Đã thêm <strong>${product.name}${variantText}</strong> vào giỏ hàng!`;
+  showToast(toastMsg, "success");
 
   // Hiệu ứng nảy badge
   const badge = document.getElementById("cart-badge");
@@ -977,7 +1006,8 @@ function removeFromCart(productId) {
   cart = cart.filter((i) => String(i.id) !== String(productId));
   saveCart(cart);
   if (item) {
-    showToast(`Đã xóa <strong>${item.name}</strong> khỏi giỏ hàng.`, "info");
+    const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
+    showToast(isEn ? `Removed <strong>${item.name}</strong> from cart.` : `Đã xóa <strong>${item.name}</strong> khỏi giỏ hàng.`, "info");
   }
 }
 
@@ -1042,6 +1072,8 @@ function updateCartUI() {
 window.updateCartUI = updateCartUI;
 
 function renderCartDrawer() {
+  const rowsContainerOld = document.querySelector(".cart-items-rows-container");
+  const savedScrollTop = rowsContainerOld ? rowsContainerOld.scrollTop : 0;
   const cart = getCart();
   const emptyState = document.getElementById("cart-empty-state");
   const itemsList = document.getElementById("cart-items-list");
@@ -1133,19 +1165,45 @@ function renderCartDrawer() {
             </button>
           </div>
 
-          <!-- Bộ điều chỉnh phân loại sản phẩm linh hoạt trực tiếp trong giỏ -->
+          <!-- Bộ điều chỉnh phân loại sản phẩm trực quan dạng Micro-Swatches & Chips -->
           <div class="cart-variant-selectors">
-            <div class="cart-variant-field" title="${isEn ? "Choose product color" : "Chọn màu sắc sản phẩm"}">
-              <span class="cart-variant-field-label"><i class="fa-solid fa-palette"></i> ${isEn ? "Color:" : "Màu:"}</span>
-              <select class="cart-variant-select cart-color-select" data-index="${idx}" aria-label="${isEn ? "Select color" : "Chọn màu sắc"}">
-                ${colorOptsHtml}
-              </select>
+            <div class="cart-swatch-row">
+              <span class="cart-swatch-label">${isEn ? "Color" : "Màu"}:</span>
+              <div class="cart-swatch-group">
+                ${colorOpts.map(opt => {
+                  const isWhite = opt.value.toLowerCase().includes("trắng") || opt.value.toLowerCase().includes("white");
+                  const dotBg = isWhite ? "#f8fafc" : "#111827";
+                  const dotBorder = isWhite ? "#94a3b8" : "#334155";
+                  const isAct = opt.value === item.selectedColor;
+                  const shortName = isWhite ? (isEn ? "Ice White" : "Trắng") : (isEn ? "Matte Black" : "Đen");
+                  return `
+                    <button type="button" class="cart-swatch-btn ${isAct ? 'active' : ''}" data-index="${idx}" data-type="color" data-value="${opt.value}" title="${opt.label}">
+                      <span class="cart-swatch-dot" style="background:${dotBg}; border-color:${dotBorder};"></span>
+                      <span>${shortName}</span>
+                    </button>
+                  `;
+                }).join("")}
+              </div>
             </div>
-            <div class="cart-variant-field" title="${isEn ? "Choose specification / polling rate" : "Chọn phiên bản / tần số quét"}">
-              <span class="cart-variant-field-label"><i class="fa-solid fa-bolt"></i> ${isEn ? "Spec:" : "Tần số:"}</span>
-              <select class="cart-variant-select cart-edition-select" data-index="${idx}" aria-label="${isEn ? "Select edition" : "Chọn phiên bản"}">
-                ${editionOptsHtml}
-              </select>
+            <div class="cart-swatch-row">
+              <span class="cart-swatch-label">${isEn ? "Spec" : "Bản"}:</span>
+              <div class="cart-swatch-group">
+                ${editionOpts.map(opt => {
+                  const isAct = opt.value === item.selectedEdition;
+                  let chipLabel = opt.label;
+                  if (opt.value.includes("8000Hz") || opt.value.includes("8K")) chipLabel = "8000Hz (8K)";
+                  else if (opt.value.includes("1000Hz")) chipLabel = "1000Hz";
+                  else if (opt.value.includes("Linear Red")) chipLabel = "Red 8K";
+                  else if (opt.value.includes("Tactile Brown")) chipLabel = "Brown 1K";
+                  else if (opt.value.includes("Size L")) chipLabel = "Size L";
+                  else if (opt.value.includes("Size XL")) chipLabel = "Size XL";
+                  return `
+                    <button type="button" class="cart-chip-btn ${isAct ? 'active' : ''}" data-index="${idx}" data-type="edition" data-value="${opt.value}" title="${opt.label}">
+                      <span>${chipLabel}</span>
+                    </button>
+                  `;
+                }).join("")}
+              </div>
             </div>
           </div>
 
@@ -1184,6 +1242,11 @@ function renderCartDrawer() {
       ${rowsHtml}
     </div>
   `;
+
+  const rowsContainerNew = document.querySelector(".cart-items-rows-container");
+  if (rowsContainerNew && savedScrollTop > 0) {
+    rowsContainerNew.scrollTop = savedScrollTop;
+  }
 
   // Cập nhật Footer Tạm Tính theo các sản phẩm ĐÃ TICK CHỌN
   if (subtotalEl) subtotalEl.textContent = formatCurrency(selectedSubtotal);
@@ -1295,13 +1358,14 @@ function renderCartDrawer() {
     });
   }
 
-  // 4. Thay đổi phân loại Màu Sắc trực tiếp trong giỏ hàng
-  itemsList.querySelectorAll(".cart-color-select").forEach((sel) => {
-    sel.addEventListener("change", (e) => {
-      const idx = parseInt(e.target.getAttribute("data-index"), 10);
-      const newColor = e.target.value;
+  // 4. Click Micro-Swatch Màu Sắc trực tiếp trong giỏ hàng
+  itemsList.querySelectorAll(".cart-swatch-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const targetBtn = e.currentTarget;
+      const idx = parseInt(targetBtn.getAttribute("data-index"), 10);
+      const newColor = targetBtn.getAttribute("data-value");
       const c = getCart();
-      if (!c[idx]) return;
+      if (!c[idx] || c[idx].selectedColor === newColor) return;
 
       c[idx].selectedColor = newColor;
       const prod = allProducts.find((p) => String(p.id) === String(c[idx].id));
@@ -1317,18 +1381,19 @@ function renderCartDrawer() {
       mergeDuplicateCartItems(c, idx);
       saveCart(c);
       if (window.showToast) {
-        window.showToast(isEn ? `Updated variant: <strong>${c[idx]?.variant || newColor}</strong>` : `Đã đổi phân loại: <strong>${c[idx]?.variant || newColor}</strong>`, "info");
+        window.showToast(isEn ? `Updated color: <strong>${newColor}</strong>` : `Đã đổi màu: <strong>${newColor}</strong>`, "info");
       }
     });
   });
 
-  // 5. Thay đổi phân loại Tần Số / Phiên Bản (Polling Rate / Switch) trực tiếp trong giỏ hàng
-  itemsList.querySelectorAll(".cart-edition-select").forEach((sel) => {
-    sel.addEventListener("change", (e) => {
-      const idx = parseInt(e.target.getAttribute("data-index"), 10);
-      const newEdition = e.target.value;
+  // 5. Click Chip Tần số / Phiên bản trực tiếp trong giỏ hàng
+  itemsList.querySelectorAll(".cart-chip-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const targetBtn = e.currentTarget;
+      const idx = parseInt(targetBtn.getAttribute("data-index"), 10);
+      const newEdition = targetBtn.getAttribute("data-value");
       const c = getCart();
-      if (!c[idx]) return;
+      if (!c[idx] || c[idx].selectedEdition === newEdition) return;
 
       c[idx].selectedEdition = newEdition;
       c[idx].variant = `${c[idx].selectedColor} | ${c[idx].selectedEdition}`;
@@ -1336,7 +1401,7 @@ function renderCartDrawer() {
       mergeDuplicateCartItems(c, idx);
       saveCart(c);
       if (window.showToast) {
-        window.showToast(isEn ? `Updated variant: <strong>${c[idx]?.variant || newEdition}</strong>` : `Đã đổi phân loại: <strong>${c[idx]?.variant || newEdition}</strong>`, "info");
+        window.showToast(isEn ? `Updated spec: <strong>${newEdition}</strong>` : `Đã đổi phiên bản: <strong>${newEdition}</strong>`, "info");
       }
     });
   });
@@ -1631,13 +1696,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // [MVC AUTH GUARD] - Yêu cầu đăng nhập trước khi tiến hành thanh toán
-    if (window.AuthModel && !window.AuthModel.isLoggedIn() && window.AuthController) {
-      window.AuthController.requireLogin((user) => {
-        openCartCheckoutFlow(customItems, isFromCart);
-      }, isEn ? "Please sign in to proceed with checkout and earn eSports member reward points!" : "Vui lòng đăng nhập tài khoản để tiến hành thanh toán và tích lũy điểm thưởng thành viên eSports!");
-      return;
-    }
+    // [GUEST CHECKOUT SUPPORT]
+    // Cho phép mua hàng dạng Khách (Guest) không cần đăng nhập trước.
+    // Lời mời tạo tài khoản tích điểm MVP sẽ được hiển thị tinh tế ở Step 3 sau khi đặt hàng thành công.
 
     activeCheckoutItems = items;
     window.activeCheckoutItems = items;
@@ -1748,21 +1809,35 @@ document.addEventListener("DOMContentLoaded", () => {
       const noteInput = document.getElementById("cust-note");
       const isEn = window.I18N && window.I18N.getCurrentLang() === "en";
 
-      if (!nameInput || !nameInput.value.trim()) {
-        if (window.showToast) window.showToast(isEn ? "Please enter recipient full name!" : "Vui lòng nhập họ và tên người nhận!", "error");
-        if (nameInput) nameInput.focus();
+      let hasError = false;
+      const cleanPhone = phoneInput ? phoneInput.value.trim().replace(/[\s.-]/g, "") : "";
+      const isPhoneValid = /^(0|\+84)[0-9]{9,10}$/.test(cleanPhone) || /^[0-9]{10,11}$/.test(cleanPhone);
+
+      if (!nameInput || nameInput.value.trim().length < 2) {
+        setCheckoutFieldError(nameInput, isEn ? "Please enter recipient full name!" : "Vui lòng nhập họ và tên người nhận!");
+        hasError = true;
+      }
+      if (!phoneInput || !isPhoneValid) {
+        setCheckoutFieldError(phoneInput, isEn ? "Please enter a valid phone number (10-11 digits, numbers only)!" : "Vui lòng nhập số điện thoại hợp lệ (10-11 chữ số, không chứa chữ)!");
+        hasError = true;
+      }
+      if (!addrInput || addrInput.value.trim().length < 5) {
+        setCheckoutFieldError(addrInput, isEn ? "Please enter detailed delivery address (at least 5 characters)!" : "Vui lòng nhập địa chỉ nhận hàng chi tiết (tối thiểu 5 ký tự)!");
+        hasError = true;
+      }
+
+      if (hasError) {
+        if (window.showToast) window.showToast(isEn ? "Please check required shipping information!" : "Vui lòng kiểm tra lại thông tin nhận hàng!", "error");
         return;
       }
-      if (!phoneInput || !phoneInput.value.trim() || phoneInput.value.trim().length < 9) {
-        if (window.showToast) window.showToast(isEn ? "Please enter a valid contact phone number!" : "Vui lòng nhập số điện thoại hợp lệ!", "error");
-        if (phoneInput) phoneInput.focus();
-        return;
-      }
-      if (!addrInput || !addrInput.value.trim()) {
-        if (window.showToast) window.showToast(isEn ? "Please enter detailed delivery address!" : "Vui lòng nhập địa chỉ nhận hàng!", "error");
-        if (addrInput) addrInput.focus();
-        return;
-      }
+      // Xóa lỗi inline ngay khi người dùng gõ
+      [nameInput, phoneInput, addrInput].forEach(inp => {
+        if (inp && !inp.dataset.hasErrListener) {
+          inp.dataset.hasErrListener = "true";
+          inp.addEventListener("input", () => clearCheckoutFieldError(inp));
+        }
+      });
+
 
       checkoutCustomerData.name = nameInput.value.trim();
       checkoutCustomerData.phone = phoneInput.value.trim();
@@ -1770,11 +1845,16 @@ document.addEventListener("DOMContentLoaded", () => {
       checkoutCustomerData.city = cityInput ? cityInput.value : "Hà Nội";
       checkoutCustomerData.note = noteInput ? noteInput.value.trim() : "";
 
-      // Tính tổng tiền Step 2
+      // Tính tổng tiền Step 2 đồng bộ với ngưỡng Freeship 1.000.000₫ ($40)
       const totalQty = activeCheckoutItems.reduce((sum, item) => sum + item.quantity, 0);
       const subtotal = activeCheckoutItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const FREE_SHIPPING_THRESHOLD = 1000000;
+      const isFreeShipping = subtotal >= FREE_SHIPPING_THRESHOLD;
+      const shippingFee = isFreeShipping ? 0 : 30000; // $3.00 (30.000₫)
+      checkoutCustomerData.shippingFee = shippingFee;
+
       const discountMoMo = checkoutCustomerData.paymentMethod === "MOMO" ? 20000 : 0;
-      const grandTotal = Math.max(0, subtotal - discountMoMo);
+      const grandTotal = Math.max(0, subtotal + shippingFee - discountMoMo);
 
       if (finalSummary) {
         finalSummary.innerHTML = `
@@ -1792,7 +1872,10 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           <div class="summary-row-item">
             <span>${isEn ? "Shipping Fee:" : "Phí giao hàng:"}</span>
-            <span style="color:#10b981; font-weight:700;">${isEn ? "FREE SHIPPING" : "MIỄN PHÍ VẬN CHUYỂN"}</span>
+            ${isFreeShipping 
+              ? `<span style="color:#10b981; font-weight:700;"><i class="fa-solid fa-check"></i> ${isEn ? "FREE SHIPPING" : "MIỄN PHÍ VẬN CHUYỂN"}</span>`
+              : `<span style="color:#0284c7; font-weight:700;">+${formatCurrency(shippingFee)} <span style="font-size:11px; color:#64748b; font-weight:400;">(${isEn ? "Orders over $40 get free shipping" : "Đơn từ 1.000.000₫ được Freeship"})</span></span>`
+            }
           </div>
           ${discountMoMo > 0 ? `<div class="summary-row-item" style="color:#dc2626;"><span>${isEn ? "MoMo Discount:" : "Ưu đãi MoMo:"}</span><span>-${formatCurrency(discountMoMo)}</span></div>` : ""}
           <div class="summary-row-item total-row">
@@ -1857,8 +1940,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Cập nhật lại tổng tiền Step 2
       const subtotal = activeCheckoutItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const shippingFee = checkoutCustomerData.shippingFee || 0;
       const discountMoMo = checkoutCustomerData.paymentMethod === "MOMO" ? 20000 : 0;
-      const grandTotal = Math.max(0, subtotal - discountMoMo);
+      const grandTotal = Math.max(0, subtotal + shippingFee - discountMoMo);
 
       const totalRowVal = document.querySelector(".summary-row-item.total-row span:last-child");
       if (totalRowVal) totalRowVal.textContent = formatCurrency(grandTotal);
@@ -1874,8 +1958,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const totalQty = activeCheckoutItems.reduce((sum, item) => sum + item.quantity, 0);
       const subtotal = activeCheckoutItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const shippingFee = checkoutCustomerData.shippingFee || 0;
       const discountMoMo = checkoutCustomerData.paymentMethod === "MOMO" ? 20000 : 0;
-      const grandTotal = Math.max(0, subtotal - discountMoMo);
+      const grandTotal = Math.max(0, subtotal + shippingFee - discountMoMo);
 
       const summaryText = document.getElementById("checkout-order-summary");
       if (summaryText) {
@@ -1929,6 +2014,75 @@ document.addEventListener("DOMContentLoaded", () => {
       if (step2Pane) step2Pane.style.display = "none";
       if (step3Pane) {
         step3Pane.style.display = "block";
+      }
+
+      // Xử lý Thẻ chuyển đổi thành viên cho Khách Vãng Lai (Guest)
+      const guestCard = document.getElementById("checkout-guest-convert-card");
+      if (guestCard) {
+        const isLogged = window.AuthModel && window.AuthModel.isLoggedIn();
+        if (!isLogged) {
+          guestCard.style.display = "block";
+          const convertBtn = document.getElementById("guest-convert-btn");
+          const passInput = document.getElementById("guest-convert-pass");
+          const msgBox = document.getElementById("guest-convert-msg");
+
+          if (convertBtn && passInput) {
+            passInput.style.display = "block";
+            convertBtn.style.display = "inline-flex";
+            if (msgBox) msgBox.style.display = "none";
+
+            convertBtn.onclick = () => {
+              const pass = passInput.value.trim();
+              if (pass.length < 6) {
+                if (msgBox) {
+                  msgBox.style.display = "block";
+                  msgBox.style.color = "#ef4444";
+                  msgBox.textContent = isEn ? "Password must be at least 6 characters!" : "Mật khẩu phải có ít nhất 6 ký tự!";
+                }
+                passInput.focus();
+                return;
+              }
+
+              const custName = checkoutCustomerData.name || "Blue Gamer";
+              const custPhone = checkoutCustomerData.phone || "";
+              const generatedEmail = `gamer_${custPhone || Math.floor(1000 + Math.random() * 9000)}@blue.vn`;
+
+              if (window.AuthModel && window.AuthModel.register) {
+                const regResult = window.AuthModel.register({
+                  name: custName,
+                  email: generatedEmail,
+                  password: pass,
+                  phone: custPhone,
+                  address: `${checkoutCustomerData.address}, ${checkoutCustomerData.city}`,
+                  city: checkoutCustomerData.city
+                });
+
+                if (regResult && regResult.success) {
+                  if (msgBox) {
+                    msgBox.style.display = "block";
+                    msgBox.style.color = "#10b981";
+                    msgBox.innerHTML = isEn
+                      ? `<strong>Account created!</strong> Signed in as <em>${generatedEmail}</em>. 200 MVP points awarded!`
+                      : `<strong>Kích hoạt thành công!</strong> Đã đăng nhập: <em>${generatedEmail}</em> (+200 điểm MVP)!`;
+                  }
+                  passInput.style.display = "none";
+                  convertBtn.style.display = "none";
+                  if (window.showToast) {
+                    window.showToast(isEn ? "Welcome to Blue Passport! +200 MVP Points" : "Chào mừng đến với Blue Passport! +200 Điểm MVP", "success");
+                  }
+                } else {
+                  if (msgBox) {
+                    msgBox.style.display = "block";
+                    msgBox.style.color = "#ef4444";
+                    msgBox.textContent = regResult ? regResult.message : "Error creating account!";
+                  }
+                }
+              }
+            };
+          }
+        } else {
+          guestCard.style.display = "none";
+        }
       }
 
       // Phát sự kiện toàn cục để các trang (ví dụ account.html) cập nhật lại danh sách đơn hàng

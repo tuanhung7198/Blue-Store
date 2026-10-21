@@ -93,7 +93,7 @@ body {
 .container {
   max-width: 1450px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 20px;
   width: 100%;
 }
 
@@ -318,7 +318,8 @@ body {
 
 .lang-meta small {
   font-size: 11px;
-  color: #64748b;
+  color: #475569;
+  font-weight: 600;
 }
 
 .lang-item.active .lang-meta strong {
@@ -1465,7 +1466,7 @@ footer p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background: radial-gradient(circle at center, rgba(7, 11, 20, 0.72) 0%, rgba(7, 11, 20, 0.88) 100%);
   z-index: 18; /* Nằm trên ảnh (z-index: 15) và dưới chữ (z-index: 20) */
   pointer-events: none; /* Cho phép click xuyên qua lớp này */
 }
@@ -1502,7 +1503,7 @@ footer p {
 }
 
 .hero-subtitle {
-  color: #a1a1aa;
+  color: #cbd5e1;
   font-size: 0.75rem;
   margin-top: 0.25rem;
   letter-spacing: 0.05em;
@@ -1513,7 +1514,7 @@ footer p {
   font-size: 1.25rem;
   font-weight: 600;
   margin-top: 0.75rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.02em;
 }
 
 .hero-promo {
@@ -2511,51 +2512,108 @@ footer p {
   margin: 0;
 }
 
-/* Bộ điều chỉnh phân loại sản phẩm linh hoạt */
+/* Bộ điều chỉnh phân loại sản phẩm linh hoạt dạng Micro-Swatches & Chips */
 .cart-variant-selectors {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  flex-direction: column;
+  gap: 5px;
   margin: 4px 0 6px 0;
 }
 
-.cart-variant-field {
+.cart-swatch-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-swatch-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  min-width: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.cart-swatch-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+/* Swatch Button (Màu sắc) */
+.cart-swatch-btn {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: #f1f5f9;
-  padding: 3px 8px;
-  border-radius: 6px;
-  border: 1px solid #e2e8f0;
-  max-width: 100%;
-}
-
-.cart-variant-field-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #475569;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-}
-
-.cart-variant-select {
-  background: transparent;
-  border: none;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #334155;
   font-size: 11px;
   font-weight: 600;
-  color: #0f172a;
   cursor: pointer;
-  outline: none;
-  padding: 0 2px;
-  font-family: inherit;
-  max-width: 140px;
+  transition: all 0.15s ease;
+  user-select: none;
+  min-height: 24px;
 }
 
-.cart-variant-select option {
-  background: #ffffff;
-  color: #0f172a;
+.cart-swatch-btn:hover {
+  border-color: #0066ff;
+  background: #eff6ff;
+  color: #0066ff;
+}
+
+.cart-swatch-btn.active {
+  border-color: #0066ff;
+  background: #eff6ff;
+  color: #0066ff;
+  font-weight: 700;
+  box-shadow: 0 0 0 1.5px rgba(0, 102, 255, 0.25);
+}
+
+.cart-swatch-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+/* Chip Button (Tần số / Phiên bản) */
+.cart-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  min-height: 24px;
+  white-space: nowrap;
+}
+
+.cart-chip-btn:hover {
+  border-color: #0066ff;
+  background: #eff6ff;
+  color: #0066ff;
+}
+
+.cart-chip-btn.active {
+  border-color: #0066ff;
+  background: #eff6ff;
+  color: #0066ff;
+  font-weight: 700;
+  box-shadow: 0 0 0 1.5px rgba(0, 102, 255, 0.25);
 }
 
 .cart-item-bottom-row {
@@ -2857,7 +2915,7 @@ footer p {
 
 .checkout-modal-box p {
   font-size: 14px;
-  color: #6b7280;
+  color: #475569;
   line-height: 1.6;
   margin-bottom: 28px;
 }
@@ -4219,7 +4277,7 @@ body.theme-dark .trust-item.trust-item-authentic .trust-icon {
   font-size: 15px;
   color: #334155;
   line-height: 1.8;
-  max-width: 900px;
+  max-width: 72ch;
 }
 
 .tab-prose h3 {
@@ -7248,22 +7306,30 @@ body.theme-dark .cart-item-price-unit {
   color: #38bdf8;
 }
 
-body.theme-dark .cart-variant-field {
-  background: #141d33;
-  border-color: #1e293b;
-}
-
-body.theme-dark .cart-variant-field-label {
+body.theme-dark .cart-swatch-label {
   color: #94a3b8;
 }
 
-body.theme-dark .cart-variant-select {
-  color: #f8fafc;
+body.theme-dark .cart-swatch-btn,
+body.theme-dark .cart-chip-btn {
+  background: #0d1527;
+  border-color: #1e293b;
+  color: #cbd5e1;
 }
 
-body.theme-dark .cart-variant-select option {
-  background: #0b1120;
-  color: #f8fafc;
+body.theme-dark .cart-swatch-btn:hover,
+body.theme-dark .cart-chip-btn:hover {
+  border-color: #38bdf8;
+  background: #1e293b;
+  color: #38bdf8;
+}
+
+body.theme-dark .cart-swatch-btn.active,
+body.theme-dark .cart-chip-btn.active {
+  background: rgba(0, 102, 255, 0.25);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
 }
 
 body.theme-dark .cart-qty-control {
@@ -8795,10 +8861,11 @@ body.theme-dark .support-confirm-btn:hover {
 /* Demo Accounts Card */
 .demo-accounts-card {
   margin-top: 24px;
-  padding: 16px;
-  background: #f8fafc;
-  border: 1px dashed #cbd5e1;
-  border-radius: 10px;
+  padding: 16px 0 0 0;
+  background: transparent;
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  border-radius: 0;
 }
 
 .demo-card-title {
@@ -10522,4 +10589,158 @@ body.theme-dark .code-sim-box .sim-code {
 
 body.theme-dark .forgot-hotline-note {
   color: #94a3b8;
+}
+
+
+/* ==========================================================================
+   IMPECCABLE FIXES: MOBILE OVERFLOW, GUEST CHECKOUT & INLINE FORM ERRORS
+   ========================================================================== */
+
+/* Fix Mobile Category Card Overflow */
+@media (max-width: 640px) {
+  .cat-card-content {
+    width: 100% !important;
+  }
+  .cat-card h3 {
+    font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
+    word-break: break-word;
+  }
+  .cat-card {
+    padding: 30px 20px;
+    min-height: 220px;
+  }
+}
+
+/* Guest Conversion Card on Step 3 */
+.checkout-guest-convert-card {
+  margin: 16px 0;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(56, 189, 248, 0.09) 100%);
+  border: 1.5px solid rgba(0, 102, 255, 0.3);
+  border-radius: 12px;
+  text-align: left;
+}
+
+.guest-convert-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.guest-convert-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 102, 255, 0.12);
+  color: #0066ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.guest-convert-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
+}
+
+.guest-convert-sub {
+  margin: 3px 0 0 0;
+  font-size: 12px;
+  color: #1e293b;
+  line-height: 1.4; font-weight: 500;
+}
+
+.guest-convert-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.guest-convert-input {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.guest-convert-input:focus {
+  border-color: #0066ff;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+}
+
+.guest-convert-btn {
+  padding: 9px 16px;
+  border-radius: 8px;
+  background: #0066ff;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.guest-convert-btn:hover {
+  background: #0052cc;
+}
+
+.guest-convert-msg {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+body.theme-dark .checkout-guest-convert-card {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(15, 23, 42, 0.85) 100%);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+body.theme-dark .guest-convert-title {
+  color: #f8fafc;
+}
+
+body.theme-dark .guest-convert-sub {
+  color: #94a3b8;
+}
+
+body.theme-dark .guest-convert-input {
+  background: #0b1120;
+  border-color: #1e293b;
+  color: #f8fafc;
+}
+
+/* Step 1 Inline Form Error Highlighting */
+.checkout-form-grid .form-group.has-error input,
+.checkout-form-grid .form-group.has-error select {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.18) !important;
+  background-color: #fffaf0;
+}
+
+body.theme-dark .checkout-form-grid .form-group.has-error input,
+body.theme-dark .checkout-form-grid .form-group.has-error select {
+  background-color: #270e11;
+}
+
+.field-error-text {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ef4444;
+  margin-top: 4px;
 }
