@@ -349,8 +349,15 @@
         "Thank you for shopping with Blue Gaming Gear. Your order is being packed and prepared for express courier pickup.",
       timelineStep1: "Order Received",
       timelineStep2: "Packing Gear",
+      cartSelectAll: "Select All",
+      cartRemoveSelected: "Remove Selected",
+      cartColorLabel: "Color:",
+      cartPollingLabel: "Spec:",
+      cartSelectEmptyWarn: "Please select at least one item to proceed to checkout!",
+      cartRemoveSelectedConfirm: "Are you sure you want to remove selected items from your cart?",
       timelineStep3: "Handover to Courier",
       btnCompleteShopping: "Complete Shopping",
+      btnViewMyOrders: "View My Orders",
 
       // Account Page (account.html)
       accPageTitle: "eSports Member Account | Blue Gaming Gear",
@@ -853,8 +860,15 @@
         "Cảm ơn bạn đã lựa chọn Blue Gaming Gear. Đơn hàng của bạn đang được đóng gói và chuẩn bị giao.",
       timelineStep1: "Đã tiếp nhận",
       timelineStep2: "Đang đóng gói",
+      cartSelectAll: "Chọn tất cả",
+      cartRemoveSelected: "Xóa đã chọn",
+      cartColorLabel: "Màu:",
+      cartPollingLabel: "Tần số:",
+      cartSelectEmptyWarn: "Vui lòng chọn ít nhất 1 sản phẩm để thanh toán!",
+      cartRemoveSelectedConfirm: "Bạn có chắc chắn muốn xóa các sản phẩm đã chọn khỏi giỏ hàng?",
       timelineStep3: "Bàn giao bưu tá",
       btnCompleteShopping: "Hoàn tất mua sắm",
+      btnViewMyOrders: "Xem Đơn Hàng Của Tôi",
 
       // Account Page (account.html)
       accPageTitle: "Tài Khoản Thành Viên eSports | Blue Gaming Gear",

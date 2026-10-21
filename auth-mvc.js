@@ -339,6 +339,11 @@
 
       try {
         const allOrders = JSON.parse(localStorage.getItem(AuthModel.STORAGE_KEYS.ORDERS_DB)) || [];
+        // Tránh trùng lặp đơn hàng nếu cùng mã đơn
+        if (orderData.id && allOrders.some((o) => o.id === orderData.id)) {
+          return { success: true, order: allOrders.find((o) => o.id === orderData.id) };
+        }
+
         const newOrder = {
           id: orderData.id || "BL-" + Math.floor(10000 + Math.random() * 90000),
           userId: userId,
@@ -868,45 +873,11 @@
         if (cityInput && user.city) cityInput.value = user.city;
       };
 
-      // Lắng nghe khi mở Checkout Modal
+      // Khi mở Checkout Modal, tự động điền thông tin khách hàng nếu đã đăng nhập
       const checkoutBtn = document.getElementById("cart-checkout-btn");
       if (checkoutBtn) {
         checkoutBtn.addEventListener("click", () => {
           setTimeout(autoFillCustomerInfo, 100);
-        });
-      }
-
-      // Khi bấm "Xác nhận đặt hàng" ở Step 2, tự động lưu đơn hàng vào tài khoản
-      const confirmOrderBtn = document.getElementById("btn-confirm-order");
-      if (confirmOrderBtn) {
-        confirmOrderBtn.addEventListener("click", () => {
-          if (!this.model.isLoggedIn()) return;
-
-          // Lấy thông tin đơn hàng vừa tạo để lưu vào Model
-          setTimeout(() => {
-            const orderCodeEl = document.getElementById("order-code-badge");
-            const orderCode = orderCodeEl ? orderCodeEl.textContent.replace("Order Code:", "").replace("Mã đơn hàng:", "").replace("Mã đơn:", "").trim() : "BL-" + Date.now().toString().slice(-5);
-
-            const activeItems = window.activeCheckoutItems || [];
-            const subtotal = activeItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-            const custName = document.getElementById("cust-name")?.value || "";
-            const custPhone = document.getElementById("cust-phone")?.value || "";
-            const custAddr = document.getElementById("cust-address")?.value || "";
-            const custCity = document.getElementById("cust-city")?.value || "Hà Nội";
-            const paymentMethod = document.querySelector('input[name="payment-method"]:checked')?.value || "COD";
-
-            this.model.addOrder({
-              id: orderCode,
-              customerName: custName,
-              phone: custPhone,
-              address: custAddr,
-              city: custCity,
-              items: activeItems,
-              paymentMethod: paymentMethod,
-              total: subtotal,
-            });
-          }, 50);
         });
       }
     }

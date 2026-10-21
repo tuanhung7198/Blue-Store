@@ -1026,6 +1026,17 @@ document.addEventListener("DOMContentLoaded", () => {
     AccountPageRenderer.switchMainView();
   });
 
+  // Lắng nghe sự kiện đặt hàng thành công để tự động nạp lại danh sách đơn hàng
+  window.addEventListener("blue:order-placed", () => {
+    if (model.isLoggedIn()) {
+      AccountPageRenderer.renderOrders("all");
+      const user = model.getCurrentUser();
+      if (user) {
+        AccountPageRenderer.renderDashboardHeader(user);
+      }
+    }
+  });
+
   // Lắng nghe sự kiện đổi ngôn ngữ để cập nhật lại định dạng tiền tệ và văn bản trên dashboard
   window.addEventListener("blue:language-change", () => {
     if (model.isLoggedIn()) {

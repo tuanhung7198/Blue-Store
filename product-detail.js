@@ -511,7 +511,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }];
 
     if (typeof window.openCartCheckoutFlow === "function") {
-      window.openCartCheckoutFlow(singleItem);
+      window.openCartCheckoutFlow(singleItem, false);
     }
   };
 
